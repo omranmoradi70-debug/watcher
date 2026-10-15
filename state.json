@@ -1,0 +1,29 @@
+{
+  "coins": {
+    "BTC": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "ETH": {
+      "decision": "short",
+      "lastAlertedDecision": "short",
+      "lastAlert": null
+    },
+    "SOL": {
+      "decision": "short",
+      "lastAlertedDecision": "short",
+      "lastAlert": null
+    },
+    "BNB": {
+      "decision": "short",
+      "lastAlertedDecision": "short",
+      "lastAlert": null
+    },
+    "XRP": {
+      "decision": "short",
+      "lastAlertedDecision": "short",
+      "lastAlert": null
+    }
+  }
+}
