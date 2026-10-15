@@ -16,9 +16,9 @@
       "lastAlert": null
     },
     "BNB": {
-      "decision": "wait",
-      "lastAlertedDecision": null,
-      "lastAlert": null
+      "decision": "short",
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-15T20:35:02.700Z"
     },
     "XRP": {
       "decision": "short",
