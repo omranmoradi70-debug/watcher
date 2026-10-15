@@ -6,9 +6,9 @@
       "lastAlert": null
     },
     "ETH": {
-      "decision": "wait",
-      "lastAlertedDecision": null,
-      "lastAlert": null
+      "decision": "short",
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-15T21:37:30.338Z"
     },
     "SOL": {
       "decision": "wait",
