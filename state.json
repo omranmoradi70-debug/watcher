@@ -21,8 +21,8 @@
       "lastAlert": "2026-10-15T20:35:02.700Z"
     },
     "XRP": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": null
     }
   }
