@@ -1,9 +1,9 @@
 {
   "coins": {
     "BTC": {
-      "decision": "wait",
-      "lastAlertedDecision": null,
-      "lastAlert": null
+      "decision": "long",
+      "lastAlertedDecision": "long",
+      "lastAlert": "2026-10-16T08:38:22.349Z"
     },
     "ETH": {
       "decision": "wait",
@@ -21,9 +21,9 @@
       "lastAlert": "2026-10-15T20:35:02.700Z"
     },
     "XRP": {
-      "decision": "wait",
-      "lastAlertedDecision": null,
-      "lastAlert": null
+      "decision": "short",
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-16T08:38:22.349Z"
     }
   }
 }
