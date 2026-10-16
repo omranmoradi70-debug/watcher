@@ -25,5 +25,75 @@
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-16T08:38:22.349Z"
     }
-  }
+  },
+  "signals": [],
+  "outlooks": [
+    {
+      "id": "BTC|day|2026-10-16",
+      "sym": "BTC",
+      "hz": "day",
+      "bias": "flat",
+      "strength": null,
+      "price": 81713,
+      "t": 1792185299900,
+      "due": 1792271699900,
+      "s1": 80977.56666666667,
+      "r1": 82594.02500000001,
+      "done": false
+    },
+    {
+      "id": "ETH|day|2026-10-16",
+      "sym": "ETH",
+      "hz": "day",
+      "bias": "down",
+      "strength": "weak",
+      "price": 2417.48,
+      "t": 1792185299900,
+      "due": 1792271699900,
+      "s1": 2398.209230769231,
+      "r1": 2436.014,
+      "done": false
+    },
+    {
+      "id": "SOL|day|2026-10-16",
+      "sym": "SOL",
+      "hz": "day",
+      "bias": "down",
+      "strength": "weak",
+      "price": 104.28,
+      "t": 1792185299900,
+      "due": 1792271699900,
+      "s1": 101.87666666666667,
+      "r1": 105.71900000000001,
+      "done": false
+    },
+    {
+      "id": "BNB|day|2026-10-16",
+      "sym": "BNB",
+      "hz": "day",
+      "bias": "down",
+      "strength": "medium",
+      "price": 722.3,
+      "t": 1792185299900,
+      "due": 1792271699900,
+      "s1": 715.05,
+      "r1": 732.9749999999999,
+      "done": false
+    },
+    {
+      "id": "XRP|day|2026-10-16",
+      "sym": "XRP",
+      "hz": "day",
+      "bias": "down",
+      "strength": "strong",
+      "price": 1.3044,
+      "t": 1792185299900,
+      "due": 1792271699900,
+      "s1": 1.2949400000000002,
+      "r1": 1.3149000000000002,
+      "done": false
+    }
+  ],
+  "scan": {},
+  "spike": {}
 }
