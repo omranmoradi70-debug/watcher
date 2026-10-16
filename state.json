@@ -1,7 +1,7 @@
 {
   "coins": {
     "BTC": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-16T08:38:22.349Z"
     },
