@@ -178,6 +178,71 @@
       "s1": 1.2963615384615386,
       "r1": 1.366926,
       "done": false
+    },
+    {
+      "id": "BTC|month|2026-10-16",
+      "sym": "BTC",
+      "hz": "month",
+      "bias": "up",
+      "strength": "medium",
+      "price": 81720.9,
+      "t": 1792186236727,
+      "due": 1794778236727,
+      "s1": 76305.9,
+      "r1": 89111,
+      "done": false
+    },
+    {
+      "id": "ETH|month|2026-10-16",
+      "sym": "ETH",
+      "hz": "month",
+      "bias": "flat",
+      "strength": null,
+      "price": 2419.22,
+      "t": 1792186236727,
+      "due": 1794778236727,
+      "s1": 2378.14,
+      "r1": 2662.2099999999996,
+      "done": false
+    },
+    {
+      "id": "SOL|month|2026-10-16",
+      "sym": "SOL",
+      "hz": "month",
+      "bias": "flat",
+      "strength": null,
+      "price": 104.36,
+      "t": 1792186236727,
+      "due": 1794778236727,
+      "s1": 99.226,
+      "r1": 112.86333333333334,
+      "done": false
+    },
+    {
+      "id": "BNB|month|2026-10-16",
+      "sym": "BNB",
+      "hz": "month",
+      "bias": "flat",
+      "strength": null,
+      "price": 722.8,
+      "t": 1792186236727,
+      "due": 1794778236727,
+      "s1": 710.575,
+      "r1": 745.55,
+      "done": false
+    },
+    {
+      "id": "XRP|month|2026-10-16",
+      "sym": "XRP",
+      "hz": "month",
+      "bias": "flat",
+      "strength": null,
+      "price": 1.3079,
+      "t": 1792186236727,
+      "due": 1794778236727,
+      "s1": 1.2467371428571428,
+      "r1": 1.3715866666666667,
+      "done": false
     }
   ],
   "scan": {
