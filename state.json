@@ -26,7 +26,28 @@
       "lastAlert": "2026-10-16T08:38:22.349Z"
     }
   },
-  "signals": [],
+  "signals": [
+    {
+      "id": "TRUMP|1792185921692",
+      "sym": "TRUMP",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 1.813,
+      "zoneLo": 1.813,
+      "zoneHi": 1.8377369245928015,
+      "stop": 1.862473849185603,
+      "tp1": 1.7375,
+      "tp2": 1.705,
+      "rr1": 1.5260587409877622,
+      "rr2": 2.1829714440619647,
+      "t": 1792185921692,
+      "validUntil": 1792790721692,
+      "status": "open",
+      "alerted": true
+    }
+  ],
   "outlooks": [
     {
       "id": "BTC|day|2026-10-16",
@@ -94,6 +115,115 @@
       "done": false
     }
   ],
-  "scan": {},
-  "spike": {}
+  "scan": {
+    "BASED": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "STRK": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "TIA": {
+      "decision": "long",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "XSOXL": {
+      "decision": "short",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "PYTH": {
+      "decision": "long",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "ZEC": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "PONS": {
+      "decision": "short",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "XMSTR": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "NEAR": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "XCRCL": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "TRUMP": {
+      "decision": "short",
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-16T21:25:21.692Z"
+    },
+    "FIL": {
+      "decision": "long",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "LIT": {
+      "decision": "short",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "UNI": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "XPL": {
+      "decision": "short",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "ENA": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "ONDO": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "PEPE": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "XTSLA": {
+      "decision": "short",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "ADA": {
+      "decision": "short",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    }
+  },
+  "spike": {},
+  "lastScan": {
+    "t": "2026-10-16T21:25:21.692Z",
+    "universe": 48,
+    "analyzed": 20,
+    "signals": [
+      "TRUMP (فروش)"
+    ]
+  }
 }
