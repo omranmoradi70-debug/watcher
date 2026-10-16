@@ -6,8 +6,8 @@
       "lastAlert": null
     },
     "ETH": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-10-15T21:37:30.338Z"
     },
     "SOL": {
@@ -16,8 +16,8 @@
       "lastAlert": null
     },
     "BNB": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-10-15T20:35:02.700Z"
     },
     "XRP": {
