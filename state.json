@@ -22,8 +22,8 @@
     },
     "XRP": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-10-16T08:38:22.349Z"
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-16T21:44:34.691Z"
     }
   },
   "signals": [
@@ -44,6 +44,27 @@
       "rr2": 2.1829714440619647,
       "t": 1792185921692,
       "validUntil": 1792790721692,
+      "status": "open",
+      "alerted": true,
+      "openedAt": 1792185921692
+    },
+    {
+      "id": "TIA|1792187074691",
+      "sym": "TIA",
+      "src": "scan",
+      "dir": 1,
+      "strength": "strong",
+      "mode": "now",
+      "entry": 0.6625,
+      "zoneLo": 0.6435049626435513,
+      "zoneHi": 0.6625,
+      "stop": 0.6110201405171525,
+      "tp1": 0.7397197892242712,
+      "tp2": 0.7911996487071187,
+      "rr1": 1.5000000000000004,
+      "rr2": 2.5000000000000013,
+      "t": 1792187074691,
+      "validUntil": 1792791874691,
       "status": "open",
       "alerted": true
     }
@@ -258,8 +279,8 @@
     },
     "TIA": {
       "decision": "long",
-      "lastAlertedDecision": null,
-      "lastAlert": null
+      "lastAlertedDecision": "long",
+      "lastAlert": "2026-10-16T21:44:34.691Z"
     },
     "XSOXL": {
       "decision": "short",
@@ -345,15 +366,22 @@
       "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
+    },
+    "HYPE": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {},
   "lastScan": {
-    "t": "2026-10-16T21:25:21.692Z",
+    "t": "2026-10-16T21:44:34.691Z",
     "universe": 48,
     "analyzed": 20,
     "signals": [
+      "TIA (خرید)",
       "TRUMP (فروش)"
     ]
-  }
+  },
+  "lastFull": "2026-10-16T21:44:34.691Z"
 }
