@@ -66,6 +66,47 @@
       "t": 1792187074691,
       "validUntil": 1792791874691,
       "status": "open",
+      "alerted": true,
+      "openedAt": 1792187074691
+    },
+    {
+      "id": "INJ|1792190893567",
+      "sym": "INJ",
+      "src": "scan",
+      "dir": 1,
+      "strength": "strong",
+      "mode": "now",
+      "entry": 8.709,
+      "zoneLo": 8.504912670981849,
+      "zoneHi": 8.709,
+      "stop": 8.191229778778204,
+      "tp1": 9.485655331832692,
+      "tp2": 10.003425553054488,
+      "rr1": 1.5000000000000016,
+      "rr2": 2.5000000000000027,
+      "t": 1792190893567,
+      "validUntil": 1792795693567,
+      "status": "open",
+      "alerted": true
+    },
+    {
+      "id": "PONS|1792190893567",
+      "sym": "PONS",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 0.3167,
+      "zoneLo": 0.3167,
+      "zoneHi": 0.326658083512516,
+      "stop": 0.3404529917920945,
+      "tp1": 0.2735,
+      "tp2": 0.24974700820790552,
+      "rr1": 1.8187182641294828,
+      "rr2": 2.818718264129483,
+      "t": 1792190893567,
+      "validUntil": 1792795693567,
+      "status": "open",
       "alerted": true
     }
   ],
@@ -299,8 +340,8 @@
     },
     "PONS": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": null
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-16T22:48:13.567Z"
     },
     "XMSTR": {
       "decision": "wait",
@@ -371,17 +412,23 @@
       "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
+    },
+    "INJ": {
+      "decision": "long",
+      "lastAlertedDecision": "long",
+      "lastAlert": "2026-10-16T22:48:13.567Z"
     }
   },
   "spike": {},
   "lastScan": {
-    "t": "2026-10-16T21:44:34.691Z",
-    "universe": 48,
-    "analyzed": 20,
+    "t": "2026-10-16T22:48:13.567Z",
+    "universe": 47,
+    "analyzed": 19,
     "signals": [
-      "TIA (خرید)",
-      "TRUMP (فروش)"
+      "PONS (فروش)",
+      "TRUMP (فروش)",
+      "INJ (خرید)"
     ]
   },
-  "lastFull": "2026-10-16T21:44:34.691Z"
+  "lastFull": "2026-10-16T22:48:13.567Z"
 }
