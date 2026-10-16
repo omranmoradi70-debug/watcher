@@ -46,7 +46,8 @@
       "validUntil": 1792790721692,
       "status": "open",
       "alerted": true,
-      "openedAt": 1792185921692
+      "openedAt": 1792185921692,
+      "lastT": 1792188000000
     },
     {
       "id": "TIA|1792187074691",
@@ -67,7 +68,8 @@
       "validUntil": 1792791874691,
       "status": "open",
       "alerted": true,
-      "openedAt": 1792187074691
+      "openedAt": 1792187074691,
+      "lastT": 1792188000000
     },
     {
       "id": "INJ|1792190893567",
@@ -87,7 +89,8 @@
       "t": 1792190893567,
       "validUntil": 1792795693567,
       "status": "open",
-      "alerted": true
+      "alerted": true,
+      "openedAt": 1792190893567
     },
     {
       "id": "PONS|1792190893567",
@@ -107,7 +110,8 @@
       "t": 1792190893567,
       "validUntil": 1792795693567,
       "status": "open",
-      "alerted": true
+      "alerted": true,
+      "openedAt": 1792190893567
     }
   ],
   "outlooks": [
@@ -417,18 +421,38 @@
       "decision": "long",
       "lastAlertedDecision": "long",
       "lastAlert": "2026-10-16T22:48:13.567Z"
+    },
+    "DOT": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "LTC": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "ARB": {
+      "decision": "long",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "XSPCX": {
+      "decision": "short",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {},
   "lastScan": {
-    "t": "2026-10-16T22:48:13.567Z",
-    "universe": 47,
-    "analyzed": 19,
+    "t": "2026-10-16T23:51:38.554Z",
+    "universe": 46,
+    "analyzed": 20,
     "signals": [
-      "PONS (فروش)",
       "TRUMP (فروش)",
+      "PONS (فروش)",
       "INJ (خرید)"
     ]
   },
-  "lastFull": "2026-10-16T22:48:13.567Z"
+  "lastFull": "2026-10-16T23:51:38.554Z"
 }
