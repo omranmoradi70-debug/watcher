@@ -47,7 +47,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792185921692,
-      "lastT": 1792231200000
+      "lastT": 1792234800000
     },
     {
       "id": "TIA|1792187074691",
@@ -69,7 +69,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792187074691,
-      "lastT": 1792231200000,
+      "lastT": 1792234800000,
       "R": 1.499999999999999,
       "closedAt": 1792206000000,
       "watchTp2": true
@@ -94,7 +94,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792231200000
+      "lastT": 1792234800000
     },
     {
       "id": "PONS|1792190893567",
@@ -116,7 +116,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792231200000
+      "lastT": 1792234800000
     },
     {
       "id": "ETH|1792199858826",
@@ -138,7 +138,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792231200000
+      "lastT": 1792234800000
     },
     {
       "id": "BNB|1792199858826",
@@ -160,7 +160,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792231200000
+      "lastT": 1792234800000
     },
     {
       "id": "ADA|1792199858826",
@@ -182,7 +182,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792199858826,
-      "lastT": 1792231200000
+      "lastT": 1792234800000
     }
   ],
   "outlooks": [
@@ -489,12 +489,12 @@
       "lastAlert": null
     },
     "NEAR": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
     "XCRCL": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -549,7 +549,7 @@
       "lastAlert": "2026-10-17T01:17:38.826Z"
     },
     "HYPE": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -594,7 +594,7 @@
       "lastAlert": null
     },
     "WLD": {
-      "decision": "long",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -604,7 +604,7 @@
       "lastAlert": null
     },
     "OP": {
-      "decision": "long",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -621,15 +621,16 @@
   },
   "spike": {},
   "lastScan": {
-    "t": "2026-10-17T11:07:03.745Z",
+    "t": "2026-10-17T12:04:55.202Z",
     "universe": 39,
     "analyzed": 19,
     "signals": [
       "PONS (فروش)",
       "INJ (خرید)",
-      "TRUMP (فروش)"
+      "TRUMP (فروش)",
+      "TIA (خرید)"
     ]
   },
-  "lastFull": "2026-10-17T11:07:03.745Z",
+  "lastFull": "2026-10-17T12:04:55.202Z",
   "lastDaily": "2026-10-17"
 }
