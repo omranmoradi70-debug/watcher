@@ -47,7 +47,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792185921692,
-      "lastT": 1792227600000
+      "lastT": 1792231200000
     },
     {
       "id": "TIA|1792187074691",
@@ -69,7 +69,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792187074691,
-      "lastT": 1792227600000,
+      "lastT": 1792231200000,
       "R": 1.499999999999999,
       "closedAt": 1792206000000,
       "watchTp2": true
@@ -94,7 +94,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792227600000
+      "lastT": 1792231200000
     },
     {
       "id": "PONS|1792190893567",
@@ -116,7 +116,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792227600000
+      "lastT": 1792231200000
     },
     {
       "id": "ETH|1792199858826",
@@ -138,7 +138,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792227600000
+      "lastT": 1792231200000
     },
     {
       "id": "BNB|1792199858826",
@@ -160,7 +160,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792227600000
+      "lastT": 1792231200000
     },
     {
       "id": "ADA|1792199858826",
@@ -182,7 +182,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792199858826,
-      "lastT": 1792227600000
+      "lastT": 1792231200000
     }
   ],
   "outlooks": [
@@ -494,7 +494,7 @@
       "lastAlert": null
     },
     "XCRCL": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -621,8 +621,8 @@
   },
   "spike": {},
   "lastScan": {
-    "t": "2026-10-17T10:08:42.467Z",
-    "universe": 40,
+    "t": "2026-10-17T11:07:03.745Z",
+    "universe": 39,
     "analyzed": 19,
     "signals": [
       "PONS (فروش)",
@@ -630,6 +630,6 @@
       "TRUMP (فروش)"
     ]
   },
-  "lastFull": "2026-10-17T10:08:42.467Z",
+  "lastFull": "2026-10-17T11:07:03.745Z",
   "lastDaily": "2026-10-17"
 }
