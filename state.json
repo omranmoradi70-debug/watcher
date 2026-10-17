@@ -47,7 +47,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792185921692,
-      "lastT": 1792252800000
+      "lastT": 1792256400000
     },
     {
       "id": "TIA|1792187074691",
@@ -69,7 +69,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792187074691,
-      "lastT": 1792252800000,
+      "lastT": 1792256400000,
       "R": 1.499999999999999,
       "closedAt": 1792206000000,
       "watchTp2": true
@@ -94,7 +94,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792252800000
+      "lastT": 1792256400000
     },
     {
       "id": "PONS|1792190893567",
@@ -116,7 +116,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792252800000
+      "lastT": 1792256400000
     },
     {
       "id": "ETH|1792199858826",
@@ -138,7 +138,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792252800000
+      "lastT": 1792256400000
     },
     {
       "id": "BNB|1792199858826",
@@ -160,7 +160,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792252800000
+      "lastT": 1792256400000
     },
     {
       "id": "ADA|1792199858826",
@@ -182,7 +182,27 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792199858826,
-      "lastT": 1792252800000
+      "lastT": 1792256400000
+    },
+    {
+      "id": "DOGE|1792261367887",
+      "sym": "DOGE",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 0.07968,
+      "zoneLo": 0.07968,
+      "zoneHi": 0.08040209741870516,
+      "stop": 0.08144546819309362,
+      "tp1": 0.07416249999999999,
+      "tp2": 0.06974909090909091,
+      "rr1": 3.125233307280234,
+      "rr2": 5.625085249203643,
+      "t": 1792261367887,
+      "validUntil": 1792866167887,
+      "status": "open",
+      "alerted": true
     }
   ],
   "outlooks": [
@@ -625,8 +645,8 @@
     },
     "DOGE": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": null
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-17T18:22:47.887Z"
     },
     "OKB": {
       "decision": "wait",
@@ -636,13 +656,14 @@
   },
   "spike": {},
   "lastScan": {
-    "t": "2026-10-17T17:20:46.742Z",
+    "t": "2026-10-17T18:22:47.887Z",
     "universe": 27,
     "analyzed": 19,
     "signals": [
-      "TIA (خرید)"
+      "TIA (خرید)",
+      "DOGE (فروش)"
     ]
   },
-  "lastFull": "2026-10-17T17:20:46.742Z",
+  "lastFull": "2026-10-17T18:22:47.887Z",
   "lastDaily": "2026-10-17"
 }
