@@ -47,7 +47,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792185921692,
-      "lastT": 1792195200000
+      "lastT": 1792198800000
     },
     {
       "id": "TIA|1792187074691",
@@ -69,7 +69,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792187074691,
-      "lastT": 1792195200000
+      "lastT": 1792198800000
     },
     {
       "id": "INJ|1792190893567",
@@ -91,7 +91,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792195200000
+      "lastT": 1792198800000
     },
     {
       "id": "PONS|1792190893567",
@@ -113,7 +113,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792195200000
+      "lastT": 1792198800000
     },
     {
       "id": "ETH|1792199858826",
@@ -133,7 +133,8 @@
       "t": 1792199858826,
       "validUntil": 1792804658826,
       "status": "open",
-      "alerted": false
+      "alerted": false,
+      "openedAt": 1792199858826
     },
     {
       "id": "BNB|1792199858826",
@@ -153,7 +154,8 @@
       "t": 1792199858826,
       "validUntil": 1792804658826,
       "status": "open",
-      "alerted": false
+      "alerted": false,
+      "openedAt": 1792199858826
     },
     {
       "id": "ADA|1792199858826",
@@ -173,7 +175,8 @@
       "t": 1792199858826,
       "validUntil": 1792804658826,
       "status": "open",
-      "alerted": true
+      "alerted": true,
+      "openedAt": 1792199858826
     }
   ],
   "outlooks": [
@@ -435,7 +438,7 @@
       "lastAlert": null
     },
     "LIT": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -518,18 +521,22 @@
       "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
+    },
+    "WLD": {
+      "decision": "long",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {},
   "lastScan": {
-    "t": "2026-10-17T01:17:38.826Z",
+    "t": "2026-10-17T02:30:49.173Z",
     "universe": 46,
     "analyzed": 20,
     "signals": [
       "PONS (فروش)",
-      "TRUMP (فروش)",
-      "ADA (فروش)"
+      "TRUMP (فروش)"
     ]
   },
-  "lastFull": "2026-10-17T01:17:38.826Z"
+  "lastFull": "2026-10-17T02:30:49.173Z"
 }
