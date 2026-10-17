@@ -47,7 +47,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792185921692,
-      "lastT": 1792198800000
+      "lastT": 1792202400000
     },
     {
       "id": "TIA|1792187074691",
@@ -69,7 +69,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792187074691,
-      "lastT": 1792198800000
+      "lastT": 1792202400000
     },
     {
       "id": "INJ|1792190893567",
@@ -91,7 +91,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792198800000
+      "lastT": 1792202400000
     },
     {
       "id": "PONS|1792190893567",
@@ -113,7 +113,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792198800000
+      "lastT": 1792202400000
     },
     {
       "id": "ETH|1792199858826",
@@ -134,7 +134,8 @@
       "validUntil": 1792804658826,
       "status": "open",
       "alerted": false,
-      "openedAt": 1792199858826
+      "openedAt": 1792199858826,
+      "lastT": 1792202400000
     },
     {
       "id": "BNB|1792199858826",
@@ -155,7 +156,8 @@
       "validUntil": 1792804658826,
       "status": "open",
       "alerted": false,
-      "openedAt": 1792199858826
+      "openedAt": 1792199858826,
+      "lastT": 1792202400000
     },
     {
       "id": "ADA|1792199858826",
@@ -176,7 +178,8 @@
       "validUntil": 1792804658826,
       "status": "open",
       "alerted": true,
-      "openedAt": 1792199858826
+      "openedAt": 1792199858826,
+      "lastT": 1792202400000
     }
   ],
   "outlooks": [
@@ -488,7 +491,7 @@
       "lastAlert": "2026-10-16T22:48:13.567Z"
     },
     "DOT": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -526,17 +529,28 @@
       "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": null
+    },
+    "PUMP": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "OP": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {},
   "lastScan": {
-    "t": "2026-10-17T02:30:49.173Z",
-    "universe": 46,
+    "t": "2026-10-17T03:45:03.836Z",
+    "universe": 45,
     "analyzed": 20,
     "signals": [
       "PONS (فروش)",
+      "INJ (خرید)",
       "TRUMP (فروش)"
     ]
   },
-  "lastFull": "2026-10-17T02:30:49.173Z"
+  "lastFull": "2026-10-17T03:45:03.836Z"
 }
