@@ -47,7 +47,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792185921692,
-      "lastT": 1792242000000
+      "lastT": 1792245600000
     },
     {
       "id": "TIA|1792187074691",
@@ -69,7 +69,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792187074691,
-      "lastT": 1792242000000,
+      "lastT": 1792245600000,
       "R": 1.499999999999999,
       "closedAt": 1792206000000,
       "watchTp2": true
@@ -94,7 +94,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792242000000
+      "lastT": 1792245600000
     },
     {
       "id": "PONS|1792190893567",
@@ -116,7 +116,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792242000000
+      "lastT": 1792245600000
     },
     {
       "id": "ETH|1792199858826",
@@ -138,7 +138,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792242000000
+      "lastT": 1792245600000
     },
     {
       "id": "BNB|1792199858826",
@@ -160,7 +160,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792242000000
+      "lastT": 1792245600000
     },
     {
       "id": "ADA|1792199858826",
@@ -182,7 +182,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792199858826,
-      "lastT": 1792242000000
+      "lastT": 1792245600000
     }
   ],
   "outlooks": [
@@ -449,7 +449,7 @@
   ],
   "scan": {
     "BASED": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -599,7 +599,7 @@
       "lastAlert": null
     },
     "PUMP": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -626,14 +626,14 @@
   },
   "spike": {},
   "lastScan": {
-    "t": "2026-10-17T14:24:34.635Z",
-    "universe": 39,
+    "t": "2026-10-17T15:22:16.924Z",
+    "universe": 34,
     "analyzed": 19,
     "signals": [
       "PONS (فروش)",
       "TIA (خرید)"
     ]
   },
-  "lastFull": "2026-10-17T14:24:34.635Z",
+  "lastFull": "2026-10-17T15:22:16.924Z",
   "lastDaily": "2026-10-17"
 }
