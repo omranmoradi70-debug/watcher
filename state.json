@@ -47,7 +47,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792185921692,
-      "lastT": 1792270800000,
+      "lastT": 1792274400000,
       "R": 1.526058740987764,
       "closedAt": 1792270800000,
       "watchTp2": true
@@ -72,7 +72,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792187074691,
-      "lastT": 1792270800000,
+      "lastT": 1792274400000,
       "R": 1.499999999999999,
       "closedAt": 1792206000000,
       "watchTp2": true
@@ -97,7 +97,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792270800000
+      "lastT": 1792274400000
     },
     {
       "id": "PONS|1792190893567",
@@ -119,7 +119,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792270800000
+      "lastT": 1792274400000
     },
     {
       "id": "ETH|1792199858826",
@@ -141,7 +141,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792270800000
+      "lastT": 1792274400000
     },
     {
       "id": "BNB|1792199858826",
@@ -163,7 +163,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792270800000
+      "lastT": 1792274400000
     },
     {
       "id": "ADA|1792199858826",
@@ -185,7 +185,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792199858826,
-      "lastT": 1792270800000,
+      "lastT": 1792274400000,
       "R": 1.4744525115901679,
       "closedAt": 1792270800000,
       "watchTp2": true
@@ -210,7 +210,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792261367887,
-      "lastT": 1792270800000
+      "lastT": 1792274400000
     },
     {
       "id": "LIT|1792268446891",
@@ -232,7 +232,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792268446891,
-      "lastT": 1792270800000
+      "lastT": 1792274400000
     }
   ],
   "outlooks": [
@@ -719,13 +719,13 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-17T22:19:51.615Z",
+    "t": "2026-10-17T23:17:37.546Z",
     "universe": 27,
     "analyzed": 19,
     "signals": [
       "TIA (خرید)"
     ]
   },
-  "lastFull": "2026-10-17T22:19:51.615Z",
+  "lastFull": "2026-10-17T23:17:37.546Z",
   "lastDaily": "2026-10-17"
 }
