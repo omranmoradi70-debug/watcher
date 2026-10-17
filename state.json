@@ -47,7 +47,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792185921692,
-      "lastT": 1792263600000
+      "lastT": 1792267200000
     },
     {
       "id": "TIA|1792187074691",
@@ -69,7 +69,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792187074691,
-      "lastT": 1792263600000,
+      "lastT": 1792267200000,
       "R": 1.499999999999999,
       "closedAt": 1792206000000,
       "watchTp2": true
@@ -94,7 +94,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792263600000
+      "lastT": 1792267200000
     },
     {
       "id": "PONS|1792190893567",
@@ -116,7 +116,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792263600000
+      "lastT": 1792267200000
     },
     {
       "id": "ETH|1792199858826",
@@ -138,7 +138,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792263600000
+      "lastT": 1792267200000
     },
     {
       "id": "BNB|1792199858826",
@@ -160,7 +160,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792263600000
+      "lastT": 1792267200000
     },
     {
       "id": "ADA|1792199858826",
@@ -182,7 +182,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792199858826,
-      "lastT": 1792263600000
+      "lastT": 1792267200000
     },
     {
       "id": "DOGE|1792261367887",
@@ -204,7 +204,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792261367887,
-      "lastT": 1792263600000
+      "lastT": 1792267200000
     },
     {
       "id": "LIT|1792268446891",
@@ -224,7 +224,8 @@
       "t": 1792268446891,
       "validUntil": 1792873246891,
       "status": "open",
-      "alerted": true
+      "alerted": true,
+      "openedAt": 1792268446891
     }
   ],
   "outlooks": [
@@ -239,7 +240,10 @@
       "due": 1792271699900,
       "s1": 80977.56666666667,
       "r1": 82594.02500000001,
-      "done": false
+      "done": true,
+      "price1": 81616.3,
+      "movePct": -0.12,
+      "correct": true
     },
     {
       "id": "ETH|day|2026-10-16",
@@ -252,7 +256,10 @@
       "due": 1792271699900,
       "s1": 2398.209230769231,
       "r1": 2436.014,
-      "done": false
+      "done": true,
+      "price1": 2421.34,
+      "movePct": 0.16,
+      "correct": false
     },
     {
       "id": "SOL|day|2026-10-16",
@@ -265,7 +272,10 @@
       "due": 1792271699900,
       "s1": 101.87666666666667,
       "r1": 105.71900000000001,
-      "done": false
+      "done": true,
+      "price1": 103.93,
+      "movePct": -0.34,
+      "correct": true
     },
     {
       "id": "BNB|day|2026-10-16",
@@ -278,7 +288,10 @@
       "due": 1792271699900,
       "s1": 715.05,
       "r1": 732.9749999999999,
-      "done": false
+      "done": true,
+      "price1": 720.4,
+      "movePct": -0.26,
+      "correct": true
     },
     {
       "id": "XRP|day|2026-10-16",
@@ -291,7 +304,10 @@
       "due": 1792271699900,
       "s1": 1.2949400000000002,
       "r1": 1.3149000000000002,
-      "done": false
+      "done": true,
+      "price1": 1.3017,
+      "movePct": -0.21,
+      "correct": true
     },
     {
       "id": "BTC|week|2026-10-16",
@@ -683,15 +699,14 @@
   },
   "spike": {},
   "lastScan": {
-    "t": "2026-10-17T20:20:46.891Z",
-    "universe": 25,
+    "t": "2026-10-17T21:21:46.604Z",
+    "universe": 24,
     "analyzed": 19,
     "signals": [
       "TRUMP (فروش)",
-      "LIT (فروش)",
       "TIA (خرید)"
     ]
   },
-  "lastFull": "2026-10-17T20:20:46.891Z",
+  "lastFull": "2026-10-17T21:21:46.604Z",
   "lastDaily": "2026-10-17"
 }
