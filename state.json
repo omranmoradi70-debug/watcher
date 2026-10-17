@@ -6,7 +6,7 @@
       "lastAlert": "2026-10-16T08:38:22.349Z"
     },
     "ETH": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-15T21:37:30.338Z"
     },
@@ -47,7 +47,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792185921692,
-      "lastT": 1792202400000
+      "lastT": 1792206000000
     },
     {
       "id": "TIA|1792187074691",
@@ -66,10 +66,13 @@
       "rr2": 2.5000000000000013,
       "t": 1792187074691,
       "validUntil": 1792791874691,
-      "status": "open",
+      "status": "tp1",
       "alerted": true,
       "openedAt": 1792187074691,
-      "lastT": 1792202400000
+      "lastT": 1792206000000,
+      "R": 1.499999999999999,
+      "closedAt": 1792206000000,
+      "watchTp2": true
     },
     {
       "id": "INJ|1792190893567",
@@ -91,7 +94,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792202400000
+      "lastT": 1792206000000
     },
     {
       "id": "PONS|1792190893567",
@@ -113,7 +116,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792202400000
+      "lastT": 1792206000000
     },
     {
       "id": "ETH|1792199858826",
@@ -135,7 +138,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792202400000
+      "lastT": 1792206000000
     },
     {
       "id": "BNB|1792199858826",
@@ -157,7 +160,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792202400000
+      "lastT": 1792206000000
     },
     {
       "id": "ADA|1792199858826",
@@ -179,7 +182,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792199858826,
-      "lastT": 1792202400000
+      "lastT": 1792206000000
     }
   ],
   "outlooks": [
@@ -377,11 +380,76 @@
       "s1": 1.2467371428571428,
       "r1": 1.3715866666666667,
       "done": false
+    },
+    {
+      "id": "BTC|day|2026-10-17",
+      "sym": "BTC",
+      "hz": "day",
+      "bias": "down",
+      "strength": "weak",
+      "price": 81533.5,
+      "t": 1792212481277,
+      "due": 1792298881277,
+      "s1": 80977.56666666667,
+      "r1": 82619.75384615385,
+      "done": false
+    },
+    {
+      "id": "ETH|day|2026-10-17",
+      "sym": "ETH",
+      "hz": "day",
+      "bias": "down",
+      "strength": "weak",
+      "price": 2427.25,
+      "t": 1792212481277,
+      "due": 1792298881277,
+      "s1": 2396.837692307692,
+      "r1": 2436.014,
+      "done": false
+    },
+    {
+      "id": "SOL|day|2026-10-17",
+      "sym": "SOL",
+      "hz": "day",
+      "bias": "flat",
+      "strength": null,
+      "price": 104.74,
+      "t": 1792212481277,
+      "due": 1792298881277,
+      "s1": 101.675,
+      "r1": 105.71900000000001,
+      "done": false
+    },
+    {
+      "id": "BNB|day|2026-10-17",
+      "sym": "BNB",
+      "hz": "day",
+      "bias": "down",
+      "strength": "medium",
+      "price": 722.9,
+      "t": 1792212481277,
+      "due": 1792298881277,
+      "s1": 717,
+      "r1": 733.6199999999999,
+      "done": false
+    },
+    {
+      "id": "XRP|day|2026-10-17",
+      "sym": "XRP",
+      "hz": "day",
+      "bias": "down",
+      "strength": "strong",
+      "price": 1.3083,
+      "t": 1792212481277,
+      "due": 1792298881277,
+      "s1": 1.2949400000000002,
+      "r1": 1.3149000000000002,
+      "done": false
     }
   ],
   "scan": {
     "BASED": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -536,21 +604,22 @@
       "lastAlert": null
     },
     "OP": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": null
     }
   },
   "spike": {},
   "lastScan": {
-    "t": "2026-10-17T03:45:03.836Z",
-    "universe": 45,
+    "t": "2026-10-17T04:48:01.277Z",
+    "universe": 43,
     "analyzed": 20,
     "signals": [
       "PONS (فروش)",
-      "INJ (خرید)",
-      "TRUMP (فروش)"
+      "TRUMP (فروش)",
+      "INJ (خرید)"
     ]
   },
-  "lastFull": "2026-10-17T03:45:03.836Z"
+  "lastFull": "2026-10-17T04:48:01.277Z",
+  "lastDaily": "2026-10-17"
 }
