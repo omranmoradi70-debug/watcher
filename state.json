@@ -47,7 +47,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792185921692,
-      "lastT": 1792260000000
+      "lastT": 1792263600000
     },
     {
       "id": "TIA|1792187074691",
@@ -69,7 +69,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792187074691,
-      "lastT": 1792260000000,
+      "lastT": 1792263600000,
       "R": 1.499999999999999,
       "closedAt": 1792206000000,
       "watchTp2": true
@@ -94,7 +94,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792260000000
+      "lastT": 1792263600000
     },
     {
       "id": "PONS|1792190893567",
@@ -116,7 +116,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792260000000
+      "lastT": 1792263600000
     },
     {
       "id": "ETH|1792199858826",
@@ -138,7 +138,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792260000000
+      "lastT": 1792263600000
     },
     {
       "id": "BNB|1792199858826",
@@ -160,7 +160,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792260000000
+      "lastT": 1792263600000
     },
     {
       "id": "ADA|1792199858826",
@@ -182,7 +182,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792199858826,
-      "lastT": 1792260000000
+      "lastT": 1792263600000
     },
     {
       "id": "DOGE|1792261367887",
@@ -203,7 +203,28 @@
       "validUntil": 1792866167887,
       "status": "open",
       "alerted": true,
-      "openedAt": 1792261367887
+      "openedAt": 1792261367887,
+      "lastT": 1792263600000
+    },
+    {
+      "id": "LIT|1792268446891",
+      "sym": "LIT",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 3.1643,
+      "zoneLo": 3.1643,
+      "zoneHi": 3.2225253322737117,
+      "stop": 3.2872077325915985,
+      "tp1": 3,
+      "tp2": 2.9169,
+      "rr1": 1.3367751282658578,
+      "rr2": 2.0128920677600317,
+      "t": 1792268446891,
+      "validUntil": 1792873246891,
+      "status": "open",
+      "alerted": true
     }
   ],
   "outlooks": [
@@ -531,8 +552,8 @@
     },
     "LIT": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": null
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-17T20:20:46.891Z"
     },
     "UNI": {
       "decision": "wait",
@@ -655,22 +676,22 @@
       "lastAlert": null
     },
     "TRX": {
-      "decision": "long",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     }
   },
   "spike": {},
   "lastScan": {
-    "t": "2026-10-17T19:23:41.694Z",
-    "universe": 26,
+    "t": "2026-10-17T20:20:46.891Z",
+    "universe": 25,
     "analyzed": 19,
     "signals": [
       "TRUMP (فروش)",
-      "TIA (خرید)",
-      "DOGE (فروش)"
+      "LIT (فروش)",
+      "TIA (خرید)"
     ]
   },
-  "lastFull": "2026-10-17T19:23:41.694Z",
+  "lastFull": "2026-10-17T20:20:46.891Z",
   "lastDaily": "2026-10-17"
 }
