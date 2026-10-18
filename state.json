@@ -47,7 +47,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792185921692,
-      "lastT": 1792306800000,
+      "lastT": 1792310400000,
       "R": 1.526058740987764,
       "closedAt": 1792270800000,
       "watchTp2": true
@@ -72,7 +72,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792187074691,
-      "lastT": 1792306800000,
+      "lastT": 1792310400000,
       "R": 1.499999999999999,
       "closedAt": 1792206000000,
       "watchTp2": true
@@ -97,7 +97,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792306800000
+      "lastT": 1792310400000
     },
     {
       "id": "PONS|1792190893567",
@@ -119,7 +119,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792306800000
+      "lastT": 1792310400000
     },
     {
       "id": "ETH|1792199858826",
@@ -141,7 +141,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792306800000
+      "lastT": 1792310400000
     },
     {
       "id": "BNB|1792199858826",
@@ -163,7 +163,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792306800000
+      "lastT": 1792310400000
     },
     {
       "id": "ADA|1792199858826",
@@ -185,7 +185,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792199858826,
-      "lastT": 1792306800000,
+      "lastT": 1792310400000,
       "R": 1.4744525115901679,
       "closedAt": 1792270800000,
       "watchTp2": true
@@ -210,7 +210,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792261367887,
-      "lastT": 1792306800000
+      "lastT": 1792310400000
     },
     {
       "id": "LIT|1792268446891",
@@ -232,7 +232,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792268446891,
-      "lastT": 1792306800000
+      "lastT": 1792310400000
     },
     {
       "id": "SOL|1792283516967",
@@ -254,7 +254,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792283516967,
-      "lastT": 1792306800000
+      "lastT": 1792310400000
     },
     {
       "id": "HYPE|1792283516967",
@@ -276,7 +276,27 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792283516967,
-      "lastT": 1792306800000
+      "lastT": 1792310400000
+    },
+    {
+      "id": "OKB|1792315584740",
+      "sym": "OKB",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 114.826,
+      "zoneLo": 114.826,
+      "zoneHi": 115.88417491052559,
+      "stop": 117.48599516464064,
+      "tp1": 108.40181818181819,
+      "tp2": 106.43,
+      "rr1": 2.4151103368827727,
+      "rr2": 3.15639671515503,
+      "t": 1792315584740,
+      "validUntil": 1792920384740,
+      "status": "open",
+      "alerted": true
     }
   ],
   "outlooks": [
@@ -819,8 +839,8 @@
     },
     "OKB": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": null
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-18T09:26:24.740Z"
     },
     "TRX": {
       "decision": "wait",
@@ -840,26 +860,31 @@
   },
   "spike": {
     "ETH": {
-      "t": 1792272600000,
-      "lastAlert": "2026-10-17T21:53:32.025Z"
+      "t": 1792314000000,
+      "lastAlert": "2026-10-18T09:26:24.740Z"
     },
     "XRP": {
       "t": 1792272600000,
       "lastAlert": "2026-10-17T21:53:32.025Z"
     },
     "SOL": {
-      "t": 1792274400000,
-      "lastAlert": "2026-10-17T22:19:51.615Z"
+      "t": 1792314000000,
+      "lastAlert": "2026-10-18T09:26:24.740Z"
+    },
+    "BTC": {
+      "t": 1792314000000,
+      "lastAlert": "2026-10-18T09:26:24.740Z"
     }
   },
   "lastScan": {
-    "t": "2026-10-18T08:26:27.333Z",
+    "t": "2026-10-18T09:26:24.740Z",
     "universe": 28,
     "analyzed": 19,
     "signals": [
-      "DOGE (فروش)"
+      "TIA (خرید)",
+      "OKB (فروش)"
     ]
   },
-  "lastFull": "2026-10-18T08:26:27.333Z",
+  "lastFull": "2026-10-18T09:26:24.740Z",
   "lastDaily": "2026-10-18"
 }
