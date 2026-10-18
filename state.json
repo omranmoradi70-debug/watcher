@@ -148,7 +148,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792357200000
+      "lastT": 1792360800000
     },
     {
       "id": "BNB|1792199858826",
@@ -170,7 +170,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792357200000
+      "lastT": 1792360800000
     },
     {
       "id": "ADA|1792199858826",
@@ -218,7 +218,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792261367887,
-      "lastT": 1792357200000
+      "lastT": 1792360800000
     },
     {
       "id": "LIT|1792268446891",
@@ -266,7 +266,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792283516967,
-      "lastT": 1792357200000
+      "lastT": 1792360800000
     },
     {
       "id": "HYPE|1792283516967",
@@ -288,7 +288,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792283516967,
-      "lastT": 1792357200000
+      "lastT": 1792360800000
     },
     {
       "id": "OKB|1792315584740",
@@ -310,7 +310,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792315584740,
-      "lastT": 1792357200000
+      "lastT": 1792360800000
     }
   ],
   "outlooks": [
@@ -682,7 +682,7 @@
       "lastAlert": null
     },
     "TIA": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-16T21:44:34.691Z"
     },
@@ -900,13 +900,11 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-18T22:40:49.807Z",
+    "t": "2026-10-18T23:37:18.384Z",
     "universe": 29,
     "analyzed": 19,
-    "signals": [
-      "LIT (فروش)"
-    ]
+    "signals": []
   },
-  "lastFull": "2026-10-18T22:40:49.807Z",
+  "lastFull": "2026-10-18T23:37:18.384Z",
   "lastDaily": "2026-10-18"
 }
