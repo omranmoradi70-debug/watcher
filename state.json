@@ -6,12 +6,12 @@
       "lastAlert": "2026-10-16T08:38:22.349Z"
     },
     "ETH": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-15T21:37:30.338Z"
     },
     "SOL": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -47,10 +47,11 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792185921692,
-      "lastT": 1792324800000,
+      "lastT": 1792328400000,
       "R": 1.526058740987764,
       "closedAt": 1792270800000,
-      "watchTp2": true
+      "watchTp2": false,
+      "tp2Reached": true
     },
     {
       "id": "TIA|1792187074691",
@@ -72,7 +73,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792187074691,
-      "lastT": 1792324800000,
+      "lastT": 1792328400000,
       "R": 1.499999999999999,
       "closedAt": 1792206000000,
       "watchTp2": true
@@ -94,10 +95,12 @@
       "rr2": 2.5000000000000027,
       "t": 1792190893567,
       "validUntil": 1792795693567,
-      "status": "open",
+      "status": "stop",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792324800000
+      "lastT": 1792328400000,
+      "R": -1,
+      "closedAt": 1792328400000
     },
     {
       "id": "PONS|1792190893567",
@@ -116,10 +119,13 @@
       "rr2": 2.818718264129483,
       "t": 1792190893567,
       "validUntil": 1792795693567,
-      "status": "open",
+      "status": "tp1",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792324800000
+      "lastT": 1792328400000,
+      "R": 1.8187182641294826,
+      "closedAt": 1792328400000,
+      "watchTp2": true
     },
     {
       "id": "ETH|1792199858826",
@@ -141,7 +147,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792324800000
+      "lastT": 1792328400000
     },
     {
       "id": "BNB|1792199858826",
@@ -163,7 +169,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792324800000
+      "lastT": 1792328400000
     },
     {
       "id": "ADA|1792199858826",
@@ -185,7 +191,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792199858826,
-      "lastT": 1792324800000,
+      "lastT": 1792328400000,
       "R": 1.4744525115901679,
       "closedAt": 1792270800000,
       "watchTp2": true
@@ -210,7 +216,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792261367887,
-      "lastT": 1792324800000
+      "lastT": 1792328400000
     },
     {
       "id": "LIT|1792268446891",
@@ -229,10 +235,13 @@
       "rr2": 2.0128920677600317,
       "t": 1792268446891,
       "validUntil": 1792873246891,
-      "status": "open",
+      "status": "tp1",
       "alerted": true,
       "openedAt": 1792268446891,
-      "lastT": 1792324800000
+      "lastT": 1792328400000,
+      "R": 1.3367751282658573,
+      "closedAt": 1792328400000,
+      "watchTp2": true
     },
     {
       "id": "SOL|1792283516967",
@@ -254,7 +263,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792283516967,
-      "lastT": 1792324800000
+      "lastT": 1792328400000
     },
     {
       "id": "HYPE|1792283516967",
@@ -276,7 +285,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792283516967,
-      "lastT": 1792324800000
+      "lastT": 1792328400000
     },
     {
       "id": "OKB|1792315584740",
@@ -298,7 +307,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792315584740,
-      "lastT": 1792324800000
+      "lastT": 1792328400000
     }
   ],
   "outlooks": [
@@ -830,7 +839,7 @@
       "lastAlert": null
     },
     "SAND": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -883,11 +892,11 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-18T13:41:47.441Z",
-    "universe": 27,
+    "t": "2026-10-18T14:42:12.392Z",
+    "universe": 28,
     "analyzed": 19,
     "signals": []
   },
-  "lastFull": "2026-10-18T13:41:47.441Z",
+  "lastFull": "2026-10-18T14:42:12.392Z",
   "lastDaily": "2026-10-18"
 }
