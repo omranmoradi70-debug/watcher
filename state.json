@@ -122,7 +122,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792190893567,
-      "lastT": 1792339200000,
+      "lastT": 1792342800000,
       "R": 1.8187182641294826,
       "closedAt": 1792328400000,
       "watchTp2": true
@@ -147,7 +147,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792339200000
+      "lastT": 1792342800000
     },
     {
       "id": "BNB|1792199858826",
@@ -169,7 +169,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792339200000
+      "lastT": 1792342800000
     },
     {
       "id": "ADA|1792199858826",
@@ -191,7 +191,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792199858826,
-      "lastT": 1792339200000,
+      "lastT": 1792342800000,
       "R": 1.4744525115901679,
       "closedAt": 1792270800000,
       "watchTp2": true
@@ -216,7 +216,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792261367887,
-      "lastT": 1792339200000
+      "lastT": 1792342800000
     },
     {
       "id": "LIT|1792268446891",
@@ -264,7 +264,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792283516967,
-      "lastT": 1792339200000
+      "lastT": 1792342800000
     },
     {
       "id": "HYPE|1792283516967",
@@ -286,7 +286,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792283516967,
-      "lastT": 1792339200000
+      "lastT": 1792342800000
     },
     {
       "id": "OKB|1792315584740",
@@ -308,7 +308,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792315584740,
-      "lastT": 1792339200000
+      "lastT": 1792342800000
     }
   ],
   "outlooks": [
@@ -898,13 +898,13 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-18T17:40:33.851Z",
-    "universe": 29,
+    "t": "2026-10-18T18:45:08.592Z",
+    "universe": 28,
     "analyzed": 19,
     "signals": [
       "HYPE (فروش)"
     ]
   },
-  "lastFull": "2026-10-18T17:40:33.851Z",
+  "lastFull": "2026-10-18T18:45:08.592Z",
   "lastDaily": "2026-10-18"
 }
