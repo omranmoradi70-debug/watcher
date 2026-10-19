@@ -1119,14 +1119,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-19T07:04:24.383Z",
-    "universe": 38,
+    "t": "2026-10-19T07:59:52.050Z",
+    "universe": 39,
     "analyzed": 19,
-    "signals": [
-      "TRUMP (فروش)"
-    ]
+    "signals": []
   },
-  "lastFull": "2026-10-19T07:04:24.383Z",
+  "lastFull": "2026-10-19T07:59:52.050Z",
   "lastDaily": "2026-10-19",
   "lastWeekly": "2026-10-19"
 }
