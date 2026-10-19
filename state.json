@@ -148,7 +148,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792411200000
+      "lastT": 1792418400000
     },
     {
       "id": "BNB|1792199858826",
@@ -220,7 +220,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792261367887,
-      "lastT": 1792411200000
+      "lastT": 1792418400000
     },
     {
       "id": "LIT|1792268446891",
@@ -268,7 +268,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792283516967,
-      "lastT": 1792411200000
+      "lastT": 1792418400000
     },
     {
       "id": "HYPE|1792283516967",
@@ -314,7 +314,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792315584740,
-      "lastT": 1792411200000
+      "lastT": 1792418400000
     },
     {
       "id": "TIA|1792371507800",
@@ -336,7 +336,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792411200000
+      "lastT": 1792418400000
     },
     {
       "id": "BTC|1792375939000",
@@ -358,7 +358,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792411200000
+      "lastT": 1792418400000
     },
     {
       "id": "PEPE|1792389916299",
@@ -380,7 +380,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792389916299,
-      "lastT": 1792411200000
+      "lastT": 1792418400000
     }
   ],
   "outlooks": [
@@ -902,7 +902,7 @@
       "lastAlert": "2026-10-19T00:58:27.800Z"
     },
     "XSOXL": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -947,7 +947,7 @@
       "lastAlert": null
     },
     "LIT": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-17T20:20:46.891Z"
     },
@@ -1125,14 +1125,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-19T13:47:58.059Z",
-    "universe": 40,
+    "t": "2026-10-19T15:19:57.224Z",
+    "universe": 42,
     "analyzed": 19,
     "signals": [
       "INJ (خرید)"
     ]
   },
-  "lastFull": "2026-10-19T13:47:58.059Z",
+  "lastFull": "2026-10-19T15:19:57.224Z",
   "lastDaily": "2026-10-19",
   "lastWeekly": "2026-10-19"
 }
