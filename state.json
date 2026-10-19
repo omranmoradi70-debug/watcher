@@ -1,17 +1,17 @@
 {
   "coins": {
     "BTC": {
-      "decision": "long",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-16T08:38:22.349Z"
     },
     "ETH": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-15T21:37:30.338Z"
     },
     "SOL": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -21,7 +21,7 @@
       "lastAlert": "2026-10-15T20:35:02.700Z"
     },
     "XRP": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-16T21:44:34.691Z"
     }
@@ -148,7 +148,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792418400000
+      "lastT": 1792422000000
     },
     {
       "id": "BNB|1792199858826",
@@ -220,7 +220,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792261367887,
-      "lastT": 1792418400000
+      "lastT": 1792422000000
     },
     {
       "id": "LIT|1792268446891",
@@ -268,7 +268,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792283516967,
-      "lastT": 1792418400000
+      "lastT": 1792422000000
     },
     {
       "id": "HYPE|1792283516967",
@@ -314,7 +314,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792315584740,
-      "lastT": 1792418400000
+      "lastT": 1792422000000
     },
     {
       "id": "TIA|1792371507800",
@@ -336,7 +336,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792418400000
+      "lastT": 1792422000000
     },
     {
       "id": "BTC|1792375939000",
@@ -358,7 +358,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792418400000
+      "lastT": 1792422000000
     },
     {
       "id": "PEPE|1792389916299",
@@ -380,7 +380,27 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792389916299,
-      "lastT": 1792418400000
+      "lastT": 1792422000000
+    },
+    {
+      "id": "XRP|1792428596595",
+      "sym": "XRP",
+      "src": "watch",
+      "dir": -1,
+      "strength": "weak",
+      "mode": "now",
+      "entry": 1.3025,
+      "zoneLo": 1.3025,
+      "zoneHi": 1.3133913427939485,
+      "stop": 1.3242826855878973,
+      "tp1": 1.2675999999999998,
+      "tp2": 1.25205,
+      "rr1": 1.6021899530786559,
+      "rr2": 2.3160596886194167,
+      "t": 1792428596595,
+      "validUntil": 1793033396595,
+      "status": "open",
+      "alerted": false
     }
   ],
   "outlooks": [
@@ -912,7 +932,7 @@
       "lastAlert": null
     },
     "ZEC": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -1125,14 +1145,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-19T15:19:57.224Z",
+    "t": "2026-10-19T16:49:56.595Z",
     "universe": 42,
-    "analyzed": 19,
+    "analyzed": 20,
     "signals": [
       "INJ (خرید)"
     ]
   },
-  "lastFull": "2026-10-19T15:19:57.224Z",
+  "lastFull": "2026-10-19T16:49:56.595Z",
   "lastDaily": "2026-10-19",
   "lastWeekly": "2026-10-19"
 }
