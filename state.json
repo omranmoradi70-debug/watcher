@@ -148,7 +148,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792396800000
+      "lastT": 1792400400000
     },
     {
       "id": "BNB|1792199858826",
@@ -220,7 +220,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792261367887,
-      "lastT": 1792396800000
+      "lastT": 1792400400000
     },
     {
       "id": "LIT|1792268446891",
@@ -268,7 +268,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792283516967,
-      "lastT": 1792396800000
+      "lastT": 1792400400000
     },
     {
       "id": "HYPE|1792283516967",
@@ -314,7 +314,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792315584740,
-      "lastT": 1792396800000
+      "lastT": 1792400400000
     },
     {
       "id": "TIA|1792371507800",
@@ -336,7 +336,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792396800000
+      "lastT": 1792400400000
     },
     {
       "id": "BTC|1792375939000",
@@ -358,7 +358,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792396800000
+      "lastT": 1792400400000
     },
     {
       "id": "PEPE|1792389916299",
@@ -380,7 +380,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792389916299,
-      "lastT": 1792396800000
+      "lastT": 1792400400000
     }
   ],
   "outlooks": [
@@ -1120,14 +1120,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-19T09:19:57.857Z",
+    "t": "2026-10-19T10:08:11.389Z",
     "universe": 38,
     "analyzed": 19,
     "signals": [
-      "PONS (فروش)"
+      "INJ (خرید)"
     ]
   },
-  "lastFull": "2026-10-19T09:19:57.857Z",
+  "lastFull": "2026-10-19T10:08:11.389Z",
   "lastDaily": "2026-10-19",
   "lastWeekly": "2026-10-19"
 }
