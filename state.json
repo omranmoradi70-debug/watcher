@@ -1,7 +1,7 @@
 {
   "coins": {
     "BTC": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-16T08:38:22.349Z"
     },
@@ -148,7 +148,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792364400000
+      "lastT": 1792371600000
     },
     {
       "id": "BNB|1792199858826",
@@ -170,7 +170,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792364400000
+      "lastT": 1792371600000
     },
     {
       "id": "ADA|1792199858826",
@@ -218,7 +218,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792261367887,
-      "lastT": 1792364400000
+      "lastT": 1792371600000
     },
     {
       "id": "LIT|1792268446891",
@@ -266,7 +266,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792283516967,
-      "lastT": 1792364400000
+      "lastT": 1792371600000
     },
     {
       "id": "HYPE|1792283516967",
@@ -288,7 +288,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792283516967,
-      "lastT": 1792364400000
+      "lastT": 1792371600000
     },
     {
       "id": "OKB|1792315584740",
@@ -310,7 +310,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792315584740,
-      "lastT": 1792364400000
+      "lastT": 1792371600000
     },
     {
       "id": "TIA|1792371507800",
@@ -330,7 +330,29 @@
       "t": 1792371507800,
       "validUntil": 1792976307800,
       "status": "open",
-      "alerted": true
+      "alerted": true,
+      "openedAt": 1792371507800,
+      "lastT": 1792371600000
+    },
+    {
+      "id": "BTC|1792375939000",
+      "sym": "BTC",
+      "src": "watch",
+      "dir": 1,
+      "strength": "weak",
+      "mode": "now",
+      "entry": 82538.4,
+      "zoneLo": 82144.5851603245,
+      "zoneHi": 82538.4,
+      "stop": 80392.87961222715,
+      "tp1": 85650,
+      "tp2": 86844,
+      "rr1": 1.450277526017825,
+      "rr2": 2.0067858709417483,
+      "t": 1792375939000,
+      "validUntil": 1792980739000,
+      "status": "open",
+      "alerted": false
     }
   ],
   "outlooks": [
@@ -767,7 +789,7 @@
       "lastAlert": null
     },
     "ENA": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -892,7 +914,7 @@
       "lastAlert": null
     },
     "LINK": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     }
@@ -920,14 +942,11 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-19T00:58:27.800Z",
-    "universe": 34,
+    "t": "2026-10-19T02:12:19.000Z",
+    "universe": 33,
     "analyzed": 19,
-    "signals": [
-      "TIA (خرید)",
-      "TRUMP (فروش)"
-    ]
+    "signals": []
   },
-  "lastFull": "2026-10-19T00:58:27.800Z",
+  "lastFull": "2026-10-19T02:12:19.000Z",
   "lastDaily": "2026-10-18"
 }
