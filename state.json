@@ -148,7 +148,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792378800000
+      "lastT": 1792386000000
     },
     {
       "id": "BNB|1792199858826",
@@ -220,7 +220,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792261367887,
-      "lastT": 1792378800000
+      "lastT": 1792386000000
     },
     {
       "id": "LIT|1792268446891",
@@ -268,7 +268,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792283516967,
-      "lastT": 1792378800000
+      "lastT": 1792386000000
     },
     {
       "id": "HYPE|1792283516967",
@@ -287,10 +287,12 @@
       "rr2": 3.057539823484515,
       "t": 1792283516967,
       "validUntil": 1792888316967,
-      "status": "open",
+      "status": "stop",
       "alerted": true,
       "openedAt": 1792283516967,
-      "lastT": 1792378800000
+      "lastT": 1792382400000,
+      "R": -1,
+      "closedAt": 1792382400000
     },
     {
       "id": "OKB|1792315584740",
@@ -312,7 +314,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792315584740,
-      "lastT": 1792378800000
+      "lastT": 1792386000000
     },
     {
       "id": "TIA|1792371507800",
@@ -334,7 +336,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792378800000
+      "lastT": 1792386000000
     },
     {
       "id": "BTC|1792375939000",
@@ -356,7 +358,27 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792378800000
+      "lastT": 1792386000000
+    },
+    {
+      "id": "PEPE|1792389916299",
+      "sym": "PEPE",
+      "src": "scan",
+      "dir": 1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 0.000004058,
+      "zoneLo": 0.000004000664466483104,
+      "zoneHi": 0.000004058,
+      "stop": 0.000003937865126538173,
+      "tp1": 0.0000042404999999999995,
+      "tp2": 0.0000043618571428571426,
+      "rr1": 1.5191259185700974,
+      "rr2": 2.529300061681881,
+      "t": 1792389916299,
+      "validUntil": 1792994716299,
+      "status": "open",
+      "alerted": true
     }
   ],
   "outlooks": [
@@ -661,7 +683,10 @@
       "due": 1792385399694,
       "s1": 81032.8,
       "r1": 82270.74285714285,
-      "done": false
+      "done": true,
+      "price1": 82746.8,
+      "movePct": 1.16,
+      "correct": false
     },
     {
       "id": "ETH|day|2026-10-18",
@@ -674,7 +699,10 @@
       "due": 1792385399694,
       "s1": 2395.711333333333,
       "r1": 2436.9949999999994,
-      "done": false
+      "done": true,
+      "price1": 2431.44,
+      "movePct": 0.55,
+      "correct": true
     },
     {
       "id": "SOL|day|2026-10-18",
@@ -687,7 +715,10 @@
       "due": 1792385399694,
       "s1": 101.95,
       "r1": 105.65900000000002,
-      "done": false
+      "done": true,
+      "price1": 105.7,
+      "movePct": 1.66,
+      "correct": false
     },
     {
       "id": "BNB|day|2026-10-18",
@@ -700,7 +731,10 @@
       "due": 1792385399694,
       "s1": 717.75,
       "r1": 722.85,
-      "done": false
+      "done": true,
+      "price1": 727.7,
+      "movePct": 1.01,
+      "correct": false
     },
     {
       "id": "XRP|day|2026-10-18",
@@ -713,7 +747,10 @@
       "due": 1792385399694,
       "s1": 1.2945875,
       "r1": 1.3149000000000002,
-      "done": false
+      "done": true,
+      "price1": 1.313,
+      "movePct": 1.26,
+      "correct": false
     },
     {
       "id": "BTC|day|2026-10-19",
@@ -934,8 +971,8 @@
     },
     "PEPE": {
       "decision": "long",
-      "lastAlertedDecision": null,
-      "lastAlert": null
+      "lastAlertedDecision": "long",
+      "lastAlert": "2026-10-19T06:05:16.299Z"
     },
     "XTSLA": {
       "decision": "short",
@@ -1081,14 +1118,15 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-19T04:48:40.715Z",
-    "universe": 37,
+    "t": "2026-10-19T06:05:16.299Z",
+    "universe": 39,
     "analyzed": 19,
     "signals": [
+      "PEPE (خرید)",
       "TRUMP (فروش)"
     ]
   },
-  "lastFull": "2026-10-19T04:48:40.715Z",
+  "lastFull": "2026-10-19T06:05:16.299Z",
   "lastDaily": "2026-10-19",
   "lastWeekly": "2026-10-19"
 }
