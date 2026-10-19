@@ -148,7 +148,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792432800000
+      "lastT": 1792436400000
     },
     {
       "id": "BNB|1792199858826",
@@ -220,7 +220,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792261367887,
-      "lastT": 1792432800000
+      "lastT": 1792436400000
     },
     {
       "id": "LIT|1792268446891",
@@ -268,7 +268,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792283516967,
-      "lastT": 1792432800000
+      "lastT": 1792436400000
     },
     {
       "id": "HYPE|1792283516967",
@@ -314,7 +314,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792315584740,
-      "lastT": 1792432800000
+      "lastT": 1792436400000
     },
     {
       "id": "TIA|1792371507800",
@@ -336,7 +336,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792432800000
+      "lastT": 1792436400000
     },
     {
       "id": "BTC|1792375939000",
@@ -358,7 +358,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792432800000
+      "lastT": 1792436400000
     },
     {
       "id": "PEPE|1792389916299",
@@ -380,7 +380,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792389916299,
-      "lastT": 1792432800000
+      "lastT": 1792436400000
     },
     {
       "id": "XRP|1792428596595",
@@ -402,7 +402,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792428596595,
-      "lastT": 1792432800000
+      "lastT": 1792436400000
     }
   ],
   "outlooks": [
@@ -1059,7 +1059,7 @@
       "lastAlert": null
     },
     "PUMP": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -1099,7 +1099,7 @@
       "lastAlert": null
     },
     "XSNDK": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -1147,15 +1147,15 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-19T19:19:21.049Z",
-    "universe": 42,
+    "t": "2026-10-19T20:46:55.581Z",
+    "universe": 41,
     "analyzed": 19,
     "signals": [
-      "INJ (خرید)",
-      "PONS (فروش)"
+      "PONS (فروش)",
+      "INJ (خرید)"
     ]
   },
-  "lastFull": "2026-10-19T19:19:21.049Z",
+  "lastFull": "2026-10-19T20:46:55.581Z",
   "lastDaily": "2026-10-19",
   "lastWeekly": "2026-10-19"
 }
