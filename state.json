@@ -11,7 +11,7 @@
       "lastAlert": "2026-10-15T21:37:30.338Z"
     },
     "SOL": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -148,7 +148,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792425600000
+      "lastT": 1792432800000
     },
     {
       "id": "BNB|1792199858826",
@@ -220,7 +220,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792261367887,
-      "lastT": 1792425600000
+      "lastT": 1792432800000
     },
     {
       "id": "LIT|1792268446891",
@@ -268,7 +268,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792283516967,
-      "lastT": 1792425600000
+      "lastT": 1792432800000
     },
     {
       "id": "HYPE|1792283516967",
@@ -314,7 +314,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792315584740,
-      "lastT": 1792425600000
+      "lastT": 1792432800000
     },
     {
       "id": "TIA|1792371507800",
@@ -336,7 +336,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792425600000
+      "lastT": 1792432800000
     },
     {
       "id": "BTC|1792375939000",
@@ -358,7 +358,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792425600000
+      "lastT": 1792432800000
     },
     {
       "id": "PEPE|1792389916299",
@@ -380,7 +380,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792389916299,
-      "lastT": 1792425600000
+      "lastT": 1792432800000
     },
     {
       "id": "XRP|1792428596595",
@@ -401,7 +401,8 @@
       "validUntil": 1793033396595,
       "status": "open",
       "alerted": false,
-      "openedAt": 1792428596595
+      "openedAt": 1792428596595,
+      "lastT": 1792432800000
     }
   ],
   "outlooks": [
@@ -1146,7 +1147,7 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-19T17:59:23.687Z",
+    "t": "2026-10-19T19:19:21.049Z",
     "universe": 42,
     "analyzed": 19,
     "signals": [
@@ -1154,7 +1155,7 @@
       "PONS (فروش)"
     ]
   },
-  "lastFull": "2026-10-19T17:59:23.687Z",
+  "lastFull": "2026-10-19T19:19:21.049Z",
   "lastDaily": "2026-10-19",
   "lastWeekly": "2026-10-19"
 }
