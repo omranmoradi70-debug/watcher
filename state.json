@@ -148,7 +148,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792371600000
+      "lastT": 1792375200000
     },
     {
       "id": "BNB|1792199858826",
@@ -167,10 +167,12 @@
       "rr2": 3.105178656322966,
       "t": 1792199858826,
       "validUntil": 1792804658826,
-      "status": "open",
+      "status": "stop",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792371600000
+      "lastT": 1792375200000,
+      "R": -1,
+      "closedAt": 1792375200000
     },
     {
       "id": "ADA|1792199858826",
@@ -218,7 +220,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792261367887,
-      "lastT": 1792371600000
+      "lastT": 1792375200000
     },
     {
       "id": "LIT|1792268446891",
@@ -266,7 +268,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792283516967,
-      "lastT": 1792371600000
+      "lastT": 1792375200000
     },
     {
       "id": "HYPE|1792283516967",
@@ -288,7 +290,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792283516967,
-      "lastT": 1792371600000
+      "lastT": 1792375200000
     },
     {
       "id": "OKB|1792315584740",
@@ -310,7 +312,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792315584740,
-      "lastT": 1792371600000
+      "lastT": 1792375200000
     },
     {
       "id": "TIA|1792371507800",
@@ -332,7 +334,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792371600000
+      "lastT": 1792375200000
     },
     {
       "id": "BTC|1792375939000",
@@ -352,7 +354,8 @@
       "t": 1792375939000,
       "validUntil": 1792980739000,
       "status": "open",
-      "alerted": false
+      "alerted": false,
+      "openedAt": 1792375939000
     }
   ],
   "outlooks": [
@@ -794,12 +797,12 @@
       "lastAlert": null
     },
     "ONDO": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
     "PEPE": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -864,7 +867,7 @@
       "lastAlert": null
     },
     "PUMP": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -909,12 +912,17 @@
       "lastAlert": null
     },
     "HBAR": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
     "LINK": {
       "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "XLM": {
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     }
@@ -942,11 +950,13 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-19T02:12:19.000Z",
-    "universe": 33,
+    "t": "2026-10-19T03:27:56.857Z",
+    "universe": 35,
     "analyzed": 19,
-    "signals": []
+    "signals": [
+      "TRUMP (فروش)"
+    ]
   },
-  "lastFull": "2026-10-19T02:12:19.000Z",
+  "lastFull": "2026-10-19T03:27:56.857Z",
   "lastDaily": "2026-10-18"
 }
