@@ -320,7 +320,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792315584740,
-      "lastT": 1792508400000
+      "lastT": 1792512000000
     },
     {
       "id": "TIA|1792371507800",
@@ -342,7 +342,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792508400000
+      "lastT": 1792512000000
     },
     {
       "id": "BTC|1792375939000",
@@ -364,7 +364,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792508400000
+      "lastT": 1792512000000
     },
     {
       "id": "PEPE|1792389916299",
@@ -460,7 +460,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792454981012,
-      "lastT": 1792508400000
+      "lastT": 1792512000000
     },
     {
       "id": "XSOXL|1792458004170",
@@ -530,7 +530,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792502711797,
-      "lastT": 1792508400000
+      "lastT": 1792512000000
     },
     {
       "id": "GRVT|1792514854789",
@@ -550,7 +550,8 @@
       "t": 1792514854789,
       "validUntil": 1793119654789,
       "status": "open",
-      "alerted": true
+      "alerted": true,
+      "openedAt": 1792514854789
     }
   ],
   "outlooks": [
@@ -1370,6 +1371,11 @@
       "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
+    },
+    "COMP": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {
@@ -1395,15 +1401,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-20T16:47:34.789Z",
-    "universe": 44,
+    "t": "2026-10-20T17:38:57.324Z",
+    "universe": 45,
     "analyzed": 19,
     "signals": [
-      "PHA (خرید)",
-      "GRVT (خرید)"
+      "PHA (خرید)"
     ]
   },
-  "lastFull": "2026-10-20T16:47:34.789Z",
+  "lastFull": "2026-10-20T17:38:57.324Z",
   "lastDaily": "2026-10-20",
   "lastWeekly": "2026-10-19"
 }
