@@ -320,7 +320,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792315584740,
-      "lastT": 1792530000000
+      "lastT": 1792533600000
     },
     {
       "id": "TIA|1792371507800",
@@ -342,7 +342,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792530000000
+      "lastT": 1792533600000
     },
     {
       "id": "BTC|1792375939000",
@@ -364,7 +364,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792530000000
+      "lastT": 1792533600000
     },
     {
       "id": "PEPE|1792389916299",
@@ -460,7 +460,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792454981012,
-      "lastT": 1792530000000
+      "lastT": 1792533600000
     },
     {
       "id": "XSOXL|1792458004170",
@@ -530,7 +530,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792502711797,
-      "lastT": 1792530000000
+      "lastT": 1792533600000
     },
     {
       "id": "GRVT|1792514854789",
@@ -552,7 +552,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792514854789,
-      "lastT": 1792530000000
+      "lastT": 1792533600000
     }
   ],
   "outlooks": [
@@ -1269,7 +1269,7 @@
       "lastAlert": null
     },
     "ZRO": {
-      "decision": "long",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -1407,12 +1407,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-20T22:44:40.408Z",
+    "t": "2026-10-20T23:44:06.229Z",
     "universe": 45,
     "analyzed": 19,
     "signals": []
   },
-  "lastFull": "2026-10-20T22:44:40.408Z",
+  "lastFull": "2026-10-20T23:44:06.229Z",
   "lastDaily": "2026-10-20",
   "lastWeekly": "2026-10-19"
 }
