@@ -320,7 +320,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792315584740,
-      "lastT": 1792515600000
+      "lastT": 1792522800000
     },
     {
       "id": "TIA|1792371507800",
@@ -342,7 +342,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792515600000
+      "lastT": 1792522800000
     },
     {
       "id": "BTC|1792375939000",
@@ -364,7 +364,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792515600000
+      "lastT": 1792522800000
     },
     {
       "id": "PEPE|1792389916299",
@@ -460,7 +460,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792454981012,
-      "lastT": 1792515600000
+      "lastT": 1792522800000
     },
     {
       "id": "XSOXL|1792458004170",
@@ -530,7 +530,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792502711797,
-      "lastT": 1792515600000
+      "lastT": 1792522800000
     },
     {
       "id": "GRVT|1792514854789",
@@ -552,7 +552,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792514854789,
-      "lastT": 1792515600000
+      "lastT": 1792522800000
     }
   ],
   "outlooks": [
@@ -1169,7 +1169,7 @@
       "lastAlert": null
     },
     "PONS": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-16T22:48:13.567Z"
     },
@@ -1199,7 +1199,7 @@
       "lastAlert": null
     },
     "LIT": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-17T20:20:46.891Z"
     },
@@ -1314,8 +1314,8 @@
       "lastAlert": null
     },
     "DOGE": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-10-17T18:22:47.887Z"
     },
     "OKB": {
@@ -1377,6 +1377,11 @@
       "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
+    },
+    "DOS": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {
@@ -1402,14 +1407,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-20T18:53:57.064Z",
+    "t": "2026-10-20T20:09:49.125Z",
     "universe": 45,
     "analyzed": 19,
-    "signals": [
-      "PHA (خرید)"
-    ]
+    "signals": []
   },
-  "lastFull": "2026-10-20T18:53:57.064Z",
+  "lastFull": "2026-10-20T20:09:49.125Z",
   "lastDaily": "2026-10-20",
   "lastWeekly": "2026-10-19"
 }
