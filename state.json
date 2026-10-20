@@ -1,7 +1,7 @@
 {
   "coins": {
     "BTC": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-16T08:38:22.349Z"
     },
@@ -21,8 +21,8 @@
       "lastAlert": "2026-10-15T20:35:02.700Z"
     },
     "XRP": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-10-20T01:00:04.170Z"
     }
   },
@@ -145,10 +145,12 @@
       "rr2": 3.7082730635671273,
       "t": 1792199858826,
       "validUntil": 1792804658826,
-      "status": "open",
+      "status": "stop",
       "alerted": false,
       "openedAt": 1792199858826,
-      "lastT": 1792501200000
+      "lastT": 1792504800000,
+      "R": -1,
+      "closedAt": 1792504800000
     },
     {
       "id": "BNB|1792199858826",
@@ -217,10 +219,12 @@
       "rr2": 5.625085249203643,
       "t": 1792261367887,
       "validUntil": 1792866167887,
-      "status": "open",
+      "status": "stop",
       "alerted": true,
       "openedAt": 1792261367887,
-      "lastT": 1792501200000
+      "lastT": 1792504800000,
+      "R": -1,
+      "closedAt": 1792504800000
     },
     {
       "id": "LIT|1792268446891",
@@ -265,10 +269,12 @@
       "rr2": 2.4225952013502488,
       "t": 1792283516967,
       "validUntil": 1792888316967,
-      "status": "open",
+      "status": "stop",
       "alerted": false,
       "openedAt": 1792283516967,
-      "lastT": 1792501200000
+      "lastT": 1792504800000,
+      "R": -1,
+      "closedAt": 1792504800000
     },
     {
       "id": "HYPE|1792283516967",
@@ -314,7 +320,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792315584740,
-      "lastT": 1792501200000
+      "lastT": 1792508400000
     },
     {
       "id": "TIA|1792371507800",
@@ -336,7 +342,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792501200000
+      "lastT": 1792508400000
     },
     {
       "id": "BTC|1792375939000",
@@ -358,7 +364,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792501200000
+      "lastT": 1792508400000
     },
     {
       "id": "PEPE|1792389916299",
@@ -380,10 +386,11 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792389916299,
-      "lastT": 1792501200000,
+      "lastT": 1792504800000,
       "R": 1.5191259185700954,
       "closedAt": 1792497600000,
-      "watchTp2": true
+      "watchTp2": false,
+      "tp2Reached": true
     },
     {
       "id": "XRP|1792428596595",
@@ -402,10 +409,12 @@
       "rr2": 2.3160596886194167,
       "t": 1792428596595,
       "validUntil": 1793033396595,
-      "status": "open",
+      "status": "stop",
       "alerted": false,
       "openedAt": 1792428596595,
-      "lastT": 1792501200000
+      "lastT": 1792504800000,
+      "R": -1,
+      "closedAt": 1792504800000
     },
     {
       "id": "ARB|1792454981012",
@@ -424,10 +433,12 @@
       "rr2": 2.048167747951703,
       "t": 1792454981012,
       "validUntil": 1793059781012,
-      "status": "open",
+      "status": "stop",
       "alerted": true,
       "openedAt": 1792454981012,
-      "lastT": 1792501200000
+      "lastT": 1792508400000,
+      "R": -1,
+      "closedAt": 1792508400000
     },
     {
       "id": "XAUT|1792454981012",
@@ -449,7 +460,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792454981012,
-      "lastT": 1792501200000
+      "lastT": 1792508400000
     },
     {
       "id": "XSOXL|1792458004170",
@@ -468,10 +479,12 @@
       "rr2": 3.0472161049629953,
       "t": 1792458004170,
       "validUntil": 1793062804170,
-      "status": "open",
+      "status": "stop",
       "alerted": true,
       "openedAt": 1792458004170,
-      "lastT": 1792501200000
+      "lastT": 1792504800000,
+      "R": -1,
+      "closedAt": 1792504800000
     },
     {
       "id": "XCRCL|1792487191034",
@@ -516,7 +529,28 @@
       "validUntil": 1793107511797,
       "status": "open",
       "alerted": true,
-      "openedAt": 1792502711797
+      "openedAt": 1792502711797,
+      "lastT": 1792508400000
+    },
+    {
+      "id": "GRVT|1792514854789",
+      "sym": "GRVT",
+      "src": "scan",
+      "dir": 1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 0.24396,
+      "zoneLo": 0.23945746184799108,
+      "zoneHi": 0.24396,
+      "stop": 0.23258822329359372,
+      "tp1": 0.27054,
+      "tp2": 0.28191177670640627,
+      "rr1": 2.337365627749809,
+      "rr2": 3.3373656277498074,
+      "t": 1792514854789,
+      "validUntil": 1793119654789,
+      "status": "open",
+      "alerted": true
     }
   ],
   "outlooks": [
@@ -1138,7 +1172,7 @@
       "lastAlert": "2026-10-16T22:48:13.567Z"
     },
     "XMSTR": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -1148,8 +1182,8 @@
       "lastAlert": null
     },
     "XCRCL": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-10-20T09:06:31.034Z"
     },
     "TRUMP": {
@@ -1163,7 +1197,7 @@
       "lastAlert": null
     },
     "LIT": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-17T20:20:46.891Z"
     },
@@ -1238,7 +1272,7 @@
       "lastAlert": null
     },
     "SUI": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -1324,13 +1358,18 @@
     },
     "GRVT": {
       "decision": "long",
-      "lastAlertedDecision": null,
-      "lastAlert": null
+      "lastAlertedDecision": "long",
+      "lastAlert": "2026-10-20T16:47:34.789Z"
     },
     "PHA": {
       "decision": "long",
       "lastAlertedDecision": "long",
       "lastAlert": "2026-10-20T13:25:11.797Z"
+    },
+    "DOOD": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {
@@ -1356,14 +1395,15 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-20T14:49:17.993Z",
-    "universe": 42,
+    "t": "2026-10-20T16:47:34.789Z",
+    "universe": 44,
     "analyzed": 19,
     "signals": [
-      "TIA (خرید)"
+      "PHA (خرید)",
+      "GRVT (خرید)"
     ]
   },
-  "lastFull": "2026-10-20T14:49:17.993Z",
+  "lastFull": "2026-10-20T16:47:34.789Z",
   "lastDaily": "2026-10-20",
   "lastWeekly": "2026-10-19"
 }
