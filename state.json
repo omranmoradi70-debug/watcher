@@ -320,7 +320,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792315584740,
-      "lastT": 1792573200000
+      "lastT": 1792580400000
     },
     {
       "id": "TIA|1792371507800",
@@ -342,7 +342,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792573200000
+      "lastT": 1792580400000
     },
     {
       "id": "BTC|1792375939000",
@@ -364,7 +364,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792573200000
+      "lastT": 1792580400000
     },
     {
       "id": "PEPE|1792389916299",
@@ -460,7 +460,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792454981012,
-      "lastT": 1792573200000,
+      "lastT": 1792580400000,
       "R": 1.6615587137805952,
       "closedAt": 1792544400000,
       "watchTp2": true
@@ -533,7 +533,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792502711797,
-      "lastT": 1792573200000
+      "lastT": 1792580400000
     },
     {
       "id": "GRVT|1792514854789",
@@ -555,7 +555,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792514854789,
-      "lastT": 1792573200000,
+      "lastT": 1792580400000,
       "R": 2.337365627749808,
       "closedAt": 1792569600000,
       "watchTp2": true
@@ -602,7 +602,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792553266573,
-      "lastT": 1792573200000
+      "lastT": 1792580400000
     },
     {
       "id": "BNB|1792574265652",
@@ -621,8 +621,10 @@
       "rr2": 2.324617514573589,
       "t": 1792574265652,
       "validUntil": 1793179065652,
-      "status": "pending",
-      "alerted": false
+      "status": "missed",
+      "alerted": false,
+      "closedAt": 1792576800000,
+      "lastT": 1792576800000
     },
     {
       "id": "DATA|1792574265652",
@@ -643,7 +645,8 @@
       "validUntil": 1793179065652,
       "status": "open",
       "alerted": true,
-      "openedAt": 1792574265652
+      "openedAt": 1792574265652,
+      "lastT": 1792580400000
     },
     {
       "id": "NEAR|1792574265652",
@@ -664,7 +667,8 @@
       "validUntil": 1793179065652,
       "status": "open",
       "alerted": true,
-      "openedAt": 1792574265652
+      "openedAt": 1792574265652,
+      "lastT": 1792580400000
     },
     {
       "id": "PUMP|1792574265652",
@@ -685,7 +689,8 @@
       "validUntil": 1793179065652,
       "status": "open",
       "alerted": true,
-      "openedAt": 1792574265652
+      "openedAt": 1792574265652,
+      "lastT": 1792580400000
     }
   ],
   "outlooks": [
@@ -1367,7 +1372,7 @@
       "lastAlert": "2026-10-19T00:58:27.800Z"
     },
     "XSOXL": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-20T01:00:04.170Z"
     },
@@ -1502,8 +1507,8 @@
       "lastAlert": null
     },
     "PUMP": {
-      "decision": "long",
-      "lastAlertedDecision": "long",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-10-21T09:17:45.652Z"
     },
     "OP": {
@@ -1640,12 +1645,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-21T10:47:58.965Z",
-    "universe": 48,
+    "t": "2026-10-21T12:04:58.188Z",
+    "universe": 47,
     "analyzed": 20,
     "signals": []
   },
-  "lastFull": "2026-10-21T10:47:58.965Z",
+  "lastFull": "2026-10-21T12:04:58.188Z",
   "lastDaily": "2026-10-21",
   "lastWeekly": "2026-10-19"
 }
