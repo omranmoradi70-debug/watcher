@@ -320,7 +320,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792315584740,
-      "lastT": 1792548000000
+      "lastT": 1792551600000
     },
     {
       "id": "TIA|1792371507800",
@@ -342,7 +342,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792548000000
+      "lastT": 1792551600000
     },
     {
       "id": "BTC|1792375939000",
@@ -364,7 +364,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792548000000
+      "lastT": 1792551600000
     },
     {
       "id": "PEPE|1792389916299",
@@ -460,7 +460,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792454981012,
-      "lastT": 1792548000000,
+      "lastT": 1792551600000,
       "R": 1.6615587137805952,
       "closedAt": 1792544400000,
       "watchTp2": true
@@ -533,7 +533,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792502711797,
-      "lastT": 1792548000000
+      "lastT": 1792551600000
     },
     {
       "id": "GRVT|1792514854789",
@@ -555,7 +555,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792514854789,
-      "lastT": 1792548000000
+      "lastT": 1792551600000
     },
     {
       "id": "BNB|1792544372073",
@@ -597,7 +597,8 @@
       "t": 1792553266573,
       "validUntil": 1793158066573,
       "status": "open",
-      "alerted": true
+      "alerted": true,
+      "openedAt": 1792553266573
     }
   ],
   "outlooks": [
@@ -1127,7 +1128,10 @@
       "due": 1792557956192,
       "s1": 80670.25714285715,
       "r1": 82338.56999999999,
-      "done": false
+      "done": true,
+      "price1": 82782,
+      "movePct": 0.83,
+      "correct": false
     },
     {
       "id": "ETH|day|2026-10-20",
@@ -1140,7 +1144,10 @@
       "due": 1792557956192,
       "s1": 2390.978,
       "r1": 2438.3385714285714,
-      "done": false
+      "done": true,
+      "price1": 2443.54,
+      "movePct": 1.25,
+      "correct": false
     },
     {
       "id": "SOL|day|2026-10-20",
@@ -1153,7 +1160,10 @@
       "due": 1792557956192,
       "s1": 103.54,
       "r1": 105.69181818181819,
-      "done": false
+      "done": true,
+      "price1": 105.77,
+      "movePct": 0.47,
+      "correct": false
     },
     {
       "id": "BNB|day|2026-10-20",
@@ -1166,7 +1176,10 @@
       "due": 1792557956192,
       "s1": 723.1800000000001,
       "r1": 733.6199999999999,
-      "done": false
+      "done": true,
+      "price1": 741.9,
+      "movePct": 1.44,
+      "correct": false
     },
     {
       "id": "XRP|day|2026-10-20",
@@ -1179,6 +1192,74 @@
       "due": 1792557956192,
       "s1": 1.2945875,
       "r1": 1.31605,
+      "done": true,
+      "price1": 1.3331,
+      "movePct": 1.99,
+      "correct": false
+    },
+    {
+      "id": "BTC|day|2026-10-21",
+      "sym": "BTC",
+      "hz": "day",
+      "bias": "up",
+      "strength": "medium",
+      "price": 82782,
+      "t": 1792558009409,
+      "due": 1792644409409,
+      "s1": 82338.56999999999,
+      "r1": 82996.73749999999,
+      "done": false
+    },
+    {
+      "id": "ETH|day|2026-10-21",
+      "sym": "ETH",
+      "hz": "day",
+      "bias": "flat",
+      "strength": null,
+      "price": 2443.54,
+      "t": 1792558009409,
+      "due": 1792644409409,
+      "s1": 2438.3385714285714,
+      "r1": 2467.656666666667,
+      "done": false
+    },
+    {
+      "id": "SOL|day|2026-10-21",
+      "sym": "SOL",
+      "hz": "day",
+      "bias": "flat",
+      "strength": null,
+      "price": 105.77,
+      "t": 1792558009409,
+      "due": 1792644409409,
+      "s1": 103.54,
+      "r1": 107.92999999999999,
+      "done": false
+    },
+    {
+      "id": "BNB|day|2026-10-21",
+      "sym": "BNB",
+      "hz": "day",
+      "bias": "up",
+      "strength": "weak",
+      "price": 741.9,
+      "t": 1792558009409,
+      "due": 1792644409409,
+      "s1": 740.6,
+      "r1": 746.6999999999999,
+      "done": false
+    },
+    {
+      "id": "XRP|day|2026-10-21",
+      "sym": "XRP",
+      "hz": "day",
+      "bias": "flat",
+      "strength": null,
+      "price": 1.3331,
+      "t": 1792558009409,
+      "due": 1792644409409,
+      "s1": 1.31605,
+      "r1": 1.3491,
       "done": false
     }
   ],
@@ -1259,7 +1340,7 @@
       "lastAlert": null
     },
     "ENA": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -1304,7 +1385,7 @@
       "lastAlert": null
     },
     "ARB": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-20T00:09:41.012Z"
     },
@@ -1334,7 +1415,7 @@
       "lastAlert": null
     },
     "PUMP": {
-      "decision": "long",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -1394,7 +1475,7 @@
       "lastAlert": null
     },
     "XINTC": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -1457,15 +1538,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-21T03:27:46.573Z",
+    "t": "2026-10-21T04:46:49.409Z",
     "universe": 48,
-    "analyzed": 19,
+    "analyzed": 20,
     "signals": [
-      "GRVT (خرید)",
       "XCRCL (خرید)"
     ]
   },
-  "lastFull": "2026-10-21T03:27:46.573Z",
-  "lastDaily": "2026-10-20",
+  "lastFull": "2026-10-21T04:46:49.409Z",
+  "lastDaily": "2026-10-21",
   "lastWeekly": "2026-10-19"
 }
