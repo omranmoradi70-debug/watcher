@@ -2,8 +2,8 @@
   "coins": {
     "BTC": {
       "decision": "long",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-10-16T08:38:22.349Z"
+      "lastAlertedDecision": "long",
+      "lastAlert": "2026-10-21T12:58:55.849Z"
     },
     "ETH": {
       "decision": "wait",
@@ -691,6 +691,26 @@
       "alerted": true,
       "openedAt": 1792574265652,
       "lastT": 1792580400000
+    },
+    {
+      "id": "ONDO|1792587535849",
+      "sym": "ONDO",
+      "src": "scan",
+      "dir": 1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 0.4625,
+      "zoneLo": 0.456557440765015,
+      "zoneHi": 0.4625,
+      "stop": 0.45061488153002993,
+      "tp1": 0.4773636363636363,
+      "tp2": 0.49035,
+      "rr1": 1.2506090201113258,
+      "rr2": 2.3432665034318414,
+      "t": 1792587535849,
+      "validUntil": 1793192335849,
+      "status": "open",
+      "alerted": true
     }
   ],
   "outlooks": [
@@ -1438,8 +1458,8 @@
     },
     "ONDO": {
       "decision": "long",
-      "lastAlertedDecision": null,
-      "lastAlert": null
+      "lastAlertedDecision": "long",
+      "lastAlert": "2026-10-21T12:58:55.849Z"
     },
     "PEPE": {
       "decision": "long",
@@ -1645,12 +1665,15 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-21T12:04:58.188Z",
-    "universe": 47,
-    "analyzed": 20,
-    "signals": []
+    "t": "2026-10-21T12:58:55.849Z",
+    "universe": 46,
+    "analyzed": 19,
+    "signals": [
+      "DATA (فروش)",
+      "ONDO (خرید)"
+    ]
   },
-  "lastFull": "2026-10-21T12:04:58.188Z",
+  "lastFull": "2026-10-21T12:58:55.849Z",
   "lastDaily": "2026-10-21",
   "lastWeekly": "2026-10-19"
 }
