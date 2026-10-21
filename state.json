@@ -320,7 +320,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792315584740,
-      "lastT": 1792551600000
+      "lastT": 1792558800000
     },
     {
       "id": "TIA|1792371507800",
@@ -342,7 +342,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792551600000
+      "lastT": 1792558800000
     },
     {
       "id": "BTC|1792375939000",
@@ -364,7 +364,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792551600000
+      "lastT": 1792558800000
     },
     {
       "id": "PEPE|1792389916299",
@@ -460,7 +460,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792454981012,
-      "lastT": 1792551600000,
+      "lastT": 1792558800000,
       "R": 1.6615587137805952,
       "closedAt": 1792544400000,
       "watchTp2": true
@@ -533,7 +533,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792502711797,
-      "lastT": 1792551600000
+      "lastT": 1792558800000
     },
     {
       "id": "GRVT|1792514854789",
@@ -555,7 +555,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792514854789,
-      "lastT": 1792551600000
+      "lastT": 1792558800000
     },
     {
       "id": "BNB|1792544372073",
@@ -598,7 +598,8 @@
       "validUntil": 1793158066573,
       "status": "open",
       "alerted": true,
-      "openedAt": 1792553266573
+      "openedAt": 1792553266573,
+      "lastT": 1792558800000
     }
   ],
   "outlooks": [
@@ -1295,7 +1296,7 @@
       "lastAlert": null
     },
     "PONS": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-16T22:48:13.567Z"
     },
@@ -1385,7 +1386,7 @@
       "lastAlert": null
     },
     "ARB": {
-      "decision": "long",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-20T00:09:41.012Z"
     },
@@ -1513,6 +1514,11 @@
       "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": null
+    },
+    "IOST": {
+      "decision": "long",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {
@@ -1538,14 +1544,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-21T04:46:49.409Z",
-    "universe": 48,
+    "t": "2026-10-21T06:03:54.570Z",
+    "universe": 49,
     "analyzed": 20,
     "signals": [
       "XCRCL (خرید)"
     ]
   },
-  "lastFull": "2026-10-21T04:46:49.409Z",
+  "lastFull": "2026-10-21T06:03:54.570Z",
   "lastDaily": "2026-10-21",
   "lastWeekly": "2026-10-19"
 }
