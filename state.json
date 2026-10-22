@@ -344,7 +344,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792638000000
+      "lastT": 1792645200000
     },
     {
       "id": "BTC|1792375939000",
@@ -366,7 +366,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792638000000
+      "lastT": 1792645200000
     },
     {
       "id": "PEPE|1792389916299",
@@ -462,10 +462,11 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792454981012,
-      "lastT": 1792638000000,
+      "lastT": 1792645200000,
       "R": 1.6615587137805952,
       "closedAt": 1792544400000,
-      "watchTp2": true
+      "watchTp2": false,
+      "tp2Reached": true
     },
     {
       "id": "XSOXL|1792458004170",
@@ -609,7 +610,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792553266573,
-      "lastT": 1792638000000,
+      "lastT": 1792645200000,
       "R": 1.3547447333150122,
       "closedAt": 1792605600000,
       "watchTp2": true
@@ -677,10 +678,12 @@
       "rr2": 1.7901015234577058,
       "t": 1792574265652,
       "validUntil": 1793179065652,
-      "status": "open",
+      "status": "stop",
       "alerted": true,
       "openedAt": 1792574265652,
-      "lastT": 1792638000000
+      "lastT": 1792645200000,
+      "R": -1,
+      "closedAt": 1792645200000
     },
     {
       "id": "PUMP|1792574265652",
@@ -702,7 +705,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792574265652,
-      "lastT": 1792638000000,
+      "lastT": 1792645200000,
       "R": 1.3278061826215917,
       "closedAt": 1792605600000,
       "watchTp2": true
@@ -775,7 +778,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792627656449,
-      "lastT": 1792638000000
+      "lastT": 1792645200000
     },
     {
       "id": "XSNDK|1792627656449",
@@ -797,7 +800,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792627656449,
-      "lastT": 1792638000000
+      "lastT": 1792645200000
     }
   ],
   "outlooks": [
@@ -1842,15 +1845,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-22T04:46:58.359Z",
+    "t": "2026-10-22T06:05:01.760Z",
     "universe": 50,
     "analyzed": 19,
     "signals": [
-      "XSOXL (فروش)",
       "XSNDK (فروش)"
     ]
   },
-  "lastFull": "2026-10-22T04:46:58.359Z",
+  "lastFull": "2026-10-22T06:05:01.760Z",
   "lastDaily": "2026-10-22",
   "lastWeekly": "2026-10-19"
 }
