@@ -344,7 +344,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792674000000
+      "lastT": 1792681200000
     },
     {
       "id": "BTC|1792375939000",
@@ -366,7 +366,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792674000000
+      "lastT": 1792681200000
     },
     {
       "id": "PEPE|1792389916299",
@@ -610,7 +610,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792553266573,
-      "lastT": 1792674000000,
+      "lastT": 1792681200000,
       "R": 1.3547447333150122,
       "closedAt": 1792605600000,
       "watchTp2": true
@@ -705,10 +705,10 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792574265652,
-      "lastT": 1792674000000,
+      "lastT": 1792681200000,
       "R": 1.3278061826215917,
       "closedAt": 1792605600000,
-      "watchTp2": true
+      "watchTp2": false
     },
     {
       "id": "ONDO|1792587535849",
@@ -775,10 +775,13 @@
       "rr2": 2.9312295840120903,
       "t": 1792627656449,
       "validUntil": 1793232456449,
-      "status": "open",
+      "status": "tp1",
       "alerted": true,
       "openedAt": 1792627656449,
-      "lastT": 1792674000000
+      "lastT": 1792677600000,
+      "R": 1.9312295840120905,
+      "closedAt": 1792677600000,
+      "watchTp2": true
     },
     {
       "id": "XSNDK|1792627656449",
@@ -797,10 +800,13 @@
       "rr2": 2.249347435949336,
       "t": 1792627656449,
       "validUntil": 1793232456449,
-      "status": "open",
+      "status": "tp1",
       "alerted": true,
       "openedAt": 1792627656449,
-      "lastT": 1792674000000
+      "lastT": 1792681200000,
+      "R": 1.51905187815555,
+      "closedAt": 1792681200000,
+      "watchTp2": true
     },
     {
       "id": "XRP|1792660686765",
@@ -822,7 +828,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792660686765,
-      "lastT": 1792674000000
+      "lastT": 1792681200000
     },
     {
       "id": "GRVT|1792660686765",
@@ -844,7 +850,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792660686765,
-      "lastT": 1792674000000
+      "lastT": 1792681200000
     },
     {
       "id": "IRYS|1792673948675",
@@ -866,7 +872,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792673948675,
-      "lastT": 1792674000000
+      "lastT": 1792681200000
     }
   ],
   "outlooks": [
@@ -1663,7 +1669,7 @@
       "lastAlert": "2026-10-21T03:27:46.573Z"
     },
     "TRUMP": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-16T21:25:21.692Z"
     },
@@ -1758,7 +1764,7 @@
       "lastAlert": null
     },
     "WLD": {
-      "decision": "long",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -1911,14 +1917,16 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-22T14:31:40.683Z",
-    "universe": 49,
-    "analyzed": 18,
+    "t": "2026-10-22T16:04:42.967Z",
+    "universe": 48,
+    "analyzed": 19,
     "signals": [
-      "GRVT (خرید)"
+      "IRYS (خرید)",
+      "XSOXL (فروش)",
+      "DATA (فروش)"
     ]
   },
-  "lastFull": "2026-10-22T14:31:40.683Z",
+  "lastFull": "2026-10-22T16:04:42.967Z",
   "lastDaily": "2026-10-22",
   "lastWeekly": "2026-10-19"
 }
