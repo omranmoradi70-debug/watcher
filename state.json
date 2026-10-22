@@ -344,7 +344,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792702800000
+      "lastT": 1792706400000
     },
     {
       "id": "BTC|1792375939000",
@@ -366,7 +366,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792702800000
+      "lastT": 1792706400000
     },
     {
       "id": "PEPE|1792389916299",
@@ -610,7 +610,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792553266573,
-      "lastT": 1792702800000,
+      "lastT": 1792706400000,
       "R": 1.3547447333150122,
       "closedAt": 1792605600000,
       "watchTp2": true
@@ -778,7 +778,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792627656449,
-      "lastT": 1792702800000,
+      "lastT": 1792706400000,
       "R": 1.9312295840120905,
       "closedAt": 1792677600000,
       "watchTp2": true
@@ -829,7 +829,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792660686765,
-      "lastT": 1792702800000
+      "lastT": 1792706400000
     },
     {
       "id": "GRVT|1792660686765",
@@ -851,7 +851,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792660686765,
-      "lastT": 1792702800000
+      "lastT": 1792706400000
     },
     {
       "id": "IRYS|1792673948675",
@@ -873,7 +873,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792673948675,
-      "lastT": 1792702800000
+      "lastT": 1792706400000
     }
   ],
   "outlooks": [
@@ -1680,7 +1680,7 @@
       "lastAlert": null
     },
     "LIT": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-17T20:20:46.891Z"
     },
@@ -1918,14 +1918,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-22T22:44:21.008Z",
-    "universe": 47,
-    "analyzed": 19,
+    "t": "2026-10-22T23:46:03.592Z",
+    "universe": 46,
+    "analyzed": 18,
     "signals": [
       "IRYS (خرید)"
     ]
   },
-  "lastFull": "2026-10-22T22:44:21.008Z",
+  "lastFull": "2026-10-22T23:46:03.592Z",
   "lastDaily": "2026-10-22",
   "lastWeekly": "2026-10-19"
 }
