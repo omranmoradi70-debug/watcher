@@ -767,7 +767,8 @@
       "t": 1792627656449,
       "validUntil": 1793232456449,
       "status": "open",
-      "alerted": true
+      "alerted": true,
+      "openedAt": 1792627656449
     },
     {
       "id": "XSNDK|1792627656449",
@@ -787,7 +788,8 @@
       "t": 1792627656449,
       "validUntil": 1793232456449,
       "status": "open",
-      "alerted": true
+      "alerted": true,
+      "openedAt": 1792627656449
     }
   ],
   "outlooks": [
@@ -1747,16 +1749,15 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-22T00:07:36.449Z",
+    "t": "2026-10-22T00:58:22.801Z",
     "universe": 48,
     "analyzed": 19,
     "signals": [
-      "GRVT (خرید)",
       "XSOXL (فروش)",
       "XSNDK (فروش)"
     ]
   },
-  "lastFull": "2026-10-22T00:07:36.449Z",
+  "lastFull": "2026-10-22T00:58:22.801Z",
   "lastDaily": "2026-10-21",
   "lastWeekly": "2026-10-19"
 }
