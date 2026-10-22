@@ -344,7 +344,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792659600000
+      "lastT": 1792663200000
     },
     {
       "id": "BTC|1792375939000",
@@ -366,7 +366,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792659600000
+      "lastT": 1792663200000
     },
     {
       "id": "PEPE|1792389916299",
@@ -610,7 +610,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792553266573,
-      "lastT": 1792659600000,
+      "lastT": 1792663200000,
       "R": 1.3547447333150122,
       "closedAt": 1792605600000,
       "watchTp2": true
@@ -705,7 +705,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792574265652,
-      "lastT": 1792659600000,
+      "lastT": 1792663200000,
       "R": 1.3278061826215917,
       "closedAt": 1792605600000,
       "watchTp2": true
@@ -778,7 +778,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792627656449,
-      "lastT": 1792659600000
+      "lastT": 1792663200000
     },
     {
       "id": "XSNDK|1792627656449",
@@ -800,7 +800,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792627656449,
-      "lastT": 1792659600000
+      "lastT": 1792663200000
     },
     {
       "id": "XRP|1792660686765",
@@ -821,7 +821,8 @@
       "validUntil": 1793265486765,
       "status": "open",
       "alerted": false,
-      "openedAt": 1792660686765
+      "openedAt": 1792660686765,
+      "lastT": 1792663200000
     },
     {
       "id": "GRVT|1792660686765",
@@ -842,7 +843,8 @@
       "validUntil": 1793265486765,
       "status": "open",
       "alerted": true,
-      "openedAt": 1792660686765
+      "openedAt": 1792660686765,
+      "lastT": 1792663200000
     }
   ],
   "outlooks": [
@@ -1664,7 +1666,7 @@
       "lastAlert": null
     },
     "ENA": {
-      "decision": "long",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -1887,15 +1889,15 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-22T10:07:09.285Z",
-    "universe": 52,
+    "t": "2026-10-22T11:29:07.245Z",
+    "universe": 53,
     "analyzed": 18,
     "signals": [
       "GRVT (خرید)",
       "XSNDK (فروش)"
     ]
   },
-  "lastFull": "2026-10-22T10:07:09.285Z",
+  "lastFull": "2026-10-22T11:29:07.245Z",
   "lastDaily": "2026-10-22",
   "lastWeekly": "2026-10-19"
 }
