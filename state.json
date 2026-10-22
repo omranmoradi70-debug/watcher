@@ -344,7 +344,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792695600000
+      "lastT": 1792699200000
     },
     {
       "id": "BTC|1792375939000",
@@ -366,7 +366,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792695600000
+      "lastT": 1792699200000
     },
     {
       "id": "PEPE|1792389916299",
@@ -610,7 +610,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792553266573,
-      "lastT": 1792695600000,
+      "lastT": 1792699200000,
       "R": 1.3547447333150122,
       "closedAt": 1792605600000,
       "watchTp2": true
@@ -778,7 +778,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792627656449,
-      "lastT": 1792695600000,
+      "lastT": 1792699200000,
       "R": 1.9312295840120905,
       "closedAt": 1792677600000,
       "watchTp2": true
@@ -803,10 +803,11 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792627656449,
-      "lastT": 1792695600000,
+      "lastT": 1792699200000,
       "R": 1.51905187815555,
       "closedAt": 1792681200000,
-      "watchTp2": true
+      "watchTp2": false,
+      "tp2Reached": true
     },
     {
       "id": "XRP|1792660686765",
@@ -828,7 +829,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792660686765,
-      "lastT": 1792695600000
+      "lastT": 1792699200000
     },
     {
       "id": "GRVT|1792660686765",
@@ -850,7 +851,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792660686765,
-      "lastT": 1792695600000
+      "lastT": 1792699200000
     },
     {
       "id": "IRYS|1792673948675",
@@ -872,7 +873,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792673948675,
-      "lastT": 1792695600000
+      "lastT": 1792699200000
     }
   ],
   "outlooks": [
@@ -1917,14 +1918,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-22T20:02:09.929Z",
-    "universe": 46,
+    "t": "2026-10-22T21:27:21.663Z",
+    "universe": 47,
     "analyzed": 19,
     "signals": [
       "DATA (فروش)"
     ]
   },
-  "lastFull": "2026-10-22T20:02:09.929Z",
+  "lastFull": "2026-10-22T21:27:21.663Z",
   "lastDaily": "2026-10-22",
   "lastWeekly": "2026-10-19"
 }
