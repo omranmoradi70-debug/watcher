@@ -344,7 +344,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792724400000
+      "lastT": 1792731600000
     },
     {
       "id": "BTC|1792375939000",
@@ -366,7 +366,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792724400000
+      "lastT": 1792731600000
     },
     {
       "id": "PEPE|1792389916299",
@@ -610,7 +610,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792553266573,
-      "lastT": 1792724400000,
+      "lastT": 1792731600000,
       "R": 1.3547447333150122,
       "closedAt": 1792605600000,
       "watchTp2": true
@@ -830,7 +830,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792660686765,
-      "lastT": 1792724400000
+      "lastT": 1792731600000
     },
     {
       "id": "GRVT|1792660686765",
@@ -852,7 +852,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792660686765,
-      "lastT": 1792724400000
+      "lastT": 1792731600000
     },
     {
       "id": "IRYS|1792673948675",
@@ -874,10 +874,11 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792673948675,
-      "lastT": 1792724400000,
+      "lastT": 1792731600000,
       "R": 3.345387196298146,
       "closedAt": 1792720800000,
-      "watchTp2": true
+      "watchTp2": false,
+      "tp2Reached": true
     },
     {
       "id": "ETH|1792715725503",
@@ -899,7 +900,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1792724400000
+      "lastT": 1792731600000
     },
     {
       "id": "SOL|1792715725503",
@@ -921,7 +922,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1792724400000
+      "lastT": 1792731600000
     },
     {
       "id": "BNB|1792715725503",
@@ -964,10 +965,12 @@
       "rr2": 3.957729930169846,
       "t": 1792715725503,
       "validUntil": 1793320525503,
-      "status": "open",
+      "status": "stop",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1792724400000
+      "lastT": 1792731600000,
+      "R": -1,
+      "closedAt": 1792731600000
     },
     {
       "id": "XSPCX|1792715725503",
@@ -989,7 +992,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1792724400000
+      "lastT": 1792731600000
     },
     {
       "id": "FIL|1792715725503",
@@ -1011,7 +1014,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1792724400000
+      "lastT": 1792731600000
     },
     {
       "id": "ADA|1792721169535",
@@ -1033,7 +1036,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792721169535,
-      "lastT": 1792724400000
+      "lastT": 1792731600000
     }
   ],
   "outlooks": [
@@ -1723,7 +1726,10 @@
       "due": 1792730818359,
       "s1": 82338.56999999999,
       "r1": 82996.73749999999,
-      "done": false
+      "done": true,
+      "price1": 81750.1,
+      "movePct": -1.36,
+      "correct": false
     },
     {
       "id": "ETH|day|2026-10-22",
@@ -1736,7 +1742,10 @@
       "due": 1792730818359,
       "s1": 2438.3385714285714,
       "r1": 2467.656666666667,
-      "done": false
+      "done": true,
+      "price1": 2401.28,
+      "movePct": -1.75,
+      "correct": false
     },
     {
       "id": "SOL|day|2026-10-22",
@@ -1749,7 +1758,10 @@
       "due": 1792730818359,
       "s1": 103.54,
       "r1": 105.69181818181819,
-      "done": false
+      "done": true,
+      "price1": 104.3,
+      "movePct": -1.1,
+      "correct": true
     },
     {
       "id": "BNB|day|2026-10-22",
@@ -1762,7 +1774,10 @@
       "due": 1792730818359,
       "s1": 733.65,
       "r1": 746.6999999999999,
-      "done": false
+      "done": true,
+      "price1": 741.2,
+      "movePct": 0.09,
+      "correct": true
     },
     {
       "id": "XRP|day|2026-10-22",
@@ -1775,7 +1790,10 @@
       "due": 1792730818359,
       "s1": 1.321792857142857,
       "r1": 1.3491,
-      "done": false
+      "done": true,
+      "price1": 1.324,
+      "movePct": -1.67,
+      "correct": true
     },
     {
       "id": "BTC|day|2026-10-23",
@@ -2133,6 +2151,11 @@
       "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
+    },
+    "PAXG": {
+      "decision": "short",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {
@@ -2158,16 +2181,17 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-23T04:46:52.068Z",
-    "universe": 46,
+    "t": "2026-10-23T06:03:46.467Z",
+    "universe": 44,
     "analyzed": 19,
     "signals": [
       "DATA (فروش)",
       "XSPCX (فروش)",
-      "XSNDK (فروش)"
+      "XSNDK (فروش)",
+      "PEPE (خرید)"
     ]
   },
-  "lastFull": "2026-10-23T04:46:52.068Z",
+  "lastFull": "2026-10-23T06:03:46.467Z",
   "lastDaily": "2026-10-23",
   "lastWeekly": "2026-10-19"
 }
