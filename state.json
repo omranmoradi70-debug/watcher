@@ -344,7 +344,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792785600000
+      "lastT": 1792789200000
     },
     {
       "id": "BTC|1792375939000",
@@ -366,7 +366,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792785600000
+      "lastT": 1792789200000
     },
     {
       "id": "PEPE|1792389916299",
@@ -610,7 +610,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792553266573,
-      "lastT": 1792785600000,
+      "lastT": 1792789200000,
       "R": 1.3547447333150122,
       "closedAt": 1792605600000,
       "watchTp2": true
@@ -830,7 +830,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792660686765,
-      "lastT": 1792785600000
+      "lastT": 1792789200000
     },
     {
       "id": "GRVT|1792660686765",
@@ -852,7 +852,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792660686765,
-      "lastT": 1792785600000
+      "lastT": 1792789200000
     },
     {
       "id": "IRYS|1792673948675",
@@ -900,7 +900,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1792785600000
+      "lastT": 1792789200000
     },
     {
       "id": "SOL|1792715725503",
@@ -922,7 +922,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1792785600000
+      "lastT": 1792789200000
     },
     {
       "id": "BNB|1792715725503",
@@ -992,7 +992,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1792785600000
+      "lastT": 1792789200000
     },
     {
       "id": "FIL|1792715725503",
@@ -1014,7 +1014,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1792785600000
+      "lastT": 1792789200000
     },
     {
       "id": "ADA|1792721169535",
@@ -1060,7 +1060,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792748884936,
-      "lastT": 1792785600000
+      "lastT": 1792789200000
     },
     {
       "id": "XMU|1792753464170",
@@ -1106,7 +1106,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792767256901,
-      "lastT": 1792785600000
+      "lastT": 1792789200000
     },
     {
       "id": "XSKHY|1792767256901",
@@ -1128,7 +1128,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792767256901,
-      "lastT": 1792785600000
+      "lastT": 1792789200000
     },
     {
       "id": "ENA|1792786064502",
@@ -1149,7 +1149,8 @@
       "validUntil": 1793390864502,
       "status": "open",
       "alerted": true,
-      "openedAt": 1792786064502
+      "openedAt": 1792786064502,
+      "lastT": 1792789200000
     },
     {
       "id": "ONDO|1792786064502",
@@ -1170,7 +1171,8 @@
       "validUntil": 1793390864502,
       "status": "open",
       "alerted": true,
-      "openedAt": 1792786064502
+      "openedAt": 1792786064502,
+      "lastT": 1792789200000
     }
   ],
   "outlooks": [
@@ -1265,7 +1267,10 @@
       "due": 1792790914253,
       "s1": 81344.54999999999,
       "r1": 82539.3,
-      "done": false
+      "done": true,
+      "price1": 81109.8,
+      "movePct": -0.76,
+      "correct": false
     },
     {
       "id": "ETH|week|2026-10-16",
@@ -1278,7 +1283,10 @@
       "due": 1792790914253,
       "s1": 2389.39,
       "r1": 2466,
-      "done": false
+      "done": true,
+      "price1": 2382.61,
+      "movePct": -1.52,
+      "correct": false
     },
     {
       "id": "SOL|week|2026-10-16",
@@ -1291,7 +1299,10 @@
       "due": 1792790914253,
       "s1": 97.2975,
       "r1": 106.28333333333335,
-      "done": false
+      "done": true,
+      "price1": 102.93,
+      "movePct": -1.39,
+      "correct": true
     },
     {
       "id": "BNB|week|2026-10-16",
@@ -1304,7 +1315,10 @@
       "due": 1792790914253,
       "s1": 708.3333333333334,
       "r1": 746.8499999999999,
-      "done": false
+      "done": true,
+      "price1": 739.2,
+      "movePct": 2.28,
+      "correct": true
     },
     {
       "id": "XRP|week|2026-10-16",
@@ -1317,7 +1331,10 @@
       "due": 1792790914253,
       "s1": 1.2963615384615386,
       "r1": 1.366926,
-      "done": false
+      "done": true,
+      "price1": 1.3003,
+      "movePct": -0.57,
+      "correct": true
     },
     {
       "id": "BTC|month|2026-10-16",
@@ -2325,12 +2342,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-23T21:26:09.959Z",
+    "t": "2026-10-23T22:44:12.676Z",
     "universe": 40,
     "analyzed": 19,
     "signals": []
   },
-  "lastFull": "2026-10-23T21:26:09.959Z",
+  "lastFull": "2026-10-23T22:44:12.676Z",
   "lastDaily": "2026-10-23",
   "lastWeekly": "2026-10-19"
 }
