@@ -11,7 +11,7 @@
       "lastAlert": "2026-10-15T21:37:30.338Z"
     },
     "SOL": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -344,7 +344,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792720800000
+      "lastT": 1792724400000
     },
     {
       "id": "BTC|1792375939000",
@@ -366,7 +366,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792720800000
+      "lastT": 1792724400000
     },
     {
       "id": "PEPE|1792389916299",
@@ -610,7 +610,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792553266573,
-      "lastT": 1792720800000,
+      "lastT": 1792724400000,
       "R": 1.3547447333150122,
       "closedAt": 1792605600000,
       "watchTp2": true
@@ -830,7 +830,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792660686765,
-      "lastT": 1792720800000
+      "lastT": 1792724400000
     },
     {
       "id": "GRVT|1792660686765",
@@ -852,7 +852,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792660686765,
-      "lastT": 1792720800000
+      "lastT": 1792724400000
     },
     {
       "id": "IRYS|1792673948675",
@@ -874,7 +874,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792673948675,
-      "lastT": 1792720800000,
+      "lastT": 1792724400000,
       "R": 3.345387196298146,
       "closedAt": 1792720800000,
       "watchTp2": true
@@ -899,7 +899,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1792720800000
+      "lastT": 1792724400000
     },
     {
       "id": "SOL|1792715725503",
@@ -921,7 +921,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1792720800000
+      "lastT": 1792724400000
     },
     {
       "id": "BNB|1792715725503",
@@ -967,7 +967,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1792720800000
+      "lastT": 1792724400000
     },
     {
       "id": "XSPCX|1792715725503",
@@ -989,7 +989,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1792720800000
+      "lastT": 1792724400000
     },
     {
       "id": "FIL|1792715725503",
@@ -1011,7 +1011,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1792720800000
+      "lastT": 1792724400000
     },
     {
       "id": "ADA|1792721169535",
@@ -1032,7 +1032,8 @@
       "validUntil": 1793325969535,
       "status": "open",
       "alerted": true,
-      "openedAt": 1792721169535
+      "openedAt": 1792721169535,
+      "lastT": 1792724400000
     }
   ],
   "outlooks": [
@@ -1775,6 +1776,71 @@
       "s1": 1.321792857142857,
       "r1": 1.3491,
       "done": false
+    },
+    {
+      "id": "BTC|day|2026-10-23",
+      "sym": "BTC",
+      "hz": "day",
+      "bias": "flat",
+      "strength": null,
+      "price": 81678.6,
+      "t": 1792730812068,
+      "due": 1792817212068,
+      "s1": 80963.975,
+      "r1": 82338.56999999999,
+      "done": false
+    },
+    {
+      "id": "ETH|day|2026-10-23",
+      "sym": "ETH",
+      "hz": "day",
+      "bias": "down",
+      "strength": "medium",
+      "price": 2399.14,
+      "t": 1792730812068,
+      "due": 1792817212068,
+      "s1": 2391.5157142857142,
+      "r1": 2438.3385714285714,
+      "done": false
+    },
+    {
+      "id": "SOL|day|2026-10-23",
+      "sym": "SOL",
+      "hz": "day",
+      "bias": "down",
+      "strength": "weak",
+      "price": 103.98,
+      "t": 1792730812068,
+      "due": 1792817212068,
+      "s1": 103.54,
+      "r1": 105.26833333333333,
+      "done": false
+    },
+    {
+      "id": "BNB|day|2026-10-23",
+      "sym": "BNB",
+      "hz": "day",
+      "bias": "flat",
+      "strength": null,
+      "price": 739.6,
+      "t": 1792730812068,
+      "due": 1792817212068,
+      "s1": 733.65,
+      "r1": 740.6,
+      "done": false
+    },
+    {
+      "id": "XRP|day|2026-10-23",
+      "sym": "XRP",
+      "hz": "day",
+      "bias": "down",
+      "strength": "medium",
+      "price": 1.3195,
+      "t": 1792730812068,
+      "due": 1792817212068,
+      "s1": 1.28675,
+      "r1": 1.3325,
+      "done": false
     }
   ],
   "scan": {
@@ -2057,6 +2123,16 @@
       "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": null
+    },
+    "XMU": {
+      "decision": "short",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "BCH": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {
@@ -2082,14 +2158,16 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-23T03:28:51.361Z",
-    "universe": 45,
-    "analyzed": 18,
+    "t": "2026-10-23T04:46:52.068Z",
+    "universe": 46,
+    "analyzed": 19,
     "signals": [
-      "XSPCX (فروش)"
+      "DATA (فروش)",
+      "XSPCX (فروش)",
+      "XSNDK (فروش)"
     ]
   },
-  "lastFull": "2026-10-23T03:28:51.361Z",
-  "lastDaily": "2026-10-22",
+  "lastFull": "2026-10-23T04:46:52.068Z",
+  "lastDaily": "2026-10-23",
   "lastWeekly": "2026-10-19"
 }
