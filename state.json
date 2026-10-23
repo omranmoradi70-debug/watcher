@@ -2181,17 +2181,16 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-23T06:03:46.467Z",
-    "universe": 44,
-    "analyzed": 19,
+    "t": "2026-10-23T06:59:09.410Z",
+    "universe": 45,
+    "analyzed": 18,
     "signals": [
-      "DATA (فروش)",
       "XSPCX (فروش)",
-      "XSNDK (فروش)",
-      "PEPE (خرید)"
+      "DATA (فروش)",
+      "XSNDK (فروش)"
     ]
   },
-  "lastFull": "2026-10-23T06:03:46.467Z",
+  "lastFull": "2026-10-23T06:59:09.410Z",
   "lastDaily": "2026-10-23",
   "lastWeekly": "2026-10-19"
 }
