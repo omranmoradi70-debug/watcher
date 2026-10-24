@@ -344,7 +344,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792792800000
+      "lastT": 1792800000000
     },
     {
       "id": "BTC|1792375939000",
@@ -366,7 +366,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792792800000
+      "lastT": 1792800000000
     },
     {
       "id": "PEPE|1792389916299",
@@ -610,7 +610,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792553266573,
-      "lastT": 1792792800000,
+      "lastT": 1792800000000,
       "R": 1.3547447333150122,
       "closedAt": 1792605600000,
       "watchTp2": true
@@ -830,7 +830,7 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792660686765,
-      "lastT": 1792792800000,
+      "lastT": 1792800000000,
       "R": 1.4660003903514496,
       "closedAt": 1792792800000,
       "watchTp2": true
@@ -905,7 +905,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1792792800000
+      "lastT": 1792800000000
     },
     {
       "id": "SOL|1792715725503",
@@ -927,7 +927,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1792792800000
+      "lastT": 1792800000000
     },
     {
       "id": "BNB|1792715725503",
@@ -997,7 +997,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1792792800000
+      "lastT": 1792800000000
     },
     {
       "id": "FIL|1792715725503",
@@ -1019,7 +1019,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1792792800000
+      "lastT": 1792800000000
     },
     {
       "id": "ADA|1792721169535",
@@ -1139,7 +1139,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792767256901,
-      "lastT": 1792792800000
+      "lastT": 1792800000000
     },
     {
       "id": "ENA|1792786064502",
@@ -1185,7 +1185,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792786064502,
-      "lastT": 1792792800000
+      "lastT": 1792800000000
     }
   ],
   "outlooks": [
@@ -2137,7 +2137,7 @@
       "lastAlert": "2026-10-16T22:48:13.567Z"
     },
     "DOT": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -2147,7 +2147,7 @@
       "lastAlert": null
     },
     "ARB": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-20T00:09:41.012Z"
     },
@@ -2172,12 +2172,12 @@
       "lastAlert": null
     },
     "WLD": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
     "PUMP": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-21T09:17:45.652Z"
     },
@@ -2267,7 +2267,7 @@
       "lastAlert": null
     },
     "DOS": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -2287,8 +2287,8 @@
       "lastAlert": null
     },
     "DATA": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-10-21T09:17:45.652Z"
     },
     "IRYS": {
@@ -2302,8 +2302,8 @@
       "lastAlert": null
     },
     "DASH": {
-      "decision": "long",
-      "lastAlertedDecision": "long",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-10-23T09:48:04.936Z"
     },
     "XMU": {
@@ -2355,14 +2355,16 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-23T23:43:43.593Z",
+    "t": "2026-10-24T01:03:54.760Z",
     "universe": 43,
     "analyzed": 19,
     "signals": [
-      "DASH (خرید)"
+      "IRYS (خرید)",
+      "PEPE (خرید)",
+      "FIL (فروش)"
     ]
   },
-  "lastFull": "2026-10-23T23:43:43.593Z",
+  "lastFull": "2026-10-24T01:03:54.760Z",
   "lastDaily": "2026-10-23",
   "lastWeekly": "2026-10-19"
 }
