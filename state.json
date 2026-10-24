@@ -344,7 +344,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792371507800,
-      "lastT": 1792810800000
+      "lastT": 1792818000000
     },
     {
       "id": "BTC|1792375939000",
@@ -366,7 +366,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792375939000,
-      "lastT": 1792810800000
+      "lastT": 1792818000000
     },
     {
       "id": "PEPE|1792389916299",
@@ -610,7 +610,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792553266573,
-      "lastT": 1792810800000,
+      "lastT": 1792818000000,
       "R": 1.3547447333150122,
       "closedAt": 1792605600000,
       "watchTp2": true
@@ -830,7 +830,7 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792660686765,
-      "lastT": 1792810800000,
+      "lastT": 1792818000000,
       "R": 1.4660003903514496,
       "closedAt": 1792792800000,
       "watchTp2": true
@@ -905,7 +905,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1792810800000
+      "lastT": 1792818000000
     },
     {
       "id": "SOL|1792715725503",
@@ -927,7 +927,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1792810800000
+      "lastT": 1792818000000
     },
     {
       "id": "BNB|1792715725503",
@@ -997,7 +997,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1792810800000
+      "lastT": 1792818000000
     },
     {
       "id": "FIL|1792715725503",
@@ -1019,7 +1019,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1792810800000
+      "lastT": 1792818000000
     },
     {
       "id": "ADA|1792721169535",
@@ -1139,7 +1139,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792767256901,
-      "lastT": 1792810800000
+      "lastT": 1792818000000
     },
     {
       "id": "ENA|1792786064502",
@@ -1185,7 +1185,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792786064502,
-      "lastT": 1792810800000
+      "lastT": 1792818000000
     },
     {
       "id": "DOT|1792808739147",
@@ -1207,7 +1207,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792808739147,
-      "lastT": 1792810800000
+      "lastT": 1792818000000
     },
     {
       "id": "SUI|1792813633918",
@@ -1228,7 +1228,8 @@
       "validUntil": 1793418433918,
       "status": "open",
       "alerted": true,
-      "openedAt": 1792813633918
+      "openedAt": 1792813633918,
+      "lastT": 1792818000000
     },
     {
       "id": "PUMP|1792817993722",
@@ -1248,7 +1249,9 @@
       "t": 1792817993722,
       "validUntil": 1793422793722,
       "status": "open",
-      "alerted": true
+      "alerted": true,
+      "openedAt": 1792817993722,
+      "lastT": 1792818000000
     }
   ],
   "outlooks": [
@@ -2503,16 +2506,15 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-24T04:59:53.722Z",
-    "universe": 42,
+    "t": "2026-10-24T06:10:27.032Z",
+    "universe": 41,
     "analyzed": 18,
     "signals": [
-      "PUMP (فروش)",
       "DOT (فروش)",
       "TRUMP (فروش)"
     ]
   },
-  "lastFull": "2026-10-24T04:59:53.722Z",
+  "lastFull": "2026-10-24T06:10:27.032Z",
   "lastDaily": "2026-10-24",
   "lastWeekly": "2026-10-19"
 }
