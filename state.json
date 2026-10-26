@@ -1,7 +1,7 @@
 {
   "coins": {
     "BTC": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-26T00:40:50.239Z"
     },
@@ -11,7 +11,7 @@
       "lastAlert": "2026-10-24T08:46:58.112Z"
     },
     "SOL": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-26T02:55:19.033Z"
     },
@@ -834,7 +834,7 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792660686765,
-      "lastT": 1793034000000,
+      "lastT": 1793041200000,
       "R": 1.4660003903514496,
       "closedAt": 1792792800000,
       "watchTp2": true
@@ -909,7 +909,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1793034000000
+      "lastT": 1793041200000
     },
     {
       "id": "SOL|1792715725503",
@@ -931,7 +931,7 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1793034000000,
+      "lastT": 1793041200000,
       "R": 1.506962981290037,
       "closedAt": 1792850400000,
       "watchTp2": true
@@ -1004,7 +1004,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1793034000000
+      "lastT": 1793041200000
     },
     {
       "id": "FIL|1792715725503",
@@ -1026,7 +1026,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1793034000000,
+      "lastT": 1793041200000,
       "R": 1.947495684052815,
       "closedAt": 1792850400000,
       "watchTp2": true
@@ -1149,7 +1149,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792767256901,
-      "lastT": 1793034000000
+      "lastT": 1793041200000
     },
     {
       "id": "ENA|1792786064502",
@@ -1218,10 +1218,13 @@
       "rr2": 3.1698828704669664,
       "t": 1792808739147,
       "validUntil": 1793413539147,
-      "status": "open",
+      "status": "tp1",
       "alerted": true,
       "openedAt": 1792808739147,
-      "lastT": 1793034000000
+      "lastT": 1793041200000,
+      "R": 1.7236626320468613,
+      "closedAt": 1793041200000,
+      "watchTp2": true
     },
     {
       "id": "SUI|1792813633918",
@@ -1243,7 +1246,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792813633918,
-      "lastT": 1793034000000,
+      "lastT": 1793041200000,
       "R": 1.2214977012100563,
       "closedAt": 1792850400000,
       "watchTp2": true
@@ -1268,7 +1271,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792817993722,
-      "lastT": 1793034000000
+      "lastT": 1793041200000
     },
     {
       "id": "UNI|1792827258621",
@@ -1339,7 +1342,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792889686385,
-      "lastT": 1793034000000
+      "lastT": 1793041200000
     },
     {
       "id": "SOL|1792898802067",
@@ -1361,7 +1364,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792898802067,
-      "lastT": 1793034000000
+      "lastT": 1793041200000
     },
     {
       "id": "DATA|1792917988168",
@@ -1383,7 +1386,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792917988168,
-      "lastT": 1793034000000
+      "lastT": 1793041200000
     },
     {
       "id": "WET|1792917988168",
@@ -1405,7 +1408,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792917988168,
-      "lastT": 1793034000000
+      "lastT": 1793041200000
     },
     {
       "id": "DOGE|1792929548172",
@@ -1427,7 +1430,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792929548172,
-      "lastT": 1793034000000
+      "lastT": 1793041200000
     },
     {
       "id": "DOS|1792938441071",
@@ -1449,7 +1452,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792938441071,
-      "lastT": 1793034000000
+      "lastT": 1793041200000
     },
     {
       "id": "LTC|1792942140540",
@@ -1471,7 +1474,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792942140540,
-      "lastT": 1793034000000
+      "lastT": 1793041200000
     },
     {
       "id": "BTC|1792975250239",
@@ -1541,7 +1544,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792991343991,
-      "lastT": 1793034000000
+      "lastT": 1793041200000
     },
     {
       "id": "ENA|1793006324033",
@@ -1563,7 +1566,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1793006324033,
-      "lastT": 1793034000000
+      "lastT": 1793041200000
     },
     {
       "id": "BABY|1793009752443",
@@ -1585,7 +1588,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1793009752443,
-      "lastT": 1793034000000
+      "lastT": 1793041200000
     },
     {
       "id": "ZEC|1793021584468",
@@ -1607,7 +1610,27 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1793021584468,
-      "lastT": 1793034000000
+      "lastT": 1793041200000
+    },
+    {
+      "id": "BTC|1793045197648",
+      "sym": "BTC",
+      "src": "watch",
+      "dir": -1,
+      "strength": "weak",
+      "mode": "now",
+      "entry": 79956.2,
+      "zoneLo": 79956.2,
+      "zoneHi": 80351.41835605892,
+      "stop": 80746.63671211783,
+      "tp1": 77565.85,
+      "tp2": 76258.63999999998,
+      "rr1": 3.0240877774963955,
+      "rr2": 4.6778697690964295,
+      "t": 1793045197648,
+      "validUntil": 1793649997648,
+      "status": "open",
+      "alerted": false
     }
   ],
   "outlooks": [
@@ -2784,7 +2807,7 @@
       "lastAlert": "2026-10-19T00:58:27.800Z"
     },
     "XSOXL": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-22T00:07:36.449Z"
     },
@@ -2919,7 +2942,7 @@
       "lastAlert": null
     },
     "PUMP": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-24T04:59:53.722Z"
     },
@@ -3009,7 +3032,7 @@
       "lastAlert": null
     },
     "DOS": {
-      "decision": "long",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-25T14:27:21.071Z"
     },
@@ -3127,12 +3150,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-26T18:42:58.407Z",
+    "t": "2026-10-26T20:06:37.648Z",
     "universe": 39,
     "analyzed": 19,
-    "signals": []
+    "signals": [
+      "LIT (فروش)"
+    ]
   },
-  "lastFull": "2026-10-26T18:42:58.407Z",
+  "lastFull": "2026-10-26T20:06:37.648Z",
   "lastDaily": "2026-10-26",
   "lastWeekly": "2026-10-26"
 }
