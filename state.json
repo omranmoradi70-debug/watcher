@@ -834,7 +834,7 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792660686765,
-      "lastT": 1793221200000,
+      "lastT": 1793224800000,
       "R": 1.4660003903514496,
       "closedAt": 1792792800000,
       "watchTp2": true
@@ -909,7 +909,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1793221200000
+      "lastT": 1793224800000
     },
     {
       "id": "SOL|1792715725503",
@@ -931,7 +931,7 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1793221200000,
+      "lastT": 1793224800000,
       "R": 1.506962981290037,
       "closedAt": 1792850400000,
       "watchTp2": true
@@ -1004,7 +1004,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1793221200000
+      "lastT": 1793224800000
     },
     {
       "id": "FIL|1792715725503",
@@ -1026,7 +1026,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1793221200000,
+      "lastT": 1793224800000,
       "R": 1.947495684052815,
       "closedAt": 1792850400000,
       "watchTp2": true
@@ -1223,7 +1223,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792808739147,
-      "lastT": 1793221200000,
+      "lastT": 1793224800000,
       "R": 1.7236626320468613,
       "closedAt": 1793041200000,
       "watchTp2": true
@@ -1248,7 +1248,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792813633918,
-      "lastT": 1793221200000,
+      "lastT": 1793224800000,
       "R": 1.2214977012100563,
       "closedAt": 1792850400000,
       "watchTp2": true
@@ -1346,7 +1346,7 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792889686385,
-      "lastT": 1793221200000,
+      "lastT": 1793224800000,
       "R": 1.604786917109957,
       "closedAt": 1793181600000,
       "watchTp2": true
@@ -1371,7 +1371,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792898802067,
-      "lastT": 1793221200000
+      "lastT": 1793224800000
     },
     {
       "id": "DATA|1792917988168",
@@ -1393,7 +1393,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792917988168,
-      "lastT": 1793221200000
+      "lastT": 1793224800000
     },
     {
       "id": "WET|1792917988168",
@@ -1415,7 +1415,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792917988168,
-      "lastT": 1793221200000
+      "lastT": 1793224800000
     },
     {
       "id": "DOGE|1792929548172",
@@ -1557,7 +1557,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792991343991,
-      "lastT": 1793221200000
+      "lastT": 1793224800000
     },
     {
       "id": "ENA|1793006324033",
@@ -1603,7 +1603,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1793009752443,
-      "lastT": 1793221200000
+      "lastT": 1793224800000
     },
     {
       "id": "ZEC|1793021584468",
@@ -1625,7 +1625,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1793021584468,
-      "lastT": 1793221200000,
+      "lastT": 1793224800000,
       "R": 1.514271733075086,
       "closedAt": 1793116800000,
       "watchTp2": true
@@ -1941,7 +1941,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793162312750,
-      "lastT": 1793221200000
+      "lastT": 1793224800000
     },
     {
       "id": "XRP|1793205089536",
@@ -1991,7 +1991,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793208499171,
-      "lastT": 1793221200000
+      "lastT": 1793224800000
     }
   ],
   "outlooks": [
@@ -3681,12 +3681,15 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-28T22:08:26.106Z",
-    "universe": 47,
+    "t": "2026-10-28T23:26:40.475Z",
+    "universe": 45,
     "analyzed": 19,
-    "signals": []
+    "signals": [
+      "LIT (فروش)",
+      "ZAMA (خرید)"
+    ]
   },
-  "lastFull": "2026-10-28T22:08:26.106Z",
+  "lastFull": "2026-10-28T23:26:40.475Z",
   "lastDaily": "2026-10-28",
   "lastWeekly": "2026-10-26",
   "replay": {
