@@ -1,7 +1,7 @@
 {
   "coins": {
     "BTC": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-27T04:16:38.116Z"
     },
@@ -834,7 +834,7 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792660686765,
-      "lastT": 1793152800000,
+      "lastT": 1793156400000,
       "R": 1.4660003903514496,
       "closedAt": 1792792800000,
       "watchTp2": true
@@ -909,7 +909,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1793152800000
+      "lastT": 1793156400000
     },
     {
       "id": "SOL|1792715725503",
@@ -931,7 +931,7 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1793152800000,
+      "lastT": 1793156400000,
       "R": 1.506962981290037,
       "closedAt": 1792850400000,
       "watchTp2": true
@@ -1004,7 +1004,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1793152800000
+      "lastT": 1793156400000
     },
     {
       "id": "FIL|1792715725503",
@@ -1026,7 +1026,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1793152800000,
+      "lastT": 1793156400000,
       "R": 1.947495684052815,
       "closedAt": 1792850400000,
       "watchTp2": true
@@ -1223,7 +1223,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792808739147,
-      "lastT": 1793152800000,
+      "lastT": 1793156400000,
       "R": 1.7236626320468613,
       "closedAt": 1793041200000,
       "watchTp2": true
@@ -1248,7 +1248,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792813633918,
-      "lastT": 1793152800000,
+      "lastT": 1793156400000,
       "R": 1.2214977012100563,
       "closedAt": 1792850400000,
       "watchTp2": true
@@ -1273,7 +1273,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792817993722,
-      "lastT": 1793152800000
+      "lastT": 1793156400000
     },
     {
       "id": "UNI|1792827258621",
@@ -1344,7 +1344,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792889686385,
-      "lastT": 1793152800000
+      "lastT": 1793156400000
     },
     {
       "id": "SOL|1792898802067",
@@ -1366,7 +1366,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792898802067,
-      "lastT": 1793152800000
+      "lastT": 1793156400000
     },
     {
       "id": "DATA|1792917988168",
@@ -1388,7 +1388,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792917988168,
-      "lastT": 1793152800000
+      "lastT": 1793156400000
     },
     {
       "id": "WET|1792917988168",
@@ -1410,7 +1410,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792917988168,
-      "lastT": 1793152800000
+      "lastT": 1793156400000
     },
     {
       "id": "DOGE|1792929548172",
@@ -1477,10 +1477,12 @@
       "rr2": 2.0525471301320666,
       "t": 1792942140540,
       "validUntil": 1793546940540,
-      "status": "open",
+      "status": "stop",
       "alerted": true,
       "openedAt": 1792942140540,
-      "lastT": 1793152800000
+      "lastT": 1793156400000,
+      "R": -1,
+      "closedAt": 1793156400000
     },
     {
       "id": "BTC|1792975250239",
@@ -1550,7 +1552,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1792991343991,
-      "lastT": 1793152800000
+      "lastT": 1793156400000
     },
     {
       "id": "ENA|1793006324033",
@@ -1596,7 +1598,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1793009752443,
-      "lastT": 1793152800000
+      "lastT": 1793156400000
     },
     {
       "id": "ZEC|1793021584468",
@@ -1618,7 +1620,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1793021584468,
-      "lastT": 1793152800000,
+      "lastT": 1793156400000,
       "R": 1.514271733075086,
       "closedAt": 1793116800000,
       "watchTp2": true
@@ -1775,7 +1777,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793074598116,
-      "lastT": 1793152800000
+      "lastT": 1793156400000
     },
     {
       "id": "AVAX|1793096473833",
@@ -1825,7 +1827,7 @@
       "patChk": true,
       "pat": "engulf_bull",
       "openedAt": 1793117856890,
-      "lastT": 1793152800000
+      "lastT": 1793156400000
     },
     {
       "id": "PEPE|1793133909360",
@@ -1849,7 +1851,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793133909360,
-      "lastT": 1793149200000,
+      "lastT": 1793156400000,
       "R": 1.41590860526232,
       "closedAt": 1793149200000,
       "watchTp2": true
@@ -1876,7 +1878,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793147964018,
-      "lastT": 1793152800000
+      "lastT": 1793156400000
     },
     {
       "id": "GRVT|1793151471197",
@@ -1900,7 +1902,29 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793151471197,
-      "lastT": 1793152800000
+      "lastT": 1793156400000
+    },
+    {
+      "id": "BTC|1793162312750",
+      "sym": "BTC",
+      "src": "watch",
+      "dir": 1,
+      "strength": "weak",
+      "mode": "now",
+      "entry": 81034.2,
+      "zoneLo": 80679.68661527854,
+      "zoneHi": 81034.2,
+      "stop": 79766.69063069498,
+      "tp1": 82808.78571428571,
+      "tp2": 84003.85,
+      "rr1": 1.4000572755203653,
+      "rr2": 2.342901813521343,
+      "t": 1793162312750,
+      "validUntil": 1793767112750,
+      "status": "open",
+      "alerted": false,
+      "patChk": true,
+      "pat": null
     }
   ],
   "outlooks": [
@@ -3138,6 +3162,71 @@
       "s1": 1.28848,
       "r1": 1.3126666666666664,
       "done": false
+    },
+    {
+      "id": "BTC|day|2026-10-28",
+      "sym": "BTC",
+      "hz": "day",
+      "bias": "up",
+      "strength": "medium",
+      "price": 81034.2,
+      "t": 1793162312750,
+      "due": 1793248712750,
+      "s1": 80822.65000000001,
+      "r1": 81200,
+      "done": false
+    },
+    {
+      "id": "ETH|day|2026-10-28",
+      "sym": "ETH",
+      "hz": "day",
+      "bias": "flat",
+      "strength": null,
+      "price": 2357.84,
+      "t": 1793162312750,
+      "due": 1793248712750,
+      "s1": 2323.02,
+      "r1": 2376.7966666666666,
+      "done": false
+    },
+    {
+      "id": "SOL|day|2026-10-28",
+      "sym": "SOL",
+      "hz": "day",
+      "bias": "flat",
+      "strength": null,
+      "price": 102.13,
+      "t": 1793162312750,
+      "due": 1793248712750,
+      "s1": 101.425,
+      "r1": 102.75999999999999,
+      "done": false
+    },
+    {
+      "id": "BNB|day|2026-10-28",
+      "sym": "BNB",
+      "hz": "day",
+      "bias": "up",
+      "strength": "strong",
+      "price": 746.7,
+      "t": 1793162312750,
+      "due": 1793248712750,
+      "s1": 740.8,
+      "r1": 748.1318181818183,
+      "done": false
+    },
+    {
+      "id": "XRP|day|2026-10-28",
+      "sym": "XRP",
+      "hz": "day",
+      "bias": "flat",
+      "strength": null,
+      "price": 1.3313,
+      "t": 1793162312750,
+      "due": 1793248712750,
+      "s1": 1.3126666666666664,
+      "r1": 1.3491,
+      "done": false
     }
   ],
   "scan": {
@@ -3505,17 +3594,16 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-28T03:12:33.889Z",
+    "t": "2026-10-28T04:38:32.750Z",
     "universe": 38,
-    "analyzed": 19,
+    "analyzed": 20,
     "signals": [
       "DOS (خرید)",
-      "DOOD (خرید)",
-      "GRVT (خرید)"
+      "DOOD (خرید)"
     ]
   },
-  "lastFull": "2026-10-28T03:12:33.889Z",
-  "lastDaily": "2026-10-27",
+  "lastFull": "2026-10-28T04:38:32.750Z",
+  "lastDaily": "2026-10-28",
   "lastWeekly": "2026-10-26",
   "replay": {
     "t": "2026-10-27T05:36:41.176Z",
