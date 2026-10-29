@@ -21,7 +21,7 @@
       "lastAlert": "2026-10-29T16:34:50.734Z"
     },
     "XRP": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-22T12:59:08.675Z"
     }
@@ -909,7 +909,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1793289600000
+      "lastT": 1793296800000
     },
     {
       "id": "SOL|1792715725503",
@@ -931,7 +931,7 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1793289600000,
+      "lastT": 1793296800000,
       "R": 1.506962981290037,
       "closedAt": 1792850400000,
       "watchTp2": true
@@ -1004,7 +1004,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1793289600000,
+      "lastT": 1793296800000,
       "R": 1.3343586321382954,
       "closedAt": 1793278800000,
       "watchTp2": true
@@ -1029,7 +1029,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1793289600000,
+      "lastT": 1793296800000,
       "R": 1.947495684052815,
       "closedAt": 1792850400000,
       "watchTp2": true
@@ -1226,7 +1226,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792808739147,
-      "lastT": 1793289600000,
+      "lastT": 1793296800000,
       "R": 1.7236626320468613,
       "closedAt": 1793041200000,
       "watchTp2": true
@@ -1251,7 +1251,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792813633918,
-      "lastT": 1793289600000,
+      "lastT": 1793296800000,
       "R": 1.2214977012100563,
       "closedAt": 1792850400000,
       "watchTp2": true
@@ -1349,7 +1349,7 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792889686385,
-      "lastT": 1793289600000,
+      "lastT": 1793296800000,
       "R": 1.604786917109957,
       "closedAt": 1793181600000,
       "watchTp2": true
@@ -1374,7 +1374,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792898802067,
-      "lastT": 1793289600000
+      "lastT": 1793296800000
     },
     {
       "id": "DATA|1792917988168",
@@ -1613,7 +1613,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1793009752443,
-      "lastT": 1793289600000
+      "lastT": 1793296800000
     },
     {
       "id": "ZEC|1793021584468",
@@ -2030,7 +2030,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793289600000
+      "lastT": 1793296800000
     },
     {
       "id": "LIT|1793262793843",
@@ -2106,7 +2106,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793285123098,
-      "lastT": 1793289600000,
+      "lastT": 1793296800000,
       "R": 1.5729678349575402,
       "closedAt": 1793289600000,
       "watchTp2": true
@@ -2132,7 +2132,8 @@
       "alerted": false,
       "patChk": true,
       "pat": null,
-      "openedAt": 1793291690734
+      "openedAt": 1793291690734,
+      "lastT": 1793296800000
     },
     {
       "id": "BNB|1793291690734",
@@ -2155,7 +2156,8 @@
       "alerted": true,
       "patChk": true,
       "pat": null,
-      "openedAt": 1793291690734
+      "openedAt": 1793291690734,
+      "lastT": 1793296800000
     },
     {
       "id": "ENA|1793291690734",
@@ -2178,7 +2180,8 @@
       "alerted": true,
       "patChk": true,
       "pat": null,
-      "openedAt": 1793291690734
+      "openedAt": 1793291690734,
+      "lastT": 1793296800000
     }
   ],
   "outlooks": [
@@ -3630,7 +3633,7 @@
       "lastAlert": "2026-10-29T11:57:56.323Z"
     },
     "TRUMP": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-23T00:35:25.503Z"
     },
@@ -3925,12 +3928,17 @@
       "lastAlert": null
     },
     "STX": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
     "SHIB": {
       "decision": "short",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "PARTI": {
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": null
     }
@@ -3958,14 +3966,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-29T17:29:56.344Z",
-    "universe": 52,
+    "t": "2026-10-29T19:24:14.375Z",
+    "universe": 49,
     "analyzed": 19,
     "signals": [
-      "ENA (خرید)"
+      "ZEC (خرید)"
     ]
   },
-  "lastFull": "2026-10-29T17:29:56.344Z",
+  "lastFull": "2026-10-29T19:24:14.375Z",
   "lastDaily": "2026-10-29",
   "lastWeekly": "2026-10-26",
   "replay": {
