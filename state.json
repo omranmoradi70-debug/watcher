@@ -909,7 +909,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1793278800000
+      "lastT": 1793282400000
     },
     {
       "id": "SOL|1792715725503",
@@ -931,7 +931,7 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1793278800000,
+      "lastT": 1793282400000,
       "R": 1.506962981290037,
       "closedAt": 1792850400000,
       "watchTp2": true
@@ -1004,7 +1004,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1793278800000,
+      "lastT": 1793282400000,
       "R": 1.3343586321382954,
       "closedAt": 1793278800000,
       "watchTp2": true
@@ -1029,7 +1029,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1793278800000,
+      "lastT": 1793282400000,
       "R": 1.947495684052815,
       "closedAt": 1792850400000,
       "watchTp2": true
@@ -1226,7 +1226,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792808739147,
-      "lastT": 1793278800000,
+      "lastT": 1793282400000,
       "R": 1.7236626320468613,
       "closedAt": 1793041200000,
       "watchTp2": true
@@ -1251,7 +1251,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792813633918,
-      "lastT": 1793278800000,
+      "lastT": 1793282400000,
       "R": 1.2214977012100563,
       "closedAt": 1792850400000,
       "watchTp2": true
@@ -1349,7 +1349,7 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792889686385,
-      "lastT": 1793278800000,
+      "lastT": 1793282400000,
       "R": 1.604786917109957,
       "closedAt": 1793181600000,
       "watchTp2": true
@@ -1374,7 +1374,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792898802067,
-      "lastT": 1793278800000
+      "lastT": 1793282400000
     },
     {
       "id": "DATA|1792917988168",
@@ -1564,7 +1564,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792991343991,
-      "lastT": 1793278800000,
+      "lastT": 1793282400000,
       "R": 1.7806380414743788,
       "closedAt": 1793235600000,
       "watchTp2": true
@@ -1613,7 +1613,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1793009752443,
-      "lastT": 1793278800000
+      "lastT": 1793282400000
     },
     {
       "id": "ZEC|1793021584468",
@@ -1635,7 +1635,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1793021584468,
-      "lastT": 1793278800000,
+      "lastT": 1793282400000,
       "R": 1.514271733075086,
       "closedAt": 1793116800000,
       "watchTp2": true
@@ -2029,7 +2029,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793278800000
+      "lastT": 1793282400000
     },
     {
       "id": "LIT|1793262793843",
@@ -2079,7 +2079,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793275076323,
-      "lastT": 1793278800000
+      "lastT": 1793282400000
     },
     {
       "id": "ZEC|1793285123098",
@@ -2101,7 +2101,8 @@
       "status": "open",
       "alerted": true,
       "patChk": true,
-      "pat": null
+      "pat": null,
+      "openedAt": 1793285123098
     }
   ],
   "outlooks": [
@@ -3538,7 +3539,7 @@
       "lastAlert": "2026-10-16T22:48:13.567Z"
     },
     "XMSTR": {
-      "decision": "long",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-27T04:16:38.116Z"
     },
@@ -3808,7 +3809,7 @@
       "lastAlert": "2026-10-23T14:54:16.901Z"
     },
     "PENGU": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -3881,14 +3882,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-29T14:45:23.098Z",
-    "universe": 49,
+    "t": "2026-10-29T15:42:51.106Z",
+    "universe": 50,
     "analyzed": 19,
-    "signals": [
-      "ZEC (خرید)"
-    ]
+    "signals": []
   },
-  "lastFull": "2026-10-29T14:45:23.098Z",
+  "lastFull": "2026-10-29T15:42:51.106Z",
   "lastDaily": "2026-10-29",
   "lastWeekly": "2026-10-26",
   "replay": {
