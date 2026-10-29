@@ -906,10 +906,13 @@
       "rr2": 3.534468262563703,
       "t": 1792715725503,
       "validUntil": 1793320525503,
-      "status": "open",
+      "status": "tp1",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1793300400000
+      "lastT": 1793304000000,
+      "R": 2.1670793391038705,
+      "closedAt": 1793304000000,
+      "watchTp2": true
     },
     {
       "id": "SOL|1792715725503",
@@ -931,10 +934,11 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1793300400000,
+      "lastT": 1793304000000,
       "R": 1.506962981290037,
       "closedAt": 1792850400000,
-      "watchTp2": true
+      "watchTp2": false,
+      "tp2Reached": true
     },
     {
       "id": "BNB|1792715725503",
@@ -1004,7 +1008,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1793300400000,
+      "lastT": 1793307600000,
       "R": 1.3343586321382954,
       "closedAt": 1793278800000,
       "watchTp2": true
@@ -1029,10 +1033,11 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1793300400000,
+      "lastT": 1793304000000,
       "R": 1.947495684052815,
       "closedAt": 1792850400000,
-      "watchTp2": true
+      "watchTp2": false,
+      "tp2Reached": true
     },
     {
       "id": "ADA|1792721169535",
@@ -1226,10 +1231,11 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792808739147,
-      "lastT": 1793300400000,
+      "lastT": 1793304000000,
       "R": 1.7236626320468613,
       "closedAt": 1793041200000,
-      "watchTp2": true
+      "watchTp2": false,
+      "tp2Reached": true
     },
     {
       "id": "SUI|1792813633918",
@@ -1251,10 +1257,11 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792813633918,
-      "lastT": 1793300400000,
+      "lastT": 1793304000000,
       "R": 1.2214977012100563,
       "closedAt": 1792850400000,
-      "watchTp2": true
+      "watchTp2": false,
+      "tp2Reached": true
     },
     {
       "id": "PUMP|1792817993722",
@@ -1349,10 +1356,10 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792889686385,
-      "lastT": 1793300400000,
+      "lastT": 1793304000000,
       "R": 1.604786917109957,
       "closedAt": 1793181600000,
-      "watchTp2": true
+      "watchTp2": false
     },
     {
       "id": "SOL|1792898802067",
@@ -1371,10 +1378,14 @@
       "rr2": 2.9402477135687093,
       "t": 1792898802067,
       "validUntil": 1793503602067,
-      "status": "open",
+      "status": "tp1",
       "alerted": false,
       "openedAt": 1792898802067,
-      "lastT": 1793300400000
+      "lastT": 1793304000000,
+      "R": 2.1308006906439974,
+      "closedAt": 1793304000000,
+      "watchTp2": false,
+      "tp2Reached": true
     },
     {
       "id": "DATA|1792917988168",
@@ -1610,10 +1621,12 @@
       "rr2": 2.3507223811030897,
       "t": 1793009752443,
       "validUntil": 1793614552443,
-      "status": "open",
+      "status": "stop",
       "alerted": true,
       "openedAt": 1793009752443,
-      "lastT": 1793300400000
+      "lastT": 1793304000000,
+      "R": -1,
+      "closedAt": 1793304000000
     },
     {
       "id": "ZEC|1793021584468",
@@ -2030,7 +2043,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793300400000
+      "lastT": 1793307600000
     },
     {
       "id": "LIT|1793262793843",
@@ -2106,10 +2119,10 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793285123098,
-      "lastT": 1793300400000,
+      "lastT": 1793304000000,
       "R": 1.5729678349575402,
       "closedAt": 1793289600000,
-      "watchTp2": true
+      "watchTp2": false
     },
     {
       "id": "BTC|1793291690734",
@@ -2128,12 +2141,14 @@
       "rr2": 2.7500557075417604,
       "t": 1793291690734,
       "validUntil": 1793896490734,
-      "status": "open",
+      "status": "stop",
       "alerted": false,
       "patChk": true,
       "pat": null,
       "openedAt": 1793291690734,
-      "lastT": 1793300400000
+      "lastT": 1793304000000,
+      "R": -1,
+      "closedAt": 1793304000000
     },
     {
       "id": "BNB|1793291690734",
@@ -2152,12 +2167,14 @@
       "rr2": 1.833736419448469,
       "t": 1793291690734,
       "validUntil": 1793896490734,
-      "status": "open",
+      "status": "stop",
       "alerted": true,
       "patChk": true,
       "pat": null,
       "openedAt": 1793291690734,
-      "lastT": 1793300400000
+      "lastT": 1793304000000,
+      "R": -1,
+      "closedAt": 1793304000000
     },
     {
       "id": "ENA|1793291690734",
@@ -2176,12 +2193,14 @@
       "rr2": 2.2675358238327172,
       "t": 1793291690734,
       "validUntil": 1793896490734,
-      "status": "open",
+      "status": "stop",
       "alerted": true,
       "patChk": true,
       "pat": null,
       "openedAt": 1793291690734,
-      "lastT": 1793300400000
+      "lastT": 1793304000000,
+      "R": -1,
+      "closedAt": 1793304000000
     }
   ],
   "outlooks": [
@@ -3768,7 +3787,7 @@
       "lastAlert": "2026-10-18T09:26:24.740Z"
     },
     "TRX": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -3966,14 +3985,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-29T20:55:24.795Z",
-    "universe": 58,
+    "t": "2026-10-29T22:19:08.616Z",
+    "universe": 60,
     "analyzed": 19,
     "signals": [
       "ENA (خرید)"
     ]
   },
-  "lastFull": "2026-10-29T20:55:24.795Z",
+  "lastFull": "2026-10-29T22:19:08.616Z",
   "lastDaily": "2026-10-29",
   "lastWeekly": "2026-10-26",
   "replay": {
