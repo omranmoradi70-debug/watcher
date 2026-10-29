@@ -1,17 +1,17 @@
 {
   "coins": {
     "BTC": {
-      "decision": "long",
-      "lastAlertedDecision": "long",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-10-29T17:29:56.344Z"
     },
     "ETH": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-24T08:46:58.112Z"
     },
     "SOL": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-29T05:57:34.630Z"
     },
@@ -909,7 +909,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1793296800000
+      "lastT": 1793300400000
     },
     {
       "id": "SOL|1792715725503",
@@ -931,7 +931,7 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1793296800000,
+      "lastT": 1793300400000,
       "R": 1.506962981290037,
       "closedAt": 1792850400000,
       "watchTp2": true
@@ -1004,7 +1004,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1793296800000,
+      "lastT": 1793300400000,
       "R": 1.3343586321382954,
       "closedAt": 1793278800000,
       "watchTp2": true
@@ -1029,7 +1029,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1793296800000,
+      "lastT": 1793300400000,
       "R": 1.947495684052815,
       "closedAt": 1792850400000,
       "watchTp2": true
@@ -1226,7 +1226,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792808739147,
-      "lastT": 1793296800000,
+      "lastT": 1793300400000,
       "R": 1.7236626320468613,
       "closedAt": 1793041200000,
       "watchTp2": true
@@ -1251,7 +1251,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792813633918,
-      "lastT": 1793296800000,
+      "lastT": 1793300400000,
       "R": 1.2214977012100563,
       "closedAt": 1792850400000,
       "watchTp2": true
@@ -1349,7 +1349,7 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792889686385,
-      "lastT": 1793296800000,
+      "lastT": 1793300400000,
       "R": 1.604786917109957,
       "closedAt": 1793181600000,
       "watchTp2": true
@@ -1374,7 +1374,7 @@
       "status": "open",
       "alerted": false,
       "openedAt": 1792898802067,
-      "lastT": 1793296800000
+      "lastT": 1793300400000
     },
     {
       "id": "DATA|1792917988168",
@@ -1613,7 +1613,7 @@
       "status": "open",
       "alerted": true,
       "openedAt": 1793009752443,
-      "lastT": 1793296800000
+      "lastT": 1793300400000
     },
     {
       "id": "ZEC|1793021584468",
@@ -2030,7 +2030,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793296800000
+      "lastT": 1793300400000
     },
     {
       "id": "LIT|1793262793843",
@@ -2106,7 +2106,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793285123098,
-      "lastT": 1793296800000,
+      "lastT": 1793300400000,
       "R": 1.5729678349575402,
       "closedAt": 1793289600000,
       "watchTp2": true
@@ -2133,7 +2133,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793291690734,
-      "lastT": 1793296800000
+      "lastT": 1793300400000
     },
     {
       "id": "BNB|1793291690734",
@@ -2157,7 +2157,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793291690734,
-      "lastT": 1793296800000
+      "lastT": 1793300400000
     },
     {
       "id": "ENA|1793291690734",
@@ -2181,7 +2181,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793291690734,
-      "lastT": 1793296800000
+      "lastT": 1793300400000
     }
   ],
   "outlooks": [
@@ -3613,7 +3613,7 @@
       "lastAlert": "2026-10-29T14:45:23.098Z"
     },
     "PONS": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-16T22:48:13.567Z"
     },
@@ -3638,7 +3638,7 @@
       "lastAlert": "2026-10-23T00:35:25.503Z"
     },
     "FIL": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-23T00:35:25.503Z"
     },
@@ -3738,7 +3738,7 @@
       "lastAlert": "2026-10-24T04:59:53.722Z"
     },
     "OP": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -3945,35 +3945,35 @@
   },
   "spike": {
     "ETH": {
-      "t": 1793280600000,
-      "lastAlert": "2026-10-29T13:51:00.033Z"
+      "t": 1793305800000,
+      "lastAlert": "2026-10-29T20:55:24.795Z"
     },
     "XRP": {
-      "t": 1793280600000,
-      "lastAlert": "2026-10-29T13:51:00.033Z"
+      "t": 1793305800000,
+      "lastAlert": "2026-10-29T20:55:24.795Z"
     },
     "SOL": {
-      "t": 1793284200000,
-      "lastAlert": "2026-10-29T14:45:23.098Z"
+      "t": 1793305800000,
+      "lastAlert": "2026-10-29T20:55:24.795Z"
     },
     "BTC": {
-      "t": 1793284200000,
-      "lastAlert": "2026-10-29T14:45:23.098Z"
+      "t": 1793305800000,
+      "lastAlert": "2026-10-29T20:55:24.795Z"
     },
     "BNB": {
-      "t": 1793238300000,
-      "lastAlert": "2026-10-29T02:02:30.406Z"
+      "t": 1793305800000,
+      "lastAlert": "2026-10-29T20:55:24.795Z"
     }
   },
   "lastScan": {
-    "t": "2026-10-29T19:24:14.375Z",
-    "universe": 49,
+    "t": "2026-10-29T20:55:24.795Z",
+    "universe": 58,
     "analyzed": 19,
     "signals": [
-      "ZEC (خرید)"
+      "ENA (خرید)"
     ]
   },
-  "lastFull": "2026-10-29T19:24:14.375Z",
+  "lastFull": "2026-10-29T20:55:24.795Z",
   "lastDaily": "2026-10-29",
   "lastWeekly": "2026-10-26",
   "replay": {
