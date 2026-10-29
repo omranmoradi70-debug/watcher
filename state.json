@@ -3688,14 +3688,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-29T02:02:30.406Z",
-    "universe": 45,
+    "t": "2026-10-29T02:55:42.477Z",
+    "universe": 46,
     "analyzed": 19,
     "signals": [
       "ADA (فروش)"
     ]
   },
-  "lastFull": "2026-10-29T02:02:30.406Z",
+  "lastFull": "2026-10-29T02:55:42.477Z",
   "lastDaily": "2026-10-28",
   "lastWeekly": "2026-10-26",
   "replay": {
