@@ -16,8 +16,8 @@
       "lastAlert": "2026-10-29T05:57:34.630Z"
     },
     "BNB": {
-      "decision": "long",
-      "lastAlertedDecision": "long",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-10-29T16:34:50.734Z"
     },
     "XRP": {
@@ -909,7 +909,7 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1793304000000,
+      "lastT": 1793311200000,
       "R": 2.1670793391038705,
       "closedAt": 1793304000000,
       "watchTp2": true
@@ -1008,7 +1008,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1793307600000,
+      "lastT": 1793311200000,
       "R": 1.3343586321382954,
       "closedAt": 1793278800000,
       "watchTp2": true
@@ -2043,7 +2043,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793307600000
+      "lastT": 1793311200000
     },
     {
       "id": "LIT|1793262793843",
@@ -3802,7 +3802,7 @@
       "lastAlert": null
     },
     "LINK": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-26T22:57:51.490Z"
     },
@@ -3847,7 +3847,7 @@
       "lastAlert": "2026-10-28T00:39:24.018Z"
     },
     "APT": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -3872,7 +3872,7 @@
       "lastAlert": "2026-10-22T12:59:08.675Z"
     },
     "AAVE": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -3985,14 +3985,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-29T22:19:08.616Z",
-    "universe": 60,
+    "t": "2026-10-29T23:45:41.867Z",
+    "universe": 62,
     "analyzed": 19,
-    "signals": [
-      "ENA (خرید)"
-    ]
+    "signals": []
   },
-  "lastFull": "2026-10-29T22:19:08.616Z",
+  "lastFull": "2026-10-29T23:45:41.867Z",
   "lastDaily": "2026-10-29",
   "lastWeekly": "2026-10-26",
   "replay": {
