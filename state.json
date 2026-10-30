@@ -7,8 +7,8 @@
     },
     "ETH": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-10-24T08:46:58.112Z"
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-30T16:28:55.447Z"
     },
     "SOL": {
       "decision": "short",
@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793368800000
+      "lastT": 1793372400000
     },
     {
       "id": "LIT|1793262793843",
@@ -2321,7 +2321,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793336143978,
-      "lastT": 1793368800000
+      "lastT": 1793372400000
     },
     {
       "id": "ETHFI|1793336143978",
@@ -2345,7 +2345,7 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793368800000
+      "lastT": 1793372400000
     },
     {
       "id": "PONS|1793345592833",
@@ -2369,7 +2369,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793345592833,
-      "lastT": 1793368800000
+      "lastT": 1793372400000
     },
     {
       "id": "ZAMA|1793349084597",
@@ -2417,7 +2417,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793356125541,
-      "lastT": 1793368800000
+      "lastT": 1793372400000
     },
     {
       "id": "LIT|1793367734927",
@@ -2441,7 +2441,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793367734927,
-      "lastT": 1793368800000
+      "lastT": 1793372400000
     },
     {
       "id": "PUMP|1793367734927",
@@ -2465,7 +2465,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793367734927,
-      "lastT": 1793368800000
+      "lastT": 1793372400000
     },
     {
       "id": "PARTI|1793371076732",
@@ -2488,7 +2488,8 @@
       "alerted": true,
       "patChk": true,
       "pat": null,
-      "openedAt": 1793371076732
+      "openedAt": 1793371076732,
+      "lastT": 1793372400000
     },
     {
       "id": "ENA|1793371076732",
@@ -2511,7 +2512,8 @@
       "alerted": true,
       "patChk": true,
       "pat": null,
-      "openedAt": 1793371076732
+      "openedAt": 1793371076732,
+      "lastT": 1793372400000
     }
   ],
   "outlooks": [
@@ -4018,8 +4020,8 @@
       "lastAlert": null
     },
     "ZEC": {
-      "decision": "long",
-      "lastAlertedDecision": "long",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-10-29T14:45:23.098Z"
     },
     "PONS": {
@@ -4411,18 +4413,17 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-30T15:30:23.516Z",
-    "universe": 70,
+    "t": "2026-10-30T16:28:55.447Z",
+    "universe": 72,
     "analyzed": 20,
     "signals": [
-      "ZAMA (فروش)",
-      "ETHFI (فروش)",
-      "XCRCL (فروش)",
       "LIT (فروش)",
+      "PONS (فروش)",
+      "ETHFI (فروش)",
       "APT (فروش)"
     ]
   },
-  "lastFull": "2026-10-30T15:30:23.516Z",
+  "lastFull": "2026-10-30T16:28:55.447Z",
   "lastDaily": "2026-10-30",
   "lastWeekly": "2026-10-26",
   "replay": {
