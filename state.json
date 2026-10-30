@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793386800000
+      "lastT": 1793390400000
     },
     {
       "id": "LIT|1793262793843",
@@ -2321,7 +2321,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793336143978,
-      "lastT": 1793386800000
+      "lastT": 1793390400000
     },
     {
       "id": "ETHFI|1793336143978",
@@ -2345,7 +2345,7 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793386800000
+      "lastT": 1793390400000
     },
     {
       "id": "PONS|1793345592833",
@@ -2369,7 +2369,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793345592833,
-      "lastT": 1793386800000
+      "lastT": 1793390400000
     },
     {
       "id": "ZAMA|1793349084597",
@@ -2417,7 +2417,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793356125541,
-      "lastT": 1793386800000
+      "lastT": 1793390400000
     },
     {
       "id": "LIT|1793367734927",
@@ -2441,7 +2441,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793367734927,
-      "lastT": 1793386800000
+      "lastT": 1793390400000
     },
     {
       "id": "PUMP|1793367734927",
@@ -2465,7 +2465,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793367734927,
-      "lastT": 1793386800000
+      "lastT": 1793390400000
     },
     {
       "id": "PARTI|1793371076732",
@@ -2489,7 +2489,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793386800000
+      "lastT": 1793390400000
     },
     {
       "id": "ENA|1793371076732",
@@ -2513,7 +2513,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793386800000
+      "lastT": 1793390400000
     },
     {
       "id": "XMSTR|1793383524000",
@@ -4149,7 +4149,7 @@
       "lastAlert": "2026-10-29T09:31:23.893Z"
     },
     "ZRO": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-21T17:07:40.627Z"
     },
@@ -4442,15 +4442,15 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-30T20:18:36.676Z",
-    "universe": 72,
+    "t": "2026-10-30T21:08:32.935Z",
+    "universe": 66,
     "analyzed": 20,
     "signals": [
       "LIT (فروش)",
       "PONS (فروش)"
     ]
   },
-  "lastFull": "2026-10-30T20:18:36.676Z",
+  "lastFull": "2026-10-30T21:08:32.935Z",
   "lastDaily": "2026-10-30",
   "lastWeekly": "2026-10-26",
   "replay": {
