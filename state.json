@@ -1,7 +1,7 @@
 {
   "coins": {
     "BTC": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-29T17:29:56.344Z"
     },
@@ -16,7 +16,7 @@
       "lastAlert": "2026-10-29T05:57:34.630Z"
     },
     "BNB": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-29T16:34:50.734Z"
     },
@@ -909,7 +909,7 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1793311200000,
+      "lastT": 1793314800000,
       "R": 2.1670793391038705,
       "closedAt": 1793304000000,
       "watchTp2": true
@@ -1008,7 +1008,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1793311200000,
+      "lastT": 1793314800000,
       "R": 1.3343586321382954,
       "closedAt": 1793278800000,
       "watchTp2": true
@@ -2043,7 +2043,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793311200000
+      "lastT": 1793314800000
     },
     {
       "id": "LIT|1793262793843",
@@ -2201,6 +2201,72 @@
       "lastT": 1793304000000,
       "R": -1,
       "closedAt": 1793304000000
+    },
+    {
+      "id": "BTC|1793320513567",
+      "sym": "BTC",
+      "src": "watch",
+      "dir": -1,
+      "strength": "weak",
+      "mode": "pullback",
+      "entry": 80461.31946989919,
+      "zoneLo": 80145.52763394525,
+      "zoneHi": 80777.11130585312,
+      "stop": 82639.39653588565,
+      "tp1": 77507.1,
+      "tp2": 76258.63999999998,
+      "rr1": 1.3563429485729446,
+      "rr2": 1.929536624543537,
+      "t": 1793320513567,
+      "validUntil": 1793925313567,
+      "status": "pending",
+      "alerted": false,
+      "patChk": true,
+      "pat": null
+    },
+    {
+      "id": "BNB|1793320513567",
+      "sym": "BNB",
+      "src": "watch",
+      "dir": -1,
+      "strength": "weak",
+      "mode": "pullback",
+      "entry": 742.1657683497241,
+      "zoneLo": 737.8537240097987,
+      "zoneHi": 746.4778126896495,
+      "stop": 756.5392494828085,
+      "tp1": 721.2199999999999,
+      "tp2": 706.9399999999999,
+      "rr1": 1.4572509022544262,
+      "rr2": 2.4507471797241043,
+      "t": 1793320513567,
+      "validUntil": 1793925313567,
+      "status": "pending",
+      "alerted": false,
+      "patChk": true,
+      "pat": null
+    },
+    {
+      "id": "APT|1793320513567",
+      "sym": "APT",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "pullback",
+      "entry": 0.6834880256791802,
+      "zoneLo": 0.6756116433156253,
+      "zoneHi": 0.6913644080427351,
+      "stop": 0.7097426335576965,
+      "tp1": 0.64956,
+      "tp2": 0.6072363636363636,
+      "rr1": 1.2922693736722268,
+      "rr2": 2.9043154022959925,
+      "t": 1793320513567,
+      "validUntil": 1793925313567,
+      "status": "pending",
+      "alerted": true,
+      "patChk": true,
+      "pat": null
     }
   ],
   "outlooks": [
@@ -3617,7 +3683,7 @@
       "lastAlert": "2026-10-19T00:58:27.800Z"
     },
     "XSOXL": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-22T00:07:36.449Z"
     },
@@ -3642,7 +3708,7 @@
       "lastAlert": "2026-10-27T04:16:38.116Z"
     },
     "NEAR": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-21T09:17:45.652Z"
     },
@@ -3667,7 +3733,7 @@
       "lastAlert": "2026-10-29T08:33:13.843Z"
     },
     "UNI": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-24T07:34:18.621Z"
     },
@@ -3677,7 +3743,7 @@
       "lastAlert": null
     },
     "ENA": {
-      "decision": "long",
+      "decision": "short",
       "lastAlertedDecision": "long",
       "lastAlert": "2026-10-29T16:34:50.734Z"
     },
@@ -3687,8 +3753,8 @@
       "lastAlert": "2026-10-23T20:07:44.502Z"
     },
     "PEPE": {
-      "decision": "long",
-      "lastAlertedDecision": "long",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-10-27T20:45:09.360Z"
     },
     "XTSLA": {
@@ -3707,7 +3773,7 @@
       "lastAlert": "2026-10-26T04:19:17.390Z"
     },
     "INJ": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-16T22:48:13.567Z"
     },
@@ -3732,7 +3798,7 @@
       "lastAlert": "2026-10-29T09:31:23.893Z"
     },
     "ZRO": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-21T17:07:40.627Z"
     },
@@ -3752,7 +3818,7 @@
       "lastAlert": null
     },
     "PUMP": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-24T04:59:53.722Z"
     },
@@ -3812,7 +3878,7 @@
       "lastAlert": null
     },
     "XINTC": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -3842,14 +3908,14 @@
       "lastAlert": null
     },
     "DOS": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-28T00:39:24.018Z"
     },
     "APT": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": null
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-30T00:35:13.567Z"
     },
     "IOST": {
       "decision": "long",
@@ -3907,7 +3973,7 @@
       "lastAlert": "2026-10-23T14:54:16.901Z"
     },
     "PENGU": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -3937,7 +4003,7 @@
       "lastAlert": "2026-10-27T04:16:38.116Z"
     },
     "ZAMA": {
-      "decision": "long",
+      "decision": "short",
       "lastAlertedDecision": "long",
       "lastAlert": "2026-10-28T17:28:19.171Z"
     },
@@ -3964,16 +4030,16 @@
   },
   "spike": {
     "ETH": {
-      "t": 1793305800000,
-      "lastAlert": "2026-10-29T20:55:24.795Z"
+      "t": 1793319300000,
+      "lastAlert": "2026-10-30T00:35:13.567Z"
     },
     "XRP": {
-      "t": 1793305800000,
-      "lastAlert": "2026-10-29T20:55:24.795Z"
+      "t": 1793319300000,
+      "lastAlert": "2026-10-30T00:35:13.567Z"
     },
     "SOL": {
-      "t": 1793305800000,
-      "lastAlert": "2026-10-29T20:55:24.795Z"
+      "t": 1793319300000,
+      "lastAlert": "2026-10-30T00:35:13.567Z"
     },
     "BTC": {
       "t": 1793305800000,
@@ -3985,12 +4051,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-29T23:45:41.867Z",
+    "t": "2026-10-30T00:35:13.567Z",
     "universe": 62,
     "analyzed": 19,
-    "signals": []
+    "signals": [
+      "APT (فروش)"
+    ]
   },
-  "lastFull": "2026-10-29T23:45:41.867Z",
+  "lastFull": "2026-10-30T00:35:13.567Z",
   "lastDaily": "2026-10-29",
   "lastWeekly": "2026-10-26",
   "replay": {
