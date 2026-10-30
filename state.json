@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793350800000
+      "lastT": 1793354400000
     },
     {
       "id": "LIT|1793262793843",
@@ -2321,7 +2321,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793336143978,
-      "lastT": 1793350800000
+      "lastT": 1793354400000
     },
     {
       "id": "ETHFI|1793336143978",
@@ -2345,7 +2345,7 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793350800000
+      "lastT": 1793354400000
     },
     {
       "id": "PONS|1793345592833",
@@ -2369,7 +2369,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793345592833,
-      "lastT": 1793350800000
+      "lastT": 1793354400000
     },
     {
       "id": "ZAMA|1793349084597",
@@ -2415,7 +2415,8 @@
       "status": "open",
       "alerted": true,
       "patChk": true,
-      "pat": null
+      "pat": null,
+      "openedAt": 1793356125541
     }
   ],
   "outlooks": [
@@ -4305,16 +4306,16 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-30T10:28:45.541Z",
+    "t": "2026-10-30T11:54:13.290Z",
     "universe": 73,
     "analyzed": 20,
     "signals": [
       "PONS (فروش)",
-      "PENGU (فروش)",
-      "FIL (فروش)"
+      "FIL (فروش)",
+      "PENGU (فروش)"
     ]
   },
-  "lastFull": "2026-10-30T10:28:45.541Z",
+  "lastFull": "2026-10-30T11:54:13.290Z",
   "lastDaily": "2026-10-30",
   "lastWeekly": "2026-10-26",
   "replay": {
