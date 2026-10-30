@@ -22,8 +22,8 @@
     },
     "XRP": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-10-22T12:59:08.675Z"
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-30T06:20:43.718Z"
     }
   },
   "signals": [
@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793329200000
+      "lastT": 1793336400000
     },
     {
       "id": "LIT|1793262793843",
@@ -2292,10 +2292,12 @@
       "rr2": 2.006126699414801,
       "t": 1793333060220,
       "validUntil": 1793937860220,
-      "status": "pending",
+      "status": "missed",
       "alerted": true,
       "patChk": true,
-      "pat": null
+      "pat": null,
+      "closedAt": 1793336400000,
+      "lastT": 1793336400000
     },
     {
       "id": "PENGU|1793336143978",
@@ -2317,7 +2319,9 @@
       "status": "open",
       "alerted": true,
       "patChk": true,
-      "pat": null
+      "pat": null,
+      "openedAt": 1793336143978,
+      "lastT": 1793336400000
     },
     {
       "id": "ETHFI|1793336143978",
@@ -2339,7 +2343,9 @@
       "status": "open",
       "alerted": true,
       "patChk": true,
-      "pat": "triple_top"
+      "pat": "triple_top",
+      "openedAt": 1793336143978,
+      "lastT": 1793336400000
     }
   ],
   "outlooks": [
@@ -3684,7 +3690,10 @@
       "due": 1793337231292,
       "s1": 80311.13333333333,
       "r1": 80922.65,
-      "done": false
+      "done": true,
+      "price1": 78657.1,
+      "movePct": -2.25,
+      "correct": false
     },
     {
       "id": "ETH|day|2026-10-29",
@@ -3697,7 +3706,10 @@
       "due": 1793337231292,
       "s1": 2323.02,
       "r1": 2359.58,
-      "done": false
+      "done": true,
+      "price1": 2249.67,
+      "movePct": -3.58,
+      "correct": true
     },
     {
       "id": "SOL|day|2026-10-29",
@@ -3710,7 +3722,10 @@
       "due": 1793337231292,
       "s1": 100.31666666666666,
       "r1": 101.425,
-      "done": false
+      "done": true,
+      "price1": 98.24,
+      "movePct": -2.39,
+      "correct": true
     },
     {
       "id": "BNB|day|2026-10-29",
@@ -3723,7 +3738,10 @@
       "due": 1793337231292,
       "s1": 753.0166666666668,
       "r1": 760.875,
-      "done": false
+      "done": true,
+      "price1": 715.52,
+      "movePct": -5.72,
+      "correct": false
     },
     {
       "id": "XRP|day|2026-10-29",
@@ -3736,7 +3754,10 @@
       "due": 1793337231292,
       "s1": 1.28848,
       "r1": 1.3126666666666664,
-      "done": false
+      "done": true,
+      "price1": 1.2645,
+      "movePct": -2.93,
+      "correct": true
     },
     {
       "id": "BTC|day|2026-10-30",
@@ -4209,16 +4230,15 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-30T04:55:43.978Z",
-    "universe": 70,
+    "t": "2026-10-30T06:20:43.718Z",
+    "universe": 71,
     "analyzed": 19,
     "signals": [
       "GRASS (فروش)",
-      "ETHFI (فروش)",
       "PENGU (فروش)"
     ]
   },
-  "lastFull": "2026-10-30T04:55:43.978Z",
+  "lastFull": "2026-10-30T06:20:43.718Z",
   "lastDaily": "2026-10-30",
   "lastWeekly": "2026-10-26",
   "replay": {
