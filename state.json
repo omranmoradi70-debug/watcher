@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793325600000
+      "lastT": 1793329200000
     },
     {
       "id": "LIT|1793262793843",
@@ -2274,6 +2274,28 @@
       "pat": null,
       "closedAt": 1793322000000,
       "lastT": 1793322000000
+    },
+    {
+      "id": "GRASS|1793333060220",
+      "sym": "GRASS",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "pullback",
+      "entry": 0.6639784234372998,
+      "zoneLo": 0.6546438206792854,
+      "zoneHi": 0.6733130261953143,
+      "stop": 0.7011703698843502,
+      "tp1": 0.616,
+      "tp2": 0.5893666666666667,
+      "rr1": 1.2900218466814064,
+      "rr2": 2.006126699414801,
+      "t": 1793333060220,
+      "validUntil": 1793937860220,
+      "status": "pending",
+      "alerted": true,
+      "patChk": true,
+      "pat": null
     }
   ],
   "outlooks": [
@@ -4036,8 +4058,8 @@
     },
     "GRASS": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": null
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-30T04:04:20.220Z"
     },
     "CRV": {
       "decision": "short",
@@ -4045,6 +4067,11 @@
       "lastAlert": null
     },
     "MORPHO": {
+      "decision": "short",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "ETHFI": {
       "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
@@ -4073,14 +4100,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-30T03:14:50.400Z",
-    "universe": 69,
+    "t": "2026-10-30T04:04:20.220Z",
+    "universe": 70,
     "analyzed": 19,
     "signals": [
-      "APT (فروش)"
+      "GRASS (فروش)"
     ]
   },
-  "lastFull": "2026-10-30T03:14:50.400Z",
+  "lastFull": "2026-10-30T04:04:20.220Z",
   "lastDaily": "2026-10-29",
   "lastWeekly": "2026-10-26",
   "replay": {
