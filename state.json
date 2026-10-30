@@ -909,10 +909,11 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1793318400000,
+      "lastT": 1793322000000,
       "R": 2.1670793391038705,
       "closedAt": 1793304000000,
-      "watchTp2": true
+      "watchTp2": false,
+      "tp2Reached": true
     },
     {
       "id": "SOL|1792715725503",
@@ -1008,10 +1009,10 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1793318400000,
+      "lastT": 1793322000000,
       "R": 1.3343586321382954,
       "closedAt": 1793278800000,
-      "watchTp2": true
+      "watchTp2": false
     },
     {
       "id": "FIL|1792715725503",
@@ -2043,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793318400000
+      "lastT": 1793325600000
     },
     {
       "id": "LIT|1793262793843",
@@ -2219,10 +2220,12 @@
       "rr2": 1.929536624543537,
       "t": 1793320513567,
       "validUntil": 1793925313567,
-      "status": "pending",
+      "status": "missed",
       "alerted": false,
       "patChk": true,
-      "pat": null
+      "pat": null,
+      "closedAt": 1793322000000,
+      "lastT": 1793322000000
     },
     {
       "id": "BNB|1793320513567",
@@ -2241,10 +2244,12 @@
       "rr2": 2.4507471797241043,
       "t": 1793320513567,
       "validUntil": 1793925313567,
-      "status": "pending",
+      "status": "missed",
       "alerted": false,
       "patChk": true,
-      "pat": null
+      "pat": null,
+      "closedAt": 1793322000000,
+      "lastT": 1793322000000
     },
     {
       "id": "APT|1793320513567",
@@ -2263,10 +2268,12 @@
       "rr2": 2.9043154022959925,
       "t": 1793320513567,
       "validUntil": 1793925313567,
-      "status": "pending",
+      "status": "missed",
       "alerted": true,
       "patChk": true,
-      "pat": null
+      "pat": null,
+      "closedAt": 1793322000000,
+      "lastT": 1793322000000
     }
   ],
   "outlooks": [
@@ -3673,7 +3680,7 @@
       "lastAlert": null
     },
     "STRK": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -3853,7 +3860,7 @@
       "lastAlert": "2026-10-18T09:26:24.740Z"
     },
     "TRX": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -4031,6 +4038,16 @@
       "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
+    },
+    "CRV": {
+      "decision": "short",
+      "lastAlertedDecision": null,
+      "lastAlert": null
+    },
+    "MORPHO": {
+      "decision": "short",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {
@@ -4056,14 +4073,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-30T01:41:05.349Z",
-    "universe": 68,
+    "t": "2026-10-30T03:14:50.400Z",
+    "universe": 69,
     "analyzed": 19,
     "signals": [
       "APT (فروش)"
     ]
   },
-  "lastFull": "2026-10-30T01:41:05.349Z",
+  "lastFull": "2026-10-30T03:14:50.400Z",
   "lastDaily": "2026-10-29",
   "lastWeekly": "2026-10-26",
   "replay": {
