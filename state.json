@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793340000000
+      "lastT": 1793343600000
     },
     {
       "id": "LIT|1793262793843",
@@ -2321,7 +2321,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793336143978,
-      "lastT": 1793340000000
+      "lastT": 1793343600000
     },
     {
       "id": "ETHFI|1793336143978",
@@ -2345,7 +2345,7 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793340000000
+      "lastT": 1793343600000
     },
     {
       "id": "PONS|1793345592833",
@@ -2365,6 +2365,29 @@
       "t": 1793345592833,
       "validUntil": 1793950392833,
       "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": null,
+      "openedAt": 1793345592833
+    },
+    {
+      "id": "ZAMA|1793349084597",
+      "sym": "ZAMA",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "pullback",
+      "entry": 0.0724612076178906,
+      "zoneLo": 0.07144597036852296,
+      "zoneHi": 0.07347644486725824,
+      "stop": 0.07584533178244941,
+      "tp1": 0.06606777777777778,
+      "tp2": 0.05504,
+      "rr1": 1.889242099054695,
+      "rr2": 5.1479221124150945,
+      "t": 1793349084597,
+      "validUntil": 1793953884597,
+      "status": "pending",
       "alerted": true,
       "patChk": true,
       "pat": null
@@ -4185,8 +4208,8 @@
     },
     "ZAMA": {
       "decision": "short",
-      "lastAlertedDecision": "long",
-      "lastAlert": "2026-10-28T17:28:19.171Z"
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-30T08:31:24.597Z"
     },
     "XGOOGL": {
       "decision": "short",
@@ -4257,17 +4280,16 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-30T07:33:12.833Z",
+    "t": "2026-10-30T08:31:24.597Z",
     "universe": 72,
-    "analyzed": 19,
+    "analyzed": 20,
     "signals": [
       "PONS (فروش)",
-      "GRASS (فروش)",
-      "ETHFI (فروش)",
+      "ZAMA (فروش)",
       "PENGU (فروش)"
     ]
   },
-  "lastFull": "2026-10-30T07:33:12.833Z",
+  "lastFull": "2026-10-30T08:31:24.597Z",
   "lastDaily": "2026-10-30",
   "lastWeekly": "2026-10-26",
   "replay": {
