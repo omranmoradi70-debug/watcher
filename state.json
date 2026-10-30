@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793354400000
+      "lastT": 1793361600000
     },
     {
       "id": "LIT|1793262793843",
@@ -2321,7 +2321,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793336143978,
-      "lastT": 1793354400000
+      "lastT": 1793361600000
     },
     {
       "id": "ETHFI|1793336143978",
@@ -2345,7 +2345,7 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793354400000
+      "lastT": 1793361600000
     },
     {
       "id": "PONS|1793345592833",
@@ -2369,7 +2369,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793345592833,
-      "lastT": 1793354400000
+      "lastT": 1793361600000
     },
     {
       "id": "ZAMA|1793349084597",
@@ -2416,7 +2416,52 @@
       "alerted": true,
       "patChk": true,
       "pat": null,
-      "openedAt": 1793356125541
+      "openedAt": 1793356125541,
+      "lastT": 1793361600000
+    },
+    {
+      "id": "LIT|1793367734927",
+      "sym": "LIT",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 2.7636,
+      "zoneLo": 2.7636,
+      "zoneHi": 2.850093142594285,
+      "stop": 3.047361866482666,
+      "tp1": 2.146125,
+      "tp2": 1.8367666666666669,
+      "rr1": 2.1760323459026822,
+      "rr2": 3.266236386240959,
+      "t": 1793367734927,
+      "validUntil": 1793972534927,
+      "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": null
+    },
+    {
+      "id": "PUMP|1793367734927",
+      "sym": "PUMP",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 0.004024,
+      "zoneLo": 0.004024,
+      "zoneHi": 0.004123923101480487,
+      "stop": 0.004315660456750626,
+      "tp1": 0.003424,
+      "tp2": 0.003099,
+      "rr1": 2.057186656993437,
+      "rr2": 3.1714960961982155,
+      "t": 1793367734927,
+      "validUntil": 1793972534927,
+      "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": null
     }
   ],
   "outlooks": [
@@ -3958,9 +4003,9 @@
       "lastAlert": "2026-10-30T10:28:45.541Z"
     },
     "LIT": {
-      "decision": "wait",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-10-29T08:33:13.843Z"
+      "decision": "short",
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-30T13:42:14.927Z"
     },
     "UNI": {
       "decision": "short",
@@ -4049,8 +4094,8 @@
     },
     "PUMP": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-10-24T04:59:53.722Z"
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-30T13:42:14.927Z"
     },
     "OP": {
       "decision": "short",
@@ -4281,6 +4326,11 @@
       "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
+    },
+    "LSK": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {
@@ -4306,16 +4356,16 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-30T11:54:13.290Z",
-    "universe": 73,
+    "t": "2026-10-30T13:42:14.927Z",
+    "universe": 74,
     "analyzed": 20,
     "signals": [
       "PONS (فروش)",
-      "FIL (فروش)",
-      "PENGU (فروش)"
+      "LIT (فروش)",
+      "PUMP (فروش)"
     ]
   },
-  "lastFull": "2026-10-30T11:54:13.290Z",
+  "lastFull": "2026-10-30T13:42:14.927Z",
   "lastDaily": "2026-10-30",
   "lastWeekly": "2026-10-26",
   "replay": {
