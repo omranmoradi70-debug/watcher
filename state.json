@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793336400000
+      "lastT": 1793340000000
     },
     {
       "id": "LIT|1793262793843",
@@ -2321,7 +2321,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793336143978,
-      "lastT": 1793336400000
+      "lastT": 1793340000000
     },
     {
       "id": "ETHFI|1793336143978",
@@ -2345,7 +2345,29 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793336400000
+      "lastT": 1793340000000
+    },
+    {
+      "id": "PONS|1793345592833",
+      "sym": "PONS",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 0.2389,
+      "zoneLo": 0.2389,
+      "zoneHi": 0.24695678008793584,
+      "stop": 0.2550135601758717,
+      "tp1": 0.2147296597361925,
+      "tp2": 0.19861609956032084,
+      "rr1": 1.4999999999999993,
+      "rr2": 2.5,
+      "t": 1793345592833,
+      "validUntil": 1793950392833,
+      "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": null
     }
   ],
   "outlooks": [
@@ -3858,8 +3880,8 @@
     },
     "PONS": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-10-16T22:48:13.567Z"
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-30T07:33:12.833Z"
     },
     "XMSTR": {
       "decision": "long",
@@ -4017,7 +4039,7 @@
       "lastAlert": null
     },
     "XSNDK": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-22T00:07:36.449Z"
     },
@@ -4205,6 +4227,11 @@
       "decision": "short",
       "lastAlertedDecision": "short",
       "lastAlert": "2026-10-30T04:55:43.978Z"
+    },
+    "RSR": {
+      "decision": "short",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {
@@ -4230,15 +4257,17 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-30T06:20:43.718Z",
-    "universe": 71,
+    "t": "2026-10-30T07:33:12.833Z",
+    "universe": 72,
     "analyzed": 19,
     "signals": [
+      "PONS (فروش)",
       "GRASS (فروش)",
+      "ETHFI (فروش)",
       "PENGU (فروش)"
     ]
   },
-  "lastFull": "2026-10-30T06:20:43.718Z",
+  "lastFull": "2026-10-30T07:33:12.833Z",
   "lastDaily": "2026-10-30",
   "lastWeekly": "2026-10-26",
   "replay": {
