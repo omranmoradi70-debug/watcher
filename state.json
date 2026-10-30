@@ -12,8 +12,8 @@
     },
     "SOL": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-10-29T05:57:34.630Z"
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-30T04:55:43.978Z"
     },
     "BNB": {
       "decision": "short",
@@ -2296,6 +2296,50 @@
       "alerted": true,
       "patChk": true,
       "pat": null
+    },
+    {
+      "id": "PENGU|1793336143978",
+      "sym": "PENGU",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 0.007221,
+      "zoneLo": 0.007221,
+      "zoneHi": 0.00736884388894897,
+      "stop": 0.007516687777897941,
+      "tp1": 0.0066925000000000005,
+      "tp2": 0.006424249999999999,
+      "rr1": 1.78735828635574,
+      "rr2": 2.6945652122118036,
+      "t": 1793336143978,
+      "validUntil": 1793940943978,
+      "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": null
+    },
+    {
+      "id": "ETHFI|1793336143978",
+      "sym": "ETHFI",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 0.6133,
+      "zoneLo": 0.6133,
+      "zoneHi": 0.6263459059557505,
+      "stop": 0.6475503159872072,
+      "tp1": 0.5301428571428571,
+      "tp2": 0.4708571428571428,
+      "rr1": 2.427923377063224,
+      "rr2": 4.158877167616804,
+      "t": 1793336143978,
+      "validUntil": 1793940943978,
+      "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": "triple_top"
     }
   ],
   "outlooks": [
@@ -3693,6 +3737,71 @@
       "s1": 1.28848,
       "r1": 1.3126666666666664,
       "done": false
+    },
+    {
+      "id": "BTC|day|2026-10-30",
+      "sym": "BTC",
+      "hz": "day",
+      "bias": "down",
+      "strength": "strong",
+      "price": 78261,
+      "t": 1793336143978,
+      "due": 1793422543978,
+      "s1": 77507.1,
+      "r1": 79070.56666666667,
+      "done": false
+    },
+    {
+      "id": "ETH|day|2026-10-30",
+      "sym": "ETH",
+      "hz": "day",
+      "bias": "down",
+      "strength": "strong",
+      "price": 2243.5,
+      "t": 1793336143978,
+      "due": 1793422543978,
+      "s1": 2182.5899999999997,
+      "r1": 2268.335,
+      "done": false
+    },
+    {
+      "id": "SOL|day|2026-10-30",
+      "sym": "SOL",
+      "hz": "day",
+      "bias": "down",
+      "strength": "strong",
+      "price": 97.25,
+      "t": 1793336143978,
+      "due": 1793422543978,
+      "s1": 95.945,
+      "r1": 97.625,
+      "done": false
+    },
+    {
+      "id": "BNB|day|2026-10-30",
+      "sym": "BNB",
+      "hz": "day",
+      "bias": "down",
+      "strength": "medium",
+      "price": 716.66,
+      "t": 1793336143978,
+      "due": 1793422543978,
+      "s1": 706.9399999999999,
+      "r1": 721.2199999999999,
+      "done": false
+    },
+    {
+      "id": "XRP|day|2026-10-30",
+      "sym": "XRP",
+      "hz": "day",
+      "bias": "down",
+      "strength": "strong",
+      "price": 1.2535,
+      "t": 1793336143978,
+      "due": 1793422543978,
+      "s1": 1.174775,
+      "r1": 1.25993,
+      "done": false
     }
   ],
   "scan": {
@@ -4003,8 +4112,8 @@
     },
     "PENGU": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": null
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-30T04:55:43.978Z"
     },
     "KAT": {
       "decision": "wait",
@@ -4073,8 +4182,8 @@
     },
     "ETHFI": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": null
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-30T04:55:43.978Z"
     }
   },
   "spike": {
@@ -4100,15 +4209,17 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-30T04:04:20.220Z",
+    "t": "2026-10-30T04:55:43.978Z",
     "universe": 70,
     "analyzed": 19,
     "signals": [
-      "GRASS (فروش)"
+      "GRASS (فروش)",
+      "ETHFI (فروش)",
+      "PENGU (فروش)"
     ]
   },
-  "lastFull": "2026-10-30T04:04:20.220Z",
-  "lastDaily": "2026-10-29",
+  "lastFull": "2026-10-30T04:55:43.978Z",
+  "lastDaily": "2026-10-30",
   "lastWeekly": "2026-10-26",
   "replay": {
     "t": "2026-10-27T05:36:41.176Z",
