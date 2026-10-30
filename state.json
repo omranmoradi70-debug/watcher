@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793365200000
+      "lastT": 1793368800000
     },
     {
       "id": "LIT|1793262793843",
@@ -2321,7 +2321,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793336143978,
-      "lastT": 1793365200000
+      "lastT": 1793368800000
     },
     {
       "id": "ETHFI|1793336143978",
@@ -2345,7 +2345,7 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793365200000
+      "lastT": 1793368800000
     },
     {
       "id": "PONS|1793345592833",
@@ -2369,7 +2369,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793345592833,
-      "lastT": 1793365200000
+      "lastT": 1793368800000
     },
     {
       "id": "ZAMA|1793349084597",
@@ -2417,7 +2417,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793356125541,
-      "lastT": 1793365200000
+      "lastT": 1793368800000
     },
     {
       "id": "LIT|1793367734927",
@@ -2440,7 +2440,8 @@
       "alerted": true,
       "patChk": true,
       "pat": null,
-      "openedAt": 1793367734927
+      "openedAt": 1793367734927,
+      "lastT": 1793368800000
     },
     {
       "id": "PUMP|1793367734927",
@@ -2463,7 +2464,8 @@
       "alerted": true,
       "patChk": true,
       "pat": null,
-      "openedAt": 1793367734927
+      "openedAt": 1793367734927,
+      "lastT": 1793368800000
     },
     {
       "id": "PARTI|1793371076732",
@@ -2485,7 +2487,8 @@
       "status": "open",
       "alerted": true,
       "patChk": true,
-      "pat": null
+      "pat": null,
+      "openedAt": 1793371076732
     },
     {
       "id": "ENA|1793371076732",
@@ -2507,7 +2510,8 @@
       "status": "open",
       "alerted": true,
       "patChk": true,
-      "pat": null
+      "pat": null,
+      "openedAt": 1793371076732
     }
   ],
   "outlooks": [
@@ -4377,6 +4381,11 @@
       "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
+    },
+    "VVV": {
+      "decision": "short",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {
@@ -4402,20 +4411,18 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-30T14:37:56.732Z",
+    "t": "2026-10-30T15:30:23.516Z",
     "universe": 70,
     "analyzed": 20,
     "signals": [
-      "PARTI (خرید)",
-      "PONS (فروش)",
       "ZAMA (فروش)",
-      "ENA (فروش)",
-      "PUMP (فروش)",
-      "PENGU (فروش)",
-      "XCRCL (فروش)"
+      "ETHFI (فروش)",
+      "XCRCL (فروش)",
+      "LIT (فروش)",
+      "APT (فروش)"
     ]
   },
-  "lastFull": "2026-10-30T14:37:56.732Z",
+  "lastFull": "2026-10-30T15:30:23.516Z",
   "lastDaily": "2026-10-30",
   "lastWeekly": "2026-10-26",
   "replay": {
