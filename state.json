@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793347200000
+      "lastT": 1793350800000
     },
     {
       "id": "LIT|1793262793843",
@@ -2321,7 +2321,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793336143978,
-      "lastT": 1793347200000
+      "lastT": 1793350800000
     },
     {
       "id": "ETHFI|1793336143978",
@@ -2345,7 +2345,7 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793347200000
+      "lastT": 1793350800000
     },
     {
       "id": "PONS|1793345592833",
@@ -2369,7 +2369,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793345592833,
-      "lastT": 1793347200000
+      "lastT": 1793350800000
     },
     {
       "id": "ZAMA|1793349084597",
@@ -2388,7 +2388,31 @@
       "rr2": 5.1479221124150945,
       "t": 1793349084597,
       "validUntil": 1793953884597,
-      "status": "pending",
+      "status": "missed",
+      "alerted": true,
+      "patChk": true,
+      "pat": null,
+      "closedAt": 1793350800000,
+      "lastT": 1793350800000
+    },
+    {
+      "id": "FIL|1793356125541",
+      "sym": "FIL",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 0.8397,
+      "zoneLo": 0.8397,
+      "zoneHi": 0.8558597639538487,
+      "stop": 0.9215985014343607,
+      "tp1": 0.6566428571428571,
+      "tp2": 0.5747443557084964,
+      "rr1": 2.23517084746487,
+      "rr2": 3.23517084746487,
+      "t": 1793356125541,
+      "validUntil": 1793960925541,
+      "status": "open",
       "alerted": true,
       "patChk": true,
       "pat": null
@@ -3908,7 +3932,7 @@
       "lastAlert": "2026-10-30T07:33:12.833Z"
     },
     "XMSTR": {
-      "decision": "long",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-27T04:16:38.116Z"
     },
@@ -3929,8 +3953,8 @@
     },
     "FIL": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-10-23T00:35:25.503Z"
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-10-30T10:28:45.541Z"
     },
     "LIT": {
       "decision": "wait",
@@ -4281,14 +4305,16 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-30T09:31:30.870Z",
-    "universe": 72,
+    "t": "2026-10-30T10:28:45.541Z",
+    "universe": 73,
     "analyzed": 20,
     "signals": [
-      "PONS (فروش)"
+      "PONS (فروش)",
+      "PENGU (فروش)",
+      "FIL (فروش)"
     ]
   },
-  "lastFull": "2026-10-30T09:31:30.870Z",
+  "lastFull": "2026-10-30T10:28:45.541Z",
   "lastDaily": "2026-10-30",
   "lastWeekly": "2026-10-26",
   "replay": {
