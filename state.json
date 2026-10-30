@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793343600000
+      "lastT": 1793347200000
     },
     {
       "id": "LIT|1793262793843",
@@ -2321,7 +2321,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793336143978,
-      "lastT": 1793343600000
+      "lastT": 1793347200000
     },
     {
       "id": "ETHFI|1793336143978",
@@ -2345,7 +2345,7 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793343600000
+      "lastT": 1793347200000
     },
     {
       "id": "PONS|1793345592833",
@@ -2368,7 +2368,8 @@
       "alerted": true,
       "patChk": true,
       "pat": null,
-      "openedAt": 1793345592833
+      "openedAt": 1793345592833,
+      "lastT": 1793347200000
     },
     {
       "id": "ZAMA|1793349084597",
@@ -4280,16 +4281,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-30T08:31:24.597Z",
+    "t": "2026-10-30T09:31:30.870Z",
     "universe": 72,
     "analyzed": 20,
     "signals": [
-      "PONS (فروش)",
-      "ZAMA (فروش)",
-      "PENGU (فروش)"
+      "PONS (فروش)"
     ]
   },
-  "lastFull": "2026-10-30T08:31:24.597Z",
+  "lastFull": "2026-10-30T09:31:30.870Z",
   "lastDaily": "2026-10-30",
   "lastWeekly": "2026-10-26",
   "replay": {
