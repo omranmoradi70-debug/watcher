@@ -909,7 +909,7 @@
       "status": "tp1",
       "alerted": false,
       "openedAt": 1792715725503,
-      "lastT": 1793314800000,
+      "lastT": 1793318400000,
       "R": 2.1670793391038705,
       "closedAt": 1793304000000,
       "watchTp2": true
@@ -1008,7 +1008,7 @@
       "status": "tp1",
       "alerted": true,
       "openedAt": 1792715725503,
-      "lastT": 1793314800000,
+      "lastT": 1793318400000,
       "R": 1.3343586321382954,
       "closedAt": 1793278800000,
       "watchTp2": true
@@ -2043,7 +2043,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793314800000
+      "lastT": 1793318400000
     },
     {
       "id": "LIT|1793262793843",
@@ -3688,7 +3688,7 @@
       "lastAlert": "2026-10-22T00:07:36.449Z"
     },
     "PYTH": {
-      "decision": "long",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -3768,7 +3768,7 @@
       "lastAlert": "2026-10-23T02:06:09.535Z"
     },
     "HYPE": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-26T04:19:17.390Z"
     },
@@ -4026,6 +4026,11 @@
       "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": null
+    },
+    "GRASS": {
+      "decision": "short",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {
@@ -4051,14 +4056,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-30T00:35:13.567Z",
-    "universe": 62,
+    "t": "2026-10-30T01:41:05.349Z",
+    "universe": 68,
     "analyzed": 19,
     "signals": [
       "APT (فروش)"
     ]
   },
-  "lastFull": "2026-10-30T00:35:13.567Z",
+  "lastFull": "2026-10-30T01:41:05.349Z",
   "lastDaily": "2026-10-29",
   "lastWeekly": "2026-10-26",
   "replay": {
