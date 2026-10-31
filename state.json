@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793469600000
+      "lastT": 1793473200000
     },
     {
       "id": "LIT|1793262793843",
@@ -2347,7 +2347,7 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793469600000
+      "lastT": 1793473200000
     },
     {
       "id": "PONS|1793345592833",
@@ -2371,7 +2371,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793345592833,
-      "lastT": 1793469600000
+      "lastT": 1793473200000
     },
     {
       "id": "ZAMA|1793349084597",
@@ -2419,7 +2419,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793356125541,
-      "lastT": 1793469600000
+      "lastT": 1793473200000
     },
     {
       "id": "LIT|1793367734927",
@@ -2469,7 +2469,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793367734927,
-      "lastT": 1793469600000
+      "lastT": 1793473200000
     },
     {
       "id": "PARTI|1793371076732",
@@ -2493,7 +2493,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793469600000
+      "lastT": 1793473200000
     },
     {
       "id": "ENA|1793371076732",
@@ -2517,7 +2517,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793469600000
+      "lastT": 1793473200000
     },
     {
       "id": "XMSTR|1793383524000",
@@ -2565,7 +2565,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793403890690,
-      "lastT": 1793469600000
+      "lastT": 1793473200000
     },
     {
       "id": "BCH|1793410181988",
@@ -2589,7 +2589,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793410181988,
-      "lastT": 1793469600000
+      "lastT": 1793473200000
     },
     {
       "id": "PEPE|1793410181988",
@@ -2613,7 +2613,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793410181988,
-      "lastT": 1793469600000
+      "lastT": 1793473200000
     },
     {
       "id": "HYPE|1793421379716",
@@ -2637,7 +2637,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793421379716,
-      "lastT": 1793469600000
+      "lastT": 1793473200000
     },
     {
       "id": "RE|1793443475499",
@@ -2687,7 +2687,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793448010833,
-      "lastT": 1793469600000
+      "lastT": 1793473200000
     },
     {
       "id": "BNB|1793466157814",
@@ -2711,7 +2711,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793466157814,
-      "lastT": 1793469600000
+      "lastT": 1793473200000
     }
   ],
   "outlooks": [
@@ -4573,7 +4573,7 @@
       "lastAlert": "2026-10-23T14:54:16.901Z"
     },
     "GRAM": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-23T14:54:16.901Z"
     },
@@ -4653,12 +4653,12 @@
       "lastAlert": "2026-10-30T04:55:43.978Z"
     },
     "RSR": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
     "LSK": {
-      "decision": "long",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -4706,14 +4706,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-31T19:36:34.472Z",
-    "universe": 43,
+    "t": "2026-10-31T20:47:44.345Z",
+    "universe": 42,
     "analyzed": 20,
-    "signals": [
-      "ZEC (خرید)"
-    ]
+    "signals": []
   },
-  "lastFull": "2026-10-31T19:36:34.472Z",
+  "lastFull": "2026-10-31T20:47:44.345Z",
   "lastDaily": "2026-10-31",
   "lastWeekly": "2026-10-26",
   "replay": {
