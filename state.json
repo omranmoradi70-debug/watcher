@@ -4202,7 +4202,7 @@
       "lastAlert": null
     },
     "STRK": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -4625,14 +4625,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-31T06:06:03.330Z",
+    "t": "2026-10-31T06:59:24.739Z",
     "universe": 52,
     "analyzed": 20,
     "signals": [
       "LIT (فروش)"
     ]
   },
-  "lastFull": "2026-10-31T06:06:03.330Z",
+  "lastFull": "2026-10-31T06:59:24.739Z",
   "lastDaily": "2026-10-31",
   "lastWeekly": "2026-10-26",
   "replay": {
