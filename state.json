@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793397600000
+      "lastT": 1793404800000
     },
     {
       "id": "LIT|1793262793843",
@@ -2347,7 +2347,7 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793397600000
+      "lastT": 1793404800000
     },
     {
       "id": "PONS|1793345592833",
@@ -2371,7 +2371,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793345592833,
-      "lastT": 1793397600000
+      "lastT": 1793404800000
     },
     {
       "id": "ZAMA|1793349084597",
@@ -2419,7 +2419,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793356125541,
-      "lastT": 1793397600000
+      "lastT": 1793404800000
     },
     {
       "id": "LIT|1793367734927",
@@ -2443,7 +2443,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793367734927,
-      "lastT": 1793397600000
+      "lastT": 1793404800000
     },
     {
       "id": "PUMP|1793367734927",
@@ -2467,7 +2467,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793367734927,
-      "lastT": 1793397600000
+      "lastT": 1793404800000
     },
     {
       "id": "PARTI|1793371076732",
@@ -2491,7 +2491,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793397600000
+      "lastT": 1793404800000
     },
     {
       "id": "ENA|1793371076732",
@@ -2515,7 +2515,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793397600000
+      "lastT": 1793404800000
     },
     {
       "id": "XMSTR|1793383524000",
@@ -2558,6 +2558,52 @@
       "rr2": 2.2237503552693894,
       "t": 1793403890690,
       "validUntil": 1794008690690,
+      "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": null,
+      "openedAt": 1793403890690,
+      "lastT": 1793404800000
+    },
+    {
+      "id": "BCH|1793410181988",
+      "sym": "BCH",
+      "src": "scan",
+      "dir": 1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 293.1,
+      "zoneLo": 288.5135005136142,
+      "zoneHi": 293.1,
+      "stop": 280.36945035952994,
+      "tp1": 316.1333333333334,
+      "tp2": 323.9166666666667,
+      "rr1": 1.809296062136314,
+      "rr2": 2.420686265477598,
+      "t": 1793410181988,
+      "validUntil": 1794014981988,
+      "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": null
+    },
+    {
+      "id": "PEPE|1793410181988",
+      "sym": "PEPE",
+      "src": "scan",
+      "dir": 1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 0.0000049331,
+      "zoneLo": 0.0000047776569494511175,
+      "zoneHi": 0.0000049331,
+      "stop": 0.000004622213898902235,
+      "tp1": 0.000005359,
+      "tp2": 0.0000056895,
+      "rr1": 1.3699551009070852,
+      "rr2": 2.433045405790374,
+      "t": 1793410181988,
+      "validUntil": 1794014981988,
       "status": "open",
       "alerted": true,
       "patChk": true,
@@ -4083,7 +4129,7 @@
       "lastAlert": "2026-10-30T18:05:24.000Z"
     },
     "NEAR": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-21T09:17:45.652Z"
     },
@@ -4098,8 +4144,8 @@
       "lastAlert": "2026-10-23T00:35:25.503Z"
     },
     "FIL": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-10-30T10:28:45.541Z"
     },
     "LIT": {
@@ -4108,7 +4154,7 @@
       "lastAlert": "2026-10-30T13:42:14.927Z"
     },
     "UNI": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-24T07:34:18.621Z"
     },
@@ -4118,19 +4164,19 @@
       "lastAlert": null
     },
     "ENA": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-10-30T14:37:56.732Z"
     },
     "ONDO": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-23T20:07:44.502Z"
     },
     "PEPE": {
       "decision": "long",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-10-27T20:45:09.360Z"
+      "lastAlertedDecision": "long",
+      "lastAlert": "2026-10-31T01:29:41.988Z"
     },
     "XTSLA": {
       "decision": "wait",
@@ -4173,7 +4219,7 @@
       "lastAlert": "2026-10-29T09:31:23.893Z"
     },
     "ZRO": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-21T17:07:40.627Z"
     },
@@ -4193,8 +4239,8 @@
       "lastAlert": "2026-10-30T23:44:50.690Z"
     },
     "PUMP": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-10-30T13:42:14.927Z"
     },
     "OP": {
@@ -4243,7 +4289,7 @@
       "lastAlert": null
     },
     "LINK": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-26T22:57:51.490Z"
     },
@@ -4313,7 +4359,7 @@
       "lastAlert": "2026-10-22T12:59:08.675Z"
     },
     "AAVE": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -4328,9 +4374,9 @@
       "lastAlert": "2026-10-23T11:04:24.170Z"
     },
     "BCH": {
-      "decision": "wait",
-      "lastAlertedDecision": null,
-      "lastAlert": null
+      "decision": "long",
+      "lastAlertedDecision": "long",
+      "lastAlert": "2026-10-31T01:29:41.988Z"
     },
     "PAXG": {
       "decision": "short",
@@ -4466,14 +4512,15 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-30T23:44:50.690Z",
-    "universe": 65,
+    "t": "2026-10-31T01:29:41.988Z",
+    "universe": 56,
     "analyzed": 20,
     "signals": [
-      "WLD (فروش)"
+      "BCH (خرید)",
+      "PEPE (خرید)"
     ]
   },
-  "lastFull": "2026-10-30T23:44:50.690Z",
+  "lastFull": "2026-10-31T01:29:41.988Z",
   "lastDaily": "2026-10-30",
   "lastWeekly": "2026-10-26",
   "replay": {
