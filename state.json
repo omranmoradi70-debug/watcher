@@ -2681,7 +2681,8 @@
       "status": "open",
       "alerted": true,
       "patChk": true,
-      "pat": null
+      "pat": null,
+      "openedAt": 1793448010833
     }
   ],
   "outlooks": [
@@ -4676,17 +4677,17 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-31T12:00:10.833Z",
-    "universe": 52,
+    "t": "2026-10-31T12:56:19.639Z",
+    "universe": 51,
     "analyzed": 20,
     "signals": [
       "RE (فروش)",
-      "ZEC (خرید)",
       "PEPE (خرید)",
+      "ZEC (خرید)",
       "BCH (خرید)"
     ]
   },
-  "lastFull": "2026-10-31T12:00:10.833Z",
+  "lastFull": "2026-10-31T12:56:19.639Z",
   "lastDaily": "2026-10-31",
   "lastWeekly": "2026-10-26",
   "replay": {
