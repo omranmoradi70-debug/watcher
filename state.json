@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793412000000
+      "lastT": 1793415600000
     },
     {
       "id": "LIT|1793262793843",
@@ -2347,7 +2347,7 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793412000000
+      "lastT": 1793415600000
     },
     {
       "id": "PONS|1793345592833",
@@ -2371,7 +2371,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793345592833,
-      "lastT": 1793412000000
+      "lastT": 1793415600000
     },
     {
       "id": "ZAMA|1793349084597",
@@ -2419,7 +2419,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793356125541,
-      "lastT": 1793412000000
+      "lastT": 1793415600000
     },
     {
       "id": "LIT|1793367734927",
@@ -2443,7 +2443,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793367734927,
-      "lastT": 1793412000000
+      "lastT": 1793415600000
     },
     {
       "id": "PUMP|1793367734927",
@@ -2467,7 +2467,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793367734927,
-      "lastT": 1793412000000
+      "lastT": 1793415600000
     },
     {
       "id": "PARTI|1793371076732",
@@ -2491,7 +2491,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793412000000
+      "lastT": 1793415600000
     },
     {
       "id": "ENA|1793371076732",
@@ -2515,7 +2515,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793412000000
+      "lastT": 1793415600000
     },
     {
       "id": "XMSTR|1793383524000",
@@ -2563,7 +2563,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793403890690,
-      "lastT": 1793412000000
+      "lastT": 1793415600000
     },
     {
       "id": "BCH|1793410181988",
@@ -2587,7 +2587,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793410181988,
-      "lastT": 1793412000000
+      "lastT": 1793415600000
     },
     {
       "id": "PEPE|1793410181988",
@@ -2611,7 +2611,29 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793410181988,
-      "lastT": 1793412000000
+      "lastT": 1793415600000
+    },
+    {
+      "id": "HYPE|1793421379716",
+      "sym": "HYPE",
+      "src": "scan",
+      "dir": 1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 88.89,
+      "zoneLo": 87.4886092963473,
+      "zoneHi": 88.89,
+      "stop": 84.75465150744311,
+      "tp1": 94.66133333333335,
+      "tp2": 98.041,
+      "rr1": 1.3956099089885727,
+      "rr2": 2.21287275219263,
+      "t": 1793421379716,
+      "validUntil": 1794026179716,
+      "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": null
     }
   ],
   "outlooks": [
@@ -4089,6 +4111,71 @@
       "s1": 1.174775,
       "r1": 1.25993,
       "done": false
+    },
+    {
+      "id": "BTC|day|2026-10-31",
+      "sym": "BTC",
+      "hz": "day",
+      "bias": "down",
+      "strength": "strong",
+      "price": 77112.4,
+      "t": 1793421379716,
+      "due": 1793507779716,
+      "s1": 76293.29999999999,
+      "r1": 77507.1,
+      "done": false
+    },
+    {
+      "id": "ETH|day|2026-10-31",
+      "sym": "ETH",
+      "hz": "day",
+      "bias": "down",
+      "strength": "strong",
+      "price": 2236.92,
+      "t": 1793421379716,
+      "due": 1793507779716,
+      "s1": 2181.3628571428567,
+      "r1": 2267.072,
+      "done": false
+    },
+    {
+      "id": "SOL|day|2026-10-31",
+      "sym": "SOL",
+      "hz": "day",
+      "bias": "down",
+      "strength": "strong",
+      "price": 95.91,
+      "t": 1793421379716,
+      "due": 1793507779716,
+      "s1": 92.33833333333332,
+      "r1": 97.625,
+      "done": false
+    },
+    {
+      "id": "BNB|day|2026-10-31",
+      "sym": "BNB",
+      "hz": "day",
+      "bias": "down",
+      "strength": "medium",
+      "price": 701.79,
+      "t": 1793421379716,
+      "due": 1793507779716,
+      "s1": 688.8,
+      "r1": 708.9,
+      "done": false
+    },
+    {
+      "id": "XRP|day|2026-10-31",
+      "sym": "XRP",
+      "hz": "day",
+      "bias": "down",
+      "strength": "strong",
+      "price": 1.2438,
+      "t": 1793421379716,
+      "due": 1793507779716,
+      "s1": 1.2001,
+      "r1": 1.2618916666666664,
+      "done": false
     }
   ],
   "scan": {
@@ -4194,8 +4281,8 @@
     },
     "HYPE": {
       "decision": "long",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-10-26T04:19:17.390Z"
+      "lastAlertedDecision": "long",
+      "lastAlert": "2026-10-31T04:36:19.716Z"
     },
     "INJ": {
       "decision": "short",
@@ -4273,7 +4360,7 @@
       "lastAlert": "2026-10-25T11:59:08.172Z"
     },
     "OKB": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-18T09:26:24.740Z"
     },
@@ -4308,7 +4395,7 @@
       "lastAlert": null
     },
     "XAUT": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-20T00:09:41.012Z"
     },
@@ -4521,13 +4608,16 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-31T03:12:30.674Z",
-    "universe": 55,
+    "t": "2026-10-31T04:36:19.716Z",
+    "universe": 53,
     "analyzed": 20,
-    "signals": []
+    "signals": [
+      "LIT (فروش)",
+      "HYPE (خرید)"
+    ]
   },
-  "lastFull": "2026-10-31T03:12:30.674Z",
-  "lastDaily": "2026-10-30",
+  "lastFull": "2026-10-31T04:36:19.716Z",
+  "lastDaily": "2026-10-31",
   "lastWeekly": "2026-10-26",
   "replay": {
     "t": "2026-10-27T05:36:41.176Z",
