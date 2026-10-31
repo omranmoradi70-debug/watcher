@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793408400000
+      "lastT": 1793412000000
     },
     {
       "id": "LIT|1793262793843",
@@ -2347,7 +2347,7 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793408400000
+      "lastT": 1793412000000
     },
     {
       "id": "PONS|1793345592833",
@@ -2371,7 +2371,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793345592833,
-      "lastT": 1793408400000
+      "lastT": 1793412000000
     },
     {
       "id": "ZAMA|1793349084597",
@@ -2419,7 +2419,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793356125541,
-      "lastT": 1793408400000
+      "lastT": 1793412000000
     },
     {
       "id": "LIT|1793367734927",
@@ -2443,7 +2443,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793367734927,
-      "lastT": 1793408400000
+      "lastT": 1793412000000
     },
     {
       "id": "PUMP|1793367734927",
@@ -2467,7 +2467,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793367734927,
-      "lastT": 1793408400000
+      "lastT": 1793412000000
     },
     {
       "id": "PARTI|1793371076732",
@@ -2491,7 +2491,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793408400000
+      "lastT": 1793412000000
     },
     {
       "id": "ENA|1793371076732",
@@ -2515,7 +2515,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793408400000
+      "lastT": 1793412000000
     },
     {
       "id": "XMSTR|1793383524000",
@@ -2563,7 +2563,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793403890690,
-      "lastT": 1793408400000
+      "lastT": 1793412000000
     },
     {
       "id": "BCH|1793410181988",
@@ -2586,7 +2586,8 @@
       "alerted": true,
       "patChk": true,
       "pat": null,
-      "openedAt": 1793410181988
+      "openedAt": 1793410181988,
+      "lastT": 1793412000000
     },
     {
       "id": "PEPE|1793410181988",
@@ -2609,7 +2610,8 @@
       "alerted": true,
       "patChk": true,
       "pat": null,
-      "openedAt": 1793410181988
+      "openedAt": 1793410181988,
+      "lastT": 1793412000000
     }
   ],
   "outlooks": [
@@ -4276,7 +4278,7 @@
       "lastAlert": "2026-10-18T09:26:24.740Z"
     },
     "TRX": {
-      "decision": "long",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -4489,6 +4491,11 @@
       "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
+    },
+    "ICP": {
+      "decision": "short",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {
@@ -4514,12 +4521,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-31T02:20:47.606Z",
-    "universe": 56,
+    "t": "2026-10-31T03:12:30.674Z",
+    "universe": 55,
     "analyzed": 20,
     "signals": []
   },
-  "lastFull": "2026-10-31T02:20:47.606Z",
+  "lastFull": "2026-10-31T03:12:30.674Z",
   "lastDaily": "2026-10-30",
   "lastWeekly": "2026-10-26",
   "replay": {
