@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793415600000
+      "lastT": 1793422800000
     },
     {
       "id": "LIT|1793262793843",
@@ -2347,7 +2347,7 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793415600000
+      "lastT": 1793422800000
     },
     {
       "id": "PONS|1793345592833",
@@ -2371,7 +2371,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793345592833,
-      "lastT": 1793415600000
+      "lastT": 1793422800000
     },
     {
       "id": "ZAMA|1793349084597",
@@ -2419,7 +2419,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793356125541,
-      "lastT": 1793415600000
+      "lastT": 1793422800000
     },
     {
       "id": "LIT|1793367734927",
@@ -2443,7 +2443,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793367734927,
-      "lastT": 1793415600000
+      "lastT": 1793422800000
     },
     {
       "id": "PUMP|1793367734927",
@@ -2467,7 +2467,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793367734927,
-      "lastT": 1793415600000
+      "lastT": 1793422800000
     },
     {
       "id": "PARTI|1793371076732",
@@ -2491,7 +2491,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793415600000
+      "lastT": 1793422800000
     },
     {
       "id": "ENA|1793371076732",
@@ -2515,7 +2515,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793415600000
+      "lastT": 1793422800000
     },
     {
       "id": "XMSTR|1793383524000",
@@ -2563,7 +2563,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793403890690,
-      "lastT": 1793415600000
+      "lastT": 1793422800000
     },
     {
       "id": "BCH|1793410181988",
@@ -2587,7 +2587,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793410181988,
-      "lastT": 1793415600000
+      "lastT": 1793422800000
     },
     {
       "id": "PEPE|1793410181988",
@@ -2611,7 +2611,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793410181988,
-      "lastT": 1793415600000
+      "lastT": 1793422800000
     },
     {
       "id": "HYPE|1793421379716",
@@ -2633,7 +2633,9 @@
       "status": "open",
       "alerted": true,
       "patChk": true,
-      "pat": null
+      "pat": null,
+      "openedAt": 1793421379716,
+      "lastT": 1793422800000
     }
   ],
   "outlooks": [
@@ -4058,7 +4060,10 @@
       "due": 1793422543978,
       "s1": 77507.1,
       "r1": 79070.56666666667,
-      "done": false
+      "done": true,
+      "price1": 77302.3,
+      "movePct": -1.23,
+      "correct": true
     },
     {
       "id": "ETH|day|2026-10-30",
@@ -4071,7 +4076,10 @@
       "due": 1793422543978,
       "s1": 2182.5899999999997,
       "r1": 2268.335,
-      "done": false
+      "done": true,
+      "price1": 2244.29,
+      "movePct": 0.04,
+      "correct": false
     },
     {
       "id": "SOL|day|2026-10-30",
@@ -4084,7 +4092,10 @@
       "due": 1793422543978,
       "s1": 95.945,
       "r1": 97.625,
-      "done": false
+      "done": true,
+      "price1": 96.14,
+      "movePct": -1.14,
+      "correct": true
     },
     {
       "id": "BNB|day|2026-10-30",
@@ -4097,7 +4108,10 @@
       "due": 1793422543978,
       "s1": 706.9399999999999,
       "r1": 721.2199999999999,
-      "done": false
+      "done": true,
+      "price1": 704.13,
+      "movePct": -1.75,
+      "correct": true
     },
     {
       "id": "XRP|day|2026-10-30",
@@ -4110,7 +4124,10 @@
       "due": 1793422543978,
       "s1": 1.174775,
       "r1": 1.25993,
-      "done": false
+      "done": true,
+      "price1": 1.249,
+      "movePct": -0.36,
+      "correct": true
     },
     {
       "id": "BTC|day|2026-10-31",
@@ -4608,15 +4625,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-10-31T04:36:19.716Z",
-    "universe": 53,
+    "t": "2026-10-31T06:06:03.330Z",
+    "universe": 52,
     "analyzed": 20,
     "signals": [
-      "LIT (فروش)",
-      "HYPE (خرید)"
+      "LIT (فروش)"
     ]
   },
-  "lastFull": "2026-10-31T04:36:19.716Z",
+  "lastFull": "2026-10-31T06:06:03.330Z",
   "lastDaily": "2026-10-31",
   "lastWeekly": "2026-10-26",
   "replay": {
