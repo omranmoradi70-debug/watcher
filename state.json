@@ -16,8 +16,8 @@
       "lastAlert": "2026-10-30T04:55:43.978Z"
     },
     "BNB": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-01T01:52:54.513Z"
     },
     "XRP": {
@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793516400000
+      "lastT": 1793523600000
     },
     {
       "id": "LIT|1793262793843",
@@ -2347,7 +2347,7 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793516400000
+      "lastT": 1793523600000
     },
     {
       "id": "PONS|1793345592833",
@@ -2371,7 +2371,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793345592833,
-      "lastT": 1793516400000
+      "lastT": 1793523600000
     },
     {
       "id": "ZAMA|1793349084597",
@@ -2419,7 +2419,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793356125541,
-      "lastT": 1793516400000
+      "lastT": 1793523600000
     },
     {
       "id": "LIT|1793367734927",
@@ -2469,7 +2469,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793367734927,
-      "lastT": 1793516400000
+      "lastT": 1793523600000
     },
     {
       "id": "PARTI|1793371076732",
@@ -2493,7 +2493,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793516400000
+      "lastT": 1793523600000
     },
     {
       "id": "ENA|1793371076732",
@@ -2517,7 +2517,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793516400000
+      "lastT": 1793523600000
     },
     {
       "id": "XMSTR|1793383524000",
@@ -2565,7 +2565,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793403890690,
-      "lastT": 1793516400000
+      "lastT": 1793523600000
     },
     {
       "id": "BCH|1793410181988",
@@ -2589,7 +2589,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793410181988,
-      "lastT": 1793516400000
+      "lastT": 1793523600000
     },
     {
       "id": "PEPE|1793410181988",
@@ -2613,7 +2613,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793410181988,
-      "lastT": 1793516400000
+      "lastT": 1793523600000
     },
     {
       "id": "HYPE|1793421379716",
@@ -2637,7 +2637,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793421379716,
-      "lastT": 1793516400000
+      "lastT": 1793523600000
     },
     {
       "id": "RE|1793443475499",
@@ -2687,7 +2687,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793448010833,
-      "lastT": 1793516400000
+      "lastT": 1793523600000
     },
     {
       "id": "BNB|1793466157814",
@@ -2711,7 +2711,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793466157814,
-      "lastT": 1793516400000
+      "lastT": 1793523600000
     },
     {
       "id": "ZRO|1793484033042",
@@ -2735,7 +2735,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793484033042,
-      "lastT": 1793516400000
+      "lastT": 1793523600000
     },
     {
       "id": "SOPH|1793494338644",
@@ -2759,7 +2759,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793494338644,
-      "lastT": 1793516400000
+      "lastT": 1793523600000
     },
     {
       "id": "DOGE|1793497974513",
@@ -2783,7 +2783,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793497974513,
-      "lastT": 1793516400000
+      "lastT": 1793523600000
     },
     {
       "id": "LSK|1793497974513",
@@ -2807,7 +2807,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793497974513,
-      "lastT": 1793516400000
+      "lastT": 1793523600000
     },
     {
       "id": "BTC|1793520319593",
@@ -2830,7 +2830,8 @@
       "alerted": false,
       "patChk": true,
       "pat": null,
-      "openedAt": 1793520319593
+      "openedAt": 1793520319593,
+      "lastT": 1793523600000
     }
   ],
   "outlooks": [
@@ -4970,12 +4971,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-01T08:55:29.537Z",
-    "universe": 32,
+    "t": "2026-11-01T10:19:39.819Z",
+    "universe": 31,
     "analyzed": 20,
     "signals": []
   },
-  "lastFull": "2026-11-01T08:55:29.537Z",
+  "lastFull": "2026-11-01T10:19:39.819Z",
   "lastDaily": "2026-11-01",
   "lastWeekly": "2026-10-26",
   "replay": {
