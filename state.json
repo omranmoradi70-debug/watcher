@@ -17,8 +17,8 @@
     },
     "BNB": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-10-29T16:34:50.734Z"
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-11-01T01:52:54.513Z"
     },
     "XRP": {
       "decision": "short",
@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793487600000
+      "lastT": 1793491200000
     },
     {
       "id": "LIT|1793262793843",
@@ -2347,7 +2347,7 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793487600000
+      "lastT": 1793491200000
     },
     {
       "id": "PONS|1793345592833",
@@ -2371,7 +2371,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793345592833,
-      "lastT": 1793487600000
+      "lastT": 1793491200000
     },
     {
       "id": "ZAMA|1793349084597",
@@ -2419,7 +2419,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793356125541,
-      "lastT": 1793487600000
+      "lastT": 1793491200000
     },
     {
       "id": "LIT|1793367734927",
@@ -2469,7 +2469,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793367734927,
-      "lastT": 1793487600000
+      "lastT": 1793491200000
     },
     {
       "id": "PARTI|1793371076732",
@@ -2493,7 +2493,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793487600000
+      "lastT": 1793491200000
     },
     {
       "id": "ENA|1793371076732",
@@ -2517,7 +2517,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793487600000
+      "lastT": 1793491200000
     },
     {
       "id": "XMSTR|1793383524000",
@@ -2565,7 +2565,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793403890690,
-      "lastT": 1793487600000
+      "lastT": 1793491200000
     },
     {
       "id": "BCH|1793410181988",
@@ -2589,7 +2589,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793410181988,
-      "lastT": 1793487600000
+      "lastT": 1793491200000
     },
     {
       "id": "PEPE|1793410181988",
@@ -2613,7 +2613,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793410181988,
-      "lastT": 1793487600000
+      "lastT": 1793491200000
     },
     {
       "id": "HYPE|1793421379716",
@@ -2637,7 +2637,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793421379716,
-      "lastT": 1793487600000
+      "lastT": 1793491200000
     },
     {
       "id": "RE|1793443475499",
@@ -2687,7 +2687,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793448010833,
-      "lastT": 1793487600000
+      "lastT": 1793491200000
     },
     {
       "id": "BNB|1793466157814",
@@ -2711,7 +2711,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793466157814,
-      "lastT": 1793487600000
+      "lastT": 1793491200000
     },
     {
       "id": "ZRO|1793484033042",
@@ -2735,7 +2735,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793484033042,
-      "lastT": 1793487600000
+      "lastT": 1793491200000
     },
     {
       "id": "SOPH|1793494338644",
@@ -2754,6 +2754,51 @@
       "rr2": 2.5,
       "t": 1793494338644,
       "validUntil": 1794099138644,
+      "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": null,
+      "openedAt": 1793494338644
+    },
+    {
+      "id": "DOGE|1793497974513",
+      "sym": "DOGE",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 0.07557,
+      "zoneLo": 0.07557,
+      "zoneHi": 0.07621825573659542,
+      "stop": 0.07686651147319083,
+      "tp1": 0.07217,
+      "tp2": 0.071146,
+      "rr1": 2.622421837604173,
+      "rr2": 3.4122335910473094,
+      "t": 1793497974513,
+      "validUntil": 1794102774513,
+      "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": null
+    },
+    {
+      "id": "LSK|1793497974513",
+      "sym": "LSK",
+      "src": "scan",
+      "dir": 1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 0.23288,
+      "zoneLo": 0.21970870952531749,
+      "zoneHi": 0.23288,
+      "stop": 0.20653741905063494,
+      "tp1": 0.2678766666666667,
+      "tp2": 0.2878675,
+      "rr1": 1.328520798092498,
+      "rr2": 2.087399868133474,
+      "t": 1793497974513,
+      "validUntil": 1794102774513,
       "status": "open",
       "alerted": true,
       "patChk": true,
@@ -4394,7 +4439,7 @@
       "lastAlert": null
     },
     "ENA": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-30T14:37:56.732Z"
     },
@@ -4494,9 +4539,9 @@
       "lastAlert": null
     },
     "DOGE": {
-      "decision": "wait",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-10-25T11:59:08.172Z"
+      "decision": "short",
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-11-01T01:52:54.513Z"
     },
     "OKB": {
       "decision": "short",
@@ -4704,9 +4749,9 @@
       "lastAlert": null
     },
     "LSK": {
-      "decision": "wait",
-      "lastAlertedDecision": null,
-      "lastAlert": null
+      "decision": "long",
+      "lastAlertedDecision": "long",
+      "lastAlert": "2026-11-01T01:52:54.513Z"
     },
     "VVV": {
       "decision": "short",
@@ -4731,8 +4776,8 @@
   },
   "spike": {
     "ETH": {
-      "t": 1793319300000,
-      "lastAlert": "2026-10-30T00:35:13.567Z"
+      "t": 1793496600000,
+      "lastAlert": "2026-11-01T01:52:54.513Z"
     },
     "XRP": {
       "t": 1793319300000,
@@ -4743,8 +4788,8 @@
       "lastAlert": "2026-10-30T00:35:13.567Z"
     },
     "BTC": {
-      "t": 1793480400000,
-      "lastAlert": "2026-10-31T21:26:05.818Z"
+      "t": 1793496600000,
+      "lastAlert": "2026-11-01T01:52:54.513Z"
     },
     "BNB": {
       "t": 1793457900000,
@@ -4752,15 +4797,18 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-01T00:52:18.644Z",
-    "universe": 38,
+    "t": "2026-11-01T01:52:54.513Z",
+    "universe": 36,
     "analyzed": 20,
     "signals": [
       "SOPH (فروش)",
-      "ZRO (خرید)"
+      "ZRO (خرید)",
+      "PEPE (خرید)",
+      "LSK (خرید)",
+      "DOGE (فروش)"
     ]
   },
-  "lastFull": "2026-11-01T00:52:18.644Z",
+  "lastFull": "2026-11-01T01:52:54.513Z",
   "lastDaily": "2026-10-31",
   "lastWeekly": "2026-10-26",
   "replay": {
