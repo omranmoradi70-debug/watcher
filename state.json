@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793502000000
+      "lastT": 1793505600000
     },
     {
       "id": "LIT|1793262793843",
@@ -2347,7 +2347,7 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793502000000
+      "lastT": 1793505600000
     },
     {
       "id": "PONS|1793345592833",
@@ -2371,7 +2371,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793345592833,
-      "lastT": 1793502000000
+      "lastT": 1793505600000
     },
     {
       "id": "ZAMA|1793349084597",
@@ -2419,7 +2419,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793356125541,
-      "lastT": 1793502000000
+      "lastT": 1793505600000
     },
     {
       "id": "LIT|1793367734927",
@@ -2469,7 +2469,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793367734927,
-      "lastT": 1793502000000
+      "lastT": 1793505600000
     },
     {
       "id": "PARTI|1793371076732",
@@ -2493,7 +2493,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793502000000
+      "lastT": 1793505600000
     },
     {
       "id": "ENA|1793371076732",
@@ -2517,7 +2517,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793502000000
+      "lastT": 1793505600000
     },
     {
       "id": "XMSTR|1793383524000",
@@ -2565,7 +2565,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793403890690,
-      "lastT": 1793502000000
+      "lastT": 1793505600000
     },
     {
       "id": "BCH|1793410181988",
@@ -2589,7 +2589,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793410181988,
-      "lastT": 1793502000000
+      "lastT": 1793505600000
     },
     {
       "id": "PEPE|1793410181988",
@@ -2613,7 +2613,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793410181988,
-      "lastT": 1793502000000
+      "lastT": 1793505600000
     },
     {
       "id": "HYPE|1793421379716",
@@ -2637,7 +2637,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793421379716,
-      "lastT": 1793502000000
+      "lastT": 1793505600000
     },
     {
       "id": "RE|1793443475499",
@@ -2687,7 +2687,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793448010833,
-      "lastT": 1793502000000
+      "lastT": 1793505600000
     },
     {
       "id": "BNB|1793466157814",
@@ -2711,7 +2711,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793466157814,
-      "lastT": 1793502000000
+      "lastT": 1793505600000
     },
     {
       "id": "ZRO|1793484033042",
@@ -2735,7 +2735,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793484033042,
-      "lastT": 1793502000000
+      "lastT": 1793505600000
     },
     {
       "id": "SOPH|1793494338644",
@@ -2759,7 +2759,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793494338644,
-      "lastT": 1793502000000
+      "lastT": 1793505600000
     },
     {
       "id": "DOGE|1793497974513",
@@ -2783,7 +2783,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793497974513,
-      "lastT": 1793502000000
+      "lastT": 1793505600000
     },
     {
       "id": "LSK|1793497974513",
@@ -2807,7 +2807,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793497974513,
-      "lastT": 1793502000000
+      "lastT": 1793505600000
     }
   ],
   "outlooks": [
@@ -4312,7 +4312,10 @@
       "due": 1793507779716,
       "s1": 76293.29999999999,
       "r1": 77507.1,
-      "done": false
+      "done": true,
+      "price1": 77808,
+      "movePct": 0.9,
+      "correct": false
     },
     {
       "id": "ETH|day|2026-10-31",
@@ -4325,7 +4328,10 @@
       "due": 1793507779716,
       "s1": 2181.3628571428567,
       "r1": 2267.072,
-      "done": false
+      "done": true,
+      "price1": 2267.23,
+      "movePct": 1.35,
+      "correct": false
     },
     {
       "id": "SOL|day|2026-10-31",
@@ -4338,7 +4344,10 @@
       "due": 1793507779716,
       "s1": 92.33833333333332,
       "r1": 97.625,
-      "done": false
+      "done": true,
+      "price1": 95.52,
+      "movePct": -0.41,
+      "correct": true
     },
     {
       "id": "BNB|day|2026-10-31",
@@ -4351,7 +4360,10 @@
       "due": 1793507779716,
       "s1": 688.8,
       "r1": 708.9,
-      "done": false
+      "done": true,
+      "price1": 704.97,
+      "movePct": 0.45,
+      "correct": false
     },
     {
       "id": "XRP|day|2026-10-31",
@@ -4364,6 +4376,139 @@
       "due": 1793507779716,
       "s1": 1.2001,
       "r1": 1.2618916666666664,
+      "done": true,
+      "price1": 1.2516,
+      "movePct": 0.63,
+      "correct": false
+    },
+    {
+      "id": "BTC|day|2026-11-01",
+      "sym": "BTC",
+      "hz": "day",
+      "bias": "down",
+      "strength": "weak",
+      "price": 77808,
+      "t": 1793510134235,
+      "due": 1793596534235,
+      "s1": 76290.48999999999,
+      "r1": 79070.56666666667,
+      "done": false
+    },
+    {
+      "id": "ETH|day|2026-11-01",
+      "sym": "ETH",
+      "hz": "day",
+      "bias": "down",
+      "strength": "medium",
+      "price": 2267.23,
+      "t": 1793510134235,
+      "due": 1793596534235,
+      "s1": 2259.2816666666668,
+      "r1": 2291.9425,
+      "done": false
+    },
+    {
+      "id": "SOL|day|2026-11-01",
+      "sym": "SOL",
+      "hz": "day",
+      "bias": "down",
+      "strength": "strong",
+      "price": 95.52,
+      "t": 1793510134235,
+      "due": 1793596534235,
+      "s1": 94.44666666666667,
+      "r1": 95.945,
+      "done": false
+    },
+    {
+      "id": "BNB|day|2026-11-01",
+      "sym": "BNB",
+      "hz": "day",
+      "bias": "down",
+      "strength": "medium",
+      "price": 704.97,
+      "t": 1793510134235,
+      "due": 1793596534235,
+      "s1": 688.8,
+      "r1": 707.3900000000001,
+      "done": false
+    },
+    {
+      "id": "XRP|day|2026-11-01",
+      "sym": "XRP",
+      "hz": "day",
+      "bias": "down",
+      "strength": "strong",
+      "price": 1.2516,
+      "t": 1793510134235,
+      "due": 1793596534235,
+      "s1": 1.2001,
+      "r1": 1.2648777777777775,
+      "done": false
+    },
+    {
+      "id": "BTC|month|2026-11-01",
+      "sym": "BTC",
+      "hz": "month",
+      "bias": "up",
+      "strength": "weak",
+      "price": 77808,
+      "t": 1793510134235,
+      "due": 1796102134235,
+      "s1": 73798.08,
+      "r1": 82106.76666666666,
+      "done": false
+    },
+    {
+      "id": "ETH|month|2026-11-01",
+      "sym": "ETH",
+      "hz": "month",
+      "bias": "down",
+      "strength": "weak",
+      "price": 2267.23,
+      "t": 1793510134235,
+      "due": 1796102134235,
+      "s1": 2106.647272727273,
+      "r1": 2378.14,
+      "done": false
+    },
+    {
+      "id": "SOL|month|2026-11-01",
+      "sym": "SOL",
+      "hz": "month",
+      "bias": "down",
+      "strength": "medium",
+      "price": 95.52,
+      "t": 1793510134235,
+      "due": 1796102134235,
+      "s1": 80.97333333333334,
+      "r1": 99.226,
+      "done": false
+    },
+    {
+      "id": "BNB|month|2026-11-01",
+      "sym": "BNB",
+      "hz": "month",
+      "bias": "flat",
+      "strength": null,
+      "price": 704.96,
+      "t": 1793510134235,
+      "due": 1796102134235,
+      "s1": 641.2666666666668,
+      "r1": 741.6666666666666,
+      "done": false
+    },
+    {
+      "id": "XRP|month|2026-11-01",
+      "sym": "XRP",
+      "hz": "month",
+      "bias": "down",
+      "strength": "medium",
+      "price": 1.2516,
+      "t": 1793510134235,
+      "due": 1796102134235,
+      "s1": 1.119,
+      "r1": 1.3715866666666667,
       "done": false
     }
   ],
@@ -4374,7 +4519,7 @@
       "lastAlert": null
     },
     "STRK": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -4434,7 +4579,7 @@
       "lastAlert": "2026-10-30T13:42:14.927Z"
     },
     "UNI": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-24T07:34:18.621Z"
     },
@@ -4714,7 +4859,7 @@
       "lastAlert": null
     },
     "STX": {
-      "decision": "long",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -4802,7 +4947,7 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-01T04:25:15.304Z",
+    "t": "2026-11-01T05:15:34.235Z",
     "universe": 34,
     "analyzed": 20,
     "signals": [
@@ -4811,8 +4956,8 @@
       "PEPE (خرید)"
     ]
   },
-  "lastFull": "2026-11-01T04:25:15.304Z",
-  "lastDaily": "2026-10-31",
+  "lastFull": "2026-11-01T05:15:34.235Z",
+  "lastDaily": "2026-11-01",
   "lastWeekly": "2026-10-26",
   "replay": {
     "t": "2026-11-01T05:06:46.075Z",
@@ -6011,5 +6156,6 @@
         }
       }
     }
-  }
+  },
+  "lastMonthly": "2026-11"
 }
