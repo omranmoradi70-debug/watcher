@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793527200000,
+      "lastT": 1793534400000,
       "sh": {
         "2": {
           "dir": -1,
@@ -2057,7 +2057,7 @@
           "validUntil": 1793852759485,
           "status": "open",
           "openedAt": 1793247959485,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         },
         "1.5": {
           "dir": -1,
@@ -2070,7 +2070,7 @@
           "validUntil": 1793852759485,
           "status": "open",
           "openedAt": 1793247959485,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         }
       }
     },
@@ -2375,7 +2375,7 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793527200000,
+      "lastT": 1793534400000,
       "sh": {
         "2": {
           "dir": -1,
@@ -2388,7 +2388,7 @@
           "validUntil": 1793940943978,
           "status": "open",
           "openedAt": 1793336143978,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         },
         "1.5": {
           "dir": -1,
@@ -2401,7 +2401,7 @@
           "validUntil": 1793940943978,
           "status": "open",
           "openedAt": 1793336143978,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         }
       }
     },
@@ -2427,7 +2427,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793345592833,
-      "lastT": 1793527200000,
+      "lastT": 1793534400000,
       "sh": {
         "2": {
           "dir": -1,
@@ -2440,7 +2440,7 @@
           "validUntil": 1793950392833,
           "status": "open",
           "openedAt": 1793345592833,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         },
         "1.5": {
           "dir": -1,
@@ -2453,7 +2453,7 @@
           "validUntil": 1793950392833,
           "status": "open",
           "openedAt": 1793345592833,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         }
       }
     },
@@ -2503,7 +2503,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793356125541,
-      "lastT": 1793527200000,
+      "lastT": 1793534400000,
       "sh": {
         "2": {
           "dir": -1,
@@ -2516,7 +2516,7 @@
           "validUntil": 1793960925541,
           "status": "open",
           "openedAt": 1793356125541,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         },
         "1.5": {
           "dir": -1,
@@ -2529,7 +2529,7 @@
           "validUntil": 1793960925541,
           "status": "open",
           "openedAt": 1793356125541,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         }
       }
     },
@@ -2581,7 +2581,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793367734927,
-      "lastT": 1793527200000,
+      "lastT": 1793534400000,
       "sh": {
         "2": {
           "dir": -1,
@@ -2594,7 +2594,7 @@
           "validUntil": 1793972534927,
           "status": "open",
           "openedAt": 1793367734927,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         },
         "1.5": {
           "dir": -1,
@@ -2607,7 +2607,7 @@
           "validUntil": 1793972534927,
           "status": "open",
           "openedAt": 1793367734927,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         }
       }
     },
@@ -2633,7 +2633,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793527200000,
+      "lastT": 1793534400000,
       "sh": {
         "2": {
           "dir": 1,
@@ -2646,7 +2646,7 @@
           "validUntil": 1793975876732,
           "status": "open",
           "openedAt": 1793371076732,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         },
         "1.5": {
           "dir": 1,
@@ -2659,7 +2659,7 @@
           "validUntil": 1793975876732,
           "status": "open",
           "openedAt": 1793371076732,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         }
       }
     },
@@ -2685,7 +2685,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793527200000,
+      "lastT": 1793534400000,
       "sh": {
         "2": {
           "dir": -1,
@@ -2698,7 +2698,7 @@
           "validUntil": 1793975876732,
           "status": "open",
           "openedAt": 1793371076732,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         },
         "1.5": {
           "dir": -1,
@@ -2711,7 +2711,7 @@
           "validUntil": 1793975876732,
           "status": "open",
           "openedAt": 1793371076732,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         }
       }
     },
@@ -2761,7 +2761,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793403890690,
-      "lastT": 1793527200000,
+      "lastT": 1793534400000,
       "sh": {
         "2": {
           "dir": -1,
@@ -2774,7 +2774,7 @@
           "validUntil": 1794008690690,
           "status": "open",
           "openedAt": 1793403890690,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         },
         "1.5": {
           "dir": -1,
@@ -2787,7 +2787,7 @@
           "validUntil": 1794008690690,
           "status": "open",
           "openedAt": 1793403890690,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         }
       }
     },
@@ -2813,7 +2813,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793410181988,
-      "lastT": 1793527200000,
+      "lastT": 1793534400000,
       "sh": {
         "2": {
           "dir": 1,
@@ -2826,7 +2826,7 @@
           "validUntil": 1794014981988,
           "status": "open",
           "openedAt": 1793410181988,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         },
         "1.5": {
           "dir": 1,
@@ -2839,7 +2839,7 @@
           "validUntil": 1794014981988,
           "status": "open",
           "openedAt": 1793410181988,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         }
       }
     },
@@ -2865,7 +2865,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793410181988,
-      "lastT": 1793527200000,
+      "lastT": 1793534400000,
       "sh": {
         "2": {
           "dir": 1,
@@ -2878,7 +2878,7 @@
           "validUntil": 1794014981988,
           "status": "open",
           "openedAt": 1793410181988,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         },
         "1.5": {
           "dir": 1,
@@ -2891,7 +2891,7 @@
           "validUntil": 1794014981988,
           "status": "open",
           "openedAt": 1793410181988,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         }
       }
     },
@@ -2917,7 +2917,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793421379716,
-      "lastT": 1793527200000,
+      "lastT": 1793534400000,
       "sh": {
         "2": {
           "dir": 1,
@@ -2930,7 +2930,7 @@
           "validUntil": 1794026179716,
           "status": "open",
           "openedAt": 1793421379716,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         },
         "1.5": {
           "dir": 1,
@@ -2943,7 +2943,7 @@
           "validUntil": 1794026179716,
           "status": "open",
           "openedAt": 1793421379716,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         }
       }
     },
@@ -2995,7 +2995,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793448010833,
-      "lastT": 1793527200000,
+      "lastT": 1793534400000,
       "sh": {
         "2": {
           "dir": 1,
@@ -3008,7 +3008,7 @@
           "validUntil": 1794052810833,
           "status": "open",
           "openedAt": 1793448010833,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         },
         "1.5": {
           "dir": 1,
@@ -3021,7 +3021,7 @@
           "validUntil": 1794052810833,
           "status": "open",
           "openedAt": 1793448010833,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         }
       }
     },
@@ -3047,7 +3047,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793466157814,
-      "lastT": 1793527200000,
+      "lastT": 1793534400000,
       "sh": {
         "2": {
           "dir": -1,
@@ -3060,7 +3060,7 @@
           "validUntil": 1794070957814,
           "status": "open",
           "openedAt": 1793466157814,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         },
         "1.5": {
           "dir": -1,
@@ -3073,7 +3073,7 @@
           "validUntil": 1794070957814,
           "status": "open",
           "openedAt": 1793466157814,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         }
       }
     },
@@ -3099,7 +3099,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793484033042,
-      "lastT": 1793527200000,
+      "lastT": 1793534400000,
       "sh": {
         "2": {
           "dir": 1,
@@ -3112,7 +3112,7 @@
           "validUntil": 1794088833042,
           "status": "open",
           "openedAt": 1793484033042,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         },
         "1.5": {
           "dir": 1,
@@ -3125,7 +3125,7 @@
           "validUntil": 1794088833042,
           "status": "open",
           "openedAt": 1793484033042,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         }
       }
     },
@@ -3151,7 +3151,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793494338644,
-      "lastT": 1793527200000,
+      "lastT": 1793534400000,
       "sh": {
         "2": {
           "dir": -1,
@@ -3164,7 +3164,7 @@
           "validUntil": 1794099138644,
           "status": "open",
           "openedAt": 1793494338644,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         },
         "1.5": {
           "dir": -1,
@@ -3177,7 +3177,7 @@
           "validUntil": 1794099138644,
           "status": "open",
           "openedAt": 1793494338644,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         }
       }
     },
@@ -3203,7 +3203,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793497974513,
-      "lastT": 1793527200000,
+      "lastT": 1793534400000,
       "sh": {
         "2": {
           "dir": -1,
@@ -3216,7 +3216,7 @@
           "validUntil": 1794102774513,
           "status": "open",
           "openedAt": 1793497974513,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         },
         "1.5": {
           "dir": -1,
@@ -3229,7 +3229,7 @@
           "validUntil": 1794102774513,
           "status": "open",
           "openedAt": 1793497974513,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         }
       }
     },
@@ -3255,7 +3255,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793497974513,
-      "lastT": 1793527200000,
+      "lastT": 1793534400000,
       "sh": {
         "2": {
           "dir": 1,
@@ -3268,7 +3268,7 @@
           "validUntil": 1794102774513,
           "status": "open",
           "openedAt": 1793497974513,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         },
         "1.5": {
           "dir": 1,
@@ -3281,7 +3281,7 @@
           "validUntil": 1794102774513,
           "status": "open",
           "openedAt": 1793497974513,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         }
       }
     },
@@ -3307,7 +3307,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793520319593,
-      "lastT": 1793527200000,
+      "lastT": 1793534400000,
       "sh": {
         "2": {
           "dir": -1,
@@ -3320,7 +3320,7 @@
           "validUntil": 1794125119593,
           "status": "open",
           "openedAt": 1793520319593,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         },
         "1.5": {
           "dir": -1,
@@ -3333,7 +3333,7 @@
           "validUntil": 1794125119593,
           "status": "open",
           "openedAt": 1793520319593,
-          "lastT": 1793527200000
+          "lastT": 1793534400000
         }
       }
     }
@@ -5162,7 +5162,7 @@
       "lastAlert": "2026-10-25T15:29:00.540Z"
     },
     "ARB": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-20T00:09:41.012Z"
     },
@@ -5177,7 +5177,7 @@
       "lastAlert": "2026-10-31T22:00:33.042Z"
     },
     "SUI": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-24T03:47:13.918Z"
     },
@@ -5207,7 +5207,7 @@
       "lastAlert": null
     },
     "AVAX": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-27T10:21:13.833Z"
     },
@@ -5222,7 +5222,7 @@
       "lastAlert": "2026-11-01T01:52:54.513Z"
     },
     "OKB": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-18T09:26:24.740Z"
     },
@@ -5427,8 +5427,8 @@
       "lastAlert": null
     },
     "LSK": {
-      "decision": "long",
-      "lastAlertedDecision": "long",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-01T01:52:54.513Z"
     },
     "VVV": {
@@ -5475,14 +5475,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-01T11:59:11.214Z",
-    "universe": 31,
-    "analyzed": 20,
-    "signals": [
-      "ZRO (خرید)"
-    ]
+    "t": "2026-11-01T13:21:37.572Z",
+    "universe": 33,
+    "analyzed": 19,
+    "signals": []
   },
-  "lastFull": "2026-11-01T11:59:11.214Z",
+  "lastFull": "2026-11-01T13:21:37.572Z",
   "lastDaily": "2026-11-01",
   "lastWeekly": "2026-10-26",
   "replay": {
