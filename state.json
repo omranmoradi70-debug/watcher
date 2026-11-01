@@ -2829,7 +2829,8 @@
       "status": "open",
       "alerted": false,
       "patChk": true,
-      "pat": null
+      "pat": null,
+      "openedAt": 1793520319593
     }
   ],
   "outlooks": [
@@ -4671,7 +4672,7 @@
       "lastAlert": "2026-10-31T22:00:33.042Z"
     },
     "SUI": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-24T03:47:13.918Z"
     },
@@ -4960,23 +4961,21 @@
       "lastAlert": "2026-10-30T00:35:13.567Z"
     },
     "BTC": {
-      "t": 1793496600000,
-      "lastAlert": "2026-11-01T01:52:54.513Z"
+      "t": 1793521800000,
+      "lastAlert": "2026-11-01T08:55:29.537Z"
     },
     "BNB": {
-      "t": 1793457900000,
-      "lastAlert": "2026-10-31T15:00:38.925Z"
+      "t": 1793521800000,
+      "lastAlert": "2026-11-01T08:55:29.537Z"
     }
   },
   "lastScan": {
-    "t": "2026-11-01T08:05:19.593Z",
-    "universe": 33,
+    "t": "2026-11-01T08:55:29.537Z",
+    "universe": 32,
     "analyzed": 20,
-    "signals": [
-      "PEPE (خرید)"
-    ]
+    "signals": []
   },
-  "lastFull": "2026-11-01T08:05:19.593Z",
+  "lastFull": "2026-11-01T08:55:29.537Z",
   "lastDaily": "2026-11-01",
   "lastWeekly": "2026-10-26",
   "replay": {
