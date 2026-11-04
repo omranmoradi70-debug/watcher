@@ -1,13 +1,13 @@
 {
   "coins": {
     "BTC": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-03T01:44:32.823Z"
     },
     "ETH": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-04T04:34:55.591Z"
     },
     "SOL": {
@@ -21,7 +21,7 @@
       "lastAlert": "2026-11-02T16:50:57.554Z"
     },
     "XRP": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-30T06:20:43.718Z"
     }
@@ -2044,7 +2044,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793247959485,
-      "lastT": 1793772000000,
+      "lastT": 1793775600000,
       "sh": {
         "2": {
           "dir": -1,
@@ -2057,7 +2057,7 @@
           "validUntil": 1793852759485,
           "status": "open",
           "openedAt": 1793247959485,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -2070,7 +2070,7 @@
           "validUntil": 1793852759485,
           "status": "open",
           "openedAt": 1793247959485,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       }
     },
@@ -2375,7 +2375,7 @@
       "patChk": true,
       "pat": "triple_top",
       "openedAt": 1793336143978,
-      "lastT": 1793772000000,
+      "lastT": 1793775600000,
       "sh": {
         "2": {
           "dir": -1,
@@ -2388,7 +2388,7 @@
           "validUntil": 1793940943978,
           "status": "open",
           "openedAt": 1793336143978,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -2401,7 +2401,7 @@
           "validUntil": 1793940943978,
           "status": "open",
           "openedAt": 1793336143978,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       }
     },
@@ -2513,7 +2513,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793356125541,
-      "lastT": 1793772000000,
+      "lastT": 1793775600000,
       "sh": {
         "2": {
           "dir": -1,
@@ -2526,7 +2526,7 @@
           "validUntil": 1793960925541,
           "status": "open",
           "openedAt": 1793356125541,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -2539,7 +2539,7 @@
           "validUntil": 1793960925541,
           "status": "open",
           "openedAt": 1793356125541,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       }
     },
@@ -2604,7 +2604,7 @@
           "validUntil": 1793972534927,
           "status": "open",
           "openedAt": 1793367734927,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -2617,7 +2617,7 @@
           "validUntil": 1793972534927,
           "status": "open",
           "openedAt": 1793367734927,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       },
       "R": -1,
@@ -2658,7 +2658,7 @@
           "validUntil": 1793975876732,
           "status": "open",
           "openedAt": 1793371076732,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": 1,
@@ -2671,7 +2671,7 @@
           "validUntil": 1793975876732,
           "status": "open",
           "openedAt": 1793371076732,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       },
       "R": -1,
@@ -2699,7 +2699,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793371076732,
-      "lastT": 1793772000000,
+      "lastT": 1793775600000,
       "sh": {
         "2": {
           "dir": -1,
@@ -2712,7 +2712,7 @@
           "validUntil": 1793975876732,
           "status": "open",
           "openedAt": 1793371076732,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -2725,7 +2725,7 @@
           "validUntil": 1793975876732,
           "status": "open",
           "openedAt": 1793371076732,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       }
     },
@@ -2775,7 +2775,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793403890690,
-      "lastT": 1793772000000,
+      "lastT": 1793775600000,
       "sh": {
         "2": {
           "dir": -1,
@@ -2907,7 +2907,7 @@
           "validUntil": 1794014981988,
           "status": "open",
           "openedAt": 1793410181988,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": 1,
@@ -2920,7 +2920,7 @@
           "validUntil": 1794014981988,
           "status": "open",
           "openedAt": 1793410181988,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       },
       "R": -1,
@@ -2961,7 +2961,7 @@
           "validUntil": 1794026179716,
           "status": "open",
           "openedAt": 1793421379716,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": 1,
@@ -3088,7 +3088,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793466157814,
-      "lastT": 1793772000000,
+      "lastT": 1793775600000,
       "sh": {
         "2": {
           "dir": -1,
@@ -3101,7 +3101,7 @@
           "validUntil": 1794070957814,
           "status": "open",
           "openedAt": 1793466157814,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -3114,7 +3114,7 @@
           "validUntil": 1794070957814,
           "status": "open",
           "openedAt": 1793466157814,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       }
     },
@@ -3153,7 +3153,7 @@
           "validUntil": 1794088833042,
           "status": "open",
           "openedAt": 1793484033042,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": 1,
@@ -3209,7 +3209,7 @@
           "validUntil": 1794099138644,
           "status": "open",
           "openedAt": 1793494338644,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -3252,7 +3252,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793497974513,
-      "lastT": 1793772000000,
+      "lastT": 1793775600000,
       "sh": {
         "2": {
           "dir": -1,
@@ -3265,7 +3265,7 @@
           "validUntil": 1794102774513,
           "status": "open",
           "openedAt": 1793497974513,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -3278,7 +3278,7 @@
           "validUntil": 1794102774513,
           "status": "open",
           "openedAt": 1793497974513,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       }
     },
@@ -3362,7 +3362,7 @@
       "patChk": true,
       "pat": null,
       "openedAt": 1793520319593,
-      "lastT": 1793772000000,
+      "lastT": 1793775600000,
       "sh": {
         "2": {
           "dir": -1,
@@ -3375,7 +3375,7 @@
           "validUntil": 1794125119593,
           "status": "open",
           "openedAt": 1793520319593,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -3388,7 +3388,7 @@
           "validUntil": 1794125119593,
           "status": "open",
           "openedAt": 1793520319593,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       }
     },
@@ -3425,7 +3425,7 @@
           "validUntil": 1794158678135,
           "status": "open",
           "openedAt": 1793553878135,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -3438,7 +3438,7 @@
           "validUntil": 1794158678135,
           "status": "open",
           "openedAt": 1793553878135,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       },
       "openedAt": 1793553878135,
@@ -3502,7 +3502,7 @@
         }
       },
       "openedAt": 1793558193932,
-      "lastT": 1793772000000,
+      "lastT": 1793775600000,
       "R": 1.7048850437844036,
       "closedAt": 1793638800000,
       "watchTp2": true
@@ -3563,7 +3563,7 @@
         }
       },
       "openedAt": 1793582678069,
-      "lastT": 1793772000000,
+      "lastT": 1793775600000,
       "R": 2.5398472246509205,
       "closedAt": 1793761200000,
       "watchTp2": true
@@ -3682,7 +3682,7 @@
         }
       },
       "openedAt": 1793589342372,
-      "lastT": 1793772000000,
+      "lastT": 1793775600000,
       "R": 1.438911958573033,
       "closedAt": 1793754000000,
       "watchTp2": true
@@ -3720,7 +3720,7 @@
           "validUntil": 1794198362821,
           "status": "open",
           "openedAt": 1793593562821,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": 1,
@@ -3776,7 +3776,7 @@
           "validUntil": 1794210864136,
           "status": "open",
           "openedAt": 1793606064136,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -3789,11 +3789,11 @@
           "validUntil": 1794210864136,
           "status": "open",
           "openedAt": 1793606064136,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       },
       "openedAt": 1793606064136,
-      "lastT": 1793772000000
+      "lastT": 1793775600000
     },
     {
       "id": "ETH|1793609426474",
@@ -3851,7 +3851,7 @@
         }
       },
       "openedAt": 1793609426474,
-      "lastT": 1793772000000,
+      "lastT": 1793775600000,
       "R": 1.4784252318189621,
       "closedAt": 1793638800000,
       "watchTp2": true
@@ -3912,7 +3912,7 @@
         }
       },
       "openedAt": 1793609426474,
-      "lastT": 1793772000000,
+      "lastT": 1793775600000,
       "R": 2.6523314935208933,
       "closedAt": 1793757600000,
       "watchTp2": true
@@ -4008,7 +4008,7 @@
           "validUntil": 1794214226474,
           "status": "open",
           "openedAt": 1793609426474,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -4021,11 +4021,11 @@
           "validUntil": 1794214226474,
           "status": "open",
           "openedAt": 1793609426474,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       },
       "openedAt": 1793609426474,
-      "lastT": 1793772000000
+      "lastT": 1793775600000
     },
     {
       "id": "ARB|1793612991234",
@@ -4060,7 +4060,7 @@
           "validUntil": 1794217791234,
           "status": "open",
           "openedAt": 1793612991234,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -4073,11 +4073,11 @@
           "validUntil": 1794217791234,
           "status": "open",
           "openedAt": 1793612991234,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       },
       "openedAt": 1793612991234,
-      "lastT": 1793772000000
+      "lastT": 1793775600000
     },
     {
       "id": "XSOXL|1793644977923",
@@ -4187,7 +4187,7 @@
         }
       },
       "openedAt": 1793670272823,
-      "lastT": 1793772000000,
+      "lastT": 1793775600000,
       "R": 1.5535998609711275,
       "closedAt": 1793750400000,
       "watchTp2": true
@@ -4209,7 +4209,7 @@
       "rr2": 3.431021132921296,
       "t": 1793691651955,
       "validUntil": 1794296451955,
-      "status": "open",
+      "status": "stop",
       "alerted": true,
       "patChk": true,
       "pat": null,
@@ -4225,7 +4225,7 @@
           "validUntil": 1794296451955,
           "status": "open",
           "openedAt": 1793691651955,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -4238,11 +4238,13 @@
           "validUntil": 1794296451955,
           "status": "open",
           "openedAt": 1793691651955,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       },
       "openedAt": 1793691651955,
-      "lastT": 1793772000000
+      "lastT": 1793775600000,
+      "R": -1,
+      "closedAt": 1793775600000
     },
     {
       "id": "MEGA|1793695069787",
@@ -4277,7 +4279,7 @@
           "validUntil": 1794299869787,
           "status": "open",
           "openedAt": 1793695069787,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": 1,
@@ -4290,11 +4292,11 @@
           "validUntil": 1794299869787,
           "status": "open",
           "openedAt": 1793695069787,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       },
       "openedAt": 1793695069787,
-      "lastT": 1793772000000
+      "lastT": 1793775600000
     },
     {
       "id": "XLM|1793698248907",
@@ -4328,7 +4330,7 @@
           "t": 1793698248907,
           "validUntil": 1794303048907,
           "status": "open",
-          "lastT": 1793772000000,
+          "lastT": 1793775600000,
           "openedAt": 1793710800000
         },
         "1.5": {
@@ -4341,11 +4343,11 @@
           "t": 1793698248907,
           "validUntil": 1794303048907,
           "status": "open",
-          "lastT": 1793772000000,
+          "lastT": 1793775600000,
           "openedAt": 1793710800000
         }
       },
-      "lastT": 1793772000000,
+      "lastT": 1793775600000,
       "openedAt": 1793710800000
     },
     {
@@ -4381,7 +4383,7 @@
           "validUntil": 1794306876090,
           "status": "open",
           "openedAt": 1793702076090,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -4394,11 +4396,11 @@
           "validUntil": 1794306876090,
           "status": "open",
           "openedAt": 1793702076090,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       },
       "openedAt": 1793702076090,
-      "lastT": 1793772000000
+      "lastT": 1793775600000
     },
     {
       "id": "XSNDK|1793709155920",
@@ -4456,7 +4458,7 @@
         }
       },
       "openedAt": 1793709155920,
-      "lastT": 1793772000000,
+      "lastT": 1793775600000,
       "R": 2.1117419265588055,
       "closedAt": 1793761200000,
       "watchTp2": true
@@ -4494,7 +4496,7 @@
           "validUntil": 1794321814432,
           "status": "open",
           "openedAt": 1793717014432,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -4507,11 +4509,11 @@
           "validUntil": 1794321814432,
           "status": "open",
           "openedAt": 1793717014432,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       },
       "openedAt": 1793717014432,
-      "lastT": 1793772000000
+      "lastT": 1793775600000
     },
     {
       "id": "XGOOGL|1793717014432",
@@ -4569,7 +4571,7 @@
         }
       },
       "openedAt": 1793717014432,
-      "lastT": 1793772000000,
+      "lastT": 1793775600000,
       "R": 1.5,
       "closedAt": 1793757600000,
       "watchTp2": true
@@ -4607,7 +4609,7 @@
           "validUntil": 1794327783489,
           "status": "open",
           "openedAt": 1793722983489,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": 1,
@@ -4620,11 +4622,11 @@
           "validUntil": 1794327783489,
           "status": "open",
           "openedAt": 1793722983489,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       },
       "openedAt": 1793722983489,
-      "lastT": 1793772000000
+      "lastT": 1793775600000
     },
     {
       "id": "PONS|1793722983489",
@@ -4643,7 +4645,7 @@
       "rr2": 2.5,
       "t": 1793722983489,
       "validUntil": 1794327783489,
-      "status": "pending",
+      "status": "open",
       "alerted": true,
       "patChk": true,
       "pat": null,
@@ -4657,8 +4659,9 @@
           "tp2": 0.15343710176193,
           "t": 1793722983489,
           "validUntil": 1794327783489,
-          "status": "pending",
-          "lastT": 1793772000000
+          "status": "open",
+          "lastT": 1793775600000,
+          "openedAt": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -4669,11 +4672,13 @@
           "tp2": 0.15343710176193,
           "t": 1793722983489,
           "validUntil": 1794327783489,
-          "status": "pending",
-          "lastT": 1793772000000
+          "status": "open",
+          "lastT": 1793775600000,
+          "openedAt": 1793775600000
         }
       },
-      "lastT": 1793772000000
+      "lastT": 1793775600000,
+      "openedAt": 1793775600000
     },
     {
       "id": "NIGHT|1793729489305",
@@ -4708,7 +4713,7 @@
           "validUntil": 1794334289305,
           "status": "open",
           "openedAt": 1793729489305,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": 1,
@@ -4787,7 +4792,7 @@
         }
       },
       "openedAt": 1793741020882,
-      "lastT": 1793772000000,
+      "lastT": 1793775600000,
       "R": 1.624001554662977,
       "closedAt": 1793761200000,
       "watchTp2": true
@@ -4825,7 +4830,7 @@
           "validUntil": 1794371695591,
           "status": "open",
           "openedAt": 1793766895591,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -4838,11 +4843,11 @@
           "validUntil": 1794371695591,
           "status": "open",
           "openedAt": 1793766895591,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       },
       "openedAt": 1793766895591,
-      "lastT": 1793772000000
+      "lastT": 1793775600000
     },
     {
       "id": "XCRCL|1793770650259",
@@ -4877,7 +4882,7 @@
           "validUntil": 1794375450259,
           "status": "open",
           "openedAt": 1793770650259,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": -1,
@@ -4890,11 +4895,11 @@
           "validUntil": 1794375450259,
           "status": "open",
           "openedAt": 1793770650259,
-          "lastT": 1793772000000
+          "lastT": 1793775600000
         }
       },
       "openedAt": 1793770650259,
-      "lastT": 1793772000000
+      "lastT": 1793775600000
     },
     {
       "id": "PEPE|1793774427124",
@@ -4928,7 +4933,8 @@
           "t": 1793774427124,
           "validUntil": 1794379227124,
           "status": "open",
-          "openedAt": 1793774427124
+          "openedAt": 1793774427124,
+          "lastT": 1793775600000
         },
         "1.5": {
           "dir": 1,
@@ -4940,10 +4946,58 @@
           "t": 1793774427124,
           "validUntil": 1794379227124,
           "status": "open",
-          "openedAt": 1793774427124
+          "openedAt": 1793774427124,
+          "lastT": 1793775600000
         }
       },
-      "openedAt": 1793774427124
+      "openedAt": 1793774427124,
+      "lastT": 1793775600000
+    },
+    {
+      "id": "UNI|1793782072648",
+      "sym": "UNI",
+      "src": "scan",
+      "dir": 1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 7.476,
+      "zoneLo": 7.357216311850854,
+      "zoneHi": 7.476,
+      "stop": 7.0894514182955986,
+      "tp1": 8.031,
+      "tp2": 8.487,
+      "rr1": 1.435783304527596,
+      "rr2": 2.6154539114908073,
+      "t": 1793782072648,
+      "validUntil": 1794386872648,
+      "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": "hs_bottom",
+      "sh": {
+        "2": {
+          "dir": 1,
+          "mode": "now",
+          "entry": 7.476,
+          "stop": 6.702902836591197,
+          "tp1": 8.031,
+          "tp2": 8.487,
+          "t": 1793782072648,
+          "validUntil": 1794386872648,
+          "status": "open"
+        },
+        "1.5": {
+          "dir": 1,
+          "mode": "now",
+          "entry": 7.476,
+          "stop": 6.896177127443398,
+          "tp1": 8.031,
+          "tp2": 8.487,
+          "t": 1793782072648,
+          "validUntil": 1794386872648,
+          "status": "open"
+        }
+      }
     }
   ],
   "outlooks": [
@@ -6975,7 +7029,7 @@
       "lastAlert": null
     },
     "STRK": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-02T08:50:26.474Z"
     },
@@ -6995,7 +7049,7 @@
       "lastAlert": null
     },
     "ZEC": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-31T12:00:10.833Z"
     },
@@ -7005,18 +7059,18 @@
       "lastAlert": "2026-11-03T16:23:03.489Z"
     },
     "XMSTR": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-30T18:05:24.000Z"
     },
     "NEAR": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-21T09:17:45.652Z"
     },
     "XCRCL": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-04T05:37:30.259Z"
     },
     "TRUMP": {
@@ -7030,14 +7084,14 @@
       "lastAlert": "2026-11-04T01:08:56.920Z"
     },
     "LIT": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": "2026-10-30T13:42:14.927Z"
     },
     "UNI": {
       "decision": "long",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-11-02T04:26:02.821Z"
+      "lastAlertedDecision": "long",
+      "lastAlert": "2026-11-04T08:47:52.648Z"
     },
     "XPL": {
       "decision": "short",
@@ -7045,13 +7099,13 @@
       "lastAlert": "2026-11-02T01:24:38.069Z"
     },
     "ENA": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-02T10:47:14.871Z"
     },
     "ONDO": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-02T07:54:24.136Z"
     },
     "PEPE": {
@@ -7090,8 +7144,8 @@
       "lastAlert": "2026-11-02T08:50:26.474Z"
     },
     "ARB": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-02T09:49:51.234Z"
     },
     "XSPCX": {
@@ -7105,8 +7159,8 @@
       "lastAlert": "2026-11-03T16:23:03.489Z"
     },
     "SUI": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-02T08:50:26.474Z"
     },
     "TAO": {
@@ -7115,8 +7169,8 @@
       "lastAlert": null
     },
     "WLD": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-10-30T23:44:50.690Z"
     },
     "PUMP": {
@@ -7405,7 +7459,7 @@
       "lastAlert": "2026-11-04T04:34:55.591Z"
     },
     "MON": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
     }
@@ -7433,16 +7487,15 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-04T07:56:14.255Z",
-    "universe": 49,
+    "t": "2026-11-04T08:47:52.648Z",
+    "universe": 50,
     "analyzed": 19,
     "signals": [
-      "WLD (فروش)",
-      "PEPE (خرید)",
-      "XCRCL (فروش)"
+      "ZRO (خرید)",
+      "UNI (خرید)"
     ]
   },
-  "lastFull": "2026-11-04T07:56:14.255Z",
+  "lastFull": "2026-11-04T08:47:52.648Z",
   "lastDaily": "2026-11-04",
   "lastWeekly": "2026-11-02",
   "replay": {
@@ -10434,7 +10487,7 @@
           }
         },
         "init": true,
-        "acct": 94575392,
+        "acct": 89706191,
         "since": 1793566542138
       },
       "0x87f9cd15f5050a9283b8896300f7c8cf69ece2cf": {
@@ -10618,8 +10671,8 @@
           "NEAR": {
             "dir": 1,
             "entry": 3.76651,
-            "szi": 155116.8,
-            "usd": 575747,
+            "szi": 103913.2,
+            "usd": 423020,
             "maxUsd": 575747,
             "lev": 10,
             "t": 1793754536920,
@@ -10869,7 +10922,7 @@
           }
         },
         "init": true,
-        "acct": 28226376,
+        "acct": 25505521,
         "since": 1793566542138
       },
       "0xecb63caa47c7c4e77f60f1ce858cf28dc2b82b00": {
@@ -10878,8 +10931,8 @@
           "BTC": {
             "dir": 1,
             "entry": 76759.8,
-            "szi": 135.82718,
-            "usd": 10597916,
+            "szi": 109.2172,
+            "usd": 8571694,
             "maxUsd": 39467083,
             "lev": 20,
             "t": 1793641574244,
@@ -10889,15 +10942,15 @@
           },
           "ETH": {
             "dir": -1,
-            "entry": 2271.16,
-            "szi": 11526.8935,
-            "usd": 26385059,
+            "entry": 2280.22,
+            "szi": 13427.1843,
+            "usd": 31259828,
             "maxUsd": 48462448,
             "lev": 15,
             "t": 1793566542138,
             "pre": true,
-            "adds": 4,
-            "down": 3
+            "adds": 5,
+            "down": 4
           },
           "ATOM": {
             "dir": -1,
@@ -10937,14 +10990,14 @@
           },
           "BNB": {
             "dir": 1,
-            "entry": 698.331,
-            "szi": 572.3,
-            "usd": 402212,
+            "entry": 698.987,
+            "szi": 653.193,
+            "usd": 459342,
             "maxUsd": 579558,
             "lev": 5,
             "t": 1793644977923,
             "pre": false,
-            "adds": 14,
+            "adds": 15,
             "down": 7
           },
           "LTC": {
@@ -10997,15 +11050,15 @@
           },
           "SUI": {
             "dir": -1,
-            "entry": 0.88329,
-            "szi": 709983.2,
-            "usd": 636294,
-            "maxUsd": 636294,
+            "entry": 0.888,
+            "szi": 822959.6,
+            "usd": 755230,
+            "maxUsd": 755230,
             "lev": 10,
             "t": 1793566542138,
             "pre": true,
-            "adds": 11,
-            "down": 7
+            "adds": 12,
+            "down": 8
           },
           "kPEPE": {
             "dir": -1,
@@ -11166,8 +11219,8 @@
           "UNI": {
             "dir": -1,
             "entry": 6.72192,
-            "szi": 341643.7,
-            "usd": 2449995,
+            "szi": 299208.9,
+            "usd": 2236497,
             "maxUsd": 2449995,
             "lev": 10,
             "t": 1793566542138,
@@ -11225,27 +11278,27 @@
           },
           "NEAR": {
             "dir": -1,
-            "entry": 3.94192,
-            "szi": 251521.9,
-            "usd": 1007924,
-            "maxUsd": 1007924,
+            "entry": 3.97653,
+            "szi": 324009.9,
+            "usd": 1319012,
+            "maxUsd": 1319012,
             "lev": 10,
             "t": 1793766895591,
             "pre": false,
-            "adds": 2,
-            "down": 2
+            "adds": 3,
+            "down": 3
           },
           "PYTH": {
             "dir": -1,
-            "entry": 0.065631,
-            "szi": 17334,
-            "usd": 1141,
+            "entry": 0.066119,
+            "szi": 82574,
+            "usd": 5465,
             "maxUsd": 25848,
             "lev": 5,
             "t": 1793566542138,
             "pre": true,
-            "adds": 7,
-            "down": 3
+            "adds": 8,
+            "down": 4
           },
           "kBONK": {
             "dir": -1,
@@ -11586,8 +11639,8 @@
           "MORPHO": {
             "dir": 1,
             "entry": 2.18723,
-            "szi": 9765.9,
-            "usd": 21723,
+            "szi": 6945.6,
+            "usd": 15594,
             "maxUsd": 76109,
             "lev": 5,
             "t": 1793732404440,
@@ -11597,15 +11650,15 @@
           },
           "TRUMP": {
             "dir": 1,
-            "entry": 1.56997,
-            "szi": 161710.8,
-            "usd": 243650,
-            "maxUsd": 261049,
+            "entry": 1.56097,
+            "szi": 184304.1,
+            "usd": 276032,
+            "maxUsd": 276032,
             "lev": 10,
             "t": 1793566542138,
             "pre": true,
-            "adds": 7,
-            "down": 5
+            "adds": 8,
+            "down": 6
           },
           "MELANIA": {
             "dir": 1,
@@ -11705,15 +11758,15 @@
           },
           "PUMP": {
             "dir": -1,
-            "entry": 0.004239,
-            "szi": 496028359,
-            "usd": 2154251,
-            "maxUsd": 2479380,
+            "entry": 0.004273,
+            "szi": 600668450,
+            "usd": 2677780,
+            "maxUsd": 2677780,
             "lev": 3,
             "t": 1793566542138,
             "pre": true,
-            "adds": 12,
-            "down": 9
+            "adds": 13,
+            "down": 10
           },
           "XPL": {
             "dir": -1,
@@ -11730,8 +11783,8 @@
           "WLFI": {
             "dir": -1,
             "entry": 0.049919,
-            "szi": 5963896,
-            "usd": 290680,
+            "szi": 4128353,
+            "usd": 202785,
             "maxUsd": 342026,
             "lev": 5,
             "t": 1793622982332,
@@ -11789,15 +11842,15 @@
           },
           "2Z": {
             "dir": -1,
-            "entry": 0.022345,
-            "szi": 207024,
-            "usd": 4832,
+            "entry": 0.023322,
+            "szi": 275049,
+            "usd": 6480,
             "maxUsd": 17570,
             "lev": 3,
             "t": 1793760956642,
             "pre": false,
-            "adds": 2,
-            "down": 1
+            "adds": 3,
+            "down": 2
           },
           "ZEC": {
             "dir": -1,
@@ -11813,15 +11866,15 @@
           },
           "MON": {
             "dir": -1,
-            "entry": 0.01882,
-            "szi": 451952,
-            "usd": 8497,
-            "maxUsd": 8497,
+            "entry": 0.018903,
+            "szi": 2227927,
+            "usd": 42360,
+            "maxUsd": 42360,
             "lev": 3,
             "t": 1793778974255,
             "pre": false,
-            "adds": 0,
-            "down": 0
+            "adds": 1,
+            "down": 1
           },
           "MET": {
             "dir": -1,
@@ -11898,8 +11951,8 @@
           "USELESS": {
             "dir": -1,
             "entry": 0.125813,
-            "szi": 395155,
-            "usd": 55701,
+            "szi": 299453,
+            "usd": 42127,
             "maxUsd": 193095,
             "lev": 3,
             "t": 1793566542138,
@@ -12013,7 +12066,7 @@
           }
         },
         "init": true,
-        "acct": 23448383,
+        "acct": 21948456,
         "since": 1793566542138
       },
       "0xfc667adba8d4837586078f4fdcdc29804337ca06": {
@@ -12033,15 +12086,15 @@
           },
           "ETH": {
             "dir": -1,
-            "entry": 2275.75,
-            "szi": 1464.8592,
-            "usd": 3361998,
+            "entry": 2281.49,
+            "szi": 1654.3357,
+            "usd": 3851459,
             "maxUsd": 6008696,
             "lev": 20,
             "t": 1793593562821,
             "pre": false,
-            "adds": 13,
-            "down": 1
+            "adds": 14,
+            "down": 2
           },
           "SOL": {
             "dir": 1,
@@ -12070,8 +12123,8 @@
           "NEAR": {
             "dir": 1,
             "entry": 4.12363,
-            "szi": 228974.6,
-            "usd": 917570,
+            "szi": 140661.9,
+            "usd": 572621,
             "maxUsd": 5723137,
             "lev": 10,
             "t": 1793566542138,
@@ -12081,15 +12134,15 @@
           },
           "HYPE": {
             "dir": -1,
-            "entry": 85.514,
-            "szi": 5603.95,
-            "usd": 476672,
+            "entry": 86.0878,
+            "szi": 12558.96,
+            "usd": 1092680,
             "maxUsd": 12784014,
             "lev": 5,
             "t": 1793566542138,
             "pre": true,
-            "adds": 3,
-            "down": 0
+            "adds": 4,
+            "down": 1
           },
           "PAXG": {
             "dir": 1,
@@ -12162,8 +12215,8 @@
           "BNB": {
             "dir": 1,
             "entry": 686.054,
-            "szi": 2513.195,
-            "usd": 1766273,
+            "szi": 2106.996,
+            "usd": 1481692,
             "maxUsd": 2396570,
             "lev": 10,
             "t": 1793566542138,
@@ -12234,8 +12287,8 @@
           "kPEPE": {
             "dir": 1,
             "entry": 0.005102,
-            "szi": 129717865,
-            "usd": 639639,
+            "szi": 65977096,
+            "usd": 337935,
             "maxUsd": 639639,
             "lev": 10,
             "t": 1793566542138,
@@ -12366,8 +12419,8 @@
           "RUNE": {
             "dir": -1,
             "entry": 0.57946,
-            "szi": 781371.5,
-            "usd": 497023,
+            "szi": 699536.7,
+            "usd": 440876,
             "maxUsd": 564800,
             "lev": 5,
             "t": 1793566542138,
@@ -13001,15 +13054,15 @@
           },
           "ASTER": {
             "dir": -1,
-            "entry": 0.69987,
-            "szi": 75758,
-            "usd": 52782,
-            "maxUsd": 52782,
+            "entry": 0.703476,
+            "szi": 291631,
+            "usd": 205994,
+            "maxUsd": 205994,
             "lev": 5,
             "t": 1793597242190,
             "pre": false,
-            "adds": 1,
-            "down": 0
+            "adds": 2,
+            "down": 1
           },
           "0G": {
             "dir": -1,
@@ -13261,15 +13314,15 @@
           },
           "ETH": {
             "dir": -1,
-            "entry": 2260.51,
-            "szi": 3838.867,
-            "usd": 8787167,
-            "maxUsd": 8787167,
+            "entry": 2272.3,
+            "szi": 5036.5924,
+            "usd": 11725691,
+            "maxUsd": 11725691,
             "lev": 25,
             "t": 1793566542138,
             "pre": true,
-            "adds": 4,
-            "down": 4
+            "adds": 5,
+            "down": 5
           },
           "SOL": {
             "dir": -1,
@@ -13406,8 +13459,8 @@
           "DOT": {
             "dir": 1,
             "entry": 0.96813,
-            "szi": 10939.3,
-            "usd": 10396,
+            "szi": 6148.9,
+            "usd": 5891,
             "maxUsd": 75201,
             "lev": 10,
             "t": 1793566542138,
@@ -13465,15 +13518,15 @@
           },
           "HBAR": {
             "dir": -1,
-            "entry": 0.069648,
-            "szi": 189440,
-            "usd": 13187,
-            "maxUsd": 13187,
+            "entry": 0.069761,
+            "szi": 225579,
+            "usd": 15984,
+            "maxUsd": 15984,
             "lev": 5,
             "t": 1793653610994,
             "pre": false,
-            "adds": 3,
-            "down": 2
+            "adds": 4,
+            "down": 3
           },
           "XLM": {
             "dir": -1,
@@ -13490,8 +13543,8 @@
           "HYPE": {
             "dir": 1,
             "entry": 82.6635,
-            "szi": 4720.75,
-            "usd": 398568,
+            "szi": 4220.22,
+            "usd": 367176,
             "maxUsd": 398568,
             "lev": 10,
             "t": 1793754536920,
@@ -13513,7 +13566,7 @@
           }
         },
         "init": true,
-        "acct": 21614012,
+        "acct": 20032177,
         "since": 1793566542138
       },
       "0xdf954bbe619273a56e0cfa90dad8382195dc7d72": {
@@ -13942,8 +13995,8 @@
           "TIA": {
             "dir": -1,
             "entry": 0.6103,
-            "szi": 43774.1,
-            "usd": 19536,
+            "szi": 35897.1,
+            "usd": 16233,
             "maxUsd": 26661,
             "lev": 5,
             "t": 1793566542138,
@@ -15250,14 +15303,14 @@
           "DOT": {
             "dir": -1,
             "entry": 0.94383,
-            "szi": 100795,
-            "usd": 94611,
-            "maxUsd": 94611,
+            "szi": 112095.7,
+            "usd": 107397,
+            "maxUsd": 107397,
             "lev": 10,
             "t": 1793612991234,
             "pre": false,
-            "adds": 5,
-            "down": 1
+            "adds": 6,
+            "down": 2
           },
           "STABLE": {
             "dir": 1,
@@ -15309,7 +15362,7 @@
           }
         },
         "init": true,
-        "acct": 12500979,
+        "acct": 13136857,
         "since": 1793566542138
       },
       "0xe81309ec9b79309e4d108ae3a92d1aa618cd6d74": {
@@ -15350,7 +15403,7 @@
           }
         },
         "init": true,
-        "acct": 141746,
+        "acct": 132675,
         "since": 1793566542138
       },
       "0x8ccf758d3d4438436bded26e15d8f16e7ef9813b": {
@@ -15447,7 +15500,7 @@
           }
         },
         "init": true,
-        "acct": 28390,
+        "acct": 26287,
         "since": 1793566542138
       },
       "0xa3b69fd03a59945b88fed1fe350b33c3e6d48480": {
@@ -15481,27 +15534,39 @@
           }
         },
         "init": true,
-        "acct": 7551,
+        "acct": 6734,
         "since": 1793566542138
       },
       "0x1c9052ccb2aa40a1daa8ca3ec99bd8f58d43eae2": {
         "auto": true,
         "pos": {
-          "HYPE": {
+          "ETH": {
             "dir": 1,
-            "entry": 85.3008,
-            "szi": 165.64,
-            "usd": 14121,
-            "maxUsd": 14121,
-            "lev": 4,
-            "t": 1793738184980,
+            "entry": 2327.3,
+            "szi": 6.3238,
+            "usd": 14722,
+            "maxUsd": 14722,
+            "lev": 7,
+            "t": 1793782072648,
+            "pre": false,
+            "adds": 0,
+            "down": 0
+          },
+          "NEAR": {
+            "dir": 1,
+            "entry": 4.0642,
+            "szi": 1124,
+            "usd": 4576,
+            "maxUsd": 4576,
+            "lev": 3,
+            "t": 1793782072648,
             "pre": false,
             "adds": 0,
             "down": 0
           }
         },
         "init": true,
-        "acct": 3381,
+        "acct": 3630,
         "since": 1793566542138
       },
       "0xbc5b3c01f39e18283ab259e1060d3a8c9f5a87aa": {
@@ -15545,7 +15610,7 @@
           }
         },
         "init": true,
-        "acct": 425,
+        "acct": 390,
         "since": 1793566542138
       },
       "0x98a199b88253c169fad30bdb50332fc6d76b54b8": {
@@ -15579,7 +15644,7 @@
           }
         },
         "init": true,
-        "acct": 12500,
+        "acct": 11601,
         "since": 1793566542138
       },
       "0xabc920537e422267c547a4872098b26bb4598d42": {
@@ -16669,6 +16734,21 @@
         "adds": 0,
         "down": 0,
         "pre": true
+      },
+      {
+        "a": "0x1c9052ccb2aa40a1daa8ca3ec99bd8f58d43eae2",
+        "c": "HYPE",
+        "d": 1,
+        "e": 85.3008,
+        "x": 87.0065,
+        "t0": 1793738184980,
+        "t1": 1793782072648,
+        "p": 1.93,
+        "imp": 7.506,
+        "lev": 4,
+        "adds": 0,
+        "down": 0,
+        "pre": false
       }
     ],
     "disc": "2026-11-01T20:55:42.138Z",
