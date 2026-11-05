@@ -2522,14 +2522,24 @@ svg.eq{width:100%; height:auto; display:block}
       w.appendChild(tb); return w;
     }
     function pivotTable() {
-      var pv = pivots(), price = RV.price, w = el('div', 'rv-scroll');
+      var pv = pivots(), price = RV.price, sc = RV.sc, w = el('div', 'rv-scroll');
       if (!pv.length) { w.appendChild(el('p', 'rv-msg', 'داده‌ی کافی برای پیوت‌پوینت نیست.')); return w; }
+      var rows = pv.map(function (x) { return { name: x.name, p: x.p, k: 'pv' }; });
+      rows.push({ name: 'قیمت الان', p: price, k: 'now' });
+      if (sc) [['ورود', sc.entry, 'entry'], ['حد ضرر', sc.stop, 'stop'], ['هدف ۱', sc.tp1, 'tp'], ['هدف ۲', sc.tp2, 'tp']].forEach(function (x) { if (isFinite(x[1]) && x[1] > 0) rows.push({ name: x[0], p: x[1], k: x[2] }); });
+      rows.sort(function (a, b) { return b.p - a.p; });
       var tb = el('table', 'rv-tbl'), hd = el('tr');
       ['سطح', 'قیمت', 'فاصله از قیمت'].forEach(function (h, i) { hd.appendChild(th(h, i === 0 ? 'l' : null)); });
       tb.appendChild(hd);
-      pv.forEach(function (x) {
-        var tr = el('tr'), d = (x.p - price) / price * 100;
-        tr.appendChild(td(x.name, 'l')); tr.appendChild(numTd(fp(x.p))); tr.appendChild(numTd(sgnTxt(d, 2) + '%', d >= 0 ? 'rv-pos' : 'rv-neg'));
+      var COL = { entry: 'var(--accent)', stop: 'var(--bad)', tp: 'var(--good)', now: 'var(--ink)' };
+      rows.forEach(function (x) {
+        var tr = el('tr'), d = (x.p - price) / price * 100, mark = x.k !== 'pv';
+        var c0 = td(x.name, 'l'); if (mark) { c0.style.fontWeight = '700'; c0.style.color = COL[x.k]; }
+        tr.appendChild(c0);
+        var c1 = numTd(fp(x.p)); if (mark) { c1.style.fontWeight = '700'; c1.style.color = COL[x.k]; }
+        tr.appendChild(c1);
+        tr.appendChild(x.k === 'now' ? td('') : numTd(sgnTxt(d, 2) + '%', d >= 0 ? 'rv-pos' : 'rv-neg'));
+        if (mark) tr.style.background = 'var(--neutral-bg)';
         tb.appendChild(tr);
       });
       w.appendChild(tb); return w;
