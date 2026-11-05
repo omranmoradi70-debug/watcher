@@ -1610,6 +1610,11 @@ function signalMain(sym, r, now, opts) {
   if (r.warnings.length) B.push(r.warnings.slice(0, 2).map((w) => '⚠️ ' + esc(w)).join('\n'));
   if (opts.lowVol) B.push('⚠️ حجم این ارز کمه؛ لغزش و دستکاری بیشتره. حجم معامله رو کوچیک بگیر.');
   if (!long) B.push('فروش فقط توی فیوچرز ممکنه؛ توی اسپات یعنی نخر.');
+  try {
+    const base = (process.env.APP_URL || 'https://omranmoradi70-debug.github.io/watcher/').replace(/\/?$/, '/');
+    const q = ['coin=' + encodeURIComponent(sym), 'dir=' + (long ? 'long' : 'short'), 'entry=' + (+sc.entry.toPrecision(7)), 'stop=' + (+sc.stop.toPrecision(7)), 'tp1=' + (+sc.tp1.toPrecision(7)), 'tp2=' + (+sc.tp2.toPrecision(7))].join('&amp;');
+    B.push('📊 <a href="' + base + '#' + q + '">بررسی در اپ</a>');
+  } catch (e) { /* link optional */ }
   B.push('<i>حد ضرر رو حتماً بذار. این تحلیل آماریه، نه توصیه.</i>');
   return B;
 }
