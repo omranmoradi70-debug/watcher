@@ -2397,7 +2397,7 @@ svg.eq{width:100%; height:auto; display:block}
       pl.forEach(function (t, i) { t.ty = i && t.y < pl[i - 1].ty + 13 ? pl[i - 1].ty + 13 : t.y; });
       pl.forEach(function (t) {
         s += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + t.y + '" y2="' + t.y + '" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3 4" stroke-opacity=".8"/>';
-        s += '<text x="' + (L + 3) + '" y="' + (t.ty - 2) + '" font-size="10" fill="var(--muted)" style="direction:ltr">' + t.x.name + ' ' + fp(t.x.p) + '</text>';
+        s += '<text x="' + (L + 3) + '" y="' + (t.ty - 2) + '" font-size="10" fill="var(--muted)" stroke="var(--surface)" stroke-width="3" paint-order="stroke" style="direction:ltr">' + t.x.name + ' ' + fp(t.x.p) + '</text>';
       });
       // scenario lines (right tags)
       var tg = lv.map(function (l) { return { y: Y(l.p), l: l }; }).sort(function (a, b) { return a.y - b.y; });
@@ -2648,7 +2648,7 @@ svg.eq{width:100%; height:auto; display:block}
       var sc = RV.sc, w = el('div'), g = el('div', 'calc');
       function fld(label, key) {
         var f = el('label', 'field'); f.appendChild(document.createTextNode(label));
-        var i = el('input'); i.type = 'number'; i.inputMode = 'decimal'; i.step = 'any'; i.value = isFinite(sc[key]) ? sc[key] : ''; i.setAttribute('dir', 'ltr');
+        var i = el('input'); i.type = 'number'; i.inputMode = 'decimal'; i.step = 'any'; i.value = isFinite(sc[key]) ? +sc[key].toPrecision(7) : ''; i.setAttribute('dir', 'ltr');
         i.addEventListener('input', function () { var v = parseFloat(i.value); sc[key] = isFinite(v) && v > 0 ? v : NaN; recomputeSoon(); });
         f.appendChild(i); g.appendChild(f); return i;
       }
