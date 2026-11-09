@@ -966,6 +966,8 @@ const TA = (() => {
     return ev;
   }
 
+  // variants fixed in advance: [name, stop in ATR, target in R]
+  var PVT_VARIANTS = [['s1t1', 1, 1], ['s1t2', 1, 2], ['s2t1', 2, 1], ['s2t2', 2, 2]];
   function replay(o) {
     var ex = o.series[o.execTf], exMs = o.tfMs[o.execTf], warm = o.warm || 210, fwd = o.fwd || 6, win = o.window || 299;
     var out = { signals: [], patterns: {}, base: { n: 0, up: 0, yr: {} }, steps: 0, from: null };
@@ -976,6 +978,7 @@ const TA = (() => {
     var rgInd = o.regime ? (gridInd || computeIndicators(ex)) : null;
     var pivEv = o.pivots ? pivotEvents(ex) : null;
     if (o.pivots) out.piv = {};
+    out.pvt = {}; var pvtBusy = {};
     o.tfs.forEach(function (t) { ptr[t[0]] = 0; });
     out.from = ex[warm].t;
     // daily-outlook test: one call per day at 04:00 UTC (~08:00 Tehran, like the live daily report), judged 24h (6 x 4h candles) later
@@ -1008,6 +1011,32 @@ const TA = (() => {
           var gy = g.yr[yr] || (g.yr[yr] = { n: 0, hit: 0 });
           g.n++; gy.n++; if (mv > 0) g.up++;
           if (pt.dir !== 0) { if (pt.dir * mv > 0) { g.hit++; gy.hit++; } g.sum += pt.dir * mv; }
+        });
+      }
+      // tradable pivot test: classic pivots only (fixed in advance), enter next open, ATR stop, R target, pessimistic same-candle rule, cost in R
+      if (o.pivTrade && pivEv && pivEv[i] && rgInd && i + 2 < ex.length) {
+        var pa = rgInd.atr[i];
+        if (ok(pa) && pa > 0) pivEv[i].forEach(function (pe) {
+          var pm = /^pv:classic:([DW]):/.exec(pe[0]); if (!pm) return;
+          var pdir = pe[1], pentry = ex[i + 1].o, py3 = yearOf(ex[i].t);
+          PVT_VARIANTS.forEach(function (vr) {
+            var bk = pm[1] + '|' + vr[0];
+            if (pvtBusy[bk] != null && i <= pvtBusy[bk]) return;
+            var rk3 = vr[1] * pa, stp = pentry - pdir * rk3, tgt = pentry + pdir * vr[2] * rk3, rr3 = null, q3, endI = Math.min(ex.length - 1, i + 1 + 30);
+            for (q3 = i + 1; q3 <= endI; q3++) {
+              var hitS = pdir > 0 ? ex[q3].l <= stp : ex[q3].h >= stp, hitT = pdir > 0 ? ex[q3].h >= tgt : ex[q3].l <= tgt;
+              if (hitS) { rr3 = -1; break; }
+              if (hitT) { rr3 = vr[2]; break; }
+            }
+            if (rr3 == null) {
+              if (endI < i + 1 + 30) return;      // not enough future data: skip
+              rr3 = pdir * (ex[endI].c - pentry) / rk3; q3 = endI;
+            }
+            pvtBusy[bk] = q3;
+            var net3 = rr3 - o.costPct / 100 * pentry / rk3;
+            var tgk = pm[1] + '|' + vr[0], zo = (out.pvt[tgk] || (out.pvt[tgk] = {}))[py3] || (out.pvt[tgk][py3] = { n: 0, w: 0, nt: 0, nt2: 0 });
+            zo.n++; if (net3 > 0) zo.w++; zo.nt += net3; zo.nt2 += net3 * net3;
+          });
         });
       }
       // engine replay
@@ -1928,7 +1957,7 @@ async function runReplay(state, now, budgetMs) {
   const validMs = CONFIG.signalValidDays.swing * 24 * HOUR;
   const since = Date.parse(CONFIG.replayFrom || '2020-01-01') || Date.parse('2020-01-01');
   const fwd = CONFIG.replayFwdCandles || 6;
-  const groups = {}, pat = {}, base = { n: 0, up: 0, yr: {} }, yrs = {}, dayAgg = { yr: {}, st: {}, days: 0, flat: 0 }, revAgg = {}, gridAgg = {}, sttAgg = { n: 0, fav: 0, adv: 0 }, gridBase = { n: 0 }, mngAgg = {}, mngCnt = { n: 0 }, pivAgg = {}, rgAgg = {}, l12 = {};
+  const groups = {}, pat = {}, base = { n: 0, up: 0, yr: {} }, yrs = {}, dayAgg = { yr: {}, st: {}, days: 0, flat: 0 }, revAgg = {}, gridAgg = {}, sttAgg = { n: 0, fav: 0, adv: 0 }, gridBase = { n: 0 }, mngAgg = {}, mngCnt = { n: 0 }, pivAgg = {}, rgAgg = {}, pvtAgg = {}, l12 = {};
   const G = (o, k) => o[k] || (o[k] = { n: 0, w: 0, sum: 0, t2: 0 });
   let nCoins = 0, steps = 0, from = Infinity; const failedCoins = [], shallow = [], skipped = [];
   const t0 = Date.now();
@@ -1944,7 +1973,7 @@ async function runReplay(state, now, budgetMs) {
       }
       if (!deep) shallow.push(sym);
       // کندل آخرِ هر تایم‌فریم هنوز بازه (ناقص) پس حذفش می‌کنیم
-      const out = TA.replay({ series: { '4h': c4.slice(0, -1), '1d': c1.slice(0, -1) }, tfs: REPLAY_TFS, execTf: '4h', tfMs, validMs, fwd, dayOutlook: true, grid: true, manage: true, regime: true, pivots: true, costPct: CONFIG.reversionCostPct });
+      const out = TA.replay({ series: { '4h': c4.slice(0, -1), '1d': c1.slice(0, -1) }, tfs: REPLAY_TFS, execTf: '4h', tfMs, validMs, fwd, dayOutlook: true, grid: true, manage: true, regime: true, pivots: true, pivTrade: true, costPct: CONFIG.reversionCostPct });
       nCoins++; steps += out.steps; if (out.from) from = Math.min(from, out.from);
       base.n += out.base.n; base.up += out.base.up;
       try {
@@ -1964,6 +1993,10 @@ async function runReplay(state, now, budgetMs) {
         const q = pivAgg[id] || (pivAgg[id] = { n: 0, hit: 0, dir: p.dir, yr: {} });
         q.n += p.n; q.hit += p.hit;
         for (const [y, v] of Object.entries(p.yr || {})) { const z = q.yr[y] || (q.yr[y] = { n: 0, hit: 0 }); z.n += v.n; z.hit += v.hit; }
+      }
+      if (out.pvt) for (const [k, yv] of Object.entries(out.pvt)) {
+        const q = pvtAgg[k] || (pvtAgg[k] = {});
+        for (const [y, v] of Object.entries(yv)) { const z = q[y] || (q[y] = { n: 0, w: 0, nt: 0, nt2: 0 }); for (const f of Object.keys(z)) z[f] += v[f]; }
       }
       for (const [y, b] of Object.entries(out.base.yr)) { const q = base.yr[y] || (base.yr[y] = { n: 0, up: 0 }); q.n += b.n; q.up += b.up; }
       for (const [id, p] of Object.entries(out.patterns)) {
@@ -2014,7 +2047,7 @@ async function runReplay(state, now, budgetMs) {
     } catch (e) { failedCoins.push(sym); }
   })));
   if (!nCoins) throw new Error('بازپخش: داده‌ی کندل گرفته نشد');
-  state.replay = { t: new Date(now).toISOString(), nCoins, failed: failedCoins, shallow, skipped, days: Math.round(steps / nCoins * 4 / 24), from: Number.isFinite(from) ? new Date(from).toISOString().slice(0, 10) : null, groups, pat, base, yrs, fwd, day: dayAgg, rev: { cost: CONFIG.reversionCostPct, split: CONFIG.reversionSplitYear, vars: revAgg }, grid: { cost: CONFIG.reversionCostPct, split: CONFIG.reversionSplitYear, cells: gridAgg, stt: sttAgg, nSig: gridBase.n }, mng: { cost: CONFIG.reversionCostPct, split: CONFIG.reversionSplitYear, v: mngAgg, n: mngCnt.n }, piv: pivAgg, rg: { split: CONFIG.reversionSplitYear, v: rgAgg }, l12 };
+  state.replay = { t: new Date(now).toISOString(), nCoins, failed: failedCoins, shallow, skipped, days: Math.round(steps / nCoins * 4 / 24), from: Number.isFinite(from) ? new Date(from).toISOString().slice(0, 10) : null, groups, pat, base, yrs, fwd, day: dayAgg, rev: { cost: CONFIG.reversionCostPct, split: CONFIG.reversionSplitYear, vars: revAgg }, grid: { cost: CONFIG.reversionCostPct, split: CONFIG.reversionSplitYear, cells: gridAgg, stt: sttAgg, nSig: gridBase.n }, mng: { cost: CONFIG.reversionCostPct, split: CONFIG.reversionSplitYear, v: mngAgg, n: mngCnt.n }, piv: pivAgg, rg: { split: CONFIG.reversionSplitYear, v: rgAgg }, pvt: { split: CONFIG.reversionSplitYear, v: pvtAgg }, l12 };
   console.log('بازپخش تاریخی: ' + nCoins + ' ارز، ' + (Date.now() - t0) + ' میلی‌ثانیه' + (shallow.length ? '، فقط تاریخچه‌ی کوتاه برای: ' + shallow.join(',') : '') + (failedCoins.length ? '، بدون داده: ' + failedCoins.join(',') : '') + (skipped.length ? '، رد شده (کمبود زمان): ' + skipped.join(',') : ''));
   saveState(state); // نتیجه‌ی بازپخش حتماً ذخیره بشه حتی اگه ادامه‌ی اجرا خطا بده
   return state.replay;
@@ -2073,6 +2106,24 @@ function replayBlocks(state) {
     B.push(pre([pad('FILTER', 10) + padL('N-TR', 6) + padL('NET-TR', 8) + padL('N-TE', 6) + padL('NET-TE', 8) + padL('t', 6)].concat(rows)));
     B.push(verdicts.length ? '✅ فیلتر(های) ' + verdicts.join('، ') + ' توی تست پنهان (از ' + split + ') بعد از کارمزد مثبت و با ثبات موند. هنوز تضمین نیست، ولی ارزش بررسی روی داده‌ی زنده داره.' : '❌ هیچ فیلتری توی تست پنهان بعد از کارمزد با ثبات مثبت نبود.');
     B.push('<i>trend: توی ۳۰ کندل ۴ ساعته‌ی قبل، قیمت جهت‌دار حرکت کرده (نه رنج) · range: رنج · with-EMA: جهت سیگنال هم‌جهت با روند بلندمدت (EMA50 در برابر EMA200) · vs-EMA: خلافِ روند بلندمدت · trend+EMA: هر دو. calm: قیمت بیشتر از ۱.۲ ATR از EMA20 کشیده نشده · stretched: کشیده · sweet: بین −۰.۳ و +۰.۷ ATR از EMA20 · RSI-ok/hot: RSI اشباع نیست/هست (۶۶ و ۳۴) · ADX+ER: روند ADX و ER هر دو · enter-now/pullback: ورود فوری در برابر ورود با صبر برای پولبک · combo: روند + calm + RSI-ok. همه‌ی آستانه‌ها از قبل ثابت بودن؛ ولی بازم ارزها هم‌زمان حرکت می‌کنن و t واقعی‌تر از این کمتره.</i>');
+  }
+  if (rp.pvt && rp.pvt.v && Object.keys(rp.pvt.v).length) {
+    const split = rp.pvt.split || 2024, V = rp.pvt.v, f2 = (x, d) => sgnNum(+x.toFixed(d == null ? 2 : d));
+    const NM = { s1t1: 'stop1ATR/tp1R', s1t2: 'stop1ATR/tp2R', s2t1: 'stop2ATR/tp1R', s2t2: 'stop2ATR/tp2R' };
+    const sm = (k, f) => { const o = { n: 0, w: 0, nt: 0, nt2: 0 }; for (const [y, z] of Object.entries(V[k])) if (f(+y)) for (const q of Object.keys(o)) o[q] += z[q]; return o; };
+    const verdicts = [];
+    const rows = Object.keys(V).sort().map((k) => {
+      const a = sm(k, (y) => y < split), b = sm(k, (y) => y >= split);
+      const t = b.n > 1 ? (() => { const sd = Math.sqrt(Math.max(0, b.nt2 / b.n - Math.pow(b.nt / b.n, 2))); return sd > 0 ? (b.nt / b.n) / (sd / Math.sqrt(b.n)) : 0; })() : 0;
+      const ys = Object.keys(V[k]).filter((y) => +y >= split && V[k][y].n >= 30), pos = ys.filter((y) => V[k][y].nt > 0).length;
+      if (b.n >= 200 && b.nt / b.n > 0 && t >= 2 && ys.length >= 2 && pos === ys.length) verdicts.push(k);
+      const [pr, vn] = k.split('|');
+      return pad((pr === 'D' ? 'day ' : 'week ') + (NM[vn] || vn), 20) + padL(a.n, 6) + padL(a.n ? f2(a.nt / a.n) : '-', 7) + padL(b.n, 6) + padL(b.n ? f2(b.nt / b.n) : '-', 7) + padL(b.n ? Math.round(100 * b.w / b.n) + '%' : '-', 5) + padL(b.n ? f2(t, 1) : '-', 6);
+    });
+    B.push('📍 <b>تست قابل‌معامله‌ی پیوت کلاسیک</b> — بعد از لمس S1/S2/R1/R2 (حمایت: لانگ، مقاومت: شورت) با حد ضرر ATR و هدف R واقعی، ورود در باز شدن کندل بعد؛ کارمزد و لغزش ' + CONFIG.reversionCostPct + '٪ کم شده');
+    B.push(pre([pad('VARIANT', 20) + padL('N-TR', 6) + padL('NET-TR', 7) + padL('N-TE', 6) + padL('NET-TE', 7) + padL('WIN', 5) + padL('t', 6)].concat(rows)));
+    B.push(verdicts.length ? '✅ ' + verdicts.join('، ') + ' توی تست پنهان (از ' + split + ') بعد از کارمزد مثبت و با ثبات موند. ارزش بررسی روی داده‌ی زنده داره، ولی تضمین نیست.' : '❌ هیچ حالتی توی تست پنهان بعد از کارمزد با ثبات مثبت نبود.');
+    B.push('<i>فقط پیوت کلاسیک روزانه و هفتگی، چهار حالت حد ضرر/هدف از قبل ثابت. اگه حد ضرر و هدف توی یه کندل بودن ضرر حساب می‌شه. بعد از ۳۰ کندل (۵ روز) با قیمت بسته شدن خارج می‌شه. ارزها هم‌زمان حرکت می‌کنن و t واقعی‌تر از این کمتره.</i>');
   }
   if (rp.piv && Object.keys(rp.piv).length) {
     const NM = { classic: 'Classic', fib: 'Fib', woodie: 'Woodie', cam: 'Cam', cam3: 'Cam3', demark: 'DeMark' }, ORDER = ['classic', 'fib', 'woodie', 'cam', 'cam3', 'demark'];
