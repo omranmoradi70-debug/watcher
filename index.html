@@ -1224,7 +1224,28 @@ svg.eq{width:100%; height:auto; display:block}
             for (q2 = i - 29; q2 <= i; q2++) er1 += Math.abs(ex[q2].c - ex[q2 - 1].c);
             er0 = Math.abs(ex[i].c - ex[i - 30].c);
             var e50 = rgInd.ema50[i], e200 = rgInd.ema200[i];
-            if (er1 > 0 && ok(e50) && ok(e200)) rgTag = [er0 / er1 >= 0.25 ? 1 : 0, dir * (e50 - e200) > 0 ? 1 : 0];
+            if (er1 > 0 && ok(e50) && ok(e200)) {
+              rgTag = [er0 / er1 >= 0.25 ? 1 : 0, dir * (e50 - e200) > 0 ? 1 : 0, []];
+              // entry-quality tags (thresholds fixed in advance, none tuned): stretch from EMA20 in ATRs, RSI exhaustion, ADX-like trend, entry mode
+              var qa = rgInd.atr[i], q20 = rgInd.ema20[i], qr = rgInd.rsi[i];
+              if (ok(qa) && qa > 0 && ok(q20) && ok(qr)) {
+                var stch = dir * (ex[i].c - q20) / qa, qk = rgTag[2];
+                var pD = 0, mD = 0, trS = 0, kk;
+                for (kk = i - 13; kk <= i; kk++) {
+                  var upm = ex[kk].h - ex[kk - 1].h, dnm = ex[kk - 1].l - ex[kk].l;
+                  pD += upm > dnm && upm > 0 ? upm : 0; mD += dnm > upm && dnm > 0 ? dnm : 0;
+                  trS += Math.max(ex[kk].h - ex[kk].l, Math.abs(ex[kk].h - ex[kk - 1].c), Math.abs(ex[kk].l - ex[kk - 1].c));
+                }
+                var dP = trS > 0 ? pD / trS * 100 : 0, dM = trS > 0 ? mD / trS * 100 : 0, dxv = dP + dM > 0 ? Math.abs(dP - dM) / (dP + dM) * 100 : 0;
+                var adxOk = dxv >= 23 && er0 / er1 >= 0.25, notStretched = stch <= 1.2, rsiOk = dir > 0 ? qr <= 66 : qr >= 34;
+                qk.push(notStretched ? 'calm' : 'stretched');
+                if (stch >= -0.3 && stch <= 0.7) qk.push('sweet');
+                qk.push(rsiOk ? 'rsiOk' : 'rsiHot');
+                if (adxOk) qk.push('adxTrend');
+                qk.push(sc.mode === 'now' ? 'modeNow' : 'modePull');
+                if (adxOk && notStretched && rsiOk) qk.push('combo');
+              }
+            }
           }
           if (o.costPct != null) { var rk2 = Math.abs(sc.entry - sc.stop); if (rk2 > 0) costR = +(o.costPct / 100 * sc.entry / rk2).toFixed(3); }
           if (done) {
@@ -2564,6 +2585,7 @@ svg.eq{width:100%; height:auto; display:block}
           var px = +o.triggerPx; if (!(px > 0)) return;
           var t = String(o.orderType || ''), isStop = /^Stop/i.test(t), isTp = /^Take Profit/i.test(t);
           if (!isStop && !isTp) return;
+          if (o.reduceOnly === false && !o.isPositionTpsl) return;
           if (isStop && dir * (entry - px) > 0 && (sl == null || Math.abs(entry - px) < Math.abs(entry - sl))) sl = px;
           if (isTp && dir * (px - entry) > 0 && (tp == null || Math.abs(px - entry) < Math.abs(tp - entry))) tp = px;
         } catch (e) {}

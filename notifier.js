@@ -1100,7 +1100,28 @@ const TA = (() => {
             for (q2 = i - 29; q2 <= i; q2++) er1 += Math.abs(ex[q2].c - ex[q2 - 1].c);
             er0 = Math.abs(ex[i].c - ex[i - 30].c);
             var e50 = rgInd.ema50[i], e200 = rgInd.ema200[i];
-            if (er1 > 0 && ok(e50) && ok(e200)) rgTag = [er0 / er1 >= 0.25 ? 1 : 0, dir * (e50 - e200) > 0 ? 1 : 0];
+            if (er1 > 0 && ok(e50) && ok(e200)) {
+              rgTag = [er0 / er1 >= 0.25 ? 1 : 0, dir * (e50 - e200) > 0 ? 1 : 0, []];
+              // entry-quality tags (thresholds fixed in advance, none tuned): stretch from EMA20 in ATRs, RSI exhaustion, ADX-like trend, entry mode
+              var qa = rgInd.atr[i], q20 = rgInd.ema20[i], qr = rgInd.rsi[i];
+              if (ok(qa) && qa > 0 && ok(q20) && ok(qr)) {
+                var stch = dir * (ex[i].c - q20) / qa, qk = rgTag[2];
+                var pD = 0, mD = 0, trS = 0, kk;
+                for (kk = i - 13; kk <= i; kk++) {
+                  var upm = ex[kk].h - ex[kk - 1].h, dnm = ex[kk - 1].l - ex[kk].l;
+                  pD += upm > dnm && upm > 0 ? upm : 0; mD += dnm > upm && dnm > 0 ? dnm : 0;
+                  trS += Math.max(ex[kk].h - ex[kk].l, Math.abs(ex[kk].h - ex[kk - 1].c), Math.abs(ex[kk].l - ex[kk - 1].c));
+                }
+                var dP = trS > 0 ? pD / trS * 100 : 0, dM = trS > 0 ? mD / trS * 100 : 0, dxv = dP + dM > 0 ? Math.abs(dP - dM) / (dP + dM) * 100 : 0;
+                var adxOk = dxv >= 23 && er0 / er1 >= 0.25, notStretched = stch <= 1.2, rsiOk = dir > 0 ? qr <= 66 : qr >= 34;
+                qk.push(notStretched ? 'calm' : 'stretched');
+                if (stch >= -0.3 && stch <= 0.7) qk.push('sweet');
+                qk.push(rsiOk ? 'rsiOk' : 'rsiHot');
+                if (adxOk) qk.push('adxTrend');
+                qk.push(sc.mode === 'now' ? 'modeNow' : 'modePull');
+                if (adxOk && notStretched && rsiOk) qk.push('combo');
+              }
+            }
           }
           if (o.costPct != null) { var rk2 = Math.abs(sc.entry - sc.stop); if (rk2 > 0) costR = +(o.costPct / 100 * sc.entry / rk2).toFixed(3); }
           if (done) {
@@ -1980,6 +2001,7 @@ async function runReplay(state, now, budgetMs) {
         if (s.rg && Number.isFinite(s.cr)) {
           const net = s.R - s.cr, ry = new Date(s.t).getUTCFullYear(), ks = ['base', s.rg[0] ? 'trend' : 'range', s.rg[1] ? 'align' : 'against'];
           if (s.rg[0] && s.rg[1]) ks.push('both');
+          if (s.rg[2]) for (const k of s.rg[2]) ks.push(k);
           for (const k of ks) { const q = rgAgg[k] || (rgAgg[k] = {}), z = q[ry] || (q[ry] = { n: 0, w: 0, nt: 0, nt2: 0 }); z.n++; if (net > 0) z.w++; z.nt += net; z.nt2 += net * net; }
         }
         if (s.t >= now - 365 * 864e5) {
@@ -2034,8 +2056,8 @@ function replayBlocks(state) {
     B.push('HIT% درصدی که جهت روزانه (صعودی یا نزولی) ۲۴ ساعت بعد درست بود · BASE همون درصد اگه همون جهت رو بدون هیچ تحلیل حدس می‌زدیم (با توجه به اینکه اون سال قیمت بیشتر بالا رفته یا پایین) · EDGE اختلافشون به درصد · صعودی‌ها: ' + f(un, uh) + ' از ' + un + ' · نزولی‌ها: ' + f(dn, dh) + ' از ' + dn + ' · Z کلی: ' + sgnNum(+zz.toFixed(1)) + ' (زیر ۳ رو جدی نگیر، و ارزها هم‌زمان حرکت می‌کنن پس واقعی‌تر از این کمتره). M+S یعنی تحلیل متوسط و قوی.');
   }
   if (rp.rg && rp.rg.v && rp.rg.v.base) {
-    const split = rp.rg.split || 2024, V = rp.rg.v, NAME = { base: 'all', trend: 'trend', range: 'range', align: 'with-EMA', against: 'vs-EMA', both: 'trend+EMA' };
-    const keys = ['base', 'trend', 'range', 'align', 'against', 'both'].filter((k) => V[k]);
+    const split = rp.rg.split || 2024, V = rp.rg.v, NAME = { base: 'all', trend: 'trend', range: 'range', align: 'with-EMA', against: 'vs-EMA', both: 'trend+EMA', calm: 'calm', stretched: 'stretched', sweet: 'sweet', rsiOk: 'RSI-ok', rsiHot: 'RSI-hot', adxTrend: 'ADX+ER', modeNow: 'enter-now', modePull: 'pullback', combo: 'combo' };
+    const keys = ['base', 'trend', 'range', 'align', 'against', 'both', 'calm', 'stretched', 'sweet', 'rsiOk', 'rsiHot', 'adxTrend', 'modeNow', 'modePull', 'combo'].filter((k) => V[k]);
     const sm = (k, f) => { const o = { n: 0, w: 0, nt: 0, nt2: 0 }; for (const [y, z] of Object.entries(V[k])) if (f(+y)) for (const q of Object.keys(o)) o[q] += z[q]; return o; };
     const f2 = (x, d) => sgnNum(+x.toFixed(d == null ? 2 : d));
     B.push('🧭 <b>تست فیلتر رژیم بازار</b> — فقط سیگنال‌هایی که توی شرایط مشخصی صادر شدن؛ کارمزد و لغزش ' + CONFIG.reversionCostPct + '٪ کم شده');
@@ -2050,7 +2072,7 @@ function replayBlocks(state) {
     });
     B.push(pre([pad('FILTER', 10) + padL('N-TR', 6) + padL('NET-TR', 8) + padL('N-TE', 6) + padL('NET-TE', 8) + padL('t', 6)].concat(rows)));
     B.push(verdicts.length ? '✅ فیلتر(های) ' + verdicts.join('، ') + ' توی تست پنهان (از ' + split + ') بعد از کارمزد مثبت و با ثبات موند. هنوز تضمین نیست، ولی ارزش بررسی روی داده‌ی زنده داره.' : '❌ هیچ فیلتری توی تست پنهان بعد از کارمزد با ثبات مثبت نبود.');
-    B.push('<i>trend: توی ۳۰ کندل ۴ ساعته‌ی قبل، قیمت جهت‌دار حرکت کرده (نه رنج) · range: رنج · with-EMA: جهت سیگنال هم‌جهت با روند بلندمدت (EMA50 در برابر EMA200) · vs-EMA: خلافِ روند بلندمدت · trend+EMA: هر دو. شش فیلتر از قبل ثابت بودن؛ ولی بازم ارزها هم‌زمان حرکت می‌کنن و t واقعی‌تر از این کمتره.</i>');
+    B.push('<i>trend: توی ۳۰ کندل ۴ ساعته‌ی قبل، قیمت جهت‌دار حرکت کرده (نه رنج) · range: رنج · with-EMA: جهت سیگنال هم‌جهت با روند بلندمدت (EMA50 در برابر EMA200) · vs-EMA: خلافِ روند بلندمدت · trend+EMA: هر دو. calm: قیمت بیشتر از ۱.۲ ATR از EMA20 کشیده نشده · stretched: کشیده · sweet: بین −۰.۳ و +۰.۷ ATR از EMA20 · RSI-ok/hot: RSI اشباع نیست/هست (۶۶ و ۳۴) · ADX+ER: روند ADX و ER هر دو · enter-now/pullback: ورود فوری در برابر ورود با صبر برای پولبک · combo: روند + calm + RSI-ok. همه‌ی آستانه‌ها از قبل ثابت بودن؛ ولی بازم ارزها هم‌زمان حرکت می‌کنن و t واقعی‌تر از این کمتره.</i>');
   }
   if (rp.piv && Object.keys(rp.piv).length) {
     const NM = { classic: 'Classic', fib: 'Fib', woodie: 'Woodie', cam: 'Cam', cam3: 'Cam3', demark: 'DeMark' }, ORDER = ['classic', 'fib', 'woodie', 'cam', 'cam3', 'demark'];
