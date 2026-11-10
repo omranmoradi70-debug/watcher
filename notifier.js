@@ -2887,37 +2887,46 @@ function methodProfile(trs) {
     lo: (w.length >= 3 && l.length >= 3 && hw > 0) ? (hl / hw < 0.7 ? 'cut-fast' : hl / hw > 1.3 ? 'hold-loss' : 'even') : null
   };
 }
+// توجه: limited تو‌در‌تو نباید باشه (کارِ داخل limited نباید خودش منتظر یه limited دیگه بمونه، وگرنه همه‌ی جاهای خالی پر می‌شن و برنامه قفل می‌کنه).
+// برای همین سه مرحله‌ی جدا: ۱) fills همه‌ی کیف‌پول‌ها ۲) کندل‌های ارزهای لازم ۳) محاسبه‌ی پروفایل بدون شبکه
 async function runMethods(state, now, budgetMs) {
   const T = state.traders; if (!T || !Object.keys(T.wallets).length) return 0;
   assignNames(T);
-  const t0 = Date.now(), budget = budgetMs || 150000, ctxCache = new Map();
-  const ctxOf = (coin) => {
-    const sym = String(coin).replace(/^k/, ''); if (!SYM_RE.test(sym)) return Promise.resolve(null);
-    if (!ctxCache.has(sym)) ctxCache.set(sym, limited(() => candles(sym, '4h', 1000, 300)).then((cs) => ({ cs, ind: TA.computeIndicators(cs) })).catch(() => null));
-    return ctxCache.get(sym);
-  };
+  const t0 = Date.now(), budget = budgetMs || 150000;
+  const fetched = await Promise.all(Object.keys(T.wallets).map((a) => limited(async () => {
+    if (Date.now() - t0 > budget) return null;
+    try {
+      const fills = await postJSON(HL, { type: 'userFills', user: a }, 20000);
+      if (!Array.isArray(fills) || !fills.length) return null;
+      return { a, n: fills.length, trs: reconFills(fills).sort((x, y) => x.t1 - y.t1).slice(-40) };
+    } catch (e) { return null; }
+  })));
+  const got = fetched.filter(Boolean);
+  const syms = new Set();
+  for (const g of got) for (const tr of g.trs) { const sym = String(tr.c).replace(/^k/, ''); if (!tr.pre && tr.e && SYM_RE.test(sym)) syms.add(sym); }
+  const ctxMap = new Map();
+  await Promise.all(Array.from(syms).map((sym) => limited(async () => {
+    if (Date.now() - t0 > budget + 60000) return;
+    try { const cs = await candles(sym, '4h', 1000, 300); ctxMap.set(sym, { cs, ind: TA.computeIndicators(cs) }); } catch (e) { /* ارز روی صرافی‌های ما نیست */ }
+  })));
   let done = 0;
-  await Promise.all(Object.keys(T.wallets).map((a) => limited(async () => {
-    if (Date.now() - t0 > budget) return;
-    let fills; try { fills = await postJSON(HL, { type: 'userFills', user: a }, 20000); } catch (e) { return; }
-    if (!Array.isArray(fills) || !fills.length) return;
-    const w = T.wallets[a], trs = reconFills(fills).sort((x, y) => x.t1 - y.t1).slice(-40);
-    const strs = [];
-    for (const tr of trs) {
+  for (const g of got) {
+    const w = T.wallets[g.a], strs = [];
+    for (const tr of g.trs) {
       let ctx = null;
-      if (!tr.pre && tr.e) {
-        const c = await ctxOf(tr.c);
-        if (c) { let idx = -1; for (let i = c.cs.length - 1; i >= 0; i--) if (c.cs[i].t + TFMS['4h'] <= tr.t0) { idx = i; break; } ctx = TA.entryContext(c.cs, c.ind, idx, tr.d, tr.e); }
-      }
+      const c = !tr.pre && tr.e ? ctxMap.get(String(tr.c).replace(/^k/, '')) : null;
+      if (c) { let idx = -1; for (let i = c.cs.length - 1; i >= 0; i--) if (c.cs[i].t + TFMS['4h'] <= tr.t0) { idx = i; break; } ctx = TA.entryContext(c.cs, c.ind, idx, tr.d, tr.e); }
       strs.push(trToStr(tr, ctx));
     }
-    w.ft = strs; w.fn = fills.length; w.fT = new Date(now).toISOString();
+    w.ft = strs; w.fn = g.n; w.fT = new Date(now).toISOString();
     w.prof = methodProfile(strs.map(strToTr));
     done++;
-  })));
+  }
   T.mt = new Date(now).toISOString(); T.mtN = done;
   return done;
 }
+// هیچ مرحله‌ی جانبی حق نداره کل ربات رو معطل کنه: اگه از ms بیشتر طول کشید رها می‌شه
+const withDeadline = (p, ms) => Promise.race([p, new Promise((r) => { const t = setTimeout(() => r(null), ms); if (t.unref) t.unref(); })]);
 const MT_NAME = { breakout: 'breakout', fade: 'extreme-fade', pullback: 'pullback', chase: 'trend-chase', counter: 'counter-trend' };
 const MT_FA = { breakout: 'شکست سقف/کف ۲۰ کندلی', fade: 'ورود خلاف کشش افراطی', pullback: 'پولبک در روند', chase: 'تعقیب روند', counter: 'خلاف روند بلندمدت' };
 // مقایسه‌ی سیگنال‌های بسته‌ی ربات با معامله‌های تریدرها روی همون ارز، ±۲۴ ساعت
@@ -3134,11 +3143,11 @@ async function main() {
     const ev = (await guard('تریدرها', () => runTraders(state, now))) || [];
     const dg = tradersDigest(ev, state.traders);
     if (dg) await guard('پیام تریدرها', () => sendHtml(dg));
-    if (CONFIG.methodsEveryHours > 0 && (MODE === 'traders' || hoursSince(state.traders && state.traders.mt, now) >= CONFIG.methodsEveryHours)) await guard('روش تریدرها', () => runMethods(state, now, MODE === 'traders' ? 240000 : 120000));
+    if (CONFIG.methodsEveryHours > 0 && (MODE === 'traders' || hoursSince(state.traders && state.traders.mt, now) >= CONFIG.methodsEveryHours)) await guard('روش تریدرها', () => withDeadline(runMethods(state, now, MODE === 'traders' ? 150000 : 90000), MODE === 'traders' ? 330000 : 200000));
     if (MODE === 'traders') { await sendBlocks(tradersBlocks(state).concat(methodBlocks(state))); saveState(state); return; }
   }
 
-  if (['run', 'full'].includes(MODE)) await guard('داده‌ی مشتقات', () => logDeriv(state, now));
+  if (['run', 'full'].includes(MODE)) await guard('داده‌ی مشتقات', () => withDeadline(logDeriv(state, now), 90000));
 
   // 2) تحلیل کامل (تقریباً ساعتی)
   const fullDue = MODE === 'full' || (MODE === 'run' && hoursSince(state.lastFull, now) >= 0.8);
@@ -3254,4 +3263,7 @@ async function main() {
   candleCache.clear();  // جلوگیری از رشد بی‌معنی حافظه در اجراهای طولانی
 }
 
-main().catch((e) => { console.error(e && e.message ? e.message : e); process.exitCode = 1; });
+// اگه یه مرحله قفل کنه و هیچ کاری نمونه، Node بی‌صدا با کد ۰ خارج می‌شه؛ این هشدار جلوی «موفقِ دروغی» رو می‌گیره
+let mainDone = false;
+process.on('exit', () => { if (!mainDone && MODE !== 'selftest') { console.error('::error::ربات قبل از پایان کار متوقف شد (یه مرحله قفل کرده)؛ state ذخیره نشد'); process.exitCode = 1; } });
+main().then(() => { mainDone = true; }, (e) => { mainDone = true; console.error(e && e.message ? e.message : e); process.exitCode = 1; });
