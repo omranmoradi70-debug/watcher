@@ -805,6 +805,10 @@ svg.eq{width:100%; height:auto; display:block}
         if (s.status === 'pending') { s.lastT = cd.t; continue; }
       }
       if (s.status === 'open') {
+        if (!(s.mode === 'pullback' && s.openedAt === cd.t)) {  // best move in our favour (in R) while open; skipped on the entry candle of a pullback (its high/low may be before the fill)
+          var favR = d > 0 ? (cd.h - s.entry) / risk : (s.entry - cd.l) / risk;
+          if (favR > (s.mfe || 0)) s.mfe = +favR.toFixed(3);
+        }
         var stopHit = d > 0 ? cd.l <= s.stop : cd.h >= s.stop;
         var tpHit = d > 0 ? cd.h >= s.tp1 : cd.l <= s.tp1;
         if (stopHit) { s.status = 'stop'; s.R = -1; s.closedAt = cd.t; s.lastT = cd.t; return s; }
@@ -1090,6 +1094,8 @@ svg.eq{width:100%; height:auto; display:block}
     return ev;
   }
 
+  // variants fixed in advance: [name, stop in ATR, target in R]
+  var PVT_VARIANTS = [['s1t1', 1, 1], ['s1t2', 1, 2], ['s2t1', 2, 1], ['s2t2', 2, 2]];
   function replay(o) {
     var ex = o.series[o.execTf], exMs = o.tfMs[o.execTf], warm = o.warm || 210, fwd = o.fwd || 6, win = o.window || 299;
     var out = { signals: [], patterns: {}, base: { n: 0, up: 0, yr: {} }, steps: 0, from: null };
@@ -1100,6 +1106,7 @@ svg.eq{width:100%; height:auto; display:block}
     var rgInd = o.regime ? (gridInd || computeIndicators(ex)) : null;
     var pivEv = o.pivots ? pivotEvents(ex) : null;
     if (o.pivots) out.piv = {};
+    out.pvt = {}; var pvtBusy = {};
     o.tfs.forEach(function (t) { ptr[t[0]] = 0; });
     out.from = ex[warm].t;
     // daily-outlook test: one call per day at 04:00 UTC (~08:00 Tehran, like the live daily report), judged 24h (6 x 4h candles) later
@@ -1132,6 +1139,32 @@ svg.eq{width:100%; height:auto; display:block}
           var gy = g.yr[yr] || (g.yr[yr] = { n: 0, hit: 0 });
           g.n++; gy.n++; if (mv > 0) g.up++;
           if (pt.dir !== 0) { if (pt.dir * mv > 0) { g.hit++; gy.hit++; } g.sum += pt.dir * mv; }
+        });
+      }
+      // tradable pivot test: classic pivots only (fixed in advance), enter next open, ATR stop, R target, pessimistic same-candle rule, cost in R
+      if (o.pivTrade && pivEv && pivEv[i] && rgInd && i + 2 < ex.length) {
+        var pa = rgInd.atr[i];
+        if (ok(pa) && pa > 0) pivEv[i].forEach(function (pe) {
+          var pm = /^pv:classic:([DW]):/.exec(pe[0]); if (!pm) return;
+          var pdir = pe[1], pentry = ex[i + 1].o, py3 = yearOf(ex[i].t);
+          PVT_VARIANTS.forEach(function (vr) {
+            var bk = pm[1] + '|' + vr[0];
+            if (pvtBusy[bk] != null && i <= pvtBusy[bk]) return;
+            var rk3 = vr[1] * pa, stp = pentry - pdir * rk3, tgt = pentry + pdir * vr[2] * rk3, rr3 = null, q3, endI = Math.min(ex.length - 1, i + 1 + 30);
+            for (q3 = i + 1; q3 <= endI; q3++) {
+              var hitS = pdir > 0 ? ex[q3].l <= stp : ex[q3].h >= stp, hitT = pdir > 0 ? ex[q3].h >= tgt : ex[q3].l <= tgt;
+              if (hitS) { rr3 = -1; break; }
+              if (hitT) { rr3 = vr[2]; break; }
+            }
+            if (rr3 == null) {
+              if (endI < i + 1 + 30) return;      // not enough future data: skip
+              rr3 = pdir * (ex[endI].c - pentry) / rk3; q3 = endI;
+            }
+            pvtBusy[bk] = q3;
+            var net3 = rr3 - o.costPct / 100 * pentry / rk3;
+            var tgk = pm[1] + '|' + vr[0], zo = (out.pvt[tgk] || (out.pvt[tgk] = {}))[py3] || (out.pvt[tgk][py3] = { n: 0, w: 0, nt: 0, nt2: 0 });
+            zo.n++; if (net3 > 0) zo.w++; zo.nt += net3; zo.nt2 += net3 * net3;
+          });
         });
       }
       // engine replay
@@ -1245,6 +1278,17 @@ svg.eq{width:100%; height:auto; display:block}
                 qk.push(sc.mode === 'now' ? 'modeNow' : 'modePull');
                 if (adxOk && notStretched && rsiOk) qk.push('combo');
               }
+              rgTag[2].push('h' + (new Date(ex[i].t).getUTCHours() < 10 ? '0' : '') + new Date(ex[i].t).getUTCHours());
+              var agr = 0, tfn = (res.tfs || []).length;
+              (res.tfs || []).forEach(function (tt) { if (tt.score * dir > 0) agr++; });
+              if (tfn) rgTag[2].push(agr === tfn ? 'tfAll' : 'tfMix');
+              if (o.btcIdx && i >= 30) {
+                var bj = o.btcIdx[ex[i].t], bj0 = o.btcIdx[ex[i - 30].t];
+                if (bj != null && bj0 != null && bj >= 0 && bj0 >= 0 && !o.isBtc) {
+                  var rsv = (ex[i].c / ex[i - 30].c - 1) - (o.btcC[bj] / o.btcC[bj0] - 1);
+                  rgTag[2].push(dir * rsv > 0 ? 'rsWith' : 'rsAgainst');
+                }
+              }
             }
           }
           if (o.costPct != null) { var rk2 = Math.abs(sc.entry - sc.stop); if (rk2 > 0) costR = +(o.costPct / 100 * sc.entry / rk2).toFixed(3); }
@@ -1258,6 +1302,77 @@ svg.eq{width:100%; height:auto; display:block}
       prevDec = d;
     }
     return out;
+  }
+
+  // ---------- strategy tests on closed execution candles (fixed variants, no tuning) ----------
+  // trend: Donchian breakout (N-candle high/low of the PREVIOUS candles), enter next open, initial stop 2 ATR, trailing stop 3 ATR from the best close,
+  //        no fixed target, time cap 60 candles; both directions. stop gaps fill at the open (pessimistic). sweep: wick beyond the previous 20-candle extreme that closes back inside.
+  // result per key and year: n, wins, net R sum (after cost), sum of squares. One position per coin and variant.
+  function strategies(ex, o) {
+    var out = { st: {} };
+    if (!ex || ex.length < 260) return out;
+    var ind = computeIndicators(ex), cost = (o && o.costPct != null) ? o.costPct : 0.15, n = ex.length, i, q;
+    function add(key, yr, r) { var z = (out.st[key] || (out.st[key] = {}))[yr] || (out.st[key][yr] = { n: 0, w: 0, nt: 0, nt2: 0 }); z.n++; if (r > 0) z.w++; z.nt += r; z.nt2 += r * r; }
+    [20, 55].forEach(function (N) {
+      var busy = -1;
+      for (i = Math.max(N + 1, 210); i < n - 2; i++) {
+        if (i <= busy) continue;
+        var a = ind.atr[i]; if (!ok(a) || !(a > 0)) continue;
+        var hh = -Infinity, ll = Infinity;
+        for (q = i - N; q < i; q++) { if (ex[q].h > hh) hh = ex[q].h; if (ex[q].l < ll) ll = ex[q].l; }
+        var dir = ex[i].c > hh ? 1 : (ex[i].c < ll ? -1 : 0); if (!dir) continue;
+        var entry = ex[i + 1].o, risk = 2 * a, stop = entry - dir * risk, best = entry, r = null, j, end = Math.min(n - 1, i + 1 + 60);
+        for (j = i + 1; j <= end; j++) {
+          var hit = dir > 0 ? ex[j].l <= stop : ex[j].h >= stop;
+          if (hit) { var fill = dir > 0 ? Math.min(stop, ex[j].o) : Math.max(stop, ex[j].o); r = dir * (fill - entry) / risk; break; }
+          best = dir > 0 ? Math.max(best, ex[j].c) : Math.min(best, ex[j].c);
+          var ta = ind.atr[j]; if (ok(ta) && ta > 0) { var ns = best - dir * 3 * ta; if (dir > 0 ? ns > stop : ns < stop) stop = ns; }
+        }
+        if (r == null) { if (end < i + 1 + 60) break; r = dir * (ex[end].c - entry) / risk; j = end; }
+        busy = j;
+        var net = r - cost / 100 * entry / risk, yr = yearOf(ex[i].t), k = 'don' + N;
+        add(k + '|both', yr, net); add(k + (dir > 0 ? '|long' : '|short'), yr, net);
+      }
+    });
+    [[1, 'sweep1R'], [2, 'sweep2R']].forEach(function (vv) {
+      var busy2 = -1;
+      for (i = 25; i < n - 2; i++) {
+        if (i <= busy2) continue;
+        var a2 = ind.atr[i]; if (!ok(a2) || !(a2 > 0)) continue;
+        var lo20 = Infinity, hi20 = -Infinity;
+        for (q = i - 20; q < i; q++) { if (ex[q].l < lo20) lo20 = ex[q].l; if (ex[q].h > hi20) hi20 = ex[q].h; }
+        var d2 = (ex[i].l < lo20 && ex[i].c > lo20) ? 1 : ((ex[i].h > hi20 && ex[i].c < hi20) ? -1 : 0); if (!d2) continue;
+        var en = ex[i + 1].o, st2 = d2 > 0 ? ex[i].l - 0.1 * a2 : ex[i].h + 0.1 * a2, rk = Math.abs(en - st2);
+        if (!(rk > 0) || rk > 4 * a2 || d2 * (en - st2) <= 0) continue;
+        var tg = en + d2 * vv[0] * rk, rr = null, jj, e2 = Math.min(n - 1, i + 1 + 30);
+        for (jj = i + 1; jj <= e2; jj++) {
+          var hs = d2 > 0 ? ex[jj].l <= st2 : ex[jj].h >= st2, ht = d2 > 0 ? ex[jj].h >= tg : ex[jj].l <= tg;
+          if (hs) { rr = -1; break; }
+          if (ht) { rr = vv[0]; break; }
+        }
+        if (rr == null) { if (e2 < i + 1 + 30) break; rr = d2 * (ex[e2].c - en) / rk; jj = e2; }
+        busy2 = jj;
+        add(vv[1] + '|both', yearOf(ex[i].t), rr - cost / 100 * en / rk);
+      }
+    });
+    return out;
+  }
+
+  // classify how a trade entered, from closed candles (used for tracked traders). idx = last closed candle before entry.
+  // types (fixed order): breakout (beyond previous 20-candle extreme) > extreme-fade (entered against a >=1.5 ATR stretch) > pullback (trend-aligned, near EMA20) > chase (trend-aligned, extended) > counter (against the EMA50/200 trend)
+  function entryContext(cs, ind, idx, dir, px) {
+    if (!ind || idx < 210 || idx >= cs.length) return null;
+    var a = ind.atr[idx], e20 = ind.ema20[idx], e50 = ind.ema50[idx], e200 = ind.ema200[idx], r = ind.rsi[idx];
+    if (!ok(a) || !(a > 0) || !ok(e20) || !ok(e50) || !ok(e200) || !ok(r)) return null;
+    var stretch = dir * (px - e20) / a, aligned = dir * (e50 - e200) > 0, hh = -Infinity, ll = Infinity, q;
+    for (q = idx - 19; q <= idx; q++) { if (cs[q].h > hh) hh = cs[q].h; if (cs[q].l < ll) ll = cs[q].l; }
+    var type;
+    if (dir > 0 ? px >= hh * 0.998 : px <= ll * 1.002) type = 'breakout';
+    else if (stretch <= -1.5) type = 'fade';
+    else if (aligned && stretch < 0.3) type = 'pullback';
+    else if (aligned) type = 'chase';
+    else type = 'counter';
+    return { type: type, stretch: +stretch.toFixed(2), rsi: Math.round(r), aligned: aligned };
   }
 
   // ---------- mean-reversion test (fade a sharp move) ----------
@@ -1302,7 +1417,7 @@ svg.eq{width:100%; height:auto; display:block}
     scoreAt: scoreAt, scoreLabel: scoreLabel, findLevels: findLevels, buildScenario: buildScenario,
     analyze: analyze, positionSize: positionSize, backtest: backtest, fmtPrice: fmtPrice, TF_LABEL: TF_LABEL, TF_ADJ: TF_ADJ,
     HORIZONS: HORIZONS, outlook: outlook, outlookLines: outlookLines, volState: volState, VOL_FA: VOL_FA, detectSpike: detectSpike, evaluateSignal: evaluateSignal,
-    detectPatterns: detectPatterns, reversion: reversion, GRID_S: GRID_S, GRID_T: GRID_T, manage: manage, MNG_VARIANTS: MNG_VARIANTS, REV_VARIANTS: REV_VARIANTS, PATTERN_NAMES: PATTERN_NAMES, BIG_PATTERNS: BIG_PATTERNS, pivotFlags: pivotFlags, replay: replay, pivotLevels: pivotLevels, PIVOT_TYPES: PIVOT_TYPES
+    detectPatterns: detectPatterns, reversion: reversion, strategies: strategies, entryContext: entryContext, GRID_S: GRID_S, GRID_T: GRID_T, manage: manage, MNG_VARIANTS: MNG_VARIANTS, REV_VARIANTS: REV_VARIANTS, PATTERN_NAMES: PATTERN_NAMES, BIG_PATTERNS: BIG_PATTERNS, pivotFlags: pivotFlags, replay: replay, pivotLevels: pivotLevels, PIVOT_TYPES: PIVOT_TYPES
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.TA = api;
@@ -2274,7 +2389,7 @@ svg.eq{width:100%; height:auto; display:block}
 
     // ---------- bot state (imported state.json, kept only in this browser) ----------
     function slimState(j) {
-      var out = { at: Date.now(), signals: [], wallets: {}, trades: [] };
+      var out = { at: Date.now(), signals: [], wallets: {}, trades: [], health: { full: j.lastFull || null, daily: j.lastDaily || null, tr: (j.traders && j.traders.mt) || null, dv: (j.dv && j.dv.slot) ? j.dv.slot * 4 * 36e5 : null } };
       (Array.isArray(j.signals) ? j.signals : []).forEach(function (s) {
         if (!s || typeof s.sym !== 'string') return;
         out.signals.push({ id: s.id, sym: s.sym, dir: s.dir, strength: s.strength, status: s.status, R: typeof s.R === 'number' ? s.R : null, t: s.t, entry: s.entry, stop: s.stop, tp1: s.tp1, tp2: s.tp2, alerted: !!s.alerted, src: s.src });
@@ -2459,6 +2574,10 @@ svg.eq{width:100%; height:auto; display:block}
         var drift = Math.abs(price - sc.entry) / atrAbs;
         items.push({ id: 'near', w: 2, ok: drift <= 0.6, t: 'قیمت هنوز نزدیک ناحیه‌ی ورود (' + drift.toFixed(1) + ' برابر نوسان فاصله)', bad: 'قیمت از ورود فاصله گرفته؛ دنبالش ندو، یا منتظر برگشت بمون.', good: 'قیمت هنوز نزدیک وروده.' });
       }
+      if (t.atr > 0 && isFinite(t.ema20)) {
+        var stch = dir * (price - t.ema20) / t.atr;
+        items.push({ id: 'stretch', w: 0, ok: stch <= 1.2, info: true, t: 'فاصله‌ی قیمت از میانگین ۲۰ تایی: ' + stch.toFixed(1) + ' برابر نوسان (ATR)', bad: 'قیمت از میانگین ۲۰ تایی کشیده شده (' + stch.toFixed(1) + ' برابر نوسان)؛ ورود بعد از پولبک معمولاً راحت‌تره. (تست‌های ما نشون داده این به‌تنهایی پیش‌بینی‌کننده نیست؛ فقط اطلاعاته.)', good: 'قیمت زیاد از میانگین ۲۰ تایی کشیده نشده.' });
+      }
       items.push({ id: 'vol', w: 2, ok: t.volRatio >= 0.8, t: 'حجم کندل آخر کم نیست (' + t.volRatio.toFixed(1) + ' برابر میانگین)', bad: 'حجم کمه؛ حرکت پشتوانه‌ی کمی داره.', good: 'حجم کندل آخر مناسبه.' });
       items.push({ id: 'rsi', w: 2, ok: dir > 0 ? t.rsi <= 70 : t.rsi >= 30, t: 'RSI خسته نیست (' + t.rsi.toFixed(0) + ')', bad: 'RSI به ' + t.rsi.toFixed(0) + ' رسیده؛ حرکت خسته به نظر می‌رسه.', good: 'RSI توی محدوده‌ی عادیه.' });
       var obstacle = null;
@@ -2508,6 +2627,18 @@ svg.eq{width:100%; height:auto; display:block}
       v.textContent = good + ' از ' + counted.length + ' شرط رعایت شده. ' + (ratio >= 0.8 ? 'شرایط نسبتاً خوبه؛ ولی بازم احتمالیه، نه قطعی.' : ratio >= 0.6 ? 'شرایط متوسطه؛ حجم رو کم بگیر یا صبر کن.' : 'شرایط ضعیفه؛ صبر کردن هم یک تصمیمه.');
       wrap.appendChild(list); wrap.appendChild(v);
       return { node: wrap, good: good, total: counted.length };
+    }
+    // «دلیل رد سیگنال»: اگه بخوایم این سناریو رو رد کنیم، دلیل‌ها به ترتیب اهمیت؛ فقط راهنمای یادگیریه و حکم نیست
+    function rejectNode(items) {
+      var box = el('div', 'rv-adv');
+      var fails = items.filter(function (i) { return !i.info && i.ok === false; }).sort(function (a, b) { return b.w - a.w; });
+      var infos = items.filter(function (i) { return i.info && i.ok === false; });
+      var sev = fails.reduce(function (s2, i) { return s2 + i.w; }, 0);
+      var head = el('p'); head.appendChild(el('strong', null, fails.length ? (sev >= 6 ? 'دلیل‌های رد کردن این سیگنال (جدی):' : 'دلیل‌های احتیاط:') : 'دلیل جدی برای رد کردن دیده نشد.'));
+      box.appendChild(head);
+      if (fails.length || infos.length) { var u = el('ul'); fails.slice(0, 5).forEach(function (i) { u.appendChild(el('li', null, i.bad)); }); infos.slice(0, 3).forEach(function (i) { u.appendChild(el('li', null, i.bad)); }); box.appendChild(u); }
+      box.appendChild(el('p', 'rv-msg', 'این فهرست فقط برای یادگرفتنه. تست‌های تاریخی ما نشون داده هیچ‌کدوم از این فیلترها به‌تنهایی سودآوری رو تضمین نمی‌کنه.'));
+      return box;
     }
     function advisorNode(items, summary) {
       var box = el('div', 'rv-adv'), sc = RV.sc, t = execTfData();
@@ -2747,6 +2878,7 @@ svg.eq{width:100%; height:auto; display:block}
 
       var items = buildItems(), ck = checklistNode(items);
       out.appendChild(setSec('چک‌لیست تصمیم', ck.node));
+      out.appendChild(setSec('چرا شاید رد کنیم؟', rejectNode(items)));
       out.appendChild(setSec('جمع‌بندی مشاور', advisorNode(items, ck)));
       out.appendChild(setSec('جدول تایم‌فریم‌ها', mtfTable()));
 
@@ -2839,8 +2971,22 @@ svg.eq{width:100%; height:auto; display:block}
     paste.addEventListener('input', function () { var p = parsePaste(paste.value); if (p.sym && !symIn.value) symIn.value = p.sym; });
 
     // ---------- bot state UI ----------
+    function healthNode() {
+      var hh = bot && bot.health, box = el('div', 'rv-adv');
+      if (!hh || !hh.full) { box.appendChild(el('p', 'rv-msg', 'وضعیت ربات: داده‌ی زمان آخرین تحلیل توی state.json نیست.')); return box; }
+      var ms = Date.now() - Date.parse(hh.full), hrs = ms / 36e5, ok = hrs < 2.5, mid = hrs < 6;
+      var p = el('p'); p.appendChild(el('strong', null, (ok ? '✅ ربات سالمه' : mid ? '⚠️ ربات کنده' : '❌ ربات احتمالاً متوقف شده') + ' — آخرین تحلیل ' + age(ms) + ' پیش'));
+      box.appendChild(p);
+      var u = el('ul');
+      if (hh.tr) u.appendChild(el('li', null, 'آخرین بازسازی روش تریدرها: ' + age(Date.now() - Date.parse(hh.tr)) + ' پیش'));
+      if (hh.dv) u.appendChild(el('li', null, 'آخرین ثبت فاندینگ/OI: ' + age(Date.now() - hh.dv) + ' پیش'));
+      if (u.firstChild) box.appendChild(u);
+      if (!ok) box.appendChild(el('p', 'rv-msg', mid ? 'گیت‌هاب گاهی اجرا رو چند ساعت عقب می‌ندازه؛ معمولاً خودش جبران می‌شه.' : 'توی گیت‌هاب بخش Actions رو نگاه کن (اگه ۶۰ روز بی‌فعالیت بوده، باید دوباره Enable کنی) یا خطای آخرین اجرا رو بخون.'));
+      return box;
+    }
     function renderBot() {
       botBody.textContent = '';
+      botBody.appendChild(healthNode());
       botBody.appendChild(el('p', 'hint', 'فایل state.json ریپوی ربات رو اینجا وارد کن تا سابقه‌ی هر ارز، سیگنال‌های باز و نام تریدرها (T1، T2، …) توی وب هم دیده بشن. فقط توی همین مرورگر ذخیره می‌شه و جایی فرستاده نمی‌شه.'));
       var fr = el('div', 'rv-row'), file = el('input'); file.type = 'file'; file.accept = '.json,application/json'; file.setAttribute('aria-label', 'فایل state.json');
       fr.appendChild(file); botBody.appendChild(fr);
@@ -2911,7 +3057,7 @@ svg.eq{width:100%; height:auto; display:block}
         if (!r.ok) throw new Error('HTTP ' + r.status);
         var j = await r.json(); if (!j || !Array.isArray(j.signals)) throw new Error('bad');
         bot = slimState(j); bot.auto = true; store.set('botstate', bot);
-        botSum.textContent = 'سابقه‌ی ربات و سیگنال‌های باز (خودکار از ریپو)';
+        botSum.textContent = 'سابقه‌ی ربات و سیگنال‌های باز (خودکار از ریپو)' + (bot.health && bot.health.full ? ((Date.now() - Date.parse(bot.health.full)) / 36e5 < 2.5 ? ' · ✅ ربات سالمه' : (Date.now() - Date.parse(bot.health.full)) / 36e5 < 6 ? ' · ⚠️ ربات کنده' : ' · ❌ ربات متوقف؟') : '');
         botBody.textContent = ''; renderBot();
         if (RV.res) renderBody();
       } catch (e) { /* keep manual/old copy */ } finally { clearTimeout(t); }

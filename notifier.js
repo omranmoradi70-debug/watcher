@@ -62,9 +62,9 @@ const CONFIG = {
   replayEnabled: true,
   replayFrom: '2020-01-01', // تاریخچه از این تاریخ (اگه از صرافی نیومد، خودش به ۴ ماه آخر برمی‌گرده)
   replayEveryDays: 30,     // هر چند روز یه بار خودکار دوباره حساب بشه (دستی: حالت replay)
-  replayBudgetMs: 480000,  // سقف زمان بازپخش دستی (۸ دقیقه)
+  replayBudgetMs: 540000,  // سقف زمان بازپخش دستی (۸ دقیقه)
   replayAutoBudgetMs: 150000, // سقف زمان بازپخش خودکار توی اجرای معمولی (۲.۵ دقیقه)
-  replayExtra: ['DOGE', 'ADA', 'AVAX', 'LINK', 'DOT', 'LTC', 'TRX'],  // ارزهای اضافه برای بزرگ‌تر شدن نمونه (به‌علاوه‌ی ارزهای لیست)
+  replayExtra: ['DOGE', 'ADA', 'AVAX', 'LINK', 'DOT', 'LTC', 'TRX', 'XRP', 'BNB', 'BCH', 'ETC', 'ATOM', 'NEAR', 'UNI', 'FIL', 'SUI', 'APT'],  // ارزهای اضافه برای بزرگ‌تر شدن نمونه (به‌علاوه‌ی ارزهای لیست)
   shadowStops: [1.5, 2], // ردیابی موازی: همون سیگنال با حد ضرر ۱.۵ و ۲ برابر دورتر (سیگنال اصلی دست‌نخورده می‌مونه)
   reversionCostPct: 0.15,  // کارمزد و لغزش رفت‌وبرگشت (درصد) برای تست بازگشت کوتاه‌مدت؛ عدد واقعی خودت رو از Home → Commission بذار
   reversionSplitYear: 2024, // سال‌های قبلش «آموزش» و از این سال به بعد «تست پنهان» حساب می‌شه
@@ -77,6 +77,8 @@ const CONFIG = {
   tradersRefreshDays: 14,  // هر چند روز یه بار لیست خودکار بازنگری بشه (کیف‌پول‌های قبلی هیچ‌وقت حذف نمی‌شن)
   tradersNotify: 'all',    // all = پیام باز و بسته شدن معامله‌ها · closed = فقط بسته‌شده‌ها · off = بدون پیام
   tradersMaxLines: 10,     // حداکثر خط توی هر پیام فعالیت
+  derivLogCoins: 10,       // مشتقات (فاندینگ، OI، لانگ/شورت) برای چند ارزِ اول لیست هر ۴ ساعت ثبت بشه
+  methodsEveryHours: 24,   // هر چند ساعت یه بار تاریخچه‌ی معامله‌ی تریدرها برای پروفایل روش دوباره گرفته بشه
   tradersFeePct: 0.07,     // کارمزد رفت‌وبرگشت تقریبی (درصد)
 
   // رویدادهای مهم اقتصادی آمریکا (ساعت UTC). تاریخ‌های ۲۰۲۶ با تقویم رسمی چک شدن؛ FOMC سال ۲۰۲۷ موقتیه. NFP و CPI سال ۲۰۲۷ هنوز اضافه نشده. هر چند ماه یه بار باید به‌روز بشه.
@@ -681,6 +683,10 @@ const TA = (() => {
         if (s.status === 'pending') { s.lastT = cd.t; continue; }
       }
       if (s.status === 'open') {
+        if (!(s.mode === 'pullback' && s.openedAt === cd.t)) {  // best move in our favour (in R) while open; skipped on the entry candle of a pullback (its high/low may be before the fill)
+          var favR = d > 0 ? (cd.h - s.entry) / risk : (s.entry - cd.l) / risk;
+          if (favR > (s.mfe || 0)) s.mfe = +favR.toFixed(3);
+        }
         var stopHit = d > 0 ? cd.l <= s.stop : cd.h >= s.stop;
         var tpHit = d > 0 ? cd.h >= s.tp1 : cd.l <= s.tp1;
         if (stopHit) { s.status = 'stop'; s.R = -1; s.closedAt = cd.t; s.lastT = cd.t; return s; }
@@ -1150,6 +1156,17 @@ const TA = (() => {
                 qk.push(sc.mode === 'now' ? 'modeNow' : 'modePull');
                 if (adxOk && notStretched && rsiOk) qk.push('combo');
               }
+              rgTag[2].push('h' + (new Date(ex[i].t).getUTCHours() < 10 ? '0' : '') + new Date(ex[i].t).getUTCHours());
+              var agr = 0, tfn = (res.tfs || []).length;
+              (res.tfs || []).forEach(function (tt) { if (tt.score * dir > 0) agr++; });
+              if (tfn) rgTag[2].push(agr === tfn ? 'tfAll' : 'tfMix');
+              if (o.btcIdx && i >= 30) {
+                var bj = o.btcIdx[ex[i].t], bj0 = o.btcIdx[ex[i - 30].t];
+                if (bj != null && bj0 != null && bj >= 0 && bj0 >= 0 && !o.isBtc) {
+                  var rsv = (ex[i].c / ex[i - 30].c - 1) - (o.btcC[bj] / o.btcC[bj0] - 1);
+                  rgTag[2].push(dir * rsv > 0 ? 'rsWith' : 'rsAgainst');
+                }
+              }
             }
           }
           if (o.costPct != null) { var rk2 = Math.abs(sc.entry - sc.stop); if (rk2 > 0) costR = +(o.costPct / 100 * sc.entry / rk2).toFixed(3); }
@@ -1163,6 +1180,77 @@ const TA = (() => {
       prevDec = d;
     }
     return out;
+  }
+
+  // ---------- strategy tests on closed execution candles (fixed variants, no tuning) ----------
+  // trend: Donchian breakout (N-candle high/low of the PREVIOUS candles), enter next open, initial stop 2 ATR, trailing stop 3 ATR from the best close,
+  //        no fixed target, time cap 60 candles; both directions. stop gaps fill at the open (pessimistic). sweep: wick beyond the previous 20-candle extreme that closes back inside.
+  // result per key and year: n, wins, net R sum (after cost), sum of squares. One position per coin and variant.
+  function strategies(ex, o) {
+    var out = { st: {} };
+    if (!ex || ex.length < 260) return out;
+    var ind = computeIndicators(ex), cost = (o && o.costPct != null) ? o.costPct : 0.15, n = ex.length, i, q;
+    function add(key, yr, r) { var z = (out.st[key] || (out.st[key] = {}))[yr] || (out.st[key][yr] = { n: 0, w: 0, nt: 0, nt2: 0 }); z.n++; if (r > 0) z.w++; z.nt += r; z.nt2 += r * r; }
+    [20, 55].forEach(function (N) {
+      var busy = -1;
+      for (i = Math.max(N + 1, 210); i < n - 2; i++) {
+        if (i <= busy) continue;
+        var a = ind.atr[i]; if (!ok(a) || !(a > 0)) continue;
+        var hh = -Infinity, ll = Infinity;
+        for (q = i - N; q < i; q++) { if (ex[q].h > hh) hh = ex[q].h; if (ex[q].l < ll) ll = ex[q].l; }
+        var dir = ex[i].c > hh ? 1 : (ex[i].c < ll ? -1 : 0); if (!dir) continue;
+        var entry = ex[i + 1].o, risk = 2 * a, stop = entry - dir * risk, best = entry, r = null, j, end = Math.min(n - 1, i + 1 + 60);
+        for (j = i + 1; j <= end; j++) {
+          var hit = dir > 0 ? ex[j].l <= stop : ex[j].h >= stop;
+          if (hit) { var fill = dir > 0 ? Math.min(stop, ex[j].o) : Math.max(stop, ex[j].o); r = dir * (fill - entry) / risk; break; }
+          best = dir > 0 ? Math.max(best, ex[j].c) : Math.min(best, ex[j].c);
+          var ta = ind.atr[j]; if (ok(ta) && ta > 0) { var ns = best - dir * 3 * ta; if (dir > 0 ? ns > stop : ns < stop) stop = ns; }
+        }
+        if (r == null) { if (end < i + 1 + 60) break; r = dir * (ex[end].c - entry) / risk; j = end; }
+        busy = j;
+        var net = r - cost / 100 * entry / risk, yr = yearOf(ex[i].t), k = 'don' + N;
+        add(k + '|both', yr, net); add(k + (dir > 0 ? '|long' : '|short'), yr, net);
+      }
+    });
+    [[1, 'sweep1R'], [2, 'sweep2R']].forEach(function (vv) {
+      var busy2 = -1;
+      for (i = 25; i < n - 2; i++) {
+        if (i <= busy2) continue;
+        var a2 = ind.atr[i]; if (!ok(a2) || !(a2 > 0)) continue;
+        var lo20 = Infinity, hi20 = -Infinity;
+        for (q = i - 20; q < i; q++) { if (ex[q].l < lo20) lo20 = ex[q].l; if (ex[q].h > hi20) hi20 = ex[q].h; }
+        var d2 = (ex[i].l < lo20 && ex[i].c > lo20) ? 1 : ((ex[i].h > hi20 && ex[i].c < hi20) ? -1 : 0); if (!d2) continue;
+        var en = ex[i + 1].o, st2 = d2 > 0 ? ex[i].l - 0.1 * a2 : ex[i].h + 0.1 * a2, rk = Math.abs(en - st2);
+        if (!(rk > 0) || rk > 4 * a2 || d2 * (en - st2) <= 0) continue;
+        var tg = en + d2 * vv[0] * rk, rr = null, jj, e2 = Math.min(n - 1, i + 1 + 30);
+        for (jj = i + 1; jj <= e2; jj++) {
+          var hs = d2 > 0 ? ex[jj].l <= st2 : ex[jj].h >= st2, ht = d2 > 0 ? ex[jj].h >= tg : ex[jj].l <= tg;
+          if (hs) { rr = -1; break; }
+          if (ht) { rr = vv[0]; break; }
+        }
+        if (rr == null) { if (e2 < i + 1 + 30) break; rr = d2 * (ex[e2].c - en) / rk; jj = e2; }
+        busy2 = jj;
+        add(vv[1] + '|both', yearOf(ex[i].t), rr - cost / 100 * en / rk);
+      }
+    });
+    return out;
+  }
+
+  // classify how a trade entered, from closed candles (used for tracked traders). idx = last closed candle before entry.
+  // types (fixed order): breakout (beyond previous 20-candle extreme) > extreme-fade (entered against a >=1.5 ATR stretch) > pullback (trend-aligned, near EMA20) > chase (trend-aligned, extended) > counter (against the EMA50/200 trend)
+  function entryContext(cs, ind, idx, dir, px) {
+    if (!ind || idx < 210 || idx >= cs.length) return null;
+    var a = ind.atr[idx], e20 = ind.ema20[idx], e50 = ind.ema50[idx], e200 = ind.ema200[idx], r = ind.rsi[idx];
+    if (!ok(a) || !(a > 0) || !ok(e20) || !ok(e50) || !ok(e200) || !ok(r)) return null;
+    var stretch = dir * (px - e20) / a, aligned = dir * (e50 - e200) > 0, hh = -Infinity, ll = Infinity, q;
+    for (q = idx - 19; q <= idx; q++) { if (cs[q].h > hh) hh = cs[q].h; if (cs[q].l < ll) ll = cs[q].l; }
+    var type;
+    if (dir > 0 ? px >= hh * 0.998 : px <= ll * 1.002) type = 'breakout';
+    else if (stretch <= -1.5) type = 'fade';
+    else if (aligned && stretch < 0.3) type = 'pullback';
+    else if (aligned) type = 'chase';
+    else type = 'counter';
+    return { type: type, stretch: +stretch.toFixed(2), rsi: Math.round(r), aligned: aligned };
   }
 
   // ---------- mean-reversion test (fade a sharp move) ----------
@@ -1207,7 +1295,7 @@ const TA = (() => {
     scoreAt: scoreAt, scoreLabel: scoreLabel, findLevels: findLevels, buildScenario: buildScenario,
     analyze: analyze, positionSize: positionSize, backtest: backtest, fmtPrice: fmtPrice, TF_LABEL: TF_LABEL, TF_ADJ: TF_ADJ,
     HORIZONS: HORIZONS, outlook: outlook, outlookLines: outlookLines, volState: volState, VOL_FA: VOL_FA, detectSpike: detectSpike, evaluateSignal: evaluateSignal,
-    detectPatterns: detectPatterns, reversion: reversion, GRID_S: GRID_S, GRID_T: GRID_T, manage: manage, MNG_VARIANTS: MNG_VARIANTS, REV_VARIANTS: REV_VARIANTS, PATTERN_NAMES: PATTERN_NAMES, BIG_PATTERNS: BIG_PATTERNS, pivotFlags: pivotFlags, replay: replay, pivotLevels: pivotLevels, PIVOT_TYPES: PIVOT_TYPES
+    detectPatterns: detectPatterns, reversion: reversion, strategies: strategies, entryContext: entryContext, GRID_S: GRID_S, GRID_T: GRID_T, manage: manage, MNG_VARIANTS: MNG_VARIANTS, REV_VARIANTS: REV_VARIANTS, PATTERN_NAMES: PATTERN_NAMES, BIG_PATTERNS: BIG_PATTERNS, pivotFlags: pivotFlags, replay: replay, pivotLevels: pivotLevels, PIVOT_TYPES: PIVOT_TYPES
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.TA = api;
@@ -1789,7 +1877,8 @@ function track(state, src, sym, r, now, alerted) {
     id: sym + '|' + now, sym, src, dir, strength: r.strength, mode: sc.mode, entry: sc.entry, zoneLo: sc.zoneLo, zoneHi: sc.zoneHi,
     stop: sc.stop, tp1: sc.tp1, tp2: sc.tp2, rr1: sc.rr1, rr2: sc.rr2, t: now, validUntil: now + CONFIG.signalValidDays[CONFIG.style] * 24 * HOUR,
     status: sc.mode === 'now' ? 'open' : 'pending', alerted: !!alerted,
-    patChk: true, pat: ((r.patterns || []).find((p) => p.dir === dir) || {}).id || null  // الگوی کندلی هم‌جهت لحظه‌ی سیگنال (فقط سیگنال‌های جدید)
+    patChk: true, pat: ((r.patterns || []).find((p) => p.dir === dir) || {}).id || null,  // الگوی کندلی هم‌جهت لحظه‌ی سیگنال (فقط سیگنال‌های جدید)
+    m1: true, al: (r.tfs || []).length ? (r.tfs.filter((t) => t.score * dir > 0).length + '/' + r.tfs.length) : null  // m1: بیشینه‌ی حرکت به نفع سیگنال (mfe) از اول ثبت شده · al: چندتا از تایم‌فریم‌ها هم‌جهت بودن
   });
   const ns = state.signals[state.signals.length - 1]; ns.sh = makeShadows(ns);
 }
@@ -1851,7 +1940,9 @@ function statsBlocks(state) {
   B.push(pre([pad('GROUP', 8) + padL('N', 4) + padL('WIN%', 6) + padL('AVG-R', 8), row('all', filled), row('weak', filled.filter((x) => x.strength === 'weak')),
     row('medium', filled.filter((x) => x.strength === 'medium')), row('strong', filled.filter((x) => x.strength === 'strong')),
     row('long', filled.filter((x) => x.dir > 0)), row('short', filled.filter((x) => x.dir < 0)),
-    row('alerted', filled.filter((x) => x.alerted)), row('silent', filled.filter((x) => !x.alerted))]));
+    row('alerted', filled.filter((x) => x.alerted)), row('silent', filled.filter((x) => !x.alerted)),
+    row('tf-all', filled.filter((x) => x.al && x.al.split('/')[0] === x.al.split('/')[1])), row('tf-mix', filled.filter((x) => x.al && x.al.split('/')[0] !== x.al.split('/')[1]))]));
+  B.push(...halfwayBlocks(filled));
   const open = state.signals.filter((x) => !isFinal(x) && x.status !== 'tp1').length, pend = state.signals.filter((x) => x.status === 'pending').length;
   const missed = state.signals.filter((x) => x.status === 'missed' || x.status === 'expired').length;
   const t2 = state.signals.filter((x) => x.status === 'tp1');
@@ -1871,8 +1962,21 @@ function statsBlocks(state) {
   return B;
 }
 
+// «نصف راه تا هدف اول»: چندتا از سیگنال‌ها قبل از خوردن حد ضرر حداقل نصف فاصله‌ی هدف اول رو رفتن، و اگه حد ضرر رو همون‌جا می‌بردیم روی ورود (BE) چی می‌شد (تقریبی؛ فقط سیگنال‌های جدید)
+function halfwayBlocks(filled) {
+  const a = filled.filter((x) => x.m1 && Number.isFinite(x.mfe) && x.risk !== 0 && Math.abs(x.entry - x.stop) > 0);
+  if (!a.length) return ['⏳ متریک «نصف راه تا هدف اول» برای سیگنال‌های جدید ثبت می‌شه؛ هنوز سیگنال بسته‌شده‌ای با این داده نداریم.'];
+  const half = (x) => x.mfe >= 0.5 * Math.abs(x.tp1 - x.entry) / Math.abs(x.entry - x.stop);
+  const stops = a.filter((x) => x.status === 'stop'), hs = stops.filter(half);
+  const base = a.reduce((s, x) => s + x.R, 0) / a.length, be = a.reduce((s, x) => s + (x.status === 'stop' && half(x) ? 0 : x.R), 0) / a.length;
+  const out = ['🎯 <b>نصف راه تا هدف اول</b> — ' + a.length + ' سیگنال بسته‌شده‌ی جدید: ' + hs.length + ' از ' + stops.length + ' سیگنالی که حد ضرر خورد، قبلش حداقل نصف راه تا هدف اول رو رفته بود. اگه همون‌جا حد ضرر می‌رفت روی ورود: میانگین ' + code(sgnNum(+base.toFixed(2)) + 'R') + ' به ' + code(sgnNum(+be.toFixed(2)) + 'R') + ' (قبل از کارمزد؛ تقریبی چون ترتیب داخل کندل معلوم نیست).'];
+  if (a.length < 30) out.push('⚠️ نمونه کمه (' + a.length + ' از حداقل ۳۰).');
+  return out;
+}
+
 // ---------- آمار تفکیکی، سابقه، بازپخش تاریخی و الگوهای کندلی (همه فقط خوندنی/اضافه‌کردنی) ----------
 const REPLAY_TFS = [['4h', 2], ['1d', 3]];
+const GOLD_REPLAY = [197, 12.26], GOLD_STRAT = [186, -20.93];  // مقادیر طلایی؛ اگه عمداً منطق تحلیل عوض شد با خروجی خط golden به‌روز کن
 const filledSignals = (state) => state.signals.filter((x) => ['tp1', 'stop', 'timeout'].includes(x.status) && Number.isFinite(x.R));
 function aggR(arr) {
   const n = arr.length, w = arr.filter((x) => x.R > 0).length, sum = arr.reduce((s, x) => s + x.R, 0);
@@ -1957,10 +2061,15 @@ async function runReplay(state, now, budgetMs) {
   const validMs = CONFIG.signalValidDays.swing * 24 * HOUR;
   const since = Date.parse(CONFIG.replayFrom || '2020-01-01') || Date.parse('2020-01-01');
   const fwd = CONFIG.replayFwdCandles || 6;
-  const groups = {}, pat = {}, base = { n: 0, up: 0, yr: {} }, yrs = {}, dayAgg = { yr: {}, st: {}, days: 0, flat: 0 }, revAgg = {}, gridAgg = {}, sttAgg = { n: 0, fav: 0, adv: 0 }, gridBase = { n: 0 }, mngAgg = {}, mngCnt = { n: 0 }, pivAgg = {}, rgAgg = {}, pvtAgg = {}, l12 = {};
+  const groups = {}, pat = {}, base = { n: 0, up: 0, yr: {} }, yrs = {}, dayAgg = { yr: {}, st: {}, days: 0, flat: 0 }, revAgg = {}, gridAgg = {}, sttAgg = { n: 0, fav: 0, adv: 0 }, gridBase = { n: 0 }, mngAgg = {}, mngCnt = { n: 0 }, pivAgg = {}, rgAgg = {}, pvtAgg = {}, stAgg = {}, l12 = {};
   const G = (o, k) => o[k] || (o[k] = { n: 0, w: 0, sum: 0, t2: 0 });
   let nCoins = 0, steps = 0, from = Infinity; const failedCoins = [], shallow = [], skipped = [];
   const t0 = Date.now();
+  let btcIdx = null, btcC = null;
+  try {   // قدرت نسبی در برابر BTC: سری BTC یک‌بار گرفته می‌شه
+    const b4 = (await deepCandles('BTC', '4h', since)).slice(0, -1);
+    btcC = b4.map((c) => c.c); btcIdx = {}; b4.forEach((c, i) => { btcIdx[c.t] = i; });
+  } catch (e) { btcIdx = null; btcC = null; }
   await Promise.all(syms.map((sym) => limited(async () => {
     if (Date.now() - t0 > (budgetMs || CONFIG.replayBudgetMs || 480000)) { skipped.push(sym); return; }  // سقف زمان، تا اجرا از مهلت گیت‌هاب رد نشه
     try {
@@ -1973,9 +2082,16 @@ async function runReplay(state, now, budgetMs) {
       }
       if (!deep) shallow.push(sym);
       // کندل آخرِ هر تایم‌فریم هنوز بازه (ناقص) پس حذفش می‌کنیم
-      const out = TA.replay({ series: { '4h': c4.slice(0, -1), '1d': c1.slice(0, -1) }, tfs: REPLAY_TFS, execTf: '4h', tfMs, validMs, fwd, dayOutlook: true, grid: true, manage: true, regime: true, pivots: true, pivTrade: true, costPct: CONFIG.reversionCostPct });
+      const out = TA.replay({ series: { '4h': c4.slice(0, -1), '1d': c1.slice(0, -1) }, tfs: REPLAY_TFS, execTf: '4h', tfMs, validMs, fwd, dayOutlook: true, grid: true, manage: true, regime: true, pivots: true, pivTrade: true, btcIdx, btcC, isBtc: sym === 'BTC', costPct: CONFIG.reversionCostPct });
       nCoins++; steps += out.steps; if (out.from) from = Math.min(from, out.from);
       base.n += out.base.n; base.up += out.base.up;
+      try {
+        const sr = TA.strategies(c4.slice(0, -1), { costPct: CONFIG.reversionCostPct });
+        for (const [k, yv] of Object.entries(sr.st)) {
+          const q = stAgg[k] || (stAgg[k] = {});
+          for (const [y, v] of Object.entries(yv)) { const z = q[y] || (q[y] = { n: 0, w: 0, nt: 0, nt2: 0 }); for (const f of Object.keys(z)) z[f] += v[f]; }
+        }
+      } catch (e) { /* تست استراتژی‌ها نباید بقیه‌ی بازپخش رو خراب کنه */ }
       try {
         const rv = TA.reversion(c4.slice(0, -1), { cost: CONFIG.reversionCostPct, hold: 6 });
         for (const [key, v] of Object.entries(rv.vars)) {
@@ -2047,7 +2163,7 @@ async function runReplay(state, now, budgetMs) {
     } catch (e) { failedCoins.push(sym); }
   })));
   if (!nCoins) throw new Error('بازپخش: داده‌ی کندل گرفته نشد');
-  state.replay = { t: new Date(now).toISOString(), nCoins, failed: failedCoins, shallow, skipped, days: Math.round(steps / nCoins * 4 / 24), from: Number.isFinite(from) ? new Date(from).toISOString().slice(0, 10) : null, groups, pat, base, yrs, fwd, day: dayAgg, rev: { cost: CONFIG.reversionCostPct, split: CONFIG.reversionSplitYear, vars: revAgg }, grid: { cost: CONFIG.reversionCostPct, split: CONFIG.reversionSplitYear, cells: gridAgg, stt: sttAgg, nSig: gridBase.n }, mng: { cost: CONFIG.reversionCostPct, split: CONFIG.reversionSplitYear, v: mngAgg, n: mngCnt.n }, piv: pivAgg, rg: { split: CONFIG.reversionSplitYear, v: rgAgg }, pvt: { split: CONFIG.reversionSplitYear, v: pvtAgg }, l12 };
+  state.replay = { t: new Date(now).toISOString(), nCoins, failed: failedCoins, shallow, skipped, days: Math.round(steps / nCoins * 4 / 24), from: Number.isFinite(from) ? new Date(from).toISOString().slice(0, 10) : null, groups, pat, base, yrs, fwd, day: dayAgg, rev: { cost: CONFIG.reversionCostPct, split: CONFIG.reversionSplitYear, vars: revAgg }, grid: { cost: CONFIG.reversionCostPct, split: CONFIG.reversionSplitYear, cells: gridAgg, stt: sttAgg, nSig: gridBase.n }, mng: { cost: CONFIG.reversionCostPct, split: CONFIG.reversionSplitYear, v: mngAgg, n: mngCnt.n }, piv: pivAgg, rg: { split: CONFIG.reversionSplitYear, v: rgAgg }, pvt: { split: CONFIG.reversionSplitYear, v: pvtAgg }, st: { split: CONFIG.reversionSplitYear, v: stAgg }, l12 };
   console.log('بازپخش تاریخی: ' + nCoins + ' ارز، ' + (Date.now() - t0) + ' میلی‌ثانیه' + (shallow.length ? '، فقط تاریخچه‌ی کوتاه برای: ' + shallow.join(',') : '') + (failedCoins.length ? '، بدون داده: ' + failedCoins.join(',') : '') + (skipped.length ? '، رد شده (کمبود زمان): ' + skipped.join(',') : ''));
   saveState(state); // نتیجه‌ی بازپخش حتماً ذخیره بشه حتی اگه ادامه‌ی اجرا خطا بده
   return state.replay;
@@ -2089,8 +2205,8 @@ function replayBlocks(state) {
     B.push('HIT% درصدی که جهت روزانه (صعودی یا نزولی) ۲۴ ساعت بعد درست بود · BASE همون درصد اگه همون جهت رو بدون هیچ تحلیل حدس می‌زدیم (با توجه به اینکه اون سال قیمت بیشتر بالا رفته یا پایین) · EDGE اختلافشون به درصد · صعودی‌ها: ' + f(un, uh) + ' از ' + un + ' · نزولی‌ها: ' + f(dn, dh) + ' از ' + dn + ' · Z کلی: ' + sgnNum(+zz.toFixed(1)) + ' (زیر ۳ رو جدی نگیر، و ارزها هم‌زمان حرکت می‌کنن پس واقعی‌تر از این کمتره). M+S یعنی تحلیل متوسط و قوی.');
   }
   if (rp.rg && rp.rg.v && rp.rg.v.base) {
-    const split = rp.rg.split || 2024, V = rp.rg.v, NAME = { base: 'all', trend: 'trend', range: 'range', align: 'with-EMA', against: 'vs-EMA', both: 'trend+EMA', calm: 'calm', stretched: 'stretched', sweet: 'sweet', rsiOk: 'RSI-ok', rsiHot: 'RSI-hot', adxTrend: 'ADX+ER', modeNow: 'enter-now', modePull: 'pullback', combo: 'combo' };
-    const keys = ['base', 'trend', 'range', 'align', 'against', 'both', 'calm', 'stretched', 'sweet', 'rsiOk', 'rsiHot', 'adxTrend', 'modeNow', 'modePull', 'combo'].filter((k) => V[k]);
+    const split = rp.rg.split || 2024, V = rp.rg.v, NAME = { base: 'all', trend: 'trend', range: 'range', align: 'with-EMA', against: 'vs-EMA', both: 'trend+EMA', tfAll: 'TF-all', tfMix: 'TF-mix', rsWith: 'RS-with', rsAgainst: 'RS-vs', h00: 'UTC00', h04: 'UTC04', h08: 'UTC08', h12: 'UTC12', h16: 'UTC16', h20: 'UTC20', calm: 'calm', stretched: 'stretched', sweet: 'sweet', rsiOk: 'RSI-ok', rsiHot: 'RSI-hot', adxTrend: 'ADX+ER', modeNow: 'enter-now', modePull: 'pullback', combo: 'combo' };
+    const keys = ['base', 'trend', 'range', 'align', 'against', 'both', 'calm', 'stretched', 'sweet', 'rsiOk', 'rsiHot', 'adxTrend', 'modeNow', 'modePull', 'combo', 'tfAll', 'tfMix', 'rsWith', 'rsAgainst', 'h00', 'h04', 'h08', 'h12', 'h16', 'h20'].filter((k) => V[k]);
     const sm = (k, f) => { const o = { n: 0, w: 0, nt: 0, nt2: 0 }; for (const [y, z] of Object.entries(V[k])) if (f(+y)) for (const q of Object.keys(o)) o[q] += z[q]; return o; };
     const f2 = (x, d) => sgnNum(+x.toFixed(d == null ? 2 : d));
     B.push('🧭 <b>تست فیلتر رژیم بازار</b> — فقط سیگنال‌هایی که توی شرایط مشخصی صادر شدن؛ کارمزد و لغزش ' + CONFIG.reversionCostPct + '٪ کم شده');
@@ -2105,7 +2221,24 @@ function replayBlocks(state) {
     });
     B.push(pre([pad('FILTER', 10) + padL('N-TR', 6) + padL('NET-TR', 8) + padL('N-TE', 6) + padL('NET-TE', 8) + padL('t', 6)].concat(rows)));
     B.push(verdicts.length ? '✅ فیلتر(های) ' + verdicts.join('، ') + ' توی تست پنهان (از ' + split + ') بعد از کارمزد مثبت و با ثبات موند. هنوز تضمین نیست، ولی ارزش بررسی روی داده‌ی زنده داره.' : '❌ هیچ فیلتری توی تست پنهان بعد از کارمزد با ثبات مثبت نبود.');
-    B.push('<i>trend: توی ۳۰ کندل ۴ ساعته‌ی قبل، قیمت جهت‌دار حرکت کرده (نه رنج) · range: رنج · with-EMA: جهت سیگنال هم‌جهت با روند بلندمدت (EMA50 در برابر EMA200) · vs-EMA: خلافِ روند بلندمدت · trend+EMA: هر دو. calm: قیمت بیشتر از ۱.۲ ATR از EMA20 کشیده نشده · stretched: کشیده · sweet: بین −۰.۳ و +۰.۷ ATR از EMA20 · RSI-ok/hot: RSI اشباع نیست/هست (۶۶ و ۳۴) · ADX+ER: روند ADX و ER هر دو · enter-now/pullback: ورود فوری در برابر ورود با صبر برای پولبک · combo: روند + calm + RSI-ok. همه‌ی آستانه‌ها از قبل ثابت بودن؛ ولی بازم ارزها هم‌زمان حرکت می‌کنن و t واقعی‌تر از این کمتره.</i>');
+    B.push('<i>trend: توی ۳۰ کندل ۴ ساعته‌ی قبل، قیمت جهت‌دار حرکت کرده (نه رنج) · range: رنج · with-EMA: جهت سیگنال هم‌جهت با روند بلندمدت (EMA50 در برابر EMA200) · vs-EMA: خلافِ روند بلندمدت · trend+EMA: هر دو. calm: قیمت بیشتر از ۱.۲ ATR از EMA20 کشیده نشده · stretched: کشیده · sweet: بین −۰.۳ و +۰.۷ ATR از EMA20 · RSI-ok/hot: RSI اشباع نیست/هست (۶۶ و ۳۴) · ADX+ER: روند ADX و ER هر دو · enter-now/pullback: ورود فوری در برابر ورود با صبر برای پولبک · combo: روند + calm + RSI-ok. TF-all/TF-mix: هر دو تایم‌فریم (۴ ساعته و روزانه) هم‌جهت سیگنال بودن یا نه · RS-with/RS-vs: قدرت نسبی ۵ روزه‌ی ارز در برابر BTC هم‌جهت با سیگنال هست یا نه · UTC00…20: ساعتِ شروع کندل ۴ ساعته‌ی سیگنال. همه‌ی آستانه‌ها از قبل ثابت بودن؛ ولی بازم ارزها هم‌زمان حرکت می‌کنن و t واقعی‌تر از این کمتره.</i>');
+  }
+  if (rp.st && rp.st.v && Object.keys(rp.st.v).length) {
+    const split = rp.st.split || 2024, V = rp.st.v, f2 = (x, d) => sgnNum(+x.toFixed(d == null ? 2 : d));
+    const sm = (k, f) => { const o = { n: 0, w: 0, nt: 0, nt2: 0 }; for (const [y, z] of Object.entries(V[k])) if (f(+y)) for (const q of Object.keys(o)) o[q] += z[q]; return o; };
+    const verdicts = [], NMS = { don20: 'trend 20', don55: 'trend 55', sweep1R: 'sweep 1R', sweep2R: 'sweep 2R' };
+    const rows = Object.keys(V).sort().map((k) => {
+      const a = sm(k, (y) => y < split), b = sm(k, (y) => y >= split);
+      const t = b.n > 1 ? (() => { const sd = Math.sqrt(Math.max(0, b.nt2 / b.n - Math.pow(b.nt / b.n, 2))); return sd > 0 ? (b.nt / b.n) / (sd / Math.sqrt(b.n)) : 0; })() : 0;
+      const ys = Object.keys(V[k]).filter((y) => +y >= split && V[k][y].n >= 30), pos = ys.filter((y) => V[k][y].nt > 0).length;
+      if (b.n >= 100 && b.nt / b.n > 0.1 && t >= 2 && ys.length >= 2 && pos === ys.length) verdicts.push(k);
+      const [nm, sd] = k.split('|');
+      return pad((NMS[nm] || nm) + ' ' + sd, 18) + padL(a.n, 6) + padL(a.n ? f2(a.nt / a.n) : '-', 7) + padL(b.n, 6) + padL(b.n ? f2(b.nt / b.n) : '-', 7) + padL(b.n ? Math.round(100 * b.w / b.n) + '%' : '-', 5) + padL(b.n ? f2(t, 1) : '-', 6);
+    });
+    B.push('🏄 <b>تست روندگیر و جارو (روی همه‌ی ارزها)</b> — میانگین R هر معامله بعد از کارمزد و لغزش ' + CONFIG.reversionCostPct + '٪؛ قبل و بعد از ' + split);
+    B.push(pre([pad('VARIANT', 18) + padL('N-TR', 6) + padL('NET-TR', 7) + padL('N-TE', 6) + padL('NET-TE', 7) + padL('WIN', 5) + padL('t', 6)].concat(rows)));
+    B.push(verdicts.length ? '✅ ' + verdicts.join('، ') + ' توی تست پنهان بعد از کارمزد بالای +0.1R، با t بالای ۲ و مثبت توی همه‌ی سال‌ها موند. ارزش بررسی روی داده‌ی زنده داره، ولی تضمین نیست.' : '❌ هیچ حالتی توی تست پنهان بعد از کارمزد (بالای +0.1R با t بالای ۲ و ثبات) دوام نیاورد.');
+    B.push('<i>trend 20/55: شکست بالاترین یا پایین‌ترین قیمت ۲۰ یا ۵۵ کندل ۴ ساعته‌ی قبل، ورود در باز شدن کندل بعد، حد ضرر اولیه ۲ ATR، حد ضرر شناور ۳ ATR از بهترین قیمت بسته‌شدن، بدون هدف ثابت، حداکثر ۶۰ کندل (۱۰ روز)؛ both/long/short = هر دو جهت یا یکی. sweep: سایه‌ی کندل از کف/سقف ۲۰ کندل قبل رد می‌شه ولی کندل برمی‌گرده داخل، حد ضرر پشت سایه، هدف ۱R یا ۲R. برای روندگیرها نرخ برد پایین طبیعیه؛ فقط NET مهمه. ارزها هم‌زمان حرکت می‌کنن و t واقعی‌تر از این کمتره.</i>');
   }
   if (rp.pvt && rp.pvt.v && Object.keys(rp.pvt.v).length) {
     const split = rp.pvt.split || 2024, V = rp.pvt.v, f2 = (x, d) => sgnNum(+x.toFixed(d == null ? 2 : d));
@@ -2652,7 +2785,8 @@ function traderStats(T, a) {
     n, win: win.length / n, avg: tr.reduce((s, x) => s + x.p, 0) / n,
     pf: sl < 0 ? sw / -sl : (sw > 0 ? 99 : 0), topShare: sw > 0 ? Math.max(...win.map((x) => x.p)) / sw : 0,
     worst: imps.length ? Math.min(...imps) : 0, avgLev: tr.reduce((s, x) => s + (x.lev || 1), 0) / n,
-    downRate: tr.filter((x) => x.down > 0).length / n, holdH: tr.reduce((s, x) => s + (x.t1 - x.t0), 0) / n / 36e5
+    downRate: tr.filter((x) => x.down > 0).length / n, holdH: tr.reduce((s, x) => s + (x.t1 - x.t0), 0) / n / 36e5,
+    imp: imps.reduce((s, v) => s + v, 0)
   };
 }
 function traderLabel(s) {
@@ -2673,20 +2807,233 @@ function tradersBlocks(state) {
   assignNames(T);
   const all = addrs.map((a) => ({ a, s: traderStats(T, a) })), withTr = all.filter((x) => x.s.n > 0).sort((x, y) => y.s.n - x.s.n), rows = withTr.slice(0, 10);
   if (rows.length) {
-    B.push(pre([pad('TRADER', 8) + padL('N', 4) + padL('WIN%', 6) + padL('AVG%', 7) + padL('PF', 5) + padL('TOP%', 6) + padL('LEV', 5) + '  LABEL'].concat(rows.map(({ a, s }) =>
-      pad(tName(T, a), 8) + padL(s.n, 4) + padL(Math.round(s.win * 100) + '%', 6) + padL(sgnNum(+s.avg.toFixed(2)), 7) + padL(s.pf.toFixed(1), 5) + padL(Math.round(s.topShare * 100), 6) + padL(Math.round(s.avgLev), 5) + '  ' + (LABEL_EN[traderLabel(s)] || traderLabel(s))))));
+    B.push(pre([pad('TRADER', 8) + padL('N', 4) + padL('WIN%', 6) + padL('AVG%', 7) + padL('PF', 5) + padL('TOP%', 6) + padL('LEV', 5) + padL('IMP%', 7) + '  LABEL'].concat(rows.map(({ a, s }) =>
+      pad(tName(T, a), 8) + padL(s.n, 4) + padL(Math.round(s.win * 100) + '%', 6) + padL(sgnNum(+s.avg.toFixed(2)), 7) + padL(s.pf.toFixed(1), 5) + padL(Math.round(s.topShare * 100), 6) + padL(Math.round(s.avgLev), 5) + padL(sgnNum(+s.imp.toFixed(1)), 7) + '  ' + (LABEL_EN[traderLabel(s)] || traderLabel(s))))));
     B.push('<i>' + esc(rows.map(({ a }) => tName(T, a) + '=' + shortAddr(a)).join(' · ')) + '</i>');
   }
   const noTr = all.length - withTr.length;
   if (noTr > 0) B.push(noTr + ' کیف‌پول از ' + all.length + ' تا هنوز معامله‌ی بسته‌شده‌ای ثبت نکردن (توی جدول نیستن).' + (withTr.length > rows.length ? ' ' + (withTr.length - rows.length) + ' تریدر با معامله‌ی کمتر هم نشون داده نشد.' : ''));
-  B.push('N تعداد معامله‌ی بسته‌شده (فقط بعد از شروع ردیابی) · WIN% درصد معامله‌های سودده بعد از کارمزد تقریبی · AVG% میانگین سود هر معامله به درصد حرکت قیمت · PF سودِ کل ÷ ضررِ کل (بالای ۱ یعنی سودده) · TOP% سهم بهترین معامله از کل سود (بالای ۵۰ یعنی سود به یه معامله وابسته‌ست) · LEV میانگین اهرم.');
+  B.push('N تعداد معامله‌ی بسته‌شده (فقط بعد از شروع ردیابی) · WIN% درصد معامله‌های سودده بعد از کارمزد تقریبی · AVG% میانگین سود هر معامله به درصد حرکت قیمت · PF سودِ کل ÷ ضررِ کل (بالای ۱ یعنی سودده) · TOP% سهم بهترین معامله از کل سود (بالای ۵۰ یعنی سود به یه معامله وابسته‌ست) · LEV میانگین اهرم · IMP% مجموع اثر معامله‌ها روی خودِ حساب اون تریدر (سود هر معامله × اندازه‌ش ÷ سرمایه‌ی حساب؛ معیار «اثر واقعی»).');
   if (closed.length) {
     const w = closed.filter((x) => x.p > 0).length, avg = closed.reduce((s, x) => s + x.p, 0) / closed.length;
     B.push('📊 کل تریدرها: ' + closed.length + ' معامله، ' + Math.round(w / closed.length * 100) + '٪ سودده، میانگین ' + code(sgnNum(+avg.toFixed(2)) + '٪') + ' هر معامله. (برای مقایسه با ربات: سیگنال‌های ربات با R حساب می‌شن و اینجا با درصد حرکت قیمت؛ فقط درصد برد و جهت کلی قابل مقایسه‌ن.)');
   }
+  if (closed.length >= 10) {
+    const cnt = {}; for (const x of closed) cnt[x.a] = (cnt[x.a] || 0) + 1;
+    const big = Object.entries(cnt).sort((x, y) => y[1] - x[1])[0], rest = closed.filter((x) => x.a !== big[0]);
+    const solid = closed.filter((x) => cnt[x.a] >= 20), sm = (arr) => (arr.length ? Math.round(arr.filter((x) => x.p > 0).length / arr.length * 100) + '٪ سودده، میانگین ' + sgnNum(+(arr.reduce((s, x) => s + x.p, 0) / arr.length).toFixed(2)) + '٪' : 'معامله‌ای نیست');
+    B.push('🔎 بدون بزرگ‌ترین کیف‌پول (' + tName(T, big[0]) + '، ' + big[1] + ' از ' + closed.length + ' معامله): ' + rest.length + ' معامله، ' + sm(rest) + '. فقط تریدرهای دارای ۲۰ معامله و بیشتر: ' + solid.length + ' معامله، ' + sm(solid) + '. اگه این‌ها با «کل تریدرها» خیلی فرق دارن، یعنی نتیجه به یکی دو نفر وابسته‌ست.');
+  }
   B.push('<i>برچسب‌ها فقط راهنمان: LOW-N یعنی کمتر از ۲۰ معامله، LUCKY? یعنی سود به یکی دو معامله وابسته‌ست، RISKY یعنی اهرم یا میانگین‌گیری روی ضرر یا ضرر بزرگ روی حساب دیده شده، TRUST یعنی نمونه‌ی کافی و سود پایدار، WEAK یعنی با نمونه‌ی کافی ضررده. کیف‌پول‌ها از لیدربورد (فقط سودده‌های هر سه بازه) و از رتبه‌های مختلف انتخاب شدن، نه فقط بیست تای اول؛ ولی گذشته‌ی خوب تضمین نیست. ورود و خروج‌ها تقریبین چون هر ۱۵ دقیقه چک می‌شه و کارمزد و فاندینگ دقیق حساب نشده.</i>');
   return B;
 }
+
+// ---------- روش تریدرها: بازسازی معامله‌ها از تاریخچه‌ی fills ، پروفایل سبک، مقایسه با سیگنال‌های ربات ----------
+const hlSpot = (c) => !c || c[0] === '@' || String(c).includes(':') || String(c).includes('/');
+// fills (مرتب‌شده با زمان) → معامله‌های بسته‌شده. ورود = افزایش پوزیشن، خروج = کاهش. معامله‌ای که پیش از شروع بازه باز بوده pre=true می‌شه
+function reconFills(fills) {
+  const f = (Array.isArray(fills) ? fills : []).filter((x) => x && !hlSpot(x.coin) && +x.sz > 0 && +x.px > 0 && Number.isFinite(+x.time)).sort((a, b) => +a.time - +b.time);
+  const pos = {}, cur = {}, out = [];
+  const fin = (c, tr, t) => {
+    const e = tr.eq > 0 ? tr.en / tr.eq : null, x = tr.xq > 0 ? tr.xn / tr.xq : null;
+    out.push({ c, d: tr.d, t0: tr.t0, t1: t, e, x, adds: tr.adds, part: tr.part, usd: tr.max, net: tr.pnl - tr.fee, pre: tr.pre || e == null });
+  };
+  for (const x of f) {
+    const c = x.coin, px = +x.px, side = x.side === 'B' ? 1 : -1, t = +x.time;
+    let s = pos[c] != null ? pos[c] : (+x.startPosition || 0), rem = +x.sz, tr = cur[c];
+    const fee = +x.fee || 0;
+    let feeLeft = fee, cpLeft = +x.closedPnl || 0, guard = 0;
+    while (rem > 1e-12 && guard++ < 4) {
+      if (s === 0 || Math.sign(s) === side) {
+        if (!tr) tr = cur[c] = { d: side, t0: t, en: 0, eq: 0, xn: 0, xq: 0, adds: 0, part: 0, max: 0, pnl: 0, fee: 0, pre: s !== 0 };
+        else tr.adds++;
+        tr.en += px * rem; tr.eq += rem; s += side * rem; tr.max = Math.max(tr.max, Math.abs(s) * px); tr.fee += feeLeft; feeLeft = 0; rem = 0;
+      } else {
+        const q = Math.min(rem, Math.abs(s));
+        if (!tr) tr = cur[c] = { d: -side, t0: t, en: 0, eq: 0, xn: 0, xq: 0, adds: 0, part: 0, max: Math.abs(s) * px, pnl: 0, fee: 0, pre: true };
+        tr.xn += px * q; tr.xq += q; tr.pnl += cpLeft; cpLeft = 0; tr.fee += feeLeft * (q / rem); feeLeft -= feeLeft * (q / rem);
+        s += side * q; rem -= q;
+        if (Math.abs(s) < 1e-9 * Math.max(1, Math.abs(q))) { s = 0; fin(c, tr, t); tr = cur[c] = null; } else tr.part++;
+      }
+    }
+    pos[c] = Math.abs(s) < 1e-9 ? 0 : s;
+  }
+  return out;
+}
+const MT_TYPES = ['breakout', 'fade', 'pullback', 'chase', 'counter'];
+const trToStr = (t, ctx) => [t.c, t.d > 0 ? 1 : -1, Math.round(t.t0 / 6e4), Math.round(t.t1 / 6e4), t.e == null ? '' : +t.e.toPrecision(6), t.x == null ? '' : +t.x.toPrecision(6), t.adds, t.part, Math.round(t.usd), +t.net.toFixed(2), ctx ? ctx.type : '', ctx ? ctx.stretch : '', ctx ? ctx.rsi : ''].join('|');
+function strToTr(s) {
+  const a = String(s).split('|'); if (a.length < 13) return null;
+  const e = a[4] === '' ? null : +a[4], x = a[5] === '' ? null : +a[5], d = +a[1];
+  return { c: a[0], d, t0: +a[2] * 6e4, t1: +a[3] * 6e4, e, x, adds: +a[6], part: +a[7], usd: +a[8], net: +a[9], type: a[10] || null, stretch: a[11] === '' ? null : +a[11], rsi: a[12] === '' ? null : +a[12], pct: e && x ? d * (x / e - 1) * 100 : null };
+}
+const median = (a) => { if (!a.length) return null; const b = a.slice().sort((x, y) => x - y), m = b.length >> 1; return b.length % 2 ? b[m] : (b[m - 1] + b[m]) / 2; };
+// پروفایل سبک از معامله‌های بسته‌ی بازسازی‌شده (فقط معامله‌هایی که ورودشون توی بازه‌ی fills دیده شده)
+function methodProfile(trs) {
+  const t = trs.filter((x) => x && !x.pre && x.pct != null), n = t.length;
+  if (n < 5) return { n };
+  const w = t.filter((x) => x.net > 0), l = t.filter((x) => x.net <= 0);
+  const aw = w.length ? w.reduce((s, x) => s + x.pct, 0) / w.length : 0, al = l.length ? l.reduce((s, x) => s + Math.abs(x.pct), 0) / l.length : 0;
+  const hold = (x) => (x.t1 - x.t0) / 36e5, h = median(t.map(hold)), hw = median(w.map(hold)), hl = median(l.map(hold));
+  const cnt = {}; for (const x of t) if (x.type) cnt[x.type] = (cnt[x.type] || 0) + 1;
+  const nt = Object.values(cnt).reduce((s, v) => s + v, 0), top = Object.entries(cnt).sort((a, b) => b[1] - a[1])[0];
+  const sc = t.filter((x) => x.part > 0).length / n;
+  return {
+    n, wr: +(w.length / n).toFixed(2), aw: +aw.toFixed(2), al: +al.toFixed(2), po: al > 0 ? +(aw / al).toFixed(1) : null,
+    h: +h.toFixed(1), hw: hw == null ? null : +hw.toFixed(1), hl: hl == null ? null : +hl.toFixed(1),
+    ad: +(t.reduce((s, x) => s + x.adds, 0) / n).toFixed(1), sc: +sc.toFixed(2), ls: +(t.filter((x) => x.d > 0).length / n).toFixed(2),
+    tt: top ? top[0] : null, ts: nt ? +(top[1] / nt).toFixed(2) : null, nc: nt, net: Math.round(t.reduce((s, x) => s + x.net, 0)),
+    st: h < 0.5 ? 'scalp' : h < 24 ? 'intraday' : h < 168 ? 'swing' : 'position', ex: sc >= 0.4 ? 'scale-out' : 'single',
+    lo: (w.length >= 3 && l.length >= 3 && hw > 0) ? (hl / hw < 0.7 ? 'cut-fast' : hl / hw > 1.3 ? 'hold-loss' : 'even') : null
+  };
+}
+async function runMethods(state, now, budgetMs) {
+  const T = state.traders; if (!T || !Object.keys(T.wallets).length) return 0;
+  assignNames(T);
+  const t0 = Date.now(), budget = budgetMs || 150000, ctxCache = new Map();
+  const ctxOf = (coin) => {
+    const sym = String(coin).replace(/^k/, ''); if (!SYM_RE.test(sym)) return Promise.resolve(null);
+    if (!ctxCache.has(sym)) ctxCache.set(sym, limited(() => candles(sym, '4h', 1000, 300)).then((cs) => ({ cs, ind: TA.computeIndicators(cs) })).catch(() => null));
+    return ctxCache.get(sym);
+  };
+  let done = 0;
+  await Promise.all(Object.keys(T.wallets).map((a) => limited(async () => {
+    if (Date.now() - t0 > budget) return;
+    let fills; try { fills = await postJSON(HL, { type: 'userFills', user: a }, 20000); } catch (e) { return; }
+    if (!Array.isArray(fills) || !fills.length) return;
+    const w = T.wallets[a], trs = reconFills(fills).sort((x, y) => x.t1 - y.t1).slice(-40);
+    const strs = [];
+    for (const tr of trs) {
+      let ctx = null;
+      if (!tr.pre && tr.e) {
+        const c = await ctxOf(tr.c);
+        if (c) { let idx = -1; for (let i = c.cs.length - 1; i >= 0; i--) if (c.cs[i].t + TFMS['4h'] <= tr.t0) { idx = i; break; } ctx = TA.entryContext(c.cs, c.ind, idx, tr.d, tr.e); }
+      }
+      strs.push(trToStr(tr, ctx));
+    }
+    w.ft = strs; w.fn = fills.length; w.fT = new Date(now).toISOString();
+    w.prof = methodProfile(strs.map(strToTr));
+    done++;
+  })));
+  T.mt = new Date(now).toISOString(); T.mtN = done;
+  return done;
+}
+const MT_NAME = { breakout: 'breakout', fade: 'extreme-fade', pullback: 'pullback', chase: 'trend-chase', counter: 'counter-trend' };
+const MT_FA = { breakout: 'شکست سقف/کف ۲۰ کندلی', fade: 'ورود خلاف کشش افراطی', pullback: 'پولبک در روند', chase: 'تعقیب روند', counter: 'خلاف روند بلندمدت' };
+// مقایسه‌ی سیگنال‌های بسته‌ی ربات با معامله‌های تریدرها روی همون ارز، ±۲۴ ساعت
+function compareBot(state) {
+  const T = state.traders; if (!T) return null;
+  const trades = [];
+  for (const [a, w] of Object.entries(T.wallets)) for (const s of w.ft || []) { const t = strToTr(s); if (t && !t.pre && t.e) trades.push(Object.assign(t, { a })); }
+  if (!trades.length) return null;
+  const G = { win: { sig: 0, hit: 0, same: 0, opp: 0, sw: 0, ow: 0, ne: 0, ie: 0, nl: 0, il: 0 }, loss: { sig: 0, hit: 0, same: 0, opp: 0, sw: 0, ow: 0, ne: 0, ie: 0, nl: 0, il: 0 } };
+  for (const sg of filledSignals(state)) {
+    const g = G[sg.R > 0 ? 'win' : 'loss'], coins = [sg.sym, 'k' + sg.sym], sigT = sg.openedAt || sg.t; g.sig++;
+    const m = trades.filter((t) => coins.includes(t.c) && Math.abs(t.t0 - sigT) <= 24 * HOUR);
+    if (!m.length) continue; g.hit++;
+    for (const t of m) {
+      const same = t.d === sg.dir, lead = (t.t0 - sigT) / HOUR;
+      if (same) {
+        g.same++; if (t.net > 0) g.sw++;
+        const imp = -sg.dir * (t.e / sg.entry - 1) * 100;   // مثبت یعنی تریدر ارزان‌تر (برای لانگ) یا گران‌تر (برای شورت) وارد شده
+        if (lead <= -1) { g.ne++; g.ie += imp; } else if (lead >= 1) { g.nl++; g.il += imp; }
+      } else { g.opp++; if (t.net > 0) g.ow++; }
+    }
+  }
+  return G;
+}
+function methodBlocks(state) {
+  const T = state.traders;
+  if (!CONFIG.tradersEnabled || !T) return [];
+  const rows = Object.entries(T.wallets).map(([a, w]) => ({ a, w, p: w.prof })).filter((x) => x.p && x.p.n >= 5).sort((x, y) => y.p.n - x.p.n);
+  if (!rows.length) return ['🧬 <b>روش تریدرها</b> — هنوز تاریخچه‌ی معاملات (fills) برای هیچ کیف‌پولی گرفته و بازسازی نشده. حالت traders رو اجرا کن؛ اگه بعدش هم خالی بود یعنی API هایپرلیکوید معامله‌ی بسته‌شده‌ی کافی نداد.'];
+  const B = ['🧬 <b>روش تریدرها</b> — بازسازی‌شده از تاریخچه‌ی واقعی معامله‌ها (fills)، نه حدس از پوزیشن‌ها؛ برای ' + rows.length + ' کیف‌پول'];
+  const top = rows.slice(0, 12);
+  B.push(pre([pad('TRADER', 7) + padL('N', 4) + padL('WIN%', 5) + padL('PAYOFF', 7) + padL('HOLD', 7) + padL('ADDS', 5) + padL('SCALE', 6) + '  ' + pad('ENTRY', 14) + pad('STYLE', 10) + 'LOSSES'].concat(top.map(({ a, p }) =>
+    pad(tName(T, a), 7) + padL(p.n, 4) + padL(Math.round(p.wr * 100), 5) + padL(p.po == null ? '-' : p.po, 7) + padL(p.h < 48 ? p.h + 'h' : Math.round(p.h / 24) + 'd', 7) + padL(p.ad, 5) + padL(Math.round(p.sc * 100) + '%', 6) + '  ' +
+    pad(p.tt ? (MT_NAME[p.tt] || p.tt) + ' ' + Math.round(p.ts * 100) + '%' : '-', 14) + pad(p.st + (p.n < 20 ? '*' : ''), 10) + (p.lo || '-')))));
+  B.push('<i>* یعنی کمتر از ۲۰ معامله (پروفایل هنوز قابل‌اعتماد نیست). PAYOFF میانگین سود برد ÷ میانگین ضرر باخت (به درصد حرکت قیمت). HOLD میانه‌ی مدت نگه‌داری. ADDS میانگین تعداد اضافه کردن به پوزیشن. SCALE سهم معامله‌هایی که پله‌پله بسته شدن. ENTRY رایج‌ترین نوع ورود نسبت به نمودار ۴ ساعته: ' + Object.keys(MT_NAME).map((k) => MT_NAME[k] + ' = ' + MT_FA[k]).join('، ') + '. LOSSES: cut-fast یعنی ضررها رو زودتر از سودها می‌بُره، hold-loss یعنی ضررها رو بیشتر نگه می‌داره.</i>');
+  const solid = rows.filter((x) => x.p.n >= 20 && x.p.nc >= 10);
+  if (solid.length) {
+    const agg = {}; for (const { p } of solid) if (p.tt) agg[p.tt] = (agg[p.tt] || 0) + 1;
+    B.push('🔍 از ' + solid.length + ' تریدر با نمونه‌ی کافی، سبک ورود غالب: ' + (Object.entries(agg).sort((a, b) => b[1] - a[1]).map(([k, v]) => MT_FA[k] + ' (' + v + ' نفر)').join('، ') || '-') + '. اگه چند تریدرِ مستقل یه روش رو تکرار کنن، همون روش ارزش تست با تست پنهان داره؛ یک نفر به‌تنهایی مدرک نیست.');
+    for (const { a, p } of solid.slice(0, 6)) {
+      B.push('• ' + tName(T, a) + ': ' + (p.tt ? (MT_FA[p.tt] || p.tt) + ' (' + Math.round(p.ts * 100) + '٪ ورودها)' : 'ورود نامشخص') + '، ' + p.st + '، نگه‌داری میانه ' + (p.h < 48 ? p.h + ' ساعت' : Math.round(p.h / 24) + ' روز') + '، ' + Math.round(p.sc * 100) + '٪ خروج پله‌ای' + (p.ad >= 0.5 ? '، میانگین ' + p.ad + ' بار اضافه کردن' : '') + (p.lo === 'cut-fast' ? '، ضررها رو سریع می‌بُره' : p.lo === 'hold-loss' ? '، ضررها رو نگه می‌داره' : '') + (p.po != null ? '، نسبت سود به ضرر ' + p.po : '') + '.');
+    }
+  }
+  const G = compareBot(state);
+  if (G) {
+    const f = (g, k) => (g[k] ? '' + g[k] : '0');
+    const r = (nm, g) => pad(nm, 9) + padL(g.sig, 5) + padL(g.hit, 5) + padL(g.same, 6) + padL(g.opp, 5) + padL(g.same ? Math.round(g.sw / g.same * 100) + '%' : '-', 7) + padL(g.opp ? Math.round(g.ow / g.opp * 100) + '%' : '-', 7) + padL(f(g, 'ne'), 6) + padL(g.ne ? sgnNum(+(g.ie / g.ne).toFixed(2)) : '-', 7) + padL(f(g, 'nl'), 6) + padL(g.nl ? sgnNum(+(g.il / g.nl).toFixed(2)) : '-', 7);
+    B.push('⚖️ <b>سیگنال‌های ربات در برابر معامله‌های تریدرها</b> (همون ارز، تا ±۲۴ ساعت از سیگنال)');
+    B.push(pre([pad('BOT', 9) + padL('SIGS', 5) + padL('HIT', 5) + padL('SAME', 6) + padL('OPP', 5) + padL('WIN-S', 7) + padL('WIN-O', 7) + padL('EARLY', 6) + padL('IMP%', 7) + padL('LATE', 6) + padL('IMP%', 7), r('bot WIN', G.win), r('bot LOSS', G.loss)]));
+    B.push('<i>SIGS تعداد سیگنال بسته‌شده · HIT چندتاش تریدری روی همون ارز نزدیکش داشت · SAME/OPP تعداد معامله‌ی تریدرها هم‌جهت یا مخالف ربات · WIN-S/WIN-O درصد سودده بودن هم‌جهت‌ها و مخالف‌ها · EARLY/LATE هم‌جهت‌هایی که حداقل ۱ ساعت زودتر یا دیرتر از ربات وارد شدن · IMP% میانگین مزیت قیمت ورودشون نسبت به ربات به درصد (مثبت یعنی بهتر از ربات وارد شدن). اگه وقتی ربات باخته مخالف‌ها بیشتر برده باشن یا زودتر/بهترین قیمت‌ها از طرف تریدرها بوده باشه، سرنخ خوبیه؛ ولی نمونه کمه و بازار می‌تونه توضیحش بده، پس فقط وقتی چند ماه گذشت و تکرار شد جدی بگیرش.</i>');
+  }
+  return B;
+}
+
+// ---------- ثبت ساعتیِ مشتقات (فاندینگ، OI، نسبت لانگ به شورت) برای تست‌های بعدی ----------
+// هر ۴ ساعت یک ردیف برای هر ارز (هم‌اندازه‌ی کندل ۴ ساعته‌ی تست‌ها)، ردیف = «شماره‌ی بازه|فاندینگ×۱e6|OI میلیون دلار|نسبت لانگ به شورت×۱۰۰|قیمت»
+const DV_SLOT = 4 * HOUR, DV_KEEP = 540;
+const dvRow = (slot, d, oiUsd, px) => [slot, d.funding == null ? '' : Math.round(d.funding * 1e6), oiUsd == null ? '' : +(oiUsd / 1e6).toFixed(1), d.ls == null ? '' : Math.round(d.ls * 100), px == null ? '' : +(+px).toPrecision(7)].join('|');
+function dvParse(s) { const a = String(s).split('|'); if (a.length < 5) return null; const n = (v) => (v === '' ? null : +v); return { slot: +a[0], f: n(a[1]), oi: n(a[2]), ls: n(a[3]), p: n(a[4]) }; }
+async function logDeriv(state, now) {
+  const dv = state.dv || (state.dv = { slot: 0, rows: {} });
+  const slot = Math.floor(now / DV_SLOT);
+  if (slot <= dv.slot) return 0;
+  let n = 0;
+  await Promise.all(CONFIG.coins.slice(0, CONFIG.derivLogCoins || 10).map((sym) => limited(async () => {
+    try {
+      const [d, oi, tk] = await Promise.all([
+        derivInfo(sym),
+        getJSON('https://www.okx.com/api/v5/public/open-interest?instType=SWAP&instId=' + sym + '-USDT-SWAP').catch(() => null),
+        getJSON('https://www.okx.com/api/v5/market/ticker?instId=' + sym + '-USDT-SWAP').catch(() => null)
+      ]);
+      const oiUsd = oi && oi.code === '0' && oi.data && oi.data[0] ? +oi.data[0].oiUsd : null, px = tk && tk.code === '0' && tk.data && tk.data[0] ? +tk.data[0].last : null;
+      if (d.funding == null && d.ls == null && !(oiUsd > 0)) return;
+      const arr = dv.rows[sym] || (dv.rows[sym] = []);
+      arr.push(dvRow(slot, d, oiUsd > 0 ? oiUsd : null, px > 0 ? px : null));
+      if (arr.length > DV_KEEP) arr.splice(0, arr.length - DV_KEEP);
+      n++;
+    } catch (e) { /* یه ارز نشد، بقیه ادامه */ }
+  })));
+  if (n > 0) dv.slot = slot;
+  return n;
+}
+// قانون‌های ثابت (از قبل تعیین‌شده)؛ جهت خلاف ازدحام. خروج ۲۴ ساعت (۶ بازه) بعد با قیمت ثبت‌شده، کارمزد و لغزش کم می‌شه
+const DV_RULES = [['fund≥0.03%→S', (r) => r.f != null && r.f >= 300, -1], ['fund≤-0.02%→L', (r) => r.f != null && r.f <= -200, 1], ['L/S≥2→S', (r) => r.ls != null && r.ls >= 200, -1], ['L/S≤0.7→L', (r) => r.ls != null && r.ls <= 70, 1]];
+function derivTest(state) {
+  const dv = state.dv; if (!dv || !dv.rows) return null;
+  const cost = CONFIG.reversionCostPct != null ? CONFIG.reversionCostPct : 0.15, res = {}; let rowsN = 0, maxLen = 0;
+  for (const [sym, arr] of Object.entries(dv.rows)) {
+    const rs = arr.map(dvParse).filter((x) => x && x.p > 0), by = new Map(rs.map((x) => [x.slot, x]));
+    rowsN += rs.length; maxLen = Math.max(maxLen, rs.length);
+    for (const [name, test, dir] of DV_RULES) {
+      let busy = -1;
+      for (const r of rs) {
+        if (r.slot <= busy || !test(r)) continue;
+        const fut = by.get(r.slot + 6); if (!fut) continue;
+        const net = dir * (fut.p / r.p - 1) * 100 - cost, z = res[name] || (res[name] = { n: 0, w: 0, s: 0, s2: 0 });
+        z.n++; if (net > 0) z.w++; z.s += net; z.s2 += net * net; busy = r.slot + 6;
+      }
+    }
+  }
+  return { res, rowsN, maxLen, coins: Object.keys(dv.rows).length };
+}
+function derivBlocks(state) {
+  const t = derivTest(state);
+  if (!t) return ['📡 <b>داده‌ی مشتقات</b> — ثبت شروع نشده. بعد از چند اجرای عادی (هر ۴ ساعت یه ردیف برای هر ارز) پر می‌شه.'];
+  const B = ['📡 <b>تست فاندینگ و ازدحام</b> — ' + t.rowsN + ' ردیف برای ' + t.coins + ' ارز (تا ' + Math.round(t.maxLen / 6) + ' روز تاریخچه)؛ جهت خلافِ ازدحام، خروج ۲۴ ساعت بعد، کارمزد و لغزش ' + CONFIG.reversionCostPct + '٪ کم شده'];
+  const rows = DV_RULES.map(([name]) => {
+    const z = t.res[name] || { n: 0, w: 0, s: 0, s2: 0 }, m = z.n ? z.s / z.n : 0, sd = z.n > 1 ? Math.sqrt(Math.max(0, z.s2 / z.n - m * m)) : 0, tt = sd > 0 ? m / (sd / Math.sqrt(z.n)) : 0;
+    return pad(name, 15) + padL(z.n, 5) + padL(z.n ? Math.round(z.w / z.n * 100) + '%' : '-', 6) + padL(z.n ? sgnNum(+m.toFixed(2)) : '-', 7) + padL(z.n ? sgnNum(+tt.toFixed(1)) : '-', 6);
+  });
+  B.push(pre([pad('RULE', 15) + padL('N', 5) + padL('WIN%', 6) + padL('NET%', 7) + padL('t', 6)].concat(rows)));
+  const enough = DV_RULES.some(([name]) => (t.res[name] || { n: 0 }).n >= 100);
+  B.push(enough ? '<i>NET% میانگین سود هر معامله بعد از کارمزد. فقط حالتی که N بالای ۱۰۰، NET% مثبت و t بالای ۲ داشته باشه و بین ماه‌ها پایدار بمونه ارزش بررسی داره؛ ارزها هم‌زمان حرکت می‌کنن و t واقعی‌تر از این کمتره.</i>' : '⏳ <i>داده هنوز کمه (هر قانون زیر ۱۰۰ مورد). تا چند ماه جمع شدن عدد معنی نمی‌ده؛ فعلاً فقط ثبت می‌شه.</i>');
+  return B;
+}
+
 
 async function main() {
   if (!STYLES[CONFIG.style]) throw new Error('style نامعتبر');
@@ -2728,8 +3075,39 @@ async function main() {
     chk('hammer', TA.detectPatterns(ser).some((p) => p.id === 'hammer'), true);
     // تحلیل با داده‌ی ناکافی باید خطا بده
     chk('analyze-short', !!TA.analyze({ price: 1, execTf: '1h', series: [{ tf: '1h', weight: 1, candles: ser }] }).error, true);
+    // --- بازسازی معامله‌ها از fills (ورود پله‌ای، خروج پله‌ای، برعکس‌شدن پوزیشن، پوزیشنِ قدیمی) ---
+    const fl = (coin, side, px, sz, time, start, cp, fee) => ({ coin, side, px: '' + px, sz: '' + sz, time, startPosition: '' + start, closedPnl: '' + cp, fee: '' + fee });
+    const rf = reconFills([fl('BTC', 'B', 100, 1, 1000, 0, 0, 0.1), fl('BTC', 'B', 110, 1, 2000, 1, 0, 0.1), fl('BTC', 'A', 120, 1, 3000, 2, 20, 0.1), fl('BTC', 'A', 130, 1, 4000, 1, 30, 0.1),
+      fl('BTC', 'A', 100, 2, 5000, 0, 0, 0.1), fl('BTC', 'B', 90, 3, 6000, -2, 20, 0.3), fl('BTC', 'A', 95, 1, 7000, 1, 5, 0.1), fl('ETH', 'A', 50, 1, 1500, 1, 7, 0.1), fl('@107', 'B', 1, 5, 1600, 0, 0, 0)]);
+    chk('fills-count', rf.length, 4);
+    const rfb = rf.filter((x) => x.c === 'BTC');
+    chk('fills-long', [rfb[0].d, rfb[0].e, rfb[0].x, rfb[0].adds, rfb[0].part, +rfb[0].net.toFixed(2), rfb[0].pre], [1, 105, 125, 1, 1, 49.6, false]);
+    chk('fills-short-flip', [rfb[1].d, rfb[1].e, rfb[1].x, +rfb[1].net.toFixed(2)], [-1, 100, 90, 19.7]);
+    chk('fills-long-after-flip', [rfb[2].d, rfb[2].e, rfb[2].x, rfb[2].t0], [1, 90, 95, 6000]);
+    chk('fills-pre', rf.find((x) => x.c === 'ETH').pre, true);
+    const st1 = trToStr(rfb[0], { type: 'pullback', stretch: -0.2, rsi: 48 }), pt = strToTr(st1);
+    chk('tr-roundtrip', [pt.c, pt.d, pt.e, pt.x, pt.adds, pt.part, pt.type, pt.rsi, +pt.pct.toFixed(2)], ['BTC', 1, 105, 125, 1, 1, 'pullback', 48, 19.05]);
+    const mp = methodProfile(Array.from({ length: 10 }, (_, i) => strToTr(trToStr({ c: 'ETH', d: i % 2 ? -1 : 1, t0: 0, t1: (i % 3 === 0 ? 2 : 10) * 36e5, e: 100, x: i % 3 === 0 ? 90 : 105, adds: 1, part: i % 2, usd: 1000, net: i % 3 === 0 ? -10 : 5, pre: false }, { type: 'pullback', stretch: 0, rsi: 50 }))));
+    chk('profile', [mp.n, mp.tt, mp.ts, mp.st, mp.ex], [10, 'pullback', 1, 'intraday', 'scale-out']);
+    // --- ثبت مشتقات و تست فاندینگ ---
+    chk('dv-roundtrip', dvParse(dvRow(100, { funding: 0.0004, ls: 2.31 }, 123456789, 100.5)), { slot: 100, f: 400, oi: 123.5, ls: 231, p: 100.5 });
+    const dvs = { rows: { BTC: [] } }; for (let i = 0; i < 20; i++) dvs.rows.BTC.push(dvRow(i, { funding: i === 2 ? 0.0004 : 0.0001, ls: 1 }, 1e9, 100 - i));
+    const dt = derivTest({ dv: dvs }); chk('deriv-rule', [dt.res['fund≥0.03%→S'].n, dt.res['fund≥0.03%→S'].w], [1, 1]);
+    // --- اندازه‌گیری «نصف راه» و بسته‌های replay روی داده‌ی ثابت (golden) ---
+    const sg = { m1: true, mfe: 1.2, status: 'stop', R: -1, entry: 100, stop: 95, tp1: 110 };
+    chk('halfway', halfwayBlocks([sg, Object.assign({}, sg, { mfe: 0.1 })])[0].includes('1 از 2'), true);
+    const rng = (seed) => () => { seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; return seed / 4294967296; };
+    const r0 = rng(5), gz = () => { let u = 0, v = 0; while (!u) u = r0(); while (!v) v = r0(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); };
+    let pp = 100; const g4 = [], H4 = 4 * 36e5;
+    for (let i = 0; i < 6000; i++) { const o = pp, c = o * (1 + 0.0003 + 0.012 * gz()); g4.push({ t: i * H4, o, h: Math.max(o, c) * 1.004, l: Math.min(o, c) * 0.996, c, v: 1 }); pp = c; }
+    const g1 = []; for (let i = 0; i + 6 <= g4.length; i += 6) { const sl = g4.slice(i, i + 6); g1.push({ t: sl[0].t, o: sl[0].o, h: Math.max(...sl.map((x) => x.h)), l: Math.min(...sl.map((x) => x.l)), c: sl[5].c, v: 1 }); }
+    const gr = TA.replay({ series: { '4h': g4, '1d': g1 }, tfs: REPLAY_TFS, execTf: '4h', tfMs: { '4h': H4, '1d': 864e5 }, validMs: 5 * 864e5, fwd: 6, regime: true, costPct: 0.15 });
+    chk('golden-replay', [gr.signals.length, +gr.signals.reduce((s, x) => s + (x.R || 0), 0).toFixed(2)], GOLD_REPLAY);
+    const gs = TA.strategies(g4, { costPct: 0.15 }).st;
+    chk('golden-strategies', [gs['don20|both'] ? Object.values(gs['don20|both']).reduce((s, z) => s + z.n, 0) : 0, +Object.values(gs['sweep2R|both'] || {}).reduce((s, z) => s + z.nt, 0).toFixed(2)], GOLD_STRAT);
+    console.log('golden', JSON.stringify([gr.signals.length, +gr.signals.reduce((s, x) => s + (x.R || 0), 0).toFixed(2)]), JSON.stringify([gs['don20|both'] ? Object.values(gs['don20|both']).reduce((s, z) => s + z.n, 0) : 0, +Object.values(gs['sweep2R|both'] || {}).reduce((s, z) => s + z.nt, 0).toFixed(2)]));
     if (fails.length) { console.error('selftest ناموفق:\n' + fails.join('\n')); process.exitCode = 1; }
-    else console.log('selftest: همه‌ی ۸ تست پاس شد ✓');
+    else console.log('selftest: همه‌ی تست‌ها پاس شد ✓');
     return;
   }
 
@@ -2756,8 +3134,11 @@ async function main() {
     const ev = (await guard('تریدرها', () => runTraders(state, now))) || [];
     const dg = tradersDigest(ev, state.traders);
     if (dg) await guard('پیام تریدرها', () => sendHtml(dg));
-    if (MODE === 'traders') { await sendBlocks(tradersBlocks(state)); saveState(state); return; }
+    if (CONFIG.methodsEveryHours > 0 && (MODE === 'traders' || hoursSince(state.traders && state.traders.mt, now) >= CONFIG.methodsEveryHours)) await guard('روش تریدرها', () => runMethods(state, now, MODE === 'traders' ? 240000 : 120000));
+    if (MODE === 'traders') { await sendBlocks(tradersBlocks(state).concat(methodBlocks(state))); saveState(state); return; }
   }
+
+  if (['run', 'full'].includes(MODE)) await guard('داده‌ی مشتقات', () => logDeriv(state, now));
 
   // 2) تحلیل کامل (تقریباً ساعتی)
   const fullDue = MODE === 'full' || (MODE === 'run' && hoursSince(state.lastFull, now) >= 0.8);
@@ -2842,7 +3223,7 @@ async function main() {
   }
   if (MODE === 'stats') {
     resolveOutlooks(state, prices, now);
-    await sendBlocks(statsBlocks(state).concat(extendedStatsBlocks(state)));
+    await sendBlocks(statsBlocks(state).concat(extendedStatsBlocks(state), derivBlocks(state), methodBlocks(state)));
   }
   if (MODE === 'replay') {
     try { await runReplay(state, now); } catch (e) { await send('بازپخش تاریخی اجرا نشد: ' + e.message); saveState(state); return; }
