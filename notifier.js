@@ -67,6 +67,7 @@ const CONFIG = {
   replayExtra: ['DOGE', 'ADA', 'AVAX', 'LINK', 'DOT', 'LTC', 'TRX', 'XRP', 'BNB', 'BCH', 'ETC', 'ATOM', 'NEAR', 'UNI', 'FIL', 'SUI', 'APT'],  // ارزهای اضافه برای بزرگ‌تر شدن نمونه (به‌علاوه‌ی ارزهای لیست)
   shadowStops: [1.5, 2], // ردیابی موازی: همون سیگنال با حد ضرر ۱.۵ و ۲ برابر دورتر (سیگنال اصلی دست‌نخورده می‌مونه)
   reversionCostPct: 0.15,  // کارمزد و لغزش رفت‌وبرگشت (درصد) برای تست بازگشت کوتاه‌مدت؛ عدد واقعی خودت رو از Home → Commission بذار
+  revLiveEnabled: true,    // پیپر ترید زنده‌ی قانون بازگشت (حرکت ≥۲ ATR کندل ۴ ساعته، خلافش، حد ضرر ۳ ATR، خروج ۲۴ ساعته) به‌عنوان منبع جدا (REV)
   reversionSplitYear: 2024, // سال‌های قبلش «آموزش» و از این سال به بعد «تست پنهان» حساب می‌شه
   replayFwdCandles: 6,     // برای آمار الگوها: بعد از چند کندل ۴ ساعته نتیجه سنجیده بشه (۶ = ۲۴ ساعت)
 
@@ -74,6 +75,7 @@ const CONFIG = {
   tradersEnabled: true,
   tradersWallets: [],      // آدرس‌های دلخواه خودت (0x...)؛ علاوه بر لیست خودکار
   tradersAuto: 30,         // چند کیف‌پول رو خودکار از لیدربورد انتخاب کنه (۰ = خاموش)
+  tradersMinTrades30: 30,  // تریدر فعال: حداقل این‌قدر معامله‌ی بسته‌شده توی ۳۰ روز اخیر (از تاریخچه‌ی fills)؛ کمتر از این «غیرفعال» می‌شه و جاش یه کیف‌پول جدید از لیدربورد میاد (قبلی‌ها حذف نمی‌شن)
   tradersRefreshDays: 14,  // هر چند روز یه بار لیست خودکار بازنگری بشه (کیف‌پول‌های قبلی هیچ‌وقت حذف نمی‌شن)
   tradersNotify: 'all',    // all = پیام باز و بسته شدن معامله‌ها · closed = فقط بسته‌شده‌ها · off = بدون پیام
   tradersMaxLines: 10,     // حداکثر خط توی هر پیام فعالیت
@@ -1290,12 +1292,122 @@ const TA = (() => {
     return out;
   }
 
+  // ---------- deeper reversion test (stop, scale-in, BTC gate, random-entry null) ----------
+  // Fixed in advance (no search): signal = 4h candle move >= 2 ATR (the 1c>=2 rule), fade it, enter next open, exit at the close 6 candles after the signal.
+  // base = no stop; s3 = 3 ATR stop (intrabar, gap fills at the open, same-candle = stop); sc = half at the open + half 1 ATR deeper (limit), same stop; gate = s3 only
+  // when BTC 4h EMA50 vs EMA200 agrees with the trade (long when up, short when down).
+  var RVD_KEYS = ['base', 's3', 'sc', 'gate'];
+  function revDeep(ex, o) {
+    o = o || {};
+    var cost = o.cost != null ? o.cost : 0.15, hold = 6, splitT = o.splitT || 0;
+    var out = { tr: { base: [], s3: [], sc: [], gate: [] }, nb: { t: [], l: [], s: [] } };
+    if (!ex || ex.length < 220) return out;
+    var ind = computeIndicators(ex), n = ex.length, i, j, k;
+    var btcUp = o.btcUp || null;                       // function(t) -> 1 | -1 | 0
+    function run(key, useStop, scale, gate) {
+      var busy = -1;
+      for (i = 40; i < n - 2; i++) {
+        if (i <= busy) continue;
+        var a = ind.atr[i];
+        if (!ok(a) || a <= 0) continue;
+        var z = (ex[i].c - ex[i - 1].c) / a;
+        if (Math.abs(z) < 2) continue;
+        var dir = z < 0 ? 1 : -1, last = i + hold;
+        if (last > n - 1) break;
+        if (gate) { var g = btcUp ? btcUp(ex[i].t) : 0; if (g !== dir) continue; }
+        var entry = ex[i + 1].o, stop = useStop ? entry - dir * 3 * a : null, lvl = entry - dir * a;
+        var ex1 = null, exEnd = last, ex2 = null, filled2 = false, p2 = null;
+        for (j = i + 1; j <= last; j++) {
+          var c = ex[j];
+          if (scale && !filled2 && (dir > 0 ? c.l <= lvl : c.h >= lvl)) { filled2 = true; p2 = dir > 0 ? Math.min(lvl, c.o) : Math.max(lvl, c.o); }
+          if (useStop && (dir > 0 ? c.l <= stop : c.h >= stop)) { ex1 = dir > 0 ? Math.min(stop, c.o) : Math.max(stop, c.o); exEnd = j; break; }
+        }
+        if (ex1 == null) ex1 = ex[last].c;
+        var r1 = dir * (ex1 / entry - 1) * 100, net;
+        if (scale) {
+          net = 0.5 * (r1 - cost);
+          if (filled2) net += 0.5 * (dir * (ex1 / p2 - 1) * 100 - cost);
+        } else net = r1 - cost;
+        out.tr[key].push([ex[i].t, +net.toFixed(3), dir]);
+        busy = exEnd;
+      }
+    }
+    run('base', false, false, false); run('s3', true, false, false); run('sc', true, true, false);
+    if (btcUp) run('gate', true, false, true);
+    // random-entry bars (test period only): the s3 rule applied to EVERY bar, long and short
+    for (i = 40; i < n - 8; i++) {
+      if (ex[i].t < splitT) continue;
+      var a2 = ind.atr[i]; if (!ok(a2) || a2 <= 0) continue;
+      var e2 = ex[i + 1].o, res = [0, 0], dd;
+      for (dd = 0; dd < 2; dd++) {
+        var d = dd ? -1 : 1, st = e2 - d * 3 * a2, xx = null;
+        for (j = i + 1; j <= i + hold; j++) {
+          var cc = ex[j];
+          if (d > 0 ? cc.l <= st : cc.h >= st) { xx = d > 0 ? Math.min(st, cc.o) : Math.max(st, cc.o); break; }
+        }
+        if (xx == null) xx = ex[i + hold].c;
+        res[dd] = +(d * (xx / e2 - 1) * 100 - cost).toFixed(3);
+      }
+      out.nb.t.push(ex[i].t); out.nb.l.push(res[0]); out.nb.s.push(res[1]);
+    }
+    return out;
+  }
+  // agg: { tr: {key: [[t, net, dir, coin]...]}, nb: {l: [], s: []} } (merged over coins) -> small summary
+  function revDeepSummary(agg, o) {
+    o = o || {};
+    var split = o.split || 2024, trials = o.trials || 300, res = { split: split, v: {}, nul: null };
+    function stat(arr) {
+      var nn = arr.length, s = 0, s2 = 0, w = 0, worst = 0, q;
+      for (q = 0; q < nn; q++) { var x = arr[q][1]; s += x; s2 += x * x; if (x > 0) w++; if (x < worst) worst = x; }
+      var m = nn ? s / nn : 0, sd = nn > 1 ? Math.sqrt(Math.max(0, s2 / nn - m * m)) : 0;
+      return { n: nn, m: +m.toFixed(3), w: nn ? Math.round(w / nn * 100) : 0, t: sd > 0 ? +(m / (sd / Math.sqrt(nn))).toFixed(1) : 0, worst: +worst.toFixed(1) };
+    }
+    RVD_KEYS.forEach(function (key) {
+      var all = (agg.tr[key] || []).slice().sort(function (a, b) { return a[0] - b[0]; });
+      if (!all.length) return;
+      var yrOf = function (r) { return new Date(r[0]).getUTCFullYear(); };
+      var tr = all.filter(function (r) { return yrOf(r) < split; }), te = all.filter(function (r) { return yrOf(r) >= split; });
+      var v = { tr: stat(tr), te: stat(te), yr: {}, side: {}, coin: '' };
+      all.forEach(function (r) { var y = yrOf(r), z = v.yr[y] || (v.yr[y] = [0, 0]); z[0]++; z[1] += r[1]; });
+      Object.keys(v.yr).forEach(function (y) { v.yr[y] = [v.yr[y][0], +(v.yr[y][1] / v.yr[y][0]).toFixed(2)]; });
+      v.side.long = stat(te.filter(function (r) { return r[2] > 0; })); v.side.short = stat(te.filter(function (r) { return r[2] < 0; }));
+      // day-cluster t (test): one number per UTC day = average net of that day's trades
+      var days = {}, cs = {};
+      te.forEach(function (r) { var d = Math.floor(r[0] / 864e5), z = days[d] || (days[d] = [0, 0]); z[0] += r[1]; z[1]++; var c = r[3] || '?', y = cs[c] || (cs[c] = [0, 0]); y[0] += r[1]; y[1]++; });
+      var dm = Object.keys(days).map(function (d) { return days[d][0] / days[d][1]; }), dn = dm.length, ds = 0, ds2 = 0;
+      dm.forEach(function (x) { ds += x; ds2 += x * x; });
+      var dmean = dn ? ds / dn : 0, dsd = dn > 1 ? Math.sqrt(Math.max(0, ds2 / dn - dmean * dmean)) : 0;
+      v.tc = dsd > 0 ? +(dmean / (dsd / Math.sqrt(dn))).toFixed(1) : 0; v.days = dn;
+      var cp = 0, ct = 0; Object.keys(cs).forEach(function (c) { if (cs[c][1] >= 10) { ct++; if (cs[c][0] > 0) cp++; } });
+      v.coin = cp + '/' + ct;
+      // equity drawdown on the test period (sum of nets in time order, not compounded)
+      var eq = 0, pk = 0, dd = 0; te.forEach(function (r) { eq += r[1]; if (eq > pk) pk = eq; if (pk - eq > dd) dd = pk - eq; });
+      v.dd = +dd.toFixed(1);
+      res.v[key] = v;
+    });
+    // random-entry null for s3: same number of trades and same long share as the real test trades, drawn from all bars
+    var s3 = res.v.s3, nb = agg.nb;
+    if (s3 && s3.te.n >= 30 && nb && nb.t.length > 100) {
+      var nT = s3.te.n, fL = s3.side.long.n / nT, seed = 12345, means = [], tt, q2;
+      var rnd = function () { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 2147483648; };
+      for (tt = 0; tt < trials; tt++) {
+        var sum = 0;
+        for (q2 = 0; q2 < nT; q2++) { var b = Math.floor(rnd() * nb.t.length); sum += rnd() < fL ? nb.l[b] : nb.s[b]; }
+        means.push(sum / nT);
+      }
+      means.sort(function (a, b) { return a - b; });
+      var ge = 0; means.forEach(function (x) { if (x >= s3.te.m) ge++; });
+      res.nul = { trials: trials, mean: +(means.reduce(function (a, b) { return a + b; }, 0) / trials).toFixed(3), p95: +means[Math.floor(trials * 0.95)].toFixed(3), best: +means[trials - 1].toFixed(3), p: +((ge + 1) / (trials + 1)).toFixed(3), nBars: nb.t.length };
+    }
+    return res;
+  }
+
   var api = {
     ema: ema, rsi: rsi, macd: macd, atr: atr, bollinger: bollinger, computeIndicators: computeIndicators,
     scoreAt: scoreAt, scoreLabel: scoreLabel, findLevels: findLevels, buildScenario: buildScenario,
     analyze: analyze, positionSize: positionSize, backtest: backtest, fmtPrice: fmtPrice, TF_LABEL: TF_LABEL, TF_ADJ: TF_ADJ,
     HORIZONS: HORIZONS, outlook: outlook, outlookLines: outlookLines, volState: volState, VOL_FA: VOL_FA, detectSpike: detectSpike, evaluateSignal: evaluateSignal,
-    detectPatterns: detectPatterns, reversion: reversion, strategies: strategies, entryContext: entryContext, GRID_S: GRID_S, GRID_T: GRID_T, manage: manage, MNG_VARIANTS: MNG_VARIANTS, REV_VARIANTS: REV_VARIANTS, PATTERN_NAMES: PATTERN_NAMES, BIG_PATTERNS: BIG_PATTERNS, pivotFlags: pivotFlags, replay: replay, pivotLevels: pivotLevels, PIVOT_TYPES: PIVOT_TYPES
+    detectPatterns: detectPatterns, reversion: reversion, revDeep: revDeep, revDeepSummary: revDeepSummary, strategies: strategies, entryContext: entryContext, GRID_S: GRID_S, GRID_T: GRID_T, manage: manage, MNG_VARIANTS: MNG_VARIANTS, REV_VARIANTS: REV_VARIANTS, PATTERN_NAMES: PATTERN_NAMES, BIG_PATTERNS: BIG_PATTERNS, pivotFlags: pivotFlags, replay: replay, pivotLevels: pivotLevels, PIVOT_TYPES: PIVOT_TYPES
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.TA = api;
@@ -1718,7 +1830,7 @@ async function sendChart(sym, sc, candles) {
 }
 
 const ageEn = (ms) => { const m = Math.max(0, ms) / 6e4; return m < 90 ? Math.round(m) + 'm' : m < 2880 ? Math.round(m / 60) + 'h' : Math.round(m / 1440) + 'd'; };
-const LABEL_EN = { 'نمونه کم': 'LOW-N', 'قابل اعتماد': 'TRUST', 'شانسی؟': 'LUCKY?', 'پرریسک': 'RISKY', 'ضعیف': 'WEAK', 'بدون معامله': '-' };
+const LABEL_EN = { 'MM-like': 'MM-like', 'نمونه کم': 'LOW-N', 'قابل اعتماد': 'TRUST', 'شانسی؟': 'LUCKY?', 'پرریسک': 'RISKY', 'ضعیف': 'WEAK', 'بدون معامله': '-' };
 const LEGEND_WEEK = 'راهنمای اختصارها (هفته‌ای یه بار): BUY خرید · SELL فروش · ENTRY ورود · STOP حد ضرر · TP هدف · 1:1.5 نسبت سود به ضرر · R واحد ریسک (فاصله‌ی ورود تا حد ضرر) · N تعداد · WIN% درصد برد · SAME هم‌جهت · OPP مخالف · ATR% نوسان هر کندل · BAND وضعیت بولینگر (tight فشرده، wide باز) · FUND% فاندینگ (مثبت یعنی لانگ‌ها شلوغ‌ترن) · L/S نسبت لانگ به شورت.';
 function legendDue(state, now) {
   if (hoursSince(state.legendAt, now) < 168) return null;
@@ -2070,6 +2182,9 @@ async function runReplay(state, now, budgetMs) {
     const b4 = (await deepCandles('BTC', '4h', since)).slice(0, -1);
     btcC = b4.map((c) => c.c); btcIdx = {}; b4.forEach((c, i) => { btcIdx[c.t] = i; });
   } catch (e) { btcIdx = null; btcC = null; }
+  let btcUp = null;   // دروازه‌ی BTC: ۱ = EMA50 بالای EMA200 در ۴ ساعته، -۱ = پایین
+  try { if (btcC && btcC.length > 250) { const e50 = TA.ema(btcC, 50), e200 = TA.ema(btcC, 200); btcUp = (t) => { const k = btcIdx[t]; if (k == null || !(e200[k] > 0)) return 0; return e50[k] > e200[k] ? 1 : -1; }; } } catch (e) { btcUp = null; }
+  const rvd = { tr: { base: [], s3: [], sc: [], gate: [] }, nb: { t: [], l: [], s: [] } };
   await Promise.all(syms.map((sym) => limited(async () => {
     if (Date.now() - t0 > (budgetMs || CONFIG.replayBudgetMs || 480000)) { skipped.push(sym); return; }  // سقف زمان، تا اجرا از مهلت گیت‌هاب رد نشه
     try {
@@ -2100,6 +2215,11 @@ async function runReplay(state, now, budgetMs) {
           for (const d of ['1', '-1']) for (const k of ['n', 'w', 'g', 'nt']) q.side[d][k] += v.side[d][k];
         }
       } catch (e) { /* تست بازگشت نباید بقیه‌ی بازپخش رو خراب کنه */ }
+      try {
+        const rd = TA.revDeep(c4.slice(0, -1), { cost: CONFIG.reversionCostPct, splitT: Date.UTC(CONFIG.reversionSplitYear, 0, 1), btcUp });
+        for (const k of Object.keys(rvd.tr)) for (const r of rd.tr[k]) rvd.tr[k].push([r[0], r[1], r[2], sym]);
+        for (let q = 0; q < rd.nb.t.length; q++) { rvd.nb.t.push(rd.nb.t[q]); rvd.nb.l.push(rd.nb.l[q]); rvd.nb.s.push(rd.nb.s[q]); }
+      } catch (e) { /* تست عمیق بازگشت نباید بقیه‌ی بازپخش رو خراب کنه */ }
       if (out.day) {
         dayAgg.days += out.day.days; dayAgg.flat += out.day.flat;
         for (const [y, v] of Object.entries(out.day.yr)) { const q = dayAgg.yr[y] || (dayAgg.yr[y] = { n: 0, hit: 0, exp: 0, nu: 0, hu: 0, nd: 0, hd: 0 }); for (const k of Object.keys(q)) q[k] += v[k]; }
@@ -2164,6 +2284,7 @@ async function runReplay(state, now, budgetMs) {
   })));
   if (!nCoins) throw new Error('بازپخش: داده‌ی کندل گرفته نشد');
   state.replay = { t: new Date(now).toISOString(), nCoins, failed: failedCoins, shallow, skipped, days: Math.round(steps / nCoins * 4 / 24), from: Number.isFinite(from) ? new Date(from).toISOString().slice(0, 10) : null, groups, pat, base, yrs, fwd, day: dayAgg, rev: { cost: CONFIG.reversionCostPct, split: CONFIG.reversionSplitYear, vars: revAgg }, grid: { cost: CONFIG.reversionCostPct, split: CONFIG.reversionSplitYear, cells: gridAgg, stt: sttAgg, nSig: gridBase.n }, mng: { cost: CONFIG.reversionCostPct, split: CONFIG.reversionSplitYear, v: mngAgg, n: mngCnt.n }, piv: pivAgg, rg: { split: CONFIG.reversionSplitYear, v: rgAgg }, pvt: { split: CONFIG.reversionSplitYear, v: pvtAgg }, st: { split: CONFIG.reversionSplitYear, v: stAgg }, l12 };
+  try { state.replay.rvd = TA.revDeepSummary(rvd, { split: CONFIG.reversionSplitYear, trials: 300 }); } catch (e) { log('خلاصه‌ی تست عمیق بازگشت نشد: ' + e.message); }
   console.log('بازپخش تاریخی: ' + nCoins + ' ارز، ' + (Date.now() - t0) + ' میلی‌ثانیه' + (shallow.length ? '، فقط تاریخچه‌ی کوتاه برای: ' + shallow.join(',') : '') + (failedCoins.length ? '، بدون داده: ' + failedCoins.join(',') : '') + (skipped.length ? '، رد شده (کمبود زمان): ' + skipped.join(',') : ''));
   saveState(state); // نتیجه‌ی بازپخش حتماً ذخیره بشه حتی اگه ادامه‌ی اجرا خطا بده
   return state.replay;
@@ -2355,6 +2476,25 @@ function replayBlocks(state) {
     } else B.push('نمونه‌ی دوره‌ی آموزش برای انتخاب کافی نبود.');
     B.push('<i>معامله‌ها یکی‌یکی و بدون هم‌پوشانی روی هر ارز‌اند، ولی ارزها هم‌زمان حرکت می‌کنن پس t واقعی‌تر از این کمتره. حد ضرر عمداً مدل نشده (چون حد ضرر دقیق نتیجه رو خوش‌بینانه می‌کنه)، پس ضررِ بدترین معامله‌ها اینجا دیده نمی‌شه. اگه چیزی مثبت دیدی، قبل از پول واقعی خطر اون ضررها و لغزش واقعی رو باید جدا بسنجیم.</i>');
   }
+  if (rp.rvd && rp.rvd.v && Object.keys(rp.rvd.v).length) {
+    const V = rp.rvd, split = V.split, fs = (x, d) => sgnNum(+(+x).toFixed(d == null ? 2 : d));
+    const NM = { base: 'no-stop', s3: 'stop3ATR', sc: 'scale-in', gate: 'BTC-gate' };
+    B.push('🔬 <b>تست عمیق بازگشت (1c>=2)</b> — همون قانون، ولی با حد ضرر ۳ ATR، ورود پله‌ای و دروازه‌ی BTC؛ کارمزد و لغزش ' + CONFIG.reversionCostPct + '٪ کم شده؛ قبل و بعد از ' + split);
+    const rows = Object.keys(V.v).map((k) => { const v = V.v[k]; return pad(NM[k] || k, 10) + padL(v.tr.n, 5) + padL(fs(v.tr.m), 7) + padL(v.te.n, 5) + padL(fs(v.te.m), 7) + padL(v.te.w + '%', 5) + padL(fs(v.te.t, 1), 6) + padL(fs(v.tc, 1), 6) + padL(v.te.worst, 6) + padL(v.dd, 6) + padL(v.coin, 6); });
+    B.push(pre([pad('VARIANT', 10) + padL('N-TR', 5) + padL('NET-TR', 7) + padL('N-TE', 5) + padL('NET-TE', 7) + padL('WIN', 5) + padL('t', 6) + padL('t-day', 6) + padL('WORST', 6) + padL('DD', 6) + padL('COINS', 6)].concat(rows)));
+    const s3 = V.v.s3;
+    if (s3) {
+      B.push(pre([pad('stop3ATR', 10) + padL('N', 5) + padL('NET%', 7) + padL('WIN%', 6)].concat(['long', 'short'].map((d) => pad(d + ' (TE)', 10) + padL(s3.side[d].n, 5) + padL(fs(s3.side[d].m), 7) + padL(s3.side[d].w + '%', 6)))));
+      const ys = Object.keys(s3.yr).sort();
+      B.push(pre([pad('YEAR', 6) + padL('N', 6) + padL('NET%', 7)].concat(ys.map((y) => pad(y, 6) + padL(s3.yr[y][0], 6) + padL(fs(s3.yr[y][1]), 7)))));
+    }
+    if (V.nul && s3) {
+      B.push('🎲 <b>تست ورودی تصادفی</b> — ' + V.nul.trials + ' بار همون تعداد معامله (' + s3.te.n + ') با همون حد ضرر ۳ ATR و همون سهم لانگ/شورت، ولی روی کندل‌های تصادفی: میانگین ' + code(fs(V.nul.mean) + '%') + '، ۹۵٪ بالایی ' + code(fs(V.nul.p95) + '%') + '، بهترین ' + code(fs(V.nul.best) + '%') + '. قانون واقعی: ' + code(fs(s3.te.m) + '%') + ' → p = ' + code(V.nul.p) + ' (اگه زیر ۰٫۰۵ باشه، بعید بود شانسی باشه).');
+    }
+    const okRule = s3 && s3.te.n >= 100 && s3.te.m >= 0.1 && s3.tc >= 2 && V.nul && V.nul.p <= 0.05;
+    B.push(okRule ? '✅ با حد ضرر واقعی هم توی تست پنهان مثبت موند، t روزانه بالای ۲ و از تصادفی بهتر بود. هنوز تضمین نیست؛ پیپر ترید زنده (منبع REV) بهش جواب نهایی می‌ده.' : '❌ با حد ضرر واقعی و معیارهای از قبل ثابت (NET-TE ≥ +0.1٪، t روزانه ≥ ۲، p ≤ ۰٫۰۵) ثابت نشد. فعلاً فقط پیپر ترید زنده‌ی REV رو دنبال کن.');
+    B.push('<i>no-stop بدون حد ضرر · stop3ATR حد ضرر ۳ ATR (توی کندل، گپ با قیمت باز شدن؛ اگه حد ضرر و هدف توی یه کندل باشن ضرر) · scale-in نصف حجم توی ورود و نصف دیگه ۱ ATR پایین‌تر (اگه نرسید فقط نصف حجم)، NET روی حجم کامل · BTC-gate فقط وقتی جهت معامله با روند BTC (EMA50 در برابر EMA200 ۴ ساعته) هم‌جهته · N-TR/NET-TR آموزش، N-TE/NET-TE تست پنهان · t ساده؛ t-day بعد از میانگین‌گیری هر روز (هم‌زمانی ارزها) · WORST بدترین معامله به درصد · DD بیشترین افت جمع سود در تست (جمع ساده) · COINS چند ارز از ارزهای با ≥۱۰ معامله مثبت بودن. هر ۴ حالت و معیارها از قبل ثابت بودن؛ جست‌وجوی پارامتر نشده.</i>');
+  }
   const ids = Object.keys(rp.pat || {}).filter((id) => rp.pat[id].dir !== 0 && rp.pat[id].n >= 5);
   if (ids.length && rp.base && rp.base.n) {
     const bu = rp.base.up / rp.base.n;
@@ -2478,6 +2618,21 @@ function scanRowsOf(info) {
   const sg = info.signals.map((t) => String(t).replace('(خرید)', 'BUY').replace('(فروش)', 'SELL').replace(/\s+/g, ' ').trim());
   return ['SCAN   checked ' + info.analyzed + ' of ' + info.universe, 'HITS   ' + (sg.length ? sg.join(', ') : '-')];
 }
+
+// خط مشتقات برای گزارش: آخرین ردیف ثبت‌شده‌ی هر ارز (بدون درخواست اضافه)؛ OI24 تغییر OI نسبت به ۲۴ ساعت قبل
+function dvLines(state) {
+  const dv = state.dv; if (!dv || !dv.rows) return null;
+  const rows = [];
+  for (const sym of CONFIG.coins) {
+    const arr = dv.rows[sym]; if (!arr || !arr.length) continue;
+    const r = dvParse(arr[arr.length - 1]); if (!r) continue;
+    const old = arr.length > 6 ? dvParse(arr[arr.length - 7]) : null;
+    const oi24 = r.oi != null && old && old.oi > 0 ? (r.oi / old.oi - 1) * 100 : null;
+    rows.push(pad(sym, 6) + padL(r.f == null ? '-' : sgnNum(+(r.f / 1e4).toFixed(3)), 8) + padL(r.oi == null ? '-' : (r.oi >= 1000 ? (r.oi / 1000).toFixed(1) + 'B' : Math.round(r.oi) + 'M'), 8) + padL(oi24 == null ? '-' : sgnNum(+oi24.toFixed(1)) + '%', 8) + padL(r.ls == null ? '-' : (r.ls / 100).toFixed(2), 6));
+  }
+  if (!rows.length) return null;
+  return ['📡 <b>مشتقات</b> (آخرین ثبت ۴ ساعته)', pre([pad('COIN', 6) + padL('FUND%', 8) + padL('OI', 8) + padL('OI24h', 8) + padL('L/S', 6)].concat(rows)), '<i>FUND% فاندینگ هر دوره (مثبت یعنی لانگ‌ها می‌پردازن) · OI حجم پوزیشن باز · L/S نسبت حساب‌های لانگ به شورت. فقط برای دید بازاره، نه سیگنال.</i>'];
+}
 function hourlyBlocks(state, good, failed, now, extra) {
   const wp = Math.max(7, ...good.map((r) => fp(r.res.price).length)) + 1;
   const T = [pad('COIN', 6) + pad('SIGNAL', 8) + padL('SCORE', 6) + padL('PRICE', wp)];
@@ -2496,6 +2651,7 @@ function hourlyBlocks(state, good, failed, now, extra) {
   const S = [];
   if (good.length) volBlocks(good).forEach((b) => S.push(b));
   (extra.deriv || []).forEach((b) => S.push(b));
+  { const dl = dvLines(state); if (dl) dl.forEach((b) => S.push(b)); }
   eventLines(now, CONFIG.eventWarnHours).forEach((l) => S.push(l));
   const lg = legendDue(state, now); if (lg) S.push(lg);
   S.push('<i>این گزارش برای تمرینه و توصیه نیست.</i>');
@@ -2694,7 +2850,7 @@ async function runTraders(state, now) {
     try {
       const j = await getJSON('https://stats-data.hyperliquid.xyz/Mainnet/leaderboard', 90000);
       const rows = Array.isArray(j) ? j : (j.leaderboardRows || []);
-      const have = Object.values(T.wallets).filter((w) => w.auto).length;
+      const have = Object.values(T.wallets).filter((w) => w.auto && !w.inactive).length;
       const picks = pickTraders(rows, CONFIG.tradersAuto + have).filter((a) => !T.wallets[a]).slice(0, Math.max(0, CONFIG.tradersAuto - have));
       picks.forEach((a) => add(a, true));
       T.disc = new Date(now).toISOString(); T.discErr = null;
@@ -2802,13 +2958,15 @@ function tradersBlocks(state) {
   const T = state.traders;
   if (!CONFIG.tradersEnabled) return [];
   if (!T || !Object.keys(T.wallets).length) return ['👥 ردیابی تریدرها هنوز کیف‌پولی نداره.' + (T && T.discErr ? ' گرفتن لیدربورد Hyperliquid خطا داد (' + esc(T.discErr) + '). می‌تونی آدرس کیف‌پول‌ها رو دستی توی tradersWallets بذاری.' : ' حالت traders رو اجرا کن (یا صبر کن اجرای بعدی خودش لیست رو بسازه).')];
-  const addrs = Object.keys(T.wallets), closed = T.trades.filter((x) => !x.pre), open = addrs.reduce((s, a) => s + Object.keys(T.wallets[a].pos).length, 0);
+  const addrs = Object.keys(T.wallets), closedAll = T.trades.filter((x) => !x.pre), closed = closedAll.filter((x) => !(T.wallets[x.a] && T.wallets[x.a].mm)), open = addrs.reduce((s, a) => s + Object.keys(T.wallets[a].pos).length, 0);
   const B = ['👥 <b>ردیابی تریدرها</b> — ' + addrs.length + ' کیف‌پول، ' + open + ' پوزیشن باز، ' + closed.length + ' معامله‌ی بسته‌شده‌ی ثبت‌شده توسط ربات'];
+  const nMM = Object.values(T.wallets).filter((w) => w.mm).length, nIn = Object.values(T.wallets).filter((w) => w.inactive).length;
+  if (nMM || nIn) B.push((nMM ? nMM + ' کیف‌پول «MM-like» (ماشین‌وار/بازارساز: خیلی زیاد، کوتاه و ریز) از میانگین‌ها بیرونه' + (closedAll.length !== closed.length ? ' (' + (closedAll.length - closed.length) + ' معامله)' : '') + '. ' : '') + (nIn ? nIn + ' کیف‌پول غیرفعال (کمتر از ' + (CONFIG.tradersMinTrades30 || 30) + ' معامله در ۳۰ روز اخیر) جاشون با کیف‌پول جدید پر می‌شه.' : ''));
   assignNames(T);
   const all = addrs.map((a) => ({ a, s: traderStats(T, a) })), withTr = all.filter((x) => x.s.n > 0).sort((x, y) => y.s.n - x.s.n), rows = withTr.slice(0, 10);
   if (rows.length) {
     B.push(pre([pad('TRADER', 8) + padL('N', 4) + padL('WIN%', 6) + padL('AVG%', 7) + padL('PF', 5) + padL('TOP%', 6) + padL('LEV', 5) + padL('IMP%', 7) + '  LABEL'].concat(rows.map(({ a, s }) =>
-      pad(tName(T, a), 8) + padL(s.n, 4) + padL(Math.round(s.win * 100) + '%', 6) + padL(sgnNum(+s.avg.toFixed(2)), 7) + padL(s.pf.toFixed(1), 5) + padL(Math.round(s.topShare * 100), 6) + padL(Math.round(s.avgLev), 5) + padL(sgnNum(+s.imp.toFixed(1)), 7) + '  ' + (LABEL_EN[traderLabel(s)] || traderLabel(s))))));
+      pad(tName(T, a), 8) + padL(s.n, 4) + padL(Math.round(s.win * 100) + '%', 6) + padL(sgnNum(+s.avg.toFixed(2)), 7) + padL(s.pf.toFixed(1), 5) + padL(Math.round(s.topShare * 100), 6) + padL(Math.round(s.avgLev), 5) + padL(sgnNum(+s.imp.toFixed(1)), 7) + '  ' + (T.wallets[a] && T.wallets[a].mm ? 'MM-like' : (LABEL_EN[traderLabel(s)] || traderLabel(s)))))));
     B.push('<i>' + esc(rows.map(({ a }) => tName(T, a) + '=' + shortAddr(a)).join(' · ')) + '</i>');
   }
   const noTr = all.length - withTr.length;
@@ -2898,7 +3056,11 @@ async function runMethods(state, now, budgetMs) {
     try {
       const fills = await postJSON(HL, { type: 'userFills', user: a }, 20000);
       if (!Array.isArray(fills) || !fills.length) return null;
-      return { a, n: fills.length, trs: reconFills(fills).sort((x, y) => x.t1 - y.t1).slice(-40) };
+      const allT = reconFills(fills).sort((x, y) => x.t1 - y.t1), rec = allT.filter((x) => !x.pre && x.t1 >= now - 30 * 864e5);
+      const mh = median(rec.map((x) => (x.t1 - x.t0) / 36e5)), ma = median(rec.map((x) => Math.abs(x.pct == null ? 0 : x.pct)));
+      // ماشین‌وار / بازارساز: خیلی زیاد، خیلی کوتاه و خیلی ریز
+      const mm = rec.length >= 30 && ((mh != null && mh < 0.75 && ma != null && ma < 0.25) || rec.length >= 300);
+      return { a, n: fills.length, f30: rec.length, mm, trs: allT.slice(-40) };
     } catch (e) { return null; }
   })));
   const got = fetched.filter(Boolean);
@@ -2918,7 +3080,8 @@ async function runMethods(state, now, budgetMs) {
       if (c) { let idx = -1; for (let i = c.cs.length - 1; i >= 0; i--) if (c.cs[i].t + TFMS['4h'] <= tr.t0) { idx = i; break; } ctx = TA.entryContext(c.cs, c.ind, idx, tr.d, tr.e); }
       strs.push(trToStr(tr, ctx));
     }
-    w.ft = strs; w.fn = g.n; w.fT = new Date(now).toISOString();
+    w.ft = strs; w.fn = g.n; w.fT = new Date(now).toISOString(); w.f30 = g.f30; w.mm = !!g.mm;
+    w.inactive = g.f30 < (CONFIG.tradersMinTrades30 || 30) && now - (+w.since || 0) > 3 * 864e5 && !Object.keys(w.pos || {}).length;
     w.prof = methodProfile(strs.map(strToTr));
     done++;
   }
@@ -2978,6 +3141,86 @@ function methodBlocks(state) {
     B.push(pre([pad('BOT', 9) + padL('SIGS', 5) + padL('HIT', 5) + padL('SAME', 6) + padL('OPP', 5) + padL('WIN-S', 7) + padL('WIN-O', 7) + padL('EARLY', 6) + padL('IMP%', 7) + padL('LATE', 6) + padL('IMP%', 7), r('bot WIN', G.win), r('bot LOSS', G.loss)]));
     B.push('<i>SIGS تعداد سیگنال بسته‌شده · HIT چندتاش تریدری روی همون ارز نزدیکش داشت · SAME/OPP تعداد معامله‌ی تریدرها هم‌جهت یا مخالف ربات · WIN-S/WIN-O درصد سودده بودن هم‌جهت‌ها و مخالف‌ها · EARLY/LATE هم‌جهت‌هایی که حداقل ۱ ساعت زودتر یا دیرتر از ربات وارد شدن · IMP% میانگین مزیت قیمت ورودشون نسبت به ربات به درصد (مثبت یعنی بهتر از ربات وارد شدن). اگه وقتی ربات باخته مخالف‌ها بیشتر برده باشن یا زودتر/بهترین قیمت‌ها از طرف تریدرها بوده باشه، سرنخ خوبیه؛ ولی نمونه کمه و بازار می‌تونه توضیحش بده، پس فقط وقتی چند ماه گذشت و تکرار شد جدی بگیرش.</i>');
   }
+  return B;
+}
+
+
+// ---------- پیپر ترید زنده‌ی بازگشت (منبع REV) ----------
+// قانون ثابت (همون تست بازگشت): بعد از بسته شدن کندل ۴ ساعته با حرکت ≥۲ ATR، خلافش با قیمت باز شدن کندل بعد، حد ضرر ۳ ATR، خروج با قیمت بسته شدن ۶ کندل بعد از سیگنال
+// state.rev = { open: [{sym,dir,t,e,s,a,g}], done: ['sym|dir|t|e|x|net|why|g'], seen: {sym: t} }
+const REV_H = 4 * HOUR, REV_HOLD = 6;
+function revCoins() { return [...new Set(CONFIG.coins.concat(CONFIG.replayExtra || []))].filter((x) => SYM_RE.test(x)); }
+function revStep(rv, cs, cost, now) {   // cs = کندل‌های بسته‌شده؛ معامله‌های باز رو اگه تموم شدن می‌بنده و برمی‌گردونه
+  const closed = [];
+  rv.open = rv.open.filter((o) => {
+    let ex = null, why = null;
+    for (const c of cs) {
+      if (c.t <= o.t) continue;
+      if (c.t > o.t + REV_HOLD * REV_H) break;
+      if (o.dir > 0 ? c.l <= o.s : c.h >= o.s) { ex = o.dir > 0 ? Math.min(o.s, c.o) : Math.max(o.s, c.o); why = 'stop'; break; }
+      if (c.t === o.t + REV_HOLD * REV_H) { ex = c.c; why = 'time'; break; }
+    }
+    if (ex == null) return true;
+    const net = o.dir * (ex / o.e - 1) * 100 - cost;
+    const row = { sym: o.sym, dir: o.dir, t: o.t, e: o.e, x: ex, net: +net.toFixed(3), why, g: o.g };
+    rv.done.push([row.sym, row.dir, row.t, +row.e.toPrecision(7), +row.x.toPrecision(7), row.net, why, o.g].join('|'));
+    closed.push(row);
+    return false;
+  });
+  if (rv.done.length > 400) rv.done.splice(0, rv.done.length - 400);
+  return closed;
+}
+async function trackRev(state, now) {
+  const rv = state.rev || (state.rev = { open: [], done: [], seen: {} });
+  const cost = CONFIG.reversionCostPct != null ? CONFIG.reversionCostPct : 0.15, msgs = [];
+  let btcG = 0;
+  try {
+    const b = (await candles('BTC', '4h', 260, 220)).slice(0, -1), bc = b.map((c) => c.c), e50 = TA.ema(bc, 50), e200 = TA.ema(bc, 200), k = bc.length - 1;
+    btcG = e50[k] > e200[k] ? 1 : -1;
+  } catch (e) { btcG = 0; }
+  const res = await Promise.all(revCoins().map((sym) => limited(() => candles(sym, '4h', 60, 40).then((c) => ({ sym, c }), () => null))));
+  for (const r of res) {
+    if (!r || r.c.length < 45) continue;
+    const forming = r.c[r.c.length - 1], cs = r.c.slice(0, -1);
+    // 1) بستن معامله‌های باز این ارز
+    const mine = { open: rv.open.filter((o) => o.sym === r.sym), done: rv.done };
+    const closed = revStep(mine, cs, cost, now);
+    if (closed.length) { rv.open = rv.open.filter((o) => o.sym !== r.sym || mine.open.includes(o)); for (const c of closed) msgs.push({ close: c }); }
+    // 2) سیگنال تازه
+    if (rv.open.some((o) => o.sym === r.sym)) continue;
+    const ind = TA.computeIndicators(cs), i = cs.length - 1, a = ind.atr[i];
+    if (!(a > 0) || rv.seen[r.sym] === cs[i].t) continue;
+    if (forming.t !== cs[i].t + REV_H) continue;            // کندل در حال شکل‌گیری باید دقیقاً بعد از کندل سیگنال باشه
+    const z = (cs[i].c - cs[i - 1].c) / a;
+    if (Math.abs(z) < 2) continue;
+    const dir = z < 0 ? 1 : -1, e = forming.o;
+    rv.seen[r.sym] = cs[i].t;
+    const o = { sym: r.sym, dir, t: cs[i].t, e, s: e - dir * 3 * a, a, g: btcG === dir ? 1 : 0 };
+    rv.open.push(o); msgs.push({ open: o, z });
+  }
+  return msgs;
+}
+function revDigest(msgs) {
+  if (!msgs || !msgs.length) return null;
+  const L = [];
+  for (const m of msgs) {
+    if (m.open) { const o = m.open; L.push('🔁 <b>REV پیپر — ورود</b> ' + o.sym + ' ' + (o.dir > 0 ? '🟢 LONG' : '🔴 SHORT') + ' (فید حرکت ' + sgnNum(+m.z.toFixed(1)) + ' ATR)'); L.push(pre(['ENTRY ' + fp(o.e), 'STOP  ' + fp(o.s) + ' (3 ATR)', 'EXIT  ' + new Date(o.t + (REV_HOLD + 1) * REV_H).toISOString().slice(5, 16).replace('T', ' ') + ' UTC', 'BTC-gate ' + (o.g ? 'aligned' : 'not aligned')])); }
+    else { const c = m.close; L.push('🔁 <b>REV پیپر — خروج</b> ' + c.sym + ' ' + (c.dir > 0 ? 'LONG' : 'SHORT') + ' ' + (c.why === 'stop' ? '🛑 حد ضرر' : '⏱ زمان') + ' → ' + code(sgnNum(c.net) + '%') + ' بعد از کارمزد'); }
+  }
+  L.push('<i>این فقط تمرین کاغذیه و توصیه نیست.</i>');
+  return L;
+}
+function revBlocks(state) {
+  const rv = state.rev; if (!rv) return ['🔁 <b>REV پیپر</b> — هنوز معامله‌ای ثبت نشده. قانون: حرکت کندل ۴ ساعته ≥۲ ATR، خلافش، حد ضرر ۳ ATR، خروج ۲۴ ساعته؛ حدود ۴۰ معامله در ماه روی ' + revCoins().length + ' ارز انتظار می‌ره.'];
+  const rows = rv.done.map((x) => { const a = x.split('|'); return { sym: a[0], dir: +a[1], t: +a[2], net: +a[5], why: a[6], g: +a[7] }; });
+  const st = (arr) => { const n = arr.length, m = n ? arr.reduce((s, x) => s + x.net, 0) / n : 0, sd = n > 1 ? Math.sqrt(arr.reduce((s, x) => s + (x.net - m) * (x.net - m), 0) / (n - 1)) : 0; return { n, m, w: n ? Math.round(arr.filter((x) => x.net > 0).length / n * 100) : 0, t: sd > 0 ? m / (sd / Math.sqrt(n)) : 0 }; };
+  const r = (nm, arr) => { const z = st(arr); return pad(nm, 10) + padL(z.n, 5) + padL(z.n ? z.w + '%' : '-', 6) + padL(z.n ? sgnNum(+z.m.toFixed(2)) : '-', 7) + padL(z.n > 1 ? sgnNum(+z.t.toFixed(1)) : '-', 6); };
+  const B = ['🔁 <b>REV — پیپر ترید زنده‌ی بازگشت</b> — ' + rows.length + ' بسته‌شده، ' + rv.open.length + ' باز؛ کارمزد و لغزش ' + CONFIG.reversionCostPct + '٪ کم شده'];
+  B.push(pre([pad('GROUP', 10) + padL('N', 5) + padL('WIN%', 6) + padL('NET%', 7) + padL('t', 6), r('all', rows), r('long', rows.filter((x) => x.dir > 0)), r('short', rows.filter((x) => x.dir < 0)), r('gate-yes', rows.filter((x) => x.g)), r('gate-no', rows.filter((x) => !x.g)), r('stopped', rows.filter((x) => x.why === 'stop'))]));
+  if (rv.open.length) B.push(pre(['OPEN   DIR   ENTRY'].concat(rv.open.slice(0, 12).map((o) => pad(o.sym, 7) + pad(o.dir > 0 ? 'LONG' : 'SHORT', 6) + fp(o.e)))));
+  const z = st(rows);
+  B.push(z.n < 100 ? '⏳ نمونه کمه (' + z.n + ' از حداقل ۱۰۰). قاعده‌ی تصمیم: بعد از ۱۰۰ معامله یا ۳ ماه، میانگین زیر +0.05٪ → کنار بذار؛ بالای +0.1٪ و t بالای ۲ → با حجم خیلی کم امتحان.' : (z.m < 0.05 ? '❌ بعد از ' + z.n + ' معامله میانگین زیر +0.05٪ است؛ طبق قاعده کنار بذار.' : z.m > 0.1 && z.t >= 2 ? '✅ بعد از ' + z.n + ' معامله بالای +0.1٪ و t≥۲؛ قابل بررسی با حجم خیلی کم.' : '🟡 بین دو آستانه؛ دنبال کن.'));
+  B.push('<i>NET% میانگین سود هر معامله به درصد حرکت قیمت بعد از کارمزد · gate-yes/no جهت معامله هم‌جهت با روند BTC (EMA50/EMA200 ۴ ساعته) هست یا نه · ورود با قیمت باز شدن کندل بعد (ممکنه تا ۱ ساعت دیرتر از قیمت واقعی ثبت بشه).</i>');
   return B;
 }
 
@@ -3101,6 +3344,26 @@ async function main() {
     // --- ثبت مشتقات و تست فاندینگ ---
     chk('dv-roundtrip', dvParse(dvRow(100, { funding: 0.0004, ls: 2.31 }, 123456789, 100.5)), { slot: 100, f: 400, oi: 123.5, ls: 231, p: 100.5 });
     const dvs = { rows: { BTC: [] } }; for (let i = 0; i < 20; i++) dvs.rows.BTC.push(dvRow(i, { funding: i === 2 ? 0.0004 : 0.0001, ls: 1 }, 1e9, 100 - i));
+    { // REV پیپر: بستن با حد ضرر و با زمان
+      const H4 = 4 * HOUR, T0 = 1e12, mk = (k, o, h, l, c) => ({ t: T0 + k * H4, o, h, l, c });
+      const rv1 = { open: [{ sym: 'X', dir: 1, t: T0, e: 100, s: 90, a: 3, g: 1 }], done: [] };
+      const c1 = revStep(rv1, [mk(1, 100, 101, 85, 88)], 0.15, 0);
+      chk('rev-stop', [c1.length, c1[0].why, c1[0].net], [1, 'stop', -10.15]);
+      const rv2 = { open: [{ sym: 'X', dir: -1, t: T0, e: 100, s: 110, a: 3, g: 0 }], done: [] };
+      const cs2 = []; for (let k = 1; k <= 6; k++) cs2.push(mk(k, 100, 101, 97, k === 6 ? 97 : 99));
+      const c2 = revStep(rv2, cs2, 0.15, 0);
+      chk('rev-time', [c2.length, c2[0].why, c2[0].net, rv2.open.length], [1, 'time', 2.85, 0]);
+      const rv3 = { open: [{ sym: 'X', dir: 1, t: T0, e: 100, s: 90, a: 3, g: 0 }], done: [] };
+      chk('rev-open-stays', revStep(rv3, [mk(1, 100, 101, 99, 100)], 0.15, 0).length + '/' + rv3.open.length, '0/1');
+      // تست عمیق روی راه‌رفتنِ تصادفی با نوسان تند
+      let sd = 7; const rn = () => { sd = (sd * 1103515245 + 12345) & 0x7fffffff; return sd / 2147483648; };
+      const cs3 = []; let px = 100; for (let k = 0; k < 1500; k++) { const o = px, mv = (rn() - 0.5) * (rn() < 0.06 ? 14 : 3); px = Math.max(5, px + mv); cs3.push({ t: T0 + k * H4, o, h: Math.max(o, px) + rn(), l: Math.min(o, px) - rn(), c: px }); }
+      const rd = TA.revDeep(cs3, { cost: 0.15, splitT: T0 + 700 * H4, btcUp: () => 1 });
+      const agg = { tr: { base: [], s3: [], sc: [], gate: [] }, nb: rd.nb };
+      for (const k of Object.keys(agg.tr)) agg.tr[k] = rd.tr[k].map((r) => [r[0], r[1], r[2], 'X']);
+      const sm = TA.revDeepSummary(agg, { split: new Date(T0 + 700 * H4).getUTCFullYear(), trials: 50 });
+      chk('rvd-has', [rd.tr.base.length > 5, rd.tr.s3.length > 5, rd.tr.gate.every((r) => r[2] === 1), rd.nb.t.length > 100, !!sm.v.s3], [true, true, true, true, true]);
+    }
     const dt = derivTest({ dv: dvs }); chk('deriv-rule', [dt.res['fund≥0.03%→S'].n, dt.res['fund≥0.03%→S'].w], [1, 1]);
     // --- اندازه‌گیری «نصف راه» و بسته‌های replay روی داده‌ی ثابت (golden) ---
     const sg = { m1: true, mfe: 1.2, status: 'stop', R: -1, entry: 100, stop: 95, tp1: 110 };
@@ -3148,6 +3411,7 @@ async function main() {
   }
 
   if (['run', 'full'].includes(MODE)) await guard('داده‌ی مشتقات', () => withDeadline(logDeriv(state, now), 90000));
+  if (CONFIG.revLiveEnabled && ['run', 'full'].includes(MODE)) { const rm = await guard('پیپر بازگشت (REV)', () => withDeadline(trackRev(state, now), 90000)); const rd = revDigest(rm); if (rd) await guard('پیام REV', () => sendBlocks(rd)); }
 
   // 2) تحلیل کامل (تقریباً ساعتی)
   const fullDue = MODE === 'full' || (MODE === 'run' && hoursSince(state.lastFull, now) >= 0.8);
@@ -3232,7 +3496,7 @@ async function main() {
   }
   if (MODE === 'stats') {
     resolveOutlooks(state, prices, now);
-    await sendBlocks(statsBlocks(state).concat(extendedStatsBlocks(state), derivBlocks(state), methodBlocks(state)));
+    await sendBlocks(statsBlocks(state).concat(extendedStatsBlocks(state), derivBlocks(state), revBlocks(state), methodBlocks(state)));
   }
   if (MODE === 'replay') {
     try { await runReplay(state, now); } catch (e) { await send('بازپخش تاریخی اجرا نشد: ' + e.message); saveState(state); return; }
