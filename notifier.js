@@ -3262,8 +3262,8 @@ function revStep(rv, cs, cost, now) {   // cs = کندل‌های بسته‌ش�
     }
     if (ex == null) return true;
     const net = o.dir * (ex / o.e - 1) * 100 - cost;
-    const row = { sym: o.sym, dir: o.dir, t: o.t, e: o.e, x: ex, net: +net.toFixed(3), why, g: o.g };
-    rv.done.push([row.sym, row.dir, row.t, +row.e.toPrecision(7), +row.x.toPrecision(7), row.net, why, o.g].join('|'));
+    const sp = Math.abs(o.e - o.s) / o.e * 100, row = { sym: o.sym, dir: o.dir, t: o.t, e: o.e, x: ex, net: +net.toFixed(3), why, g: o.g, R: sp > 0 ? +(net / sp).toFixed(3) : null };   // R = سود ÷ فاصله‌ی حد ضرر (ریسک ثابت)
+    rv.done.push([row.sym, row.dir, row.t, +row.e.toPrecision(7), +row.x.toPrecision(7), row.net, why, o.g, row.R == null ? '' : row.R].join('|'));
     closed.push(row);
     return false;
   });
@@ -3312,15 +3312,16 @@ function revDigest(msgs) {
 }
 function revBlocks(state) {
   const rv = state.rev; if (!rv) return ['🔁 <b>REV پیپر</b> — هنوز معامله‌ای ثبت نشده. قانون: حرکت کندل ۴ ساعته ≥۲ ATR، خلافش، حد ضرر ۳ ATR، خروج ۲۴ ساعته؛ حدود ۴۰ معامله در ماه روی ' + revCoins().length + ' ارز انتظار می‌ره.'];
-  const rows = rv.done.map((x) => { const a = x.split('|'); return { sym: a[0], dir: +a[1], t: +a[2], net: +a[5], why: a[6], g: +a[7] }; });
+  const rows = rv.done.map((x) => { const a = x.split('|'); return { sym: a[0], dir: +a[1], t: +a[2], net: +a[5], why: a[6], g: +a[7], R: a[8] !== undefined && a[8] !== '' ? +a[8] : null }; });
   const st = (arr) => { const n = arr.length, m = n ? arr.reduce((s, x) => s + x.net, 0) / n : 0, sd = n > 1 ? Math.sqrt(arr.reduce((s, x) => s + (x.net - m) * (x.net - m), 0) / (n - 1)) : 0; return { n, m, w: n ? Math.round(arr.filter((x) => x.net > 0).length / n * 100) : 0, t: sd > 0 ? m / (sd / Math.sqrt(n)) : 0 }; };
-  const r = (nm, arr) => { const z = st(arr); return pad(nm, 10) + padL(z.n, 5) + padL(z.n ? z.w + '%' : '-', 6) + padL(z.n ? sgnNum(+z.m.toFixed(2)) : '-', 7) + padL(z.n > 1 ? sgnNum(+z.t.toFixed(1)) : '-', 6); };
+  const rm = (arr) => { const a = arr.filter((x) => x.R != null); return a.length ? a.reduce((q, x) => q + x.R, 0) / a.length : null; };
+  const r = (nm, arr) => { const z = st(arr), mr = rm(arr); return pad(nm, 10) + padL(z.n, 5) + padL(z.n ? z.w + '%' : '-', 6) + padL(z.n ? sgnNum(+z.m.toFixed(2)) : '-', 7) + padL(z.n > 1 ? sgnNum(+z.t.toFixed(1)) : '-', 6) + padL(mr == null ? '-' : sgnNum(+mr.toFixed(2)), 7); };
   const B = ['🔁 <b>REV — پیپر ترید زنده‌ی بازگشت</b> — ' + rows.length + ' بسته‌شده، ' + rv.open.length + ' باز؛ کارمزد و لغزش ' + CONFIG.reversionCostPct + '٪ کم شده'];
-  B.push(pre([pad('GROUP', 10) + padL('N', 5) + padL('WIN%', 6) + padL('NET%', 7) + padL('t', 6), r('all', rows), r('long', rows.filter((x) => x.dir > 0)), r('short', rows.filter((x) => x.dir < 0)), r('gate-yes', rows.filter((x) => x.g)), r('gate-no', rows.filter((x) => !x.g)), r('stopped', rows.filter((x) => x.why === 'stop'))]));
+  B.push(pre([pad('GROUP', 10) + padL('N', 5) + padL('WIN%', 6) + padL('NET%', 7) + padL('t', 6) + padL('NET-R', 7), r('all', rows), r('long', rows.filter((x) => x.dir > 0)), r('short', rows.filter((x) => x.dir < 0)), r('gate-yes', rows.filter((x) => x.g)), r('gate-no', rows.filter((x) => !x.g)), r('stopped', rows.filter((x) => x.why === 'stop'))]));
   if (rv.open.length) B.push(pre(['OPEN   DIR   ENTRY'].concat(rv.open.slice(0, 12).map((o) => pad(o.sym, 7) + pad(o.dir > 0 ? 'LONG' : 'SHORT', 6) + fp(o.e)))));
   const z = st(rows);
   B.push(z.n < 100 ? '⏳ نمونه کمه (' + z.n + ' از حداقل ۱۰۰). قاعده‌ی تصمیم: بعد از ۱۰۰ معامله یا ۳ ماه، میانگین زیر +0.05٪ → کنار بذار؛ بالای +0.1٪ و t بالای ۲ → با حجم خیلی کم امتحان.' : (z.m < 0.05 ? '❌ بعد از ' + z.n + ' معامله میانگین زیر +0.05٪ است؛ طبق قاعده کنار بذار.' : z.m > 0.1 && z.t >= 2 ? '✅ بعد از ' + z.n + ' معامله بالای +0.1٪ و t≥۲؛ قابل بررسی با حجم خیلی کم.' : '🟡 بین دو آستانه؛ دنبال کن.'));
-  B.push('<i>NET% میانگین سود هر معامله به درصد حرکت قیمت بعد از کارمزد · gate-yes/no جهت معامله هم‌جهت با روند BTC (EMA50/EMA200 ۴ ساعته) هست یا نه · ورود با قیمت باز شدن کندل بعد (ممکنه تا ۱ ساعت دیرتر از قیمت واقعی ثبت بشه).</i>');
+  B.push('<i>NET% میانگین سود هر معامله به درصد حرکت قیمت بعد از کارمزد · NET-R سود ÷ فاصله‌ی حد ضرر (ریسک ثابت؛ فقط معامله‌هایی که بعد از این آپدیت بسته شدن) · gate-yes/no جهت معامله هم‌جهت با روند BTC (EMA50/EMA200 ۴ ساعته) هست یا نه · ورود با قیمت باز شدن کندل بعد (ممکنه تا ۱ ساعت دیرتر از قیمت واقعی ثبت بشه).</i>');
   return B;
 }
 
@@ -3448,7 +3449,7 @@ async function main() {
       const H4 = 4 * HOUR, T0 = 1e12, mk = (k, o, h, l, c) => ({ t: T0 + k * H4, o, h, l, c });
       const rv1 = { open: [{ sym: 'X', dir: 1, t: T0, e: 100, s: 90, a: 3, g: 1 }], done: [] };
       const c1 = revStep(rv1, [mk(1, 100, 101, 85, 88)], 0.15, 0);
-      chk('rev-stop', [c1.length, c1[0].why, c1[0].net], [1, 'stop', -10.15]);
+      chk('rev-stop', [c1.length, c1[0].why, c1[0].net, c1[0].R, rv1.done[0].split('|')[8]], [1, 'stop', -10.15, -1.015, '-1.015']);
       const rv2 = { open: [{ sym: 'X', dir: -1, t: T0, e: 100, s: 110, a: 3, g: 0 }], done: [] };
       const cs2 = []; for (let k = 1; k <= 6; k++) cs2.push(mk(k, 100, 101, 97, k === 6 ? 97 : 99));
       const c2 = revStep(rv2, cs2, 0.15, 0);
