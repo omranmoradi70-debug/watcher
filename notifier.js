@@ -68,6 +68,7 @@ const CONFIG = {
   shadowStops: [1.5, 2], // ردیابی موازی: همون سیگنال با حد ضرر ۱.۵ و ۲ برابر دورتر (سیگنال اصلی دست‌نخورده می‌مونه)
   reversionCostPct: 0.15,  // کارمزد و لغزش رفت‌وبرگشت (درصد) برای تست بازگشت کوتاه‌مدت؛ عدد واقعی خودت رو از Home → Commission بذار
   revLiveEnabled: true,    // پیپر ترید زنده‌ی قانون بازگشت (حرکت ≥۲ ATR کندل ۴ ساعته، خلافش، حد ضرر ۳ ATR، خروج ۲۴ ساعته) به‌عنوان منبع جدا (REV)
+  tf1hFrom: '2022-07-01',  // تست تایم‌فریم ۱ ساعته از این تاریخ (سقف ~۴۰ هزار کندل)؛ آموزش = قبل از reversionSplitYear
   reversionSplitYear: 2024, // سال‌های قبلش «آموزش» و از این سال به بعد «تست پنهان» حساب می‌شه
   replayFwdCandles: 6,     // برای آمار الگوها: بعد از چند کندل ۴ ساعته نتیجه سنجیده بشه (۶ = ۲۴ ساعت)
 
@@ -1373,7 +1374,7 @@ const TA = (() => {
       var m = nn ? s / nn : 0, sd = nn > 1 ? Math.sqrt(Math.max(0, s2 / nn - m * m)) : 0;
       return { n: nn, m: +m.toFixed(3), w: nn ? Math.round(w / nn * 100) : 0, t: sd > 0 ? +(m / (sd / Math.sqrt(nn))).toFixed(1) : 0, worst: +worst.toFixed(1) };
     }
-    RVD_KEYS.forEach(function (key) {
+    (o.keys || RVD_KEYS).forEach(function (key) {
       var all = (agg.tr[key] || []).slice().sort(function (a, b) { return a[0] - b[0]; });
       if (!all.length) return;
       var yrOf = function (r) { return new Date(r[0]).getUTCFullYear(); };
@@ -1411,6 +1412,78 @@ const TA = (() => {
       res.nul = { trials: trials, mean: +(means.reduce(function (a, b) { return a + b; }, 0) / trials).toFixed(3), p95: +means[Math.floor(trials * 0.95)].toFixed(3), best: +means[trials - 1].toFixed(3), p: +((ge + 1) / (trials + 1)).toFixed(3), nBars: nb.t.length };
     }
     return res;
+  }
+
+
+  // ---------- the REV rule on other timeframes + range-edge test (fixed in advance) ----------
+  // revTf: same rule as revDeep 's3' (move >= 2 ATR of the closed candle, fade it, enter next open, 3 ATR stop, exit at the close 6 candles after the signal)
+  // on any timeframe's candles. Rows: [t, net%, dir]; trR = net / stop distance (fixed risk R). nb = every bar (random-entry null).
+  function revTf(ex, o) {
+    o = o || {};
+    var cost = o.cost != null ? o.cost : 0.15, hold = 6, splitT = o.splitT || 0, out = { tr: [], trR: [], nb: { t: [], l: [], s: [] } };
+    if (!ex || ex.length < 120) return out;
+    var ind = computeIndicators(ex), n = ex.length, i, j, busy = -1;
+    for (i = 40; i < n - 2; i++) {
+      if (i <= busy) continue;
+      var a = ind.atr[i]; if (!ok(a) || a <= 0) continue;
+      var z = (ex[i].c - ex[i - 1].c) / a; if (Math.abs(z) < 2) continue;
+      var dir = z < 0 ? 1 : -1, last = i + hold; if (last > n - 1) break;
+      var entry = ex[i + 1].o, stop = entry - dir * 3 * a, xx = null, exEnd = last;
+      for (j = i + 1; j <= last; j++) { var c = ex[j]; if (dir > 0 ? c.l <= stop : c.h >= stop) { xx = dir > 0 ? Math.min(stop, c.o) : Math.max(stop, c.o); exEnd = j; break; } }
+      if (xx == null) xx = ex[last].c;
+      var net = dir * (xx / entry - 1) * 100 - cost;
+      out.tr.push([ex[i].t, +net.toFixed(3), dir]); out.trR.push([ex[i].t, +(net / (3 * a / entry * 100)).toFixed(3), dir]);
+      busy = exEnd;
+    }
+    for (i = 40; i < n - 8; i++) {
+      if (ex[i].t < splitT) continue;
+      var a2 = ind.atr[i]; if (!ok(a2) || a2 <= 0) continue;
+      var e2 = ex[i + 1].o, res = [0, 0], dd;
+      for (dd = 0; dd < 2; dd++) {
+        var d = dd ? -1 : 1, st = e2 - d * 3 * a2, x2 = null;
+        for (j = i + 1; j <= i + hold; j++) { var cc = ex[j]; if (d > 0 ? cc.l <= st : cc.h >= st) { x2 = d > 0 ? Math.min(st, cc.o) : Math.max(st, cc.o); break; } }
+        if (x2 == null) x2 = ex[i + hold].c;
+        res[dd] = +(d * (x2 / e2 - 1) * 100 - cost).toFixed(3);
+      }
+      out.nb.t.push(ex[i].t); out.nb.l.push(res[0]); out.nb.s.push(res[1]);
+    }
+    return out;
+  }
+  // rangeTest: range = last 20 candles with width between 1.5 and 4 ATR and net drift (close - open 19 candles ago) <= 1.5 ATR.
+  // Candle closes in the bottom 20% -> long, top 20% -> short; enter next open; stop 0.5 ATR outside the range; target = middle of the range;
+  // time exit at the close 6 candles after the signal; same candle stop+target = stop. mir = the mirrored trade (opposite side, same stop and target distances) = null benchmark.
+  function rangeTest(ex, o) {
+    o = o || {};
+    var cost = o.cost != null ? o.cost : 0.15, W = 20, hold = 6, out = { rng: [], rngR: [], mir: [], mirR: [] };
+    if (!ex || ex.length < 120) return out;
+    var ind = computeIndicators(ex), n = ex.length, i, j, k, busy = -1;
+    function sim(dir, entry, stop, tgt, i0, last) {
+      for (var q = i0 + 1; q <= last; q++) {
+        var c = ex[q];
+        if (dir > 0 ? c.l <= stop : c.h >= stop) return [dir > 0 ? Math.min(stop, c.o) : Math.max(stop, c.o), q];
+        if (dir > 0 ? c.h >= tgt : c.l <= tgt) return [dir > 0 ? Math.max(tgt, c.o) : Math.min(tgt, c.o), q];
+      }
+      return [ex[last].c, last];
+    }
+    for (i = W + 20; i < n - 2; i++) {
+      if (i <= busy) continue;
+      var a = ind.atr[i]; if (!ok(a) || a <= 0) continue;
+      var hi = -Infinity, lo = Infinity;
+      for (k = i - W + 1; k <= i; k++) { if (ex[k].h > hi) hi = ex[k].h; if (ex[k].l < lo) lo = ex[k].l; }
+      var w = hi - lo; if (w > 4 * a || w < 1.5 * a) continue;
+      if (Math.abs(ex[i].c - ex[i - W + 1].o) > 1.5 * a) continue;
+      var pos = (ex[i].c - lo) / w, dir = pos <= 0.2 ? 1 : pos >= 0.8 ? -1 : 0; if (!dir) continue;
+      var last = i + hold; if (last > n - 1) break;
+      var entry = ex[i + 1].o, stop = dir > 0 ? lo - 0.5 * a : hi + 0.5 * a, tgt = (lo + hi) / 2;
+      if (dir > 0 ? (entry <= stop || entry >= tgt) : (entry >= stop || entry <= tgt)) continue;
+      var risk = Math.abs(entry - stop), rwd = Math.abs(tgt - entry), rp = risk / entry * 100;
+      var r1 = sim(dir, entry, stop, tgt, i, last), net = dir * (r1[0] / entry - 1) * 100 - cost;
+      out.rng.push([ex[i].t, +net.toFixed(3), dir]); out.rngR.push([ex[i].t, +(net / rp).toFixed(3), dir]);
+      var md = -dir, r2 = sim(md, entry, entry - md * risk, entry + md * rwd, i, last), net2 = md * (r2[0] / entry - 1) * 100 - cost;
+      out.mir.push([ex[i].t, +net2.toFixed(3), md]); out.mirR.push([ex[i].t, +(net2 / rp).toFixed(3), md]);
+      busy = r1[1];
+    }
+    return out;
   }
 
 
@@ -1462,7 +1535,7 @@ const TA = (() => {
     scoreAt: scoreAt, scoreLabel: scoreLabel, findLevels: findLevels, buildScenario: buildScenario,
     analyze: analyze, positionSize: positionSize, backtest: backtest, fmtPrice: fmtPrice, TF_LABEL: TF_LABEL, TF_ADJ: TF_ADJ,
     HORIZONS: HORIZONS, outlook: outlook, outlookLines: outlookLines, volState: volState, VOL_FA: VOL_FA, detectSpike: detectSpike, evaluateSignal: evaluateSignal,
-    detectPatterns: detectPatterns, reversion: reversion, revDeep: revDeep, revDeepSummary: revDeepSummary, fvgTest: fvgTest, strategies: strategies, entryContext: entryContext, GRID_S: GRID_S, GRID_T: GRID_T, manage: manage, MNG_VARIANTS: MNG_VARIANTS, REV_VARIANTS: REV_VARIANTS, PATTERN_NAMES: PATTERN_NAMES, BIG_PATTERNS: BIG_PATTERNS, pivotFlags: pivotFlags, replay: replay, pivotLevels: pivotLevels, PIVOT_TYPES: PIVOT_TYPES
+    detectPatterns: detectPatterns, reversion: reversion, revDeep: revDeep, revDeepSummary: revDeepSummary, revTf: revTf, rangeTest: rangeTest, fvgTest: fvgTest, strategies: strategies, entryContext: entryContext, GRID_S: GRID_S, GRID_T: GRID_T, manage: manage, MNG_VARIANTS: MNG_VARIANTS, REV_VARIANTS: REV_VARIANTS, PATTERN_NAMES: PATTERN_NAMES, BIG_PATTERNS: BIG_PATTERNS, pivotFlags: pivotFlags, replay: replay, pivotLevels: pivotLevels, PIVOT_TYPES: PIVOT_TYPES
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.TA = api;
@@ -1684,6 +1757,7 @@ const TICKERS = {
   }
 };
 let tickerCache = { t: 0, list: null };
+let CUR_BTC_G = 0;   // روند BTC (۱ = EMA50 بالای EMA200 در ۴ ساعته، -۱ = پایین، ۰ = نامعلوم) لحظه‌ی ثبت سیگنال
 async function fetchTickers() {
   const nowT = Date.now();
   if (tickerCache.list && nowT - tickerCache.t < HOUR) return tickerCache.list;  // کش یک‌ساعته (اسکنر و اجرای بعدی مشترک)
@@ -2045,6 +2119,7 @@ function track(state, src, sym, r, now, alerted) {
     stop: sc.stop, tp1: sc.tp1, tp2: sc.tp2, rr1: sc.rr1, rr2: sc.rr2, t: now, validUntil: now + CONFIG.signalValidDays[CONFIG.style] * 24 * HOUR,
     status: sc.mode === 'now' ? 'open' : 'pending', alerted: !!alerted,
     patChk: true, pat: ((r.patterns || []).find((p) => p.dir === dir) || {}).id || null,  // الگوی کندلی هم‌جهت لحظه‌ی سیگنال (فقط سیگنال‌های جدید)
+    bg: CUR_BTC_G || undefined,
     m1: true, al: (r.tfs || []).length ? (r.tfs.filter((t) => t.score * dir > 0).length + '/' + r.tfs.length) : null  // m1: بیشینه‌ی حرکت به نفع سیگنال (mfe) از اول ثبت شده · al: چندتا از تایم‌فریم‌ها هم‌جهت بودن
   });
   const ns = state.signals[state.signals.length - 1]; ns.sh = makeShadows(ns);
@@ -2097,18 +2172,37 @@ function resolveOutlooks(state, prices, now) {
     else x.correct = x.s1 && x.r1 ? (p >= x.s1 && p <= x.r1) : null;
   }
 }
+// روند BTC (EMA50 در برابر EMA200، ۴ ساعته) لحظه‌ی صدور برای سیگنال‌های قدیمی هم محاسبه می‌شه (تا حدود ۱۳۰ روز قبل)
+async function backfillBtcG(state) {
+  const need = state.signals.filter((x) => x.bg == null && x.t);
+  if (!need.length) return;
+  const b = await candles('BTC', '4h', 1000, 400), bc = b.map((c) => c.c), e50 = TA.ema(bc, 50), e200 = TA.ema(bc, 200);
+  for (const x of need) {
+    let k = -1;
+    for (let i = b.length - 1; i >= 0; i--) if (b[i].t + 4 * HOUR <= x.t) { k = i; break; }
+    if (k >= 200 && e200[k] > 0) x.bg = e50[k] > e200[k] ? 1 : -1;
+  }
+}
 function statsBlocks(state) {
   const filled = state.signals.filter((x) => ['tp1', 'stop', 'timeout'].includes(x.status) && Number.isFinite(x.R));
   const row = (name, arr) => {
     const w = arr.filter((x) => x.R > 0).length, avg = arr.length ? arr.reduce((s, x) => s + x.R, 0) / arr.length : 0;
-    return pad(name, 8) + padL(arr.length, 4) + padL(arr.length ? Math.round(w / arr.length * 100) + '%' : '-', 6) + padL(arr.length ? sgnNum(+avg.toFixed(2)) : '-', 8);
+    return pad(name, 10) + padL(arr.length, 4) + padL(arr.length ? Math.round(w / arr.length * 100) + '%' : '-', 6) + padL(arr.length ? sgnNum(+avg.toFixed(2)) : '-', 8);
   };
   const B = ['📊 <b>آمار نتیجه‌ی سیگنال‌ها</b>'];
-  B.push(pre([pad('GROUP', 8) + padL('N', 4) + padL('WIN%', 6) + padL('AVG-R', 8), row('all', filled), row('weak', filled.filter((x) => x.strength === 'weak')),
+  B.push(pre([pad('GROUP', 10) + padL('N', 4) + padL('WIN%', 6) + padL('AVG-R', 8), row('all', filled), row('weak', filled.filter((x) => x.strength === 'weak')),
     row('medium', filled.filter((x) => x.strength === 'medium')), row('strong', filled.filter((x) => x.strength === 'strong')),
     row('long', filled.filter((x) => x.dir > 0)), row('short', filled.filter((x) => x.dir < 0)),
     row('alerted', filled.filter((x) => x.alerted)), row('silent', filled.filter((x) => !x.alerted)),
     row('tf-all', filled.filter((x) => x.al && x.al.split('/')[0] === x.al.split('/')[1])), row('tf-mix', filled.filter((x) => x.al && x.al.split('/')[0] !== x.al.split('/')[1]))]));
+  if (filled.some((x) => x.bg)) {
+    const wb = filled.filter((x) => x.bg);
+    B.push('🌍 <b>آمار سیگنال‌ها به تفکیک روند BTC لحظه‌ی صدور</b> (EMA50 در برابر EMA200، ۴ ساعته)');
+    B.push(pre([pad('GROUP', 10) + padL('N', 4) + padL('WIN%', 6) + padL('AVG-R', 8), row('btc-up', wb.filter((x) => x.bg > 0)), row('btc-down', wb.filter((x) => x.bg < 0)),
+      row('long|up', wb.filter((x) => x.dir > 0 && x.bg > 0)), row('long|down', wb.filter((x) => x.dir > 0 && x.bg < 0)), row('short|up', wb.filter((x) => x.dir < 0 && x.bg > 0)), row('short|down', wb.filter((x) => x.dir < 0 && x.bg < 0)),
+      row('with-btc', wb.filter((x) => x.dir === x.bg)), row('vs-btc', wb.filter((x) => x.dir !== x.bg))]));
+    B.push('with-btc یعنی جهت سیگنال با روند BTC یکی بوده (خرید وقتی BTC صعودی، فروش وقتی نزولی) · vs-btc برعکس. تا نمونه‌ها زیر ۳۰ نیست فقط یه اشاره‌ست.');
+  }
   B.push(...halfwayBlocks(filled));
   const open = state.signals.filter((x) => !isFinal(x) && x.status !== 'tp1').length, pend = state.signals.filter((x) => x.status === 'pending').length;
   const missed = state.signals.filter((x) => x.status === 'missed' || x.status === 'expired').length;
@@ -2200,7 +2294,7 @@ const DEEP = {
   mexc: async (b, tf, since) => {
     let all = [], start = since, pages = 0;
     while (pages++ < 40) {
-      const j = await getJSON('https://api.mexc.com/api/v3/klines?symbol=' + b + 'USDT&interval=' + tf + '&startTime=' + start + '&limit=1000', 20000);
+      const j = await getJSON('https://api.mexc.com/api/v3/klines?symbol=' + b + 'USDT&interval=' + (tf === '1h' ? '60m' : tf) + '&startTime=' + start + '&limit=1000', 20000);
       if (!Array.isArray(j)) throw new Error('mexc');
       if (!j.length) break;
       all = all.concat(binanceRows(j));
@@ -2240,6 +2334,10 @@ async function runReplay(state, now, budgetMs) {
   let btcUp = null;   // دروازه‌ی BTC: ۱ = EMA50 بالای EMA200 در ۴ ساعته، -۱ = پایین
   try { if (btcC && btcC.length > 250) { const e50 = TA.ema(btcC, 50), e200 = TA.ema(btcC, 200); btcUp = (t) => { const k = btcIdx[t]; if (k == null || !(e200[k] > 0)) return 0; return e50[k] > e200[k] ? 1 : -1; }; } } catch (e) { btcUp = null; }
   const rvd = { tr: { base: [], s3: [], sc: [], gate: [], gl: [], glr: [] }, nb: { t: [], l: [], s: [] } };
+  const rngA = { tr: { rng: [], rngR: [], mir: [], mirR: [] }, nb: { t: [], l: [], s: [] } };
+  const tfA = { '1h': { tr: { s3: [], glr: [] }, nb: { t: [], l: [], s: [] }, n: 0 }, '1d': { tr: { s3: [], glr: [] }, nb: { t: [], l: [], s: [] }, n: 0 } };
+  const splitT = Date.UTC(CONFIG.reversionSplitYear, 0, 1);
+  const tfAdd = (k, rt, sym) => { const A = tfA[k]; for (const r of rt.tr) A.tr.s3.push([r[0], r[1], r[2], sym]); for (const r of rt.trR) A.tr.glr.push([r[0], r[1], r[2], sym]); for (let q = 0; q < rt.nb.t.length; q++) { A.nb.t.push(rt.nb.t[q]); A.nb.l.push(rt.nb.l[q]); A.nb.s.push(rt.nb.s[q]); } A.n++; };
   await Promise.all(syms.map((sym) => limited(async () => {
     if (Date.now() - t0 > (budgetMs || CONFIG.replayBudgetMs || 480000)) { skipped.push(sym); return; }  // سقف زمان، تا اجرا از مهلت گیت‌هاب رد نشه
     try {
@@ -2279,6 +2377,17 @@ async function runReplay(state, now, budgetMs) {
         const fv = TA.fvgTest(c4.slice(0, -1), { cost: CONFIG.reversionCostPct });
         for (const [k, yv] of Object.entries(fv)) { const q = fvgAgg[k] || (fvgAgg[k] = {}); for (const [y, v] of Object.entries(yv)) { const z = q[y] || (q[y] = { n: 0, w: 0, nt: 0, nt2: 0 }); for (const f of Object.keys(z)) z[f] += v[f]; } }
       } catch (e) { /* تست FVG نباید بقیه‌ی بازپخش رو خراب کنه */ }
+      try {   // تست کف و سقف رنج (۴ ساعته)
+        const rg = TA.rangeTest(c4.slice(0, -1), { cost: CONFIG.reversionCostPct });
+        for (const k of Object.keys(rngA.tr)) for (const r of rg[k]) rngA.tr[k].push([r[0], r[1], r[2], sym]);
+      } catch (e) { /* نباید بقیه‌ی بازپخش رو خراب کنه */ }
+      try { tfAdd('1d', TA.revTf(c1.slice(0, -1), { cost: CONFIG.reversionCostPct, splitT }), sym); } catch (e) { /* ۱ روزه */ }
+      try {   // ۱ ساعته: تاریخچه‌ی جدا و محدودتر؛ فقط اگه وقت مونده
+        if (deep && Date.now() - t0 < (budgetMs || CONFIG.replayBudgetMs || 480000) * 0.7) {
+          const c1h = await deepCandles(sym, '1h', Date.parse(CONFIG.tf1hFrom) || Date.parse('2022-07-01'));
+          tfAdd('1h', TA.revTf(c1h.slice(0, -1), { cost: CONFIG.reversionCostPct, splitT }), sym);
+        }
+      } catch (e) { /* ۱ ساعته نیومد؛ ۴ ساعته و ۱ روزه ادامه دارن */ }
       if (out.day) {
         dayAgg.days += out.day.days; dayAgg.flat += out.day.flat;
         for (const [y, v] of Object.entries(out.day.yr)) { const q = dayAgg.yr[y] || (dayAgg.yr[y] = { n: 0, hit: 0, exp: 0, nu: 0, hu: 0, nd: 0, hd: 0 }); for (const k of Object.keys(q)) q[k] += v[k]; }
@@ -2343,10 +2452,55 @@ async function runReplay(state, now, budgetMs) {
   })));
   if (!nCoins) throw new Error('بازپخش: داده‌ی کندل گرفته نشد');
   state.replay = { t: new Date(now).toISOString(), nCoins, failed: failedCoins, shallow, skipped, days: Math.round(steps / nCoins * 4 / 24), from: Number.isFinite(from) ? new Date(from).toISOString().slice(0, 10) : null, groups, pat, base, yrs, fwd, day: dayAgg, rev: { cost: CONFIG.reversionCostPct, split: CONFIG.reversionSplitYear, vars: revAgg }, grid: { cost: CONFIG.reversionCostPct, split: CONFIG.reversionSplitYear, cells: gridAgg, stt: sttAgg, nSig: gridBase.n }, mng: { cost: CONFIG.reversionCostPct, split: CONFIG.reversionSplitYear, v: mngAgg, n: mngCnt.n }, piv: pivAgg, rg: { split: CONFIG.reversionSplitYear, v: rgAgg }, pvt: { split: CONFIG.reversionSplitYear, v: pvtAgg }, st: { split: CONFIG.reversionSplitYear, v: stAgg }, fvg: { split: CONFIG.reversionSplitYear, v: fvgAgg }, l12 };
+  try { state.replay.rng = TA.revDeepSummary(rngA, { split: CONFIG.reversionSplitYear, trials: 1, keys: ['rng', 'rngR', 'mir', 'mirR'] }); } catch (e) { log('خلاصه‌ی تست رنج نشد: ' + e.message); }
+  try {
+    state.replay.tfr = {};
+    for (const k of Object.keys(tfA)) if (tfA[k].n) { const sm = TA.revDeepSummary(tfA[k], { split: CONFIG.reversionSplitYear, trials: 300, keys: ['s3', 'glr'] }); sm.nCoins = tfA[k].n; state.replay.tfr[k] = sm; }
+  } catch (e) { log('خلاصه‌ی تست تایم‌فریم نشد: ' + e.message); }
   try { state.replay.rvd = TA.revDeepSummary(rvd, { split: CONFIG.reversionSplitYear, trials: 300 }); } catch (e) { log('خلاصه‌ی تست عمیق بازگشت نشد: ' + e.message); }
   console.log('بازپخش تاریخی: ' + nCoins + ' ارز، ' + (Date.now() - t0) + ' میلی‌ثانیه' + (shallow.length ? '، فقط تاریخچه‌ی کوتاه برای: ' + shallow.join(',') : '') + (failedCoins.length ? '، بدون داده: ' + failedCoins.join(',') : '') + (skipped.length ? '، رد شده (کمبود زمان): ' + skipped.join(',') : ''));
   saveState(state); // نتیجه‌ی بازپخش حتماً ذخیره بشه حتی اگه ادامه‌ی اجرا خطا بده
   return state.replay;
+}
+
+// ---------- تست رنج (۴ ساعته) و تست تایم‌فریم (۱ ساعته و ۱ روزه) ----------
+function tfBlocks(rp) {
+  const B = [], fs = (x, d) => sgnNum(+(+x).toFixed(d == null ? 2 : d));
+  const head = pad('SET', 11) + padL('N-TR', 5) + padL('NET-TR', 7) + padL('N-TE', 5) + padL('NET-TE', 7) + padL('WIN', 5) + padL('t', 6) + padL('t-day', 6) + padL('WORST', 6) + padL('COINS', 6);
+  const rowOf = (nm, v) => pad(nm, 11) + padL(v.tr.n, 5) + padL(fs(v.tr.m), 7) + padL(v.te.n, 5) + padL(fs(v.te.m), 7) + padL(v.te.w + '%', 5) + padL(fs(v.te.t, 1), 6) + padL(fs(v.tc, 1), 6) + padL(v.te.worst, 6) + padL(v.coin, 6);
+  const R = rp.rng && rp.rng.v;
+  if (R && R.rngR) {
+    const split = rp.rng.split, rr = R.rngR, mr = R.mirR;
+    B.push('📦 <b>تست کف و سقف رنج (۴ ساعته)</b> — رنج = ۲۰ کندل با پهنای ۱.۵ تا ۴ ATR و جابه‌جایی کم؛ خرید وقتی کندل توی ۲۰٪ پایین رنج بسته شد، فروش توی ۲۰٪ بالا؛ حد ضرر ۰.۵ ATR بیرون رنج، هدف وسط رنج، خروج زمانی ۲۴ ساعته؛ بعد از کارمزد؛ قبل و بعد از ' + split);
+    const rows = [rowOf('range-R', rr), rowOf('range-%', R.rng)];
+    if (mr) rows.push(rowOf('mirror-R', mr), rowOf('mirror-%', R.mir));
+    B.push(pre([head].concat(rows)));
+    B.push(pre([pad('range-R (TE)', 13) + padL('N', 5) + padL('NET-R', 7) + padL('WIN%', 6)].concat(['long', 'short'].map((d) => pad(d, 13) + padL(rr.side[d].n, 5) + padL(fs(rr.side[d].m), 7) + padL(rr.side[d].w + '%', 6)))));
+    const ys = Object.keys(rr.yr).sort();
+    B.push(pre([pad('YEAR', 6) + padL('N', 6) + padL('NET-R', 8)].concat(ys.map((y) => pad(y, 6) + padL(rr.yr[y][0], 6) + padL(fs(rr.yr[y][1]), 8)))));
+    const good = rr.te.n >= 100 && rr.te.m >= 0.1 && rr.tc >= 2 && rr.tr.m > 0 && mr && rr.te.m > mr.te.m + 0.05;
+    B.push(good ? '✅ توی تست پنهان بعد از کارمزد بالای +0.1R، t روزانه ≥ ۲، آموزش مثبت و بهتر از معامله‌ی آینه‌ای بود. فقط یه سرنخ؛ باید زنده هم دنبال بشه.' : '❌ معیارهای از قبل ثابت (تست ≥ +0.1R، t روزانه ≥ ۲، آموزش مثبت، بهتر از آینه‌ای) پاس نشد. این روش رنج به این شکل ثابت نشد.');
+    B.push('<i>range-R سود ÷ فاصله‌ی حد ضرر (ریسک ثابت)، range-% درصد حرکت قیمت · mirror همون معامله‌ی خلافِ جهت با همون فاصله‌ی حد ضرر و هدف است؛ اگه رنج‌فروشی کف و سقف واقعی نباشه، آینه‌ای مثل خودش درمیاد · ورود با قیمت باز شدن کندل بعد · حد ضرر و هدف توی یه کندل = ضرر · N-TR/NET-TR آموزش، N-TE/NET-TE تست پنهان · هر قانون فقط یک‌بار و ثابت اجرا شده.</i>');
+  } else B.push('📦 تست رنج: داده‌ای نیومد.');
+  const T = rp.tfr;
+  if (T && Object.keys(T).length) {
+    B.push('⏰ <b>تست تایم‌فریم</b> — همون قانون REV (حرکت کندل بسته‌شده ≥۲ ATR، خلافش، حد ضرر ۳ ATR، خروج ۶ کندل بعد) روی ۱ ساعته و ۱ روزه؛ بعد از کارمزد');
+    const rows = [], names = { '1h': '1h', '1d': '1d' };
+    let pass = [];
+    for (const k of ['1h', '1d']) {
+      const v = T[k]; if (!v || !v.v || !v.v.s3) continue;
+      rows.push(rowOf(names[k] + ' %', v.v.s3));
+      if (v.v.glr) rows.push(rowOf(names[k] + ' R', v.v.glr));
+      if (v.nul) rows.push(pad(names[k] + ' null', 11) + '  random-entry: mean ' + fs(v.nul.mean) + ' · p95 ' + fs(v.nul.p95) + ' · p ' + v.nul.p);
+      const g = v.v.glr;
+      if (g && g.te.n >= 100 && g.te.m >= 0.1 && g.tc >= 2.5 && g.tr.m > 0 && v.nul && v.nul.p <= 0.05) pass.push(k);
+    }
+    B.push(pre([head].concat(rows)));
+    const cnt = Object.keys(T).map((k) => k + ': ' + T[k].nCoins + ' ارز').join(' · ');
+    B.push(pass.length ? '✅ ' + pass.join(' و ') + ' معیارها رو پاس کرد (تست ≥ +0.1R، t روزانه ≥ ۲.۵ چون چند تایم‌فریم امتحان شد، آموزش مثبت، p ≤ ۰٫۰۵). فقط سرنخه؛ باید زنده دنبال بشه.' : '❌ هیچ‌کدوم از تایم‌فریم‌ها معیارهای ثابت (تست ≥ +0.1R، t روزانه ≥ ۲.۵، آموزش مثبت، p ≤ ۰٫۰۵) رو کامل پاس نکرد. ' + cnt);
+    B.push('<i>۱ ساعته از ' + esc(CONFIG.tf1hFrom) + ' (تاریخچه‌ی کوتاه‌تر، آموزش کمتر) و ۱ روزه از ۲۰۲۰. خروج ۶ کندل یعنی ۶ ساعت برای ۱ ساعته و ۶ روز برای ۱ روزه؛ قانون عمداً بدون تغییر موند. چون ۲ تایم‌فریم امتحان شد، یه نتیجه‌ی خوب شانسی‌تر از قبله و معیار t-day رو سخت‌تر گرفتیم.</i>');
+  }
+  return B;
 }
 
 function replayBlocks(state) {
@@ -2595,6 +2749,7 @@ function replayBlocks(state) {
     B.push(okRule ? '✅ با حد ضرر واقعی هم توی تست پنهان مثبت موند، t روزانه بالای ۲ و از تصادفی بهتر بود. هنوز تضمین نیست؛ پیپر ترید زنده (منبع REV) بهش جواب نهایی می‌ده.' : '❌ با حد ضرر واقعی و معیارهای از قبل ثابت (NET-TE ≥ +0.1٪، t روزانه ≥ ۲، p ≤ ۰٫۰۵) ثابت نشد. فعلاً فقط پیپر ترید زنده‌ی REV رو دنبال کن.');
     B.push('<i>no-stop بدون حد ضرر · stop3ATR حد ضرر ۳ ATR (توی کندل، گپ با قیمت باز شدن؛ اگه حد ضرر و هدف توی یه کندل باشن ضرر) · scale-in نصف حجم توی ورود و نصف دیگه ۱ ATR پایین‌تر (اگه نرسید فقط نصف حجم)، NET روی حجم کامل · BTC-gate فقط وقتی جهت معامله با روند BTC (EMA50 در برابر EMA200 ۴ ساعته) هم‌جهته · N-TR/NET-TR آموزش، N-TE/NET-TE تست پنهان · t ساده؛ t-day بعد از میانگین‌گیری هر روز (هم‌زمانی ارزها) · WORST بدترین معامله به درصد · DD بیشترین افت جمع سود در تست (جمع ساده) · COINS چند ارز از ارزهای با ≥۱۰ معامله مثبت بودن. هر ۴ حالت و معیارها از قبل ثابت بودن؛ جست‌وجوی پارامتر نشده.</i>');
   }
+  try { tfBlocks(rp).forEach((b) => B.push(b)); } catch (e) { /* بلاک جدید نباید گزارش رو خراب کنه */ }
   const ids = Object.keys(rp.pat || {}).filter((id) => rp.pat[id].dir !== 0 && rp.pat[id].n >= 5);
   if (ids.length && rp.base && rp.base.n) {
     const bu = rp.base.up / rp.base.n;
@@ -2618,7 +2773,7 @@ function replayBlocks(state) {
   if (rp.failed && rp.failed.length) notes.push('بدون داده: ' + rp.failed.join('، '));
   if (rp.skipped && rp.skipped.length) notes.push('کمبود زمان، رد شد: ' + rp.skipped.join('، '));
   if (notes.length) B.push('ℹ️ ' + esc(notes.join(' · ')));
-  B.push('<i>این یه بازپخش تقریبیه: فقط تایم‌فریم ۴ ساعته و روزانه (بدون ۱ ساعته)، ارزیابی با کندل ۴ ساعته (هر وقت حد ضرر و هدف توی یه کندل بودن، ضرر حساب می‌شه)، بدون کارمزد و لغزش. گذشته تضمین آینده نیست و بازار عوض می‌شه. نمونه‌ی زیر ۳۰ فقط یه اشاره‌ست.</i>');
+  B.push('<i>این یه بازپخش تقریبیه: بیشتر روی تایم‌فریم ۴ ساعته و روزانه (۱ ساعته فقط توی تست تایم‌فریم)، ارزیابی با کندل ۴ ساعته (هر وقت حد ضرر و هدف توی یه کندل بودن، ضرر حساب می‌شه)، بدون کارمزد و لغزش. گذشته تضمین آینده نیست و بازار عوض می‌شه. نمونه‌ی زیر ۳۰ فقط یه اشاره‌ست.</i>');
   return B;
 }
 
@@ -3317,11 +3472,92 @@ function revBlocks(state) {
   const rm = (arr) => { const a = arr.filter((x) => x.R != null); return a.length ? a.reduce((q, x) => q + x.R, 0) / a.length : null; };
   const r = (nm, arr) => { const z = st(arr), mr = rm(arr); return pad(nm, 10) + padL(z.n, 5) + padL(z.n ? z.w + '%' : '-', 6) + padL(z.n ? sgnNum(+z.m.toFixed(2)) : '-', 7) + padL(z.n > 1 ? sgnNum(+z.t.toFixed(1)) : '-', 6) + padL(mr == null ? '-' : sgnNum(+mr.toFixed(2)), 7); };
   const B = ['🔁 <b>REV — پیپر ترید زنده‌ی بازگشت</b> — ' + rows.length + ' بسته‌شده، ' + rv.open.length + ' باز؛ کارمزد و لغزش ' + CONFIG.reversionCostPct + '٪ کم شده'];
-  B.push(pre([pad('GROUP', 10) + padL('N', 5) + padL('WIN%', 6) + padL('NET%', 7) + padL('t', 6) + padL('NET-R', 7), r('all', rows), r('long', rows.filter((x) => x.dir > 0)), r('short', rows.filter((x) => x.dir < 0)), r('gate-yes', rows.filter((x) => x.g)), r('gate-no', rows.filter((x) => !x.g)), r('stopped', rows.filter((x) => x.why === 'stop'))]));
+  B.push(pre([pad('GROUP', 10) + padL('N', 5) + padL('WIN%', 6) + padL('NET%', 7) + padL('t', 6) + padL('NET-R', 7), r('all', rows), r('long', rows.filter((x) => x.dir > 0)), r('short', rows.filter((x) => x.dir < 0)), r('long+gate', rows.filter((x) => x.dir > 0 && x.g)), r('long-gate', rows.filter((x) => x.dir > 0 && !x.g)), r('gate-yes', rows.filter((x) => x.g)), r('gate-no', rows.filter((x) => !x.g)), r('stopped', rows.filter((x) => x.why === 'stop'))]));
   if (rv.open.length) B.push(pre(['OPEN   DIR   ENTRY'].concat(rv.open.slice(0, 12).map((o) => pad(o.sym, 7) + pad(o.dir > 0 ? 'LONG' : 'SHORT', 6) + fp(o.e)))));
   const z = st(rows);
   B.push(z.n < 100 ? '⏳ نمونه کمه (' + z.n + ' از حداقل ۱۰۰). قاعده‌ی تصمیم: بعد از ۱۰۰ معامله یا ۳ ماه، میانگین زیر +0.05٪ → کنار بذار؛ بالای +0.1٪ و t بالای ۲ → با حجم خیلی کم امتحان.' : (z.m < 0.05 ? '❌ بعد از ' + z.n + ' معامله میانگین زیر +0.05٪ است؛ طبق قاعده کنار بذار.' : z.m > 0.1 && z.t >= 2 ? '✅ بعد از ' + z.n + ' معامله بالای +0.1٪ و t≥۲؛ قابل بررسی با حجم خیلی کم.' : '🟡 بین دو آستانه؛ دنبال کن.'));
   B.push('<i>NET% میانگین سود هر معامله به درصد حرکت قیمت بعد از کارمزد · NET-R سود ÷ فاصله‌ی حد ضرر (ریسک ثابت؛ فقط معامله‌هایی که بعد از این آپدیت بسته شدن) · gate-yes/no جهت معامله هم‌جهت با روند BTC (EMA50/EMA200 ۴ ساعته) هست یا نه · ورود با قیمت باز شدن کندل بعد (ممکنه تا ۱ ساعت دیرتر از قیمت واقعی ثبت بشه).</i>');
+  return B;
+}
+
+// ---------- ثبت سناریوهای گزارش ساعتی (فقط برای سنجیدن؛ جزو سیگنال‌ها و آمار سیگنال‌ها نیست) ----------
+// هر سناریو (ورود، حد ضرر، هدف اول) برای هر ارز و جهت، روزی یک‌بار (اولین‌ش) ثبت می‌شه و با کندل ۱ ساعته دنبال می‌شه:
+// اول به هدف رسید یا اول حد ضرر خورد؟ (بعد از ۲۴ ساعت، ۳ روز و ۷ روز) و آیا هدف اول «هر وقت» (حتی بعد از حد ضرر) لمس شد؟
+const SCN_H = [24, 72, 168], SCN_FILL_H = 72, SCN_KEEP = 900;
+function scnEval(o, cs) {   // o = {dir, mode, entry, stop, tp1, t}؛ cs = کندل‌های ۱ ساعته‌ی بسته‌شده (صعودی)
+  const dir = o.dir, t0 = o.t, end = t0 + SCN_H[2] * HOUR, risk = Math.abs(o.entry - o.stop), rr = Math.abs(o.tp1 - o.entry) / risk;
+  let fillT = o.mode === 'now' ? t0 : null, tt = null, type = null, last = null; const anyT = [];   // anyT = زمان‌های لمس هدف (بعد از ورود)
+  for (const c of cs) {
+    if (c.t < t0) continue;
+    if (c.t >= end) break;
+    last = c.c;
+    const hitTp = dir > 0 ? c.h >= o.tp1 : c.l <= o.tp1, hitSt = dir > 0 ? c.l <= o.stop : c.h >= o.stop;
+    if (fillT == null) {
+      if (c.t > t0 + SCN_FILL_H * HOUR) break;
+      const fill = dir > 0 ? c.l <= o.entry : c.h >= o.entry;
+      if (!fill) { if (hitTp) { type = 'V'; break; } continue; }   // بدون ورود به هدف رسید = فرصت از دست رفت
+      fillT = c.t;
+      if (hitSt) { type = 'S'; tt = c.t; }   // کندلی که هم ورود هم حد ضرر داره = ضرر
+      continue;
+    }
+    if (type == null) { if (hitSt) { type = 'S'; tt = c.t; } else if (hitTp) { type = 'T'; tt = c.t; } }
+    if (hitTp) anyT.push(c.t);
+  }
+  if (type === 'V') return { res: ['V', 'V', 'V'], any: [0, 0, 0], R: null };
+  const res = SCN_H.map((h) => (fillT == null || fillT >= t0 + h * HOUR ? 'V' : (type === 'T' || type === 'S') && tt + HOUR <= t0 + h * HOUR ? type : 'O'));
+  const any = SCN_H.map((h) => (anyT.some((x) => x + HOUR <= t0 + h * HOUR) ? 1 : 0));
+  const R = fillT == null ? null : type === 'T' ? rr : type === 'S' ? -1 : last == null ? 0 : dir * (last - o.entry) / risk;
+  return { res, any, R };
+}
+async function trackScn(state, good, now) {
+  const sc = state.scn || (state.scn = { open: [], done: [], seen: {} });
+  const day = new Date(now).toISOString().slice(0, 10);
+  for (const { sym, res } of good) {
+    const s = res.scenario; if (res.decision === 'wait' || !s) continue;
+    const dir = res.decision === 'long' ? 1 : -1, key = sym + '|' + dir + '|' + day;
+    if (sc.seen[key]) continue;
+    sc.seen[key] = 1;
+    if (!(s.entry > 0 && s.stop > 0 && s.tp1 > 0) || s.entry === s.stop) continue;
+    sc.open.push({ sym, dir, t: now, mode: s.mode, str: res.strength || '', entry: s.entry, stop: s.stop, tp1: s.tp1 });
+  }
+  const old = new Date(now - 10 * 864e5).toISOString().slice(0, 10);
+  for (const k of Object.keys(sc.seen)) if (k.split('|')[2] < old) delete sc.seen[k];
+  const syms = [...new Set(sc.open.map((o) => o.sym))], data = {};
+  await Promise.all(syms.map((x) => limited(() => candles(x, '1h', 300).then((c) => { data[x] = c.slice(0, -1); }, () => {}))));
+  sc.open = sc.open.filter((o) => {
+    const cs = data[o.sym];
+    if (!cs || !cs.length) return true;
+    if (cs[0].t > o.t + HOUR) return false;   // تاریخچه‌ی کندل به اول سناریو نمی‌رسه؛ نمونه‌ی ناقص ثبت نشه
+    const e = scnEval(o, cs); o.p = e.res.join(''); o.a = e.any.join(''); o.R = e.R == null ? null : +e.R.toFixed(2);
+    if (now < o.t + SCN_H[2] * HOUR + HOUR) return true;
+    sc.done.push([o.sym, o.dir, o.t, o.mode, o.str, o.p, o.a, o.R == null ? '' : o.R].join('|'));
+    return false;
+  });
+  if (sc.done.length > SCN_KEEP) sc.done.splice(0, sc.done.length - SCN_KEEP);
+  return sc.open.length;
+}
+function scnBlocks(state) {
+  const sc = state.scn;
+  if (!sc || (!sc.open.length && !sc.done.length)) return ['🧭 <b>سناریوهای گزارش ساعتی</b> — هنوز چیزی ثبت نشده. از این به بعد هر سناریوی ورود (روزی یکی برای هر ارز و جهت) ثبت و بعد از ۲۴ ساعت، ۳ و ۷ روز بررسی می‌شه.'];
+  const rows = sc.done.map((x) => { const a = x.split('|'); return { sym: a[0], dir: +a[1], t: +a[2], mode: a[3], str: a[4], p: a[5], a: a[6], R: a[7] === '' ? null : +a[7], fin: true }; })
+    .concat(sc.open.filter((o) => o.p).map((o) => ({ sym: o.sym, dir: o.dir, t: o.t, mode: o.mode, str: o.str, p: o.p, a: o.a, R: o.R, fin: false })));
+  const now = Date.now();
+  const stat = (arr, hi) => {   // فقط ردیف‌هایی که زمانشون به این افق رسیده
+    const h = SCN_H[hi], a = arr.filter((x) => now >= x.t + h * HOUR + HOUR || x.fin), f = a.filter((x) => x.p[hi] !== 'V');
+    const pc = (n, d) => (d ? Math.round(n / d * 100) + '%' : '-');
+    return { n: a.length, fill: pc(f.length, a.length), tp: pc(f.filter((x) => x.p[hi] === 'T').length, f.length), st: pc(f.filter((x) => x.p[hi] === 'S').length, f.length), op: pc(f.filter((x) => x.p[hi] === 'O').length, f.length), any: pc(f.filter((x) => x.a[hi] === '1').length, f.length), nf: f.length };
+  };
+  const line = (nm, arr, hi) => { const z = stat(arr, hi); return pad(nm, 10) + padL(z.n, 5) + padL(z.fill, 6) + padL(z.tp, 6) + padL(z.st, 6) + padL(z.op, 6) + padL(z.any, 6); };
+  const L = [pad('SET', 10) + padL('N', 5) + padL('FILL', 6) + padL('TP1', 6) + padL('STOP', 6) + padL('OPEN', 6) + padL('ANY', 6)];
+  SCN_H.forEach((h, hi) => L.push(line('all ' + (h < 48 ? h + 'h' : h / 24 + 'd'), rows, hi)));
+  L.push(line('long 3d', rows.filter((x) => x.dir > 0), 1), line('short 3d', rows.filter((x) => x.dir < 0), 1), line('now 3d', rows.filter((x) => x.mode === 'now'), 1), line('pend 3d', rows.filter((x) => x.mode !== 'now'), 1), line('strong 3d', rows.filter((x) => x.str === 'strong'), 1), line('M+W 3d', rows.filter((x) => x.str !== 'strong'), 1));
+  const B = ['🧭 <b>سناریوهای گزارش ساعتی — اول هدف یا اول حد ضرر؟</b> — ' + rows.length + ' سناریو (روزی یکی برای هر ارز و جهت)، ' + sc.open.length + ' هنوز باز', pre(L)];
+  const fin = rows.filter((x) => x.p[2] !== 'V'), z7 = stat(rows, 2), z3 = stat(rows, 1);
+  const rs = fin.filter((x) => x.fin && x.R != null);
+  if (rs.length >= 10) B.push('میانگین نتیجه بعد از ۷ روز (هدف اول = +RR، حد ضرر = −1R، بازها با قیمت آخر): ' + code(sgnNum(+(rs.reduce((q, x) => q + x.R, 0) / rs.length).toFixed(2)) + 'R') + ' روی ' + rs.length + ' سناریوی کامل، بدون کارمزد');
+  if (z3.nf >= 20) B.push((parseInt(z3.any) > parseInt(z3.tp) + 10 ? '🔎 هدف اول بعد از ۳ روز در ' + z3.any + ' موارد «هر وقت» لمس شده ولی فقط ' + z3.tp + ' بدون خوردن حد ضرر؛ یعنی بخش مهمی از اون‌ها اول حد ضرر خوردن و بعد برگشتن.' : '🔎 هدف اول بعد از ۳ روز در ' + z3.any + ' موارد لمس شده و ' + z3.tp + ' اول به هدف رسیدن؛ شکاف بزرگی بین این دو نیست.'));
+  else B.push('⏳ هنوز نمونه‌ی کافی نیست (حداقل ۲۰ سناریوی ورودشده برای قضاوت).');
+  B.push('<i>FILL درصد سناریوهایی که قیمت به ورودشون رسید (ورود «now» همون لحظه، «pend» وقتی قیمت به ناحیه‌ی ورود برگرده؛ تا ۳ روز صبر) · TP1 اول به هدف رسید · STOP اول حد ضرر خورد · OPEN تا اون افق به هیچ‌کدوم نرسید (درصدها از ورودشده‌ها) · ANY هدف اول در اون بازه «هر وقت» لمس شد، حتی بعد از حد ضرر. اگه ANY خیلی بالاتر از TP1 باشه یعنی سطح درست بوده ولی حد ضرر زود خورده؛ اگه نزدیکه یعنی «بعداً درست درمیاد» بیشتر یه حس بوده. ردیابی با کندل ۱ ساعته، شروع از کندل بعدی، و کندلی که هم ورود هم حد ضرر داره ضرر حساب می‌شه. این سناریوها جزو سیگنال‌ها نیستن و آمار سیگنال‌ها رو عوض نمی‌کنن.</i>');
   return B;
 }
 
@@ -3469,6 +3705,27 @@ async function main() {
         chk('fvg-runs', [tot > 5, bad], [true, false]);
         chk('gl-r', [rd.tr.glr.length === rd.tr.gl.length, rd.tr.gl.every((r) => r[2] === 1)], [true, true]);
       }
+      { // ردیابی سناریوها (scnEval)، تست رنج و تایم‌فریم
+        const HR = 36e5, mkc = (i, o, h, l, c) => ({ t: i * HR, o, h, l, c });
+        const a = scnEval({ dir: 1, mode: 'now', entry: 100, stop: 95, tp1: 110, t: 0 }, [mkc(0, 100, 101, 99, 100), mkc(1, 100, 100, 94, 96), mkc(2, 96, 111, 96, 110)]);
+        const b = scnEval({ dir: 1, mode: 'now', entry: 100, stop: 95, tp1: 110, t: 0 }, [mkc(0, 100, 101, 99, 100), mkc(1, 100, 111, 99, 110)]);
+        const c1 = scnEval({ dir: 1, mode: 'pend', entry: 100, stop: 95, tp1: 110, t: 0 }, [mkc(0, 105, 106, 104, 105), mkc(1, 105, 111, 104, 110)]);
+        const d1 = scnEval({ dir: -1, mode: 'pend', entry: 100, stop: 105, tp1: 90, t: 0 }, [mkc(0, 98, 101, 97, 99), mkc(1, 99, 106, 98, 105)]);
+        const e1 = scnEval({ dir: 1, mode: 'pend', entry: 100, stop: 95, tp1: 110, t: 0 }, [mkc(0, 104, 105, 103, 104), mkc(1, 104, 105, 99, 100), mkc(2, 100, 101, 99, 100)]);
+        chk('scn-eval', [a.res.join(''), a.any.join(''), a.R, b.res.join(''), b.R, c1.res.join(''), d1.res.join(''), d1.R, e1.res.join(''), e1.R], ['SSS', '111', -1, 'TTT', 2, 'VVV', 'SSS', -1, 'OOO', 0]);
+        const rt = TA.revTf(cs3, { cost: 0.15, splitT: T0 + 700 * H4 }), rg = TA.rangeTest(cs3, { cost: 0.15 });
+        chk('tf-range-run', [rt.tr.length > 3, rt.tr.length === rt.trR.length, rg.rng.length === rg.mir.length, rg.rng.length === rg.rngR.length], [true, true, true, true]);
+        const sm1 = TA.revDeepSummary({ tr: { s3: rt.tr.map((r) => [r[0], r[1], r[2], 'X']), glr: rt.trR.map((r) => [r[0], r[1], r[2], 'X']) }, nb: rt.nb }, { split: new Date(T0 + 700 * H4).getUTCFullYear(), trials: 30, keys: ['s3', 'glr'] });
+        sm1.nCoins = 1;
+        const sm2 = TA.revDeepSummary({ tr: { rng: rg.rng.map((r) => [r[0], r[1], r[2], 'X']), rngR: rg.rngR.map((r) => [r[0], r[1], r[2], 'X']), mir: rg.mir.map((r) => [r[0], r[1], r[2], 'X']), mirR: rg.mirR.map((r) => [r[0], r[1], r[2], 'X']) }, nb: { t: [], l: [], s: [] } }, { split: new Date(T0 + 700 * H4).getUTCFullYear(), trials: 1, keys: ['rng', 'rngR', 'mir', 'mirR'] });
+        const tb = tfBlocks({ rng: sm2, tfr: { '1d': sm1 } });
+        chk('tf-blocks', [tb.length > 3, tb.join('').includes('range-R'), tb.join('').includes('1d')], [true, true, true]);
+        const sb = scnBlocks({ scn: { open: [{ sym: 'X', dir: 1, t: Date.now() - 80 * HOUR, mode: 'now', str: 'medium', entry: 1, stop: 0.9, tp1: 1.2, p: 'OTT', a: '111', R: null }], done: ['X|1|' + (Date.now() - 300 * HOUR) + '|pend|strong|VSS|011|-1'], seen: {} } });
+        { const mkS = (dir, bg, R) => ({ sym: 'X', dir, bg, R, status: R > 0 ? 'tp1' : 'stop', strength: 'medium', alerted: true, entry: 1, stop: 0.9, tp1: 1.2, t: 1 });
+          const stB = statsBlocks({ signals: [mkS(1, 1, 2), mkS(1, -1, -1), mkS(-1, -1, 1), mkS(-1, 1, -1)], outlooks: [], scan: {} }).join('\n');
+          chk('stats-btc', [stB.includes('btc-up'), stB.includes('with-btc'), stB.includes('long|down')], [true, true, true]); }
+        chk('scn-blocks', [sb.length > 2, sb[0].includes('2 سناریو')], [true, true]);
+      }
       chk('rvd-has', [rd.tr.base.length > 5, rd.tr.s3.length > 5, rd.tr.gate.every((r) => r[2] === 1), rd.nb.t.length > 100, !!sm.v.s3], [true, true, true, true, true]);
     }
     const dt = derivTest({ dv: dvs }); chk('deriv-rule', [dt.res['fund≥0.03%→S'].n, dt.res['fund≥0.03%→S'].w], [1, 1]);
@@ -3540,6 +3797,8 @@ async function main() {
     // نتیجه‌ی سیگنال‌های قبلی و تحلیل‌های بازه‌ای
     const notes = (await guard('ارزیابی سیگنال‌ها', () => evaluateSignals(state))) || [];
     resolveOutlooks(state, prices, now);
+    try { const b = (await candles('BTC', '4h', 260, 220)).slice(0, -1), bc = b.map((c) => c.c), e50 = TA.ema(bc, 50), e200 = TA.ema(bc, 200), k = bc.length - 1; CUR_BTC_G = e50[k] > e200[k] ? 1 : -1; } catch (e) { CUR_BTC_G = 0; }
+    await guard('ثبت سناریوها', () => trackScn(state, good, now));
 
     // سیگنال تازه
     let sent = 0;
@@ -3603,7 +3862,8 @@ async function main() {
   }
   if (MODE === 'stats') {
     resolveOutlooks(state, prices, now);
-    await sendBlocks(statsBlocks(state).concat(extendedStatsBlocks(state), derivBlocks(state), revBlocks(state), methodBlocks(state)));
+    await guard('روند BTC', () => backfillBtcG(state));
+    await sendBlocks(statsBlocks(state).concat(extendedStatsBlocks(state), derivBlocks(state), revBlocks(state), scnBlocks(state), methodBlocks(state)));
   }
   if (MODE === 'replay') {
     try { await runReplay(state, now); } catch (e) { await send('بازپخش تاریخی اجرا نشد: ' + e.message); saveState(state); return; }
