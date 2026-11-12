@@ -68,6 +68,9 @@ const CONFIG = {
   shadowStops: [1.5, 2], // ردیابی موازی: همون سیگنال با حد ضرر ۱.۵ و ۲ برابر دورتر (سیگنال اصلی دست‌نخورده می‌مونه)
   reversionCostPct: 0.15,  // کارمزد و لغزش رفت‌وبرگشت (درصد) برای تست بازگشت کوتاه‌مدت؛ عدد واقعی خودت رو از Home → Commission بذار
   revLiveEnabled: true,    // پیپر ترید زنده‌ی قانون بازگشت (حرکت ≥۲ ATR کندل ۴ ساعته، خلافش، حد ضرر ۳ ATR، خروج ۲۴ ساعته) به‌عنوان منبع جدا (REV)
+  tdFrom: '2023-07-01',    // تست top-down (۱ روزه ← ۴ ساعته ← ۱ ساعته ← ۱۵ دقیقه) از این تاریخ، فقط روی چند ارز اول و فقط توی replay دستی
+  tdCoins: 8,
+  tdSplitYear: 2025,       // آموزش قبل از این سال، تست پنهان از این سال به بعد (داده‌ی ۱۵ دقیقه‌ای کوتاه‌تره)
   tf1hFrom: '2022-07-01',  // تست تایم‌فریم ۱ ساعته از این تاریخ (سقف ~۴۰ هزار کندل)؛ آموزش = قبل از reversionSplitYear
   reversionSplitYear: 2024, // سال‌های قبلش «آموزش» و از این سال به بعد «تست پنهان» حساب می‌شه
   replayFwdCandles: 6,     // برای آمار الگوها: بعد از چند کندل ۴ ساعته نتیجه سنجیده بشه (۶ = ۲۴ ساعت)
@@ -1487,6 +1490,83 @@ const TA = (() => {
   }
 
 
+  // ---------- top-down entry-timeframe test (fixed in advance, no parameter search) ----------
+  // Daily bias: EMA50 vs EMA200 of the last CLOSED daily candle (long only when up, short only when down).
+  // 4h pullback setup (with the bias): EMA20 > EMA50 (long) and the closed 4h candle's low <= EMA20 + 0.25 ATR and close >= EMA50 (mirror for short).
+  // The setup is armed for 24h. The ONLY thing that differs between the three variants is where the entry is taken:
+  //   '4h'  = enter at the open of the next 4h candle;  '1h' / '15m' = first candle that closes beyond the previous 3 candles' extreme in the bias direction (and has that colour), enter at the next open.
+  // Stop = beyond the last-5-candle swing of that timeframe (+0.1 ATR) but at least 0.5 ATR away; target 2R; time exit 24h after entry (same candle stop+target = stop). R is after cost.
+  // mir = the mirrored trade (opposite side, same stop distance and target) as a benchmark. Rows: [entryT, R, dir, risk%]
+  function topDown(d, o) {
+    o = o || {};
+    var cost = o.cost != null ? o.cost : 0.15, fromT = o.fromT || 0, H4 = 4 * 36e5, out = { rows: {}, mir: {} };
+    var c4 = d.c4, cd = d.c1d;
+    if (!c4 || !cd || c4.length < 260 || cd.length < 220) return out;
+    var i4 = computeIndicators(c4), idd = computeIndicators(cd);
+    var V = [['4h', c4, H4, i4, 6]];
+    if (d.c1h && d.c1h.length > 300) V.push(['1h', d.c1h, 36e5, computeIndicators(d.c1h), 24]);
+    if (d.c15 && d.c15.length > 600) V.push(['15m', d.c15, 9e5, computeIndicators(d.c15), 96]);
+    V.forEach(function (v) { out.rows[v[0]] = []; out.mir[v[0]] = []; v.busy = -1; });
+    function lastIdx(arr, t) { var lo = 0, hi = arr.length - 1, r = -1; while (lo <= hi) { var m = (lo + hi) >> 1; if (arr[m].t <= t) { r = m; lo = m + 1; } else hi = m - 1; } return r; }
+    function firstIdx(arr, t) { var lo = 0, hi = arr.length, m; while (lo < hi) { m = (lo + hi) >> 1; if (arr[m].t >= t) hi = m; else lo = m + 1; } return lo; }
+    function sim(arr, j0, bars, dir, entry, stop, tgt) {
+      var last = Math.min(arr.length - 1, j0 + bars - 1), q;
+      for (q = j0; q <= last; q++) {
+        var c = arr[q];
+        if (dir > 0 ? c.l <= stop : c.h >= stop) return [dir > 0 ? Math.min(stop, c.o) : Math.max(stop, c.o), q];
+        if (dir > 0 ? c.h >= tgt : c.l <= tgt) return [dir > 0 ? Math.max(tgt, c.o) : Math.min(tgt, c.o), q];
+      }
+      return [arr[last].c, last];
+    }
+    function book(v, arr, ind, k, dir, entry, swing, atr) {   // k = index of the trigger candle; entry candle = k+1
+      var risk = Math.max(dir > 0 ? entry - swing + 0.1 * atr : swing - entry + 0.1 * atr, 0.5 * atr), rp = risk / entry * 100;
+      if (!(risk > 0) || !(rp > 0)) return false;
+      var j0 = k + 1, bars = v[4];
+      if (j0 + bars > arr.length - 1) return false;                // trade must be able to run its full 24h
+      var r1 = sim(arr, j0, bars, dir, entry, entry - dir * risk, entry + dir * 2 * risk), net = dir * (r1[0] / entry - 1) * 100 - cost;
+      out.rows[v[0]].push([arr[j0].t, +(net / rp).toFixed(3), dir, +rp.toFixed(3)]);
+      var md = -dir, r2 = sim(arr, j0, bars, md, entry, entry - md * risk, entry + md * 2 * risk), net2 = md * (r2[0] / entry - 1) * 100 - cost;
+      out.mir[v[0]].push([arr[j0].t, +(net2 / rp).toFixed(3), md, +rp.toFixed(3)]);
+      v.busy = arr[r1[1]].t + v[2];
+      return true;
+    }
+    var i, n4 = c4.length, vi, k;
+    for (i = 210; i < n4 - 8; i++) {
+      if (c4[i].t < fromT) continue;
+      var tClose = c4[i].t + H4, di = lastIdx(cd, tClose - 864e5);
+      if (di < 205 || !(idd.ema200[di] > 0)) continue;
+      var a = i4.atr[i]; if (!ok(a) || a <= 0 || !ok(i4.ema20[i]) || !ok(i4.ema50[i])) continue;
+      var bias = idd.ema50[di] > idd.ema200[di] ? 1 : -1, setup = false;
+      if (bias > 0) setup = i4.ema20[i] > i4.ema50[i] && c4[i].l <= i4.ema20[i] + 0.25 * a && c4[i].c >= i4.ema50[i];
+      else setup = i4.ema20[i] < i4.ema50[i] && c4[i].h >= i4.ema20[i] - 0.25 * a && c4[i].c <= i4.ema50[i];
+      if (!setup) continue;
+      for (vi = 0; vi < V.length; vi++) {
+        var v = V[vi], arr = v[1], ind = v[3];
+        if (tClose < v.busy) continue;
+        if (v[0] === '4h') {
+          var j = i + 1, sw = bias > 0 ? Infinity : -Infinity, q;
+          for (q = i - 4; q <= i; q++) sw = bias > 0 ? Math.min(sw, c4[q].l) : Math.max(sw, c4[q].h);
+          book(v, arr, ind, i, bias, c4[j].o, sw, a);
+          continue;
+        }
+        var s0 = firstIdx(arr, tClose), e0 = firstIdx(arr, tClose + 864e5 / 1) - 1, kk;
+        for (kk = Math.max(s0, 5); kk <= e0 && kk < arr.length - 1; kk++) {
+          var cc = arr[kk], ex = bias > 0 ? -Infinity : Infinity, p;
+          for (p = kk - 3; p < kk; p++) ex = bias > 0 ? Math.max(ex, arr[p].h) : Math.min(ex, arr[p].l);
+          var fire = bias > 0 ? (cc.c > ex && cc.c > cc.o) : (cc.c < ex && cc.c < cc.o);
+          if (!fire) continue;
+          var atr2 = ind.atr[kk]; if (!ok(atr2) || atr2 <= 0) break;
+          var sw2 = bias > 0 ? Infinity : -Infinity;
+          for (p = kk - 4; p <= kk; p++) sw2 = bias > 0 ? Math.min(sw2, arr[p].l) : Math.max(sw2, arr[p].h);
+          book(v, arr, ind, kk, bias, arr[kk + 1].o, sw2, atr2);
+          break;
+        }
+      }
+    }
+    return out;
+  }
+
+
   // ---------- Fair Value Gap test (4h) ----------
   // Fixed in advance: 3-candle gap >= 0.5 ATR; limit order at the near edge ('edge') or the midpoint ('mid') of the gap, valid 12 candles; stop 0.5 ATR beyond the far edge;
   // target 2R; time exit after 30 candles at the close; same candle stop+target = stop. 'A' variants only trade with the EMA50/EMA200 trend.
@@ -1535,7 +1615,7 @@ const TA = (() => {
     scoreAt: scoreAt, scoreLabel: scoreLabel, findLevels: findLevels, buildScenario: buildScenario,
     analyze: analyze, positionSize: positionSize, backtest: backtest, fmtPrice: fmtPrice, TF_LABEL: TF_LABEL, TF_ADJ: TF_ADJ,
     HORIZONS: HORIZONS, outlook: outlook, outlookLines: outlookLines, volState: volState, VOL_FA: VOL_FA, detectSpike: detectSpike, evaluateSignal: evaluateSignal,
-    detectPatterns: detectPatterns, reversion: reversion, revDeep: revDeep, revDeepSummary: revDeepSummary, revTf: revTf, rangeTest: rangeTest, fvgTest: fvgTest, strategies: strategies, entryContext: entryContext, GRID_S: GRID_S, GRID_T: GRID_T, manage: manage, MNG_VARIANTS: MNG_VARIANTS, REV_VARIANTS: REV_VARIANTS, PATTERN_NAMES: PATTERN_NAMES, BIG_PATTERNS: BIG_PATTERNS, pivotFlags: pivotFlags, replay: replay, pivotLevels: pivotLevels, PIVOT_TYPES: PIVOT_TYPES
+    detectPatterns: detectPatterns, reversion: reversion, revDeep: revDeep, revDeepSummary: revDeepSummary, revTf: revTf, rangeTest: rangeTest, topDown: topDown, fvgTest: fvgTest, strategies: strategies, entryContext: entryContext, GRID_S: GRID_S, GRID_T: GRID_T, manage: manage, MNG_VARIANTS: MNG_VARIANTS, REV_VARIANTS: REV_VARIANTS, PATTERN_NAMES: PATTERN_NAMES, BIG_PATTERNS: BIG_PATTERNS, pivotFlags: pivotFlags, replay: replay, pivotLevels: pivotLevels, PIVOT_TYPES: PIVOT_TYPES
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.TA = api;
@@ -2277,9 +2357,9 @@ function historyLines(state, sym, r) {
 
 // تاریخچه‌ی بلند فقط برای بازپخش: صفحه‌به‌صفحه از صرافی (binance-vision و mexc) از تاریخ مشخص تا الان
 const DEEP = {
-  binance: async (b, tf, since) => {
+  binance: async (b, tf, since, maxPages) => {
     let all = [], start = since, pages = 0;
-    while (pages++ < 40) {
+    while (pages++ < (maxPages || 40)) {
       const q = '/api/v3/klines?symbol=' + b + 'USDT&interval=' + tf + '&startTime=' + start + '&limit=1000';
       let j;
       try { j = await getJSON('https://data-api.binance.vision' + q, 20000); } catch (e) { j = await getJSON('https://api.binance.com' + q, 20000); }
@@ -2291,9 +2371,9 @@ const DEEP = {
     }
     return all;
   },
-  mexc: async (b, tf, since) => {
+  mexc: async (b, tf, since, maxPages) => {
     let all = [], start = since, pages = 0;
-    while (pages++ < 40) {
+    while (pages++ < (maxPages || 40)) {
       const j = await getJSON('https://api.mexc.com/api/v3/klines?symbol=' + b + 'USDT&interval=' + (tf === '1h' ? '60m' : tf) + '&startTime=' + start + '&limit=1000', 20000);
       if (!Array.isArray(j)) throw new Error('mexc');
       if (!j.length) break;
@@ -2304,11 +2384,11 @@ const DEEP = {
     return all;
   }
 };
-async function deepCandles(sym, tf, sinceMs) {
+async function deepCandles(sym, tf, sinceMs, maxPages) {
   let lastErr = new Error('no source');
   for (const id of ['binance', 'mexc']) {
     try {
-      const a = normalize(await DEEP[id](sym, tf, sinceMs));
+      const a = normalize(await DEEP[id](sym, tf, sinceMs, maxPages));
       if (a.length >= 400 && sane(a)) return a;
       lastErr = new Error(id + ': bad data');
     } catch (e) { lastErr = new Error(id + ': ' + (e && e.message ? e.message : 'error')); }
@@ -2336,6 +2416,7 @@ async function runReplay(state, now, budgetMs) {
   const rvd = { tr: { base: [], s3: [], sc: [], gate: [], gl: [], glr: [] }, nb: { t: [], l: [], s: [] } };
   const rngA = { tr: { rng: [], rngR: [], mir: [], mirR: [] }, nb: { t: [], l: [], s: [] } };
   const tfA = { '1h': { tr: { s3: [], glr: [] }, nb: { t: [], l: [], s: [] }, n: 0 }, '1d': { tr: { s3: [], glr: [] }, nb: { t: [], l: [], s: [] }, n: 0 } };
+  const tdA = { tr: { a4: [], a1: [], a15: [], m4: [], m1: [], m15: [] }, risk: { a4: [], a1: [], a15: [] }, n: 0 };
   const splitT = Date.UTC(CONFIG.reversionSplitYear, 0, 1);
   const tfAdd = (k, rt, sym) => { const A = tfA[k]; for (const r of rt.tr) A.tr.s3.push([r[0], r[1], r[2], sym]); for (const r of rt.trR) A.tr.glr.push([r[0], r[1], r[2], sym]); for (let q = 0; q < rt.nb.t.length; q++) { A.nb.t.push(rt.nb.t[q]); A.nb.l.push(rt.nb.l[q]); A.nb.s.push(rt.nb.s[q]); } A.n++; };
   await Promise.all(syms.map((sym) => limited(async () => {
@@ -2388,6 +2469,20 @@ async function runReplay(state, now, budgetMs) {
           tfAdd('1h', TA.revTf(c1h.slice(0, -1), { cost: CONFIG.reversionCostPct, splitT }), sym);
         }
       } catch (e) { /* ۱ ساعته نیومد؛ ۴ ساعته و ۱ روزه ادامه دارن */ }
+      try {   // top-down: فقط چند ارز اول، فقط توی replay دستی (۱۵ دقیقه‌ای سنگینه)، و فقط اگه وقت مونده
+        const bud = budgetMs || CONFIG.replayBudgetMs || 0;
+        if (deep && bud >= 300000 && syms.indexOf(sym) < (CONFIG.tdCoins || 8) && Date.now() - t0 < bud * 0.5) {
+          const tdFrom = Date.parse(CONFIG.tdFrom) || Date.parse('2023-07-01');
+          const [h1, m15] = await Promise.all([deepCandles(sym, '1h', tdFrom - 20 * 864e5, 60), deepCandles(sym, '15m', tdFrom - 5 * 864e5, 140)]);
+          const td = TA.topDown({ c4: c4.slice(0, -1), c1d: c1.slice(0, -1), c1h: h1.slice(0, -1), c15: m15.slice(0, -1) }, { cost: CONFIG.reversionCostPct, fromT: tdFrom });
+          const nm = { '4h': '4', '1h': '1', '15m': '15' };
+          for (const k of Object.keys(td.rows)) {
+            for (const r of td.rows[k]) { tdA.tr['a' + nm[k]].push([r[0], r[1], r[2], sym]); tdA.risk['a' + nm[k]].push(r[3]); }
+            for (const r of td.mir[k]) tdA.tr['m' + nm[k]].push([r[0], r[1], r[2], sym]);
+          }
+          tdA.n++;
+        }
+      } catch (e) { /* top-down نباید بقیه‌ی بازپخش رو خراب کنه */ }
       if (out.day) {
         dayAgg.days += out.day.days; dayAgg.flat += out.day.flat;
         for (const [y, v] of Object.entries(out.day.yr)) { const q = dayAgg.yr[y] || (dayAgg.yr[y] = { n: 0, hit: 0, exp: 0, nu: 0, hu: 0, nd: 0, hd: 0 }); for (const k of Object.keys(q)) q[k] += v[k]; }
@@ -2457,6 +2552,14 @@ async function runReplay(state, now, budgetMs) {
     state.replay.tfr = {};
     for (const k of Object.keys(tfA)) if (tfA[k].n) { const sm = TA.revDeepSummary(tfA[k], { split: CONFIG.reversionSplitYear, trials: 300, keys: ['s3', 'glr'] }); sm.nCoins = tfA[k].n; state.replay.tfr[k] = sm; }
   } catch (e) { log('خلاصه‌ی تست تایم‌فریم نشد: ' + e.message); }
+  try {
+    if (tdA.n) {
+      const sm = TA.revDeepSummary({ tr: tdA.tr, nb: { t: [], l: [], s: [] } }, { split: CONFIG.tdSplitYear, trials: 1, keys: ['a4', 'a1', 'a15', 'm4', 'm1', 'm15'] });
+      const med = (a) => { if (!a.length) return null; const b = a.slice().sort((x, y) => x - y); return +b[Math.floor(b.length / 2)].toFixed(2); };
+      sm.nCoins = tdA.n; sm.from = CONFIG.tdFrom; sm.med = { a4: med(tdA.risk.a4), a1: med(tdA.risk.a1), a15: med(tdA.risk.a15) };
+      state.replay.td = sm;
+    }
+  } catch (e) { log('خلاصه‌ی تست top-down نشد: ' + e.message); }
   try { state.replay.rvd = TA.revDeepSummary(rvd, { split: CONFIG.reversionSplitYear, trials: 300 }); } catch (e) { log('خلاصه‌ی تست عمیق بازگشت نشد: ' + e.message); }
   console.log('بازپخش تاریخی: ' + nCoins + ' ارز، ' + (Date.now() - t0) + ' میلی‌ثانیه' + (shallow.length ? '، فقط تاریخچه‌ی کوتاه برای: ' + shallow.join(',') : '') + (failedCoins.length ? '، بدون داده: ' + failedCoins.join(',') : '') + (skipped.length ? '، رد شده (کمبود زمان): ' + skipped.join(',') : ''));
   saveState(state); // نتیجه‌ی بازپخش حتماً ذخیره بشه حتی اگه ادامه‌ی اجرا خطا بده
@@ -2499,6 +2602,16 @@ function tfBlocks(rp) {
     const cnt = Object.keys(T).map((k) => k + ': ' + T[k].nCoins + ' ارز').join(' · ');
     B.push(pass.length ? '✅ ' + pass.join(' و ') + ' معیارها رو پاس کرد (تست ≥ +0.1R، t روزانه ≥ ۲.۵ چون چند تایم‌فریم امتحان شد، آموزش مثبت، p ≤ ۰٫۰۵). فقط سرنخه؛ باید زنده دنبال بشه.' : '❌ هیچ‌کدوم از تایم‌فریم‌ها معیارهای ثابت (تست ≥ +0.1R، t روزانه ≥ ۲.۵، آموزش مثبت، p ≤ ۰٫۰۵) رو کامل پاس نکرد. ' + cnt);
     B.push('<i>۱ ساعته از ' + esc(CONFIG.tf1hFrom) + ' (تاریخچه‌ی کوتاه‌تر، آموزش کمتر) و ۱ روزه از ۲۰۲۰. خروج ۶ کندل یعنی ۶ ساعت برای ۱ ساعته و ۶ روز برای ۱ روزه؛ قانون عمداً بدون تغییر موند. چون ۲ تایم‌فریم امتحان شد، یه نتیجه‌ی خوب شانسی‌تر از قبله و معیار t-day رو سخت‌تر گرفتیم.</i>');
+  }
+  const D = rp.td;
+  if (D && D.v && D.v.a4) {
+    B.push('🪜 <b>تست top-down و تایم‌فریم ورود</b> — جهت روزانه (EMA50 در برابر EMA200) ← پولبک ۴ ساعته به EMA20 هم‌جهت روند ← فقط محل ورود فرق می‌کنه: ۴ ساعته (باز شدن کندل بعد)، ۱ ساعته یا ۱۵ دقیقه (اولین کندلی که بالاتر/پایین‌تر از ۳ کندل قبل می‌بنده)؛ حد ضرر پشت سوینگ همون تایم‌فریم، هدف 2R، خروج ۲۴ ساعته؛ بعد از کارمزد؛ ' + D.nCoins + ' ارز از ' + esc(D.from) + '؛ آموزش قبل و تست پنهان از ' + D.split);
+    const nm = [['a4', 'entry 4h'], ['a1', 'entry 1h'], ['a15', 'entry 15m'], ['m4', 'mirror 4h'], ['m1', 'mirror 1h'], ['m15', 'mirror 15m']];
+    B.push(pre([head].concat(nm.filter((x) => D.v[x[0]]).map((x) => rowOf(x[1], D.v[x[0]])))));
+    B.push('فاصله‌ی میانه‌ی حد ضرر (درصد قیمت): ۴ ساعته ' + (D.med.a4 != null ? D.med.a4 + '٪' : '-') + ' · ۱ ساعته ' + (D.med.a1 != null ? D.med.a1 + '٪' : '-') + ' · ۱۵ دقیقه ' + (D.med.a15 != null ? D.med.a15 + '٪' : '-') + ' (کارمزد ۰٫۱۵٪ نسبت به حد ضرر کوچک‌تر سنگین‌تره).');
+    const okV = ['a4', 'a1', 'a15'].filter((k) => { const v = D.v[k], m = D.v['m' + k.slice(1)]; return v && m && v.te.n >= 100 && v.te.m >= 0.1 && v.tc >= 2.5 && v.tr.m > 0 && v.te.m > m.te.m + 0.05; });
+    B.push(okV.length ? '✅ ' + okV.map((k) => ({ a4: '۴ ساعته', a1: '۱ ساعته', a15: '۱۵ دقیقه' }[k])).join(' و ') + ' معیارها رو پاس کرد (تست ≥ +0.1R، t روزانه ≥ ۲.۵ چون ۳ تایم‌فریم امتحان شد، آموزش مثبت، بهتر از آینه‌ای). فقط سرنخه؛ باید زنده دنبال بشه.' : '❌ هیچ‌کدوم از سه تایم‌فریم ورود معیارهای ثابت (تست ≥ +0.1R، t روزانه ≥ ۲.۵، آموزش مثبت، بهتر از آینه‌ای) رو کامل پاس نکرد؛ پس «بهترین تایم‌فریم ورود» که ارزش اعتماد داشته باشه پیدا نشد. اگه یکی کمی بالاتر از بقیه بود، فقط تفاوت نمونه و شانسه.');
+    B.push('<i>mirror همون معامله‌ی خلافِ جهت با همون حد ضرر و هدفه (معیار مقایسه). فقط یک قانون ثابت اجرا شده و فقط محل ورود عوض شده. هر معامله روی هر ارز یکی‌یکی و بدون هم‌پوشانی. داده‌ی ۱۵ دقیقه‌ای کوتاه‌تره، پس آموزش کوچک‌تر از بقیه‌ی تست‌هاست.</i>');
   }
   return B;
 }
@@ -3718,6 +3831,15 @@ async function main() {
         const sm1 = TA.revDeepSummary({ tr: { s3: rt.tr.map((r) => [r[0], r[1], r[2], 'X']), glr: rt.trR.map((r) => [r[0], r[1], r[2], 'X']) }, nb: rt.nb }, { split: new Date(T0 + 700 * H4).getUTCFullYear(), trials: 30, keys: ['s3', 'glr'] });
         sm1.nCoins = 1;
         const sm2 = TA.revDeepSummary({ tr: { rng: rg.rng.map((r) => [r[0], r[1], r[2], 'X']), rngR: rg.rngR.map((r) => [r[0], r[1], r[2], 'X']), mir: rg.mir.map((r) => [r[0], r[1], r[2], 'X']), mirR: rg.mirR.map((r) => [r[0], r[1], r[2], 'X']) }, nb: { t: [], l: [], s: [] } }, { split: new Date(T0 + 700 * H4).getUTCFullYear(), trials: 1, keys: ['rng', 'rngR', 'mir', 'mirR'] });
+        { const mk15 = []; let q15 = 100, sd2 = 3; const r2 = () => { sd2 = (sd2 * 1103515245 + 12345) & 0x7fffffff; return sd2 / 2147483648; };
+          for (let k = 0; k < 96 * 700; k++) { const o = q15, c = o * (1 + Math.sin(k / 5000) * 0.0004 + (r2() - 0.5) * 0.004); mk15.push({ t: T0 + k * 9e5, o, h: Math.max(o, c) * 1.001, l: Math.min(o, c) * 0.999, c, v: 1 }); q15 = c; }
+          const aggr = (a, m) => { const o = []; for (let k = 0; k + m <= a.length; k += m) { const sl = a.slice(k, k + m); o.push({ t: sl[0].t, o: sl[0].o, h: Math.max(...sl.map((x) => x.h)), l: Math.min(...sl.map((x) => x.l)), c: sl[m - 1].c, v: 1 }); } return o; };
+          const td = TA.topDown({ c4: aggr(mk15, 16), c1d: aggr(mk15, 96), c1h: aggr(mk15, 4), c15: mk15 }, { cost: 0.15, fromT: T0 + 300 * 864e5 });
+          { const trs = {}; for (const k of Object.keys(td.rows)) { const n = k === '4h' ? '4' : k === '1h' ? '1' : '15'; trs['a' + n] = td.rows[k].map((r) => [r[0], r[1], r[2], 'X']); trs['m' + n] = td.mir[k].map((r) => [r[0], r[1], r[2], 'X']); }
+            const smT = TA.revDeepSummary({ tr: trs, nb: { t: [], l: [], s: [] } }, { split: new Date(T0 + 400 * 864e5).getUTCFullYear(), trials: 1, keys: ['a4', 'a1', 'a15', 'm4', 'm1', 'm15'] });
+            smT.nCoins = 1; smT.from = '2023-07-01'; smT.med = { a4: 0.4, a1: 0.7, a15: 0.4 };
+            const tbT = tfBlocks({ td: smT }).join('\n'); chk('topdown-block', [tbT.includes('entry 15m'), tbT.includes('mirror 4h')], [true, true]); }
+          chk('topdown-runs', [Object.keys(td.rows).join(','), td.rows['4h'].length > 3, td.rows['4h'].length === td.mir['4h'].length, td.rows['15m'].length > 3, td.rows['4h'].every((r) => Number.isFinite(r[1]) && r[3] > 0)], ['4h,1h,15m', true, true, true, true]); }
         const tb = tfBlocks({ rng: sm2, tfr: { '1d': sm1 } });
         chk('tf-blocks', [tb.length > 3, tb.join('').includes('range-R'), tb.join('').includes('1d')], [true, true, true]);
         const sb = scnBlocks({ scn: { open: [{ sym: 'X', dir: 1, t: Date.now() - 80 * HOUR, mode: 'now', str: 'medium', entry: 1, stop: 0.9, tp1: 1.2, p: 'OTT', a: '111', R: null }], done: ['X|1|' + (Date.now() - 300 * HOUR) + '|pend|strong|VSS|011|-1'], seen: {} } });
