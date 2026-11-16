@@ -10016,6 +10016,55 @@
       "openedAt": 1794773728998,
       "lastPx": 58.39,
       "lastT": 1794787200000
+    },
+    {
+      "id": "ZEC|1794791726509",
+      "sym": "ZEC",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 890.68,
+      "zoneLo": 890.68,
+      "zoneHi": 912.6299501813405,
+      "stop": 955.5099651269384,
+      "tp1": 795.045,
+      "tp2": 667.9024999999999,
+      "rr1": 1.4751666118089783,
+      "rr2": 3.4363353360409343,
+      "t": 1794791726509,
+      "validUntil": 1795396526509,
+      "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": null,
+      "bg": -1,
+      "m1": true,
+      "al": "3/3",
+      "sh": {
+        "2": {
+          "dir": -1,
+          "mode": "now",
+          "entry": 890.68,
+          "stop": 1020.3399302538768,
+          "tp1": 795.045,
+          "tp2": 667.9024999999999,
+          "t": 1794791726509,
+          "validUntil": 1795396526509,
+          "status": "open"
+        },
+        "1.5": {
+          "dir": -1,
+          "mode": "now",
+          "entry": 890.68,
+          "stop": 987.9249476904076,
+          "tp1": 795.045,
+          "tp2": 667.9024999999999,
+          "t": 1794791726509,
+          "validUntil": 1795396526509,
+          "status": "open"
+        }
+      }
     }
   ],
   "outlooks": [
@@ -13043,8 +13092,8 @@
     },
     "ZEC": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-11-10T14:30:40.884Z"
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-11-16T01:15:26.509Z"
     },
     "PONS": {
       "decision": "short",
@@ -13545,22 +13594,22 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-16T01:00:43.834Z",
-    "universe": 44,
+    "t": "2026-11-16T01:15:26.509Z",
+    "universe": 43,
     "analyzed": 20,
     "signals": [
       "UNI (فروش)",
       "ARB (فروش)",
       "TAO (فروش)",
-      "ADA (فروش)",
       "SUI (فروش)",
-      "XCRCL (فروش)",
-      "ONDO (فروش)",
       "DOGE (فروش)",
-      "LINK (فروش)"
+      "ONDO (فروش)",
+      "LINK (فروش)",
+      "ZEC (فروش)",
+      "AVAX (فروش)"
     ]
   },
-  "lastFull": "2026-11-16T01:00:43.834Z",
+  "lastFull": "2026-11-16T01:15:26.509Z",
   "lastDaily": "2026-11-15",
   "lastWeekly": "2026-11-09",
   "replay": {
