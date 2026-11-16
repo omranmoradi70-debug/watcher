@@ -13207,8 +13207,8 @@
       "lastAlert": "2026-11-01T17:24:38.135Z"
     },
     "XSNDK": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-13T18:12:00.071Z"
     },
     "HBAR": {
@@ -13545,18 +13545,19 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-16T00:00:49.824Z",
-    "universe": 44,
+    "t": "2026-11-16T00:15:38.762Z",
+    "universe": 43,
     "analyzed": 20,
     "signals": [
       "UNI (فروش)",
+      "NIGHT (خرید)",
       "ARB (فروش)",
-      "XCRCL (فروش)",
       "LINK (فروش)",
-      "NIGHT (خرید)"
+      "XCRCL (فروش)",
+      "ONDO (فروش)"
     ]
   },
-  "lastFull": "2026-11-16T00:00:49.824Z",
+  "lastFull": "2026-11-16T00:15:38.762Z",
   "lastDaily": "2026-11-15",
   "lastWeekly": "2026-11-09",
   "replay": {
@@ -22045,15 +22046,15 @@
           },
           "AVAX": {
             "dir": 1,
-            "entry": 8.5582,
-            "szi": 2239.41,
-            "usd": 16342,
+            "entry": 7.5093,
+            "szi": 4644.09,
+            "usd": 33612,
             "maxUsd": 954908,
             "lev": 10,
             "t": 1794252191847,
             "pre": false,
-            "adds": 9,
-            "down": 1,
+            "adds": 10,
+            "down": 2,
             "sl": null,
             "tp": null
           },
@@ -22801,14 +22802,14 @@
           },
           "SPX": {
             "dir": 1,
-            "entry": 0.2987,
-            "szi": 49681.8,
-            "usd": 15020,
+            "entry": 0.29918,
+            "szi": 55525.8,
+            "usd": 16709,
             "maxUsd": 18979,
             "lev": 5,
             "t": 1794697039785,
             "pre": false,
-            "adds": 1,
+            "adds": 2,
             "down": 0,
             "sl": null,
             "tp": null
@@ -23026,8 +23027,8 @@
           "STBL": {
             "dir": -1,
             "entry": 0.019804,
-            "szi": 114156,
-            "usd": 2278,
+            "szi": 82843,
+            "usd": 1649,
             "maxUsd": 3381,
             "lev": 3,
             "t": 1794763401700,
@@ -23398,8 +23399,8 @@
           "NEAR": {
             "dir": 1,
             "entry": 3.04607,
-            "szi": 516156.4,
-            "usd": 1629113,
+            "szi": 455116.5,
+            "usd": 1449865,
             "maxUsd": 1799644,
             "lev": 10,
             "t": 1794636720593,
@@ -23439,21 +23440,21 @@
           },
           "ZEC": {
             "dir": -1,
-            "entry": 910.7914,
-            "szi": 705.32,
-            "usd": 644155,
-            "maxUsd": 644155,
+            "entry": 910.994,
+            "szi": 786.57,
+            "usd": 713136,
+            "maxUsd": 713136,
             "lev": 10,
             "t": 1794735659697,
             "pre": false,
-            "adds": 7,
+            "adds": 8,
             "down": 1,
             "sl": null,
             "tp": null
           }
         },
         "init": true,
-        "acct": 25950680,
+        "acct": 22891328,
         "since": 1793566542138,
         "name": "T7",
         "ft": [
@@ -24968,6 +24969,20 @@
             "down": 0,
             "sl": null,
             "tp": null
+          },
+          "SKR": {
+            "dir": -1,
+            "entry": 0.010583,
+            "szi": 1088,
+            "usd": 12,
+            "maxUsd": 12,
+            "lev": 3,
+            "t": 1794788138762,
+            "pre": false,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
           }
         },
         "init": true,
@@ -25034,8 +25049,8 @@
           "AVAX": {
             "dir": -1,
             "entry": 7.2677,
-            "szi": 1353.05,
-            "usd": 9871,
+            "szi": 753.05,
+            "usd": 5448,
             "maxUsd": 11300,
             "lev": 10,
             "t": 1794735659697,
@@ -25215,14 +25230,14 @@
           },
           "ONDO": {
             "dir": 1,
-            "entry": 0.309355,
-            "szi": 22909,
-            "usd": 7127,
+            "entry": 0.309098,
+            "szi": 27909,
+            "usd": 8636,
             "maxUsd": 8854,
             "lev": 10,
             "t": 1794683380008,
             "pre": false,
-            "adds": 1,
+            "adds": 2,
             "down": 1,
             "sl": null,
             "tp": null
@@ -25431,14 +25446,14 @@
           },
           "OP": {
             "dir": -1,
-            "entry": 0.098,
-            "szi": 89859,
-            "usd": 7802,
-            "maxUsd": 7802,
+            "entry": 0.09572,
+            "szi": 99432,
+            "usd": 8080,
+            "maxUsd": 8080,
             "lev": 5,
             "t": 1793566542138,
             "pre": true,
-            "adds": 15,
+            "adds": 16,
             "down": 0,
             "sl": null,
             "tp": null
@@ -26006,8 +26021,8 @@
           "JUP": {
             "dir": -1,
             "entry": 0.257559,
-            "szi": 225940,
-            "usd": 60089,
+            "szi": 194150,
+            "usd": 51604,
             "maxUsd": 165785,
             "lev": 10,
             "t": 1793566542138,
@@ -26118,8 +26133,8 @@
           "ETC": {
             "dir": 1,
             "entry": 7.0203,
-            "szi": 403.71,
-            "usd": 2411,
+            "szi": 362.04,
+            "usd": 2166,
             "maxUsd": 37098,
             "lev": 5,
             "t": 1793609426474,
@@ -26355,14 +26370,14 @@
           },
           "POPCAT": {
             "dir": 1,
-            "entry": 0.027438,
-            "szi": 5554,
-            "usd": 155,
-            "maxUsd": 176,
+            "entry": 0.028388,
+            "szi": 39120,
+            "usd": 1114,
+            "maxUsd": 1114,
             "lev": 3,
             "t": 1794697039785,
             "pre": false,
-            "adds": 1,
+            "adds": 2,
             "down": 0,
             "sl": null,
             "tp": null
@@ -27181,14 +27196,14 @@
           },
           "LIT": {
             "dir": -1,
-            "entry": 3.176652,
-            "szi": 6445,
-            "usd": 18424,
+            "entry": 3.142658,
+            "szi": 7097,
+            "usd": 19946,
             "maxUsd": 98907,
             "lev": 5,
             "t": 1793566542138,
             "pre": true,
-            "adds": 6,
+            "adds": 7,
             "down": 5,
             "sl": null,
             "tp": null
@@ -27746,7 +27761,7 @@
           }
         },
         "init": true,
-        "acct": 195525,
+        "acct": 176011,
         "since": 1793566542138,
         "name": "T14",
         "ft": [
