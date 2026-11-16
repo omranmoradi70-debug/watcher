@@ -13690,8 +13690,8 @@
       "lastAlert": null
     },
     "ZEC": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-16T01:15:26.509Z"
     },
     "PONS": {
@@ -14198,19 +14198,17 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-16T20:30:44.141Z",
+    "t": "2026-11-16T20:45:32.772Z",
     "universe": 47,
     "analyzed": 20,
     "signals": [
       "XNVDA (فروش)",
       "ZRO (فروش)",
-      "OKB (فروش)",
       "PUMP (فروش)",
-      "XCRCL (فروش)",
       "XLM (فروش)"
     ]
   },
-  "lastFull": "2026-11-16T20:30:44.141Z",
+  "lastFull": "2026-11-16T20:45:32.772Z",
   "lastDaily": "2026-11-16",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -21521,8 +21519,8 @@
           "XMR": {
             "dir": -1,
             "entry": 611.876,
-            "szi": 4343.693,
-            "usd": 2157247,
+            "szi": 2993.693,
+            "usd": 1480142,
             "maxUsd": 5008253,
             "lev": 3,
             "t": 1793566542138,
@@ -21548,7 +21546,7 @@
           }
         },
         "init": true,
-        "acct": 867324,
+        "acct": 639956,
         "since": 1793566542138,
         "name": "T1",
         "ft": [
@@ -21572,20 +21570,6 @@
             "szi": 52943535,
             "usd": 3087932,
             "maxUsd": 6377938,
-            "lev": 3,
-            "t": 1793566542138,
-            "pre": true,
-            "adds": 0,
-            "down": 0,
-            "sl": null,
-            "tp": null
-          },
-          "LINK": {
-            "dir": -1,
-            "entry": 12.93275,
-            "szi": 66588.1,
-            "usd": 609195,
-            "maxUsd": 2763304,
             "lev": 3,
             "t": 1793566542138,
             "pre": true,
@@ -21652,7 +21636,7 @@
           }
         },
         "init": true,
-        "acct": 3631620,
+        "acct": 3391458,
         "since": 1793566542138,
         "name": "T2",
         "ft": [
@@ -21672,7 +21656,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 1828417,
+        "acct": 2659384,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -22256,14 +22240,14 @@
         "pos": {
           "BTC": {
             "dir": 1,
-            "entry": 64910.2,
-            "szi": 79.28319,
-            "usd": 5164578,
-            "maxUsd": 5164578,
+            "entry": 64920.3,
+            "szi": 117.935,
+            "usd": 7660350,
+            "maxUsd": 7660350,
             "lev": 20,
             "t": 1794856540586,
             "pre": false,
-            "adds": 2,
+            "adds": 3,
             "down": 1,
             "sl": null,
             "tp": null
@@ -22999,8 +22983,8 @@
           "PENGU": {
             "dir": -1,
             "entry": 0.005654,
-            "szi": 37180258,
-            "usd": 181849,
+            "szi": 32532847,
+            "usd": 158663,
             "maxUsd": 417252,
             "lev": 5,
             "t": 1793566542138,
@@ -23292,14 +23276,14 @@
           },
           "STBL": {
             "dir": 1,
-            "entry": 0.020086,
-            "szi": 149864,
-            "usd": 3043,
-            "maxUsd": 3204,
+            "entry": 0.020153,
+            "szi": 165891,
+            "usd": 3387,
+            "maxUsd": 3387,
             "lev": 3,
             "t": 1794825929475,
             "pre": false,
-            "adds": 13,
+            "adds": 14,
             "down": 2,
             "sl": null,
             "tp": null
@@ -25004,7 +24988,7 @@
           }
         },
         "init": true,
-        "acct": 28526030,
+        "acct": 17637466,
         "since": 1793566542138,
         "name": "T9",
         "ft": [],
@@ -36868,6 +36852,24 @@
         "p": -17.886,
         "imp": 0,
         "lev": 5,
+        "adds": 0,
+        "down": 0,
+        "pre": true
+      },
+      {
+        "a": "0xb83de012dba672c76a7dbbbf3e459cb59d7d6e36",
+        "c": "LINK",
+        "d": -1,
+        "e": 12.93275,
+        "x": 9.1373,
+        "sl": null,
+        "tp": null,
+        "why": "manual",
+        "t0": 1793566542138,
+        "t1": 1794861932772,
+        "p": 29.278,
+        "imp": 23.855,
+        "lev": 3,
         "adds": 0,
         "down": 0,
         "pre": true
