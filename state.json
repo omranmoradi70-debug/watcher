@@ -14479,16 +14479,16 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-17T17:15:31.914Z",
+    "t": "2026-11-17T17:30:41.412Z",
     "universe": 41,
     "analyzed": 20,
     "signals": [
-      "XSOXL (فروش)",
       "XMSTR (فروش)",
-      "XNVDA (فروش)"
+      "XSOXL (فروش)",
+      "XSNDK (فروش)"
     ]
   },
-  "lastFull": "2026-11-17T17:15:31.914Z",
+  "lastFull": "2026-11-17T17:30:41.412Z",
   "lastDaily": "2026-11-17",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -21631,7 +21631,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 1336077,
+        "acct": 936173,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -22482,14 +22482,14 @@
           "APT": {
             "dir": 1,
             "entry": 0.4416,
-            "szi": 4380.84,
-            "usd": 1934,
-            "maxUsd": 1934,
+            "szi": 22463.28,
+            "usd": 9915,
+            "maxUsd": 9915,
             "lev": 10,
             "t": 1794935731914,
             "pre": false,
-            "adds": 0,
-            "down": 0,
+            "adds": 1,
+            "down": 1,
             "sl": null,
             "tp": null
           },
@@ -26339,14 +26339,14 @@
           },
           "FARTCOIN": {
             "dir": -1,
-            "entry": 0.09286,
-            "szi": 5254.2,
-            "usd": 485,
-            "maxUsd": 485,
+            "entry": 0.09133,
+            "szi": 7973.2,
+            "usd": 704,
+            "maxUsd": 704,
             "lev": 10,
             "t": 1794764729060,
             "pre": false,
-            "adds": 1,
+            "adds": 2,
             "down": 0,
             "sl": null,
             "tp": null
@@ -27110,8 +27110,8 @@
           "SOPH": {
             "dir": -1,
             "entry": 0.00132,
-            "szi": 7759706,
-            "usd": 7185,
+            "szi": 6664358,
+            "usd": 5918,
             "maxUsd": 52968,
             "lev": 3,
             "t": 1794167674277,
