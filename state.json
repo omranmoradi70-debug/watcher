@@ -10512,6 +10512,55 @@
       "lastPx": 665.07,
       "mfe": 1.496,
       "lastT": 1794920400000
+    },
+    {
+      "id": "ASTER|1794924930232",
+      "sym": "ASTER",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 0.5717,
+      "zoneLo": 0.5717,
+      "zoneHi": 0.5868656520449387,
+      "stop": 0.6211768259966745,
+      "tp1": 0.5071,
+      "tp2": 0.47545,
+      "rr1": 1.305661765860688,
+      "rr2": 1.9453551852026505,
+      "t": 1794924930232,
+      "validUntil": 1795529730232,
+      "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": null,
+      "bg": -1,
+      "m1": true,
+      "al": "3/3",
+      "sh": {
+        "2": {
+          "dir": -1,
+          "mode": "now",
+          "entry": 0.5717,
+          "stop": 0.6706536519933489,
+          "tp1": 0.5071,
+          "tp2": 0.47545,
+          "t": 1794924930232,
+          "validUntil": 1795529730232,
+          "status": "open"
+        },
+        "1.5": {
+          "dir": -1,
+          "mode": "now",
+          "entry": 0.5717,
+          "stop": 0.6459152389950117,
+          "tp1": 0.5071,
+          "tp2": 0.47545,
+          "t": 1794924930232,
+          "validUntil": 1795529730232,
+          "status": "open"
+        }
+      }
     }
   ],
   "outlooks": [
@@ -14224,8 +14273,8 @@
     },
     "ASTER": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-11-09T20:18:32.272Z"
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-11-17T14:15:30.232Z"
     },
     "EDGE": {
       "decision": "long",
@@ -14286,12 +14335,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-17T14:00:58.289Z",
-    "universe": 39,
+    "t": "2026-11-17T14:15:30.232Z",
+    "universe": 40,
     "analyzed": 20,
-    "signals": []
+    "signals": [
+      "ASTER (فروش)"
+    ]
   },
-  "lastFull": "2026-11-17T14:00:58.289Z",
+  "lastFull": "2026-11-17T14:15:30.232Z",
   "lastDaily": "2026-11-17",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -21444,7 +21495,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 19071,
+        "acct": 13894,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -21926,15 +21977,15 @@
           },
           "ZEC": {
             "dir": -1,
-            "entry": 905.5583,
-            "szi": 16630.56,
-            "usd": 15836451,
-            "maxUsd": 15836451,
+            "entry": 909.9748,
+            "szi": 18382.12,
+            "usd": 17536910,
+            "maxUsd": 17536910,
             "lev": 5,
             "t": 1794837653826,
             "pre": false,
-            "adds": 19,
-            "down": 17,
+            "adds": 20,
+            "down": 18,
             "sl": null,
             "tp": null
           },
@@ -22281,8 +22332,8 @@
           "BCH": {
             "dir": 1,
             "entry": 211.12,
-            "szi": 81.051,
-            "usd": 17279,
+            "szi": 51.98,
+            "usd": 11032,
             "maxUsd": 83160,
             "lev": 10,
             "t": 1794333949134,
@@ -22547,8 +22598,8 @@
           "kFLOKI": {
             "dir": -1,
             "entry": 0.018257,
-            "szi": 186546,
-            "usd": 3389,
+            "szi": 165007,
+            "usd": 2993,
             "maxUsd": 71957,
             "lev": 5,
             "t": 1793566542138,
@@ -22854,14 +22905,14 @@
           },
           "MORPHO": {
             "dir": 1,
-            "entry": 1.75351,
-            "szi": 6420.6,
-            "usd": 11239,
+            "entry": 1.753,
+            "szi": 7108.3,
+            "usd": 12513,
             "maxUsd": 14659,
             "lev": 5,
             "t": 1794919532481,
             "pre": false,
-            "adds": 3,
+            "adds": 4,
             "down": 3,
             "sl": null,
             "tp": null
@@ -23265,8 +23316,8 @@
           "ETH": {
             "dir": -1,
             "entry": 2557.74,
-            "szi": 1474.4487,
-            "usd": 2692933,
+            "szi": 1201.0801,
+            "usd": 2191371,
             "maxUsd": 33484219,
             "lev": 20,
             "t": 1793566542138,
@@ -25964,20 +26015,6 @@
             "t": 1793566542138,
             "pre": true,
             "adds": 3,
-            "down": 0,
-            "sl": null,
-            "tp": null
-          },
-          "HMSTR": {
-            "dir": -1,
-            "entry": 0.000138,
-            "szi": 29613,
-            "usd": 4,
-            "maxUsd": 52,
-            "lev": 3,
-            "t": 1793566542138,
-            "pre": true,
-            "adds": 0,
             "down": 0,
             "sl": null,
             "tp": null
@@ -37383,6 +37420,24 @@
         "t1": 1794924058289,
         "p": 22.424,
         "imp": 14.187,
+        "lev": 3,
+        "adds": 0,
+        "down": 0,
+        "pre": true
+      },
+      {
+        "a": "0xdf954bbe619273a56e0cfa90dad8382195dc7d72",
+        "c": "HMSTR",
+        "d": -1,
+        "e": 0.000138,
+        "x": 0.000147,
+        "sl": null,
+        "tp": null,
+        "why": "manual",
+        "t0": 1793566542138,
+        "t1": 1794924930232,
+        "p": -6.592,
+        "imp": 0,
         "lev": 3,
         "adds": 0,
         "down": 0,
