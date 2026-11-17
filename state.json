@@ -14479,16 +14479,16 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-17T17:30:41.412Z",
+    "t": "2026-11-17T17:45:31.479Z",
     "universe": 41,
     "analyzed": 20,
     "signals": [
-      "XMSTR (فروش)",
       "XSOXL (فروش)",
-      "XSNDK (فروش)"
+      "XMSTR (فروش)",
+      "XNVDA (فروش)"
     ]
   },
-  "lastFull": "2026-11-17T17:30:41.412Z",
+  "lastFull": "2026-11-17T17:45:31.479Z",
   "lastDaily": "2026-11-17",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -21631,7 +21631,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 936173,
+        "acct": 729487,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -22215,14 +22215,14 @@
         "pos": {
           "BTC": {
             "dir": -1,
-            "entry": 64511.9,
-            "szi": 213.05532,
-            "usd": 13558628,
+            "entry": 64280.6,
+            "szi": 242.80594,
+            "usd": 15483249,
             "maxUsd": 28692547,
             "lev": 20,
             "t": 1794898853163,
             "pre": false,
-            "adds": 14,
+            "adds": 15,
             "down": 7,
             "sl": null,
             "tp": null
@@ -22482,13 +22482,13 @@
           "APT": {
             "dir": 1,
             "entry": 0.4416,
-            "szi": 22463.28,
-            "usd": 9915,
-            "maxUsd": 9915,
+            "szi": 35009.76,
+            "usd": 15516,
+            "maxUsd": 15516,
             "lev": 10,
             "t": 1794935731914,
             "pre": false,
-            "adds": 1,
+            "adds": 2,
             "down": 1,
             "sl": null,
             "tp": null
@@ -23181,14 +23181,14 @@
           },
           "PUMP": {
             "dir": -1,
-            "entry": 0.002784,
-            "szi": 165976463,
-            "usd": 455771,
+            "entry": 0.002779,
+            "szi": 186668258,
+            "usd": 509978,
             "maxUsd": 843530,
             "lev": 3,
             "t": 1794697039785,
             "pre": false,
-            "adds": 14,
+            "adds": 15,
             "down": 3,
             "sl": null,
             "tp": null
@@ -23223,14 +23223,14 @@
           },
           "ASTER": {
             "dir": -1,
-            "entry": 0.556701,
-            "szi": 656435,
-            "usd": 368424,
+            "entry": 0.554521,
+            "szi": 732858,
+            "usd": 402544,
             "maxUsd": 627483,
             "lev": 3,
             "t": 1794777392897,
             "pre": false,
-            "adds": 2,
+            "adds": 3,
             "down": 1,
             "sl": null,
             "tp": null
@@ -25303,14 +25303,14 @@
           },
           "GMX": {
             "dir": -1,
-            "entry": 7.5337,
-            "szi": 1343.82,
-            "usd": 9790,
-            "maxUsd": 9790,
+            "entry": 7.5031,
+            "szi": 1478.56,
+            "usd": 10694,
+            "maxUsd": 10694,
             "lev": 3,
             "t": 1793566542138,
             "pre": true,
-            "adds": 6,
+            "adds": 7,
             "down": 0,
             "sl": null,
             "tp": null
@@ -26339,14 +26339,14 @@
           },
           "FARTCOIN": {
             "dir": -1,
-            "entry": 0.09133,
-            "szi": 7973.2,
-            "usd": 704,
-            "maxUsd": 704,
+            "entry": 0.09023,
+            "szi": 12065.2,
+            "usd": 1065,
+            "maxUsd": 1065,
             "lev": 10,
             "t": 1794764729060,
             "pre": false,
-            "adds": 2,
+            "adds": 3,
             "down": 0,
             "sl": null,
             "tp": null
@@ -27081,14 +27081,14 @@
           },
           "MOODENG": {
             "dir": -1,
-            "entry": 0.029379,
-            "szi": 76445,
-            "usd": 2298,
+            "entry": 0.028915,
+            "szi": 88380,
+            "usd": 2362,
             "maxUsd": 2602,
             "lev": 3,
             "t": 1794549842051,
             "pre": false,
-            "adds": 0,
+            "adds": 1,
             "down": 0,
             "sl": null,
             "tp": null
