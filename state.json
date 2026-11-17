@@ -10765,6 +10765,55 @@
       },
       "openedAt": 1794938449339,
       "lastPx": 5.236
+    },
+    {
+      "id": "TRUMP|1794942930715",
+      "sym": "TRUMP",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 0.957,
+      "zoneLo": 0.957,
+      "zoneHi": 0.9726107539278206,
+      "stop": 0.9899275277494745,
+      "tp1": 0.917,
+      "tp2": 0.892,
+      "rr1": 1.2147890453342138,
+      "rr2": 1.9740321986680998,
+      "t": 1794942930715,
+      "validUntil": 1795547730715,
+      "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": null,
+      "bg": -1,
+      "m1": true,
+      "al": "3/3",
+      "sh": {
+        "2": {
+          "dir": -1,
+          "mode": "now",
+          "entry": 0.957,
+          "stop": 1.0228550554989488,
+          "tp1": 0.917,
+          "tp2": 0.892,
+          "t": 1794942930715,
+          "validUntil": 1795547730715,
+          "status": "open"
+        },
+        "1.5": {
+          "dir": -1,
+          "mode": "now",
+          "entry": 0.957,
+          "stop": 1.0063912916242117,
+          "tp1": 0.917,
+          "tp2": 0.892,
+          "t": 1794942930715,
+          "validUntil": 1795547730715,
+          "status": "open"
+        }
+      }
     }
   ],
   "outlooks": [
@@ -14057,8 +14106,8 @@
     },
     "TRUMP": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-11-03T01:44:32.823Z"
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-11-17T19:15:30.715Z"
     },
     "FIL": {
       "decision": "short",
@@ -14544,16 +14593,18 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-17T19:00:50.555Z",
+    "t": "2026-11-17T19:15:30.715Z",
     "universe": 39,
     "analyzed": 20,
     "signals": [
       "XMSTR (فروش)",
-      "XNVDA (فروش)",
-      "LINK (فروش)"
+      "XSOXL (فروش)",
+      "XSNDK (فروش)",
+      "TRUMP (فروش)",
+      "HYPE (فروش)"
     ]
   },
-  "lastFull": "2026-11-17T19:00:50.555Z",
+  "lastFull": "2026-11-17T19:15:30.715Z",
   "lastDaily": "2026-11-17",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -21676,7 +21727,7 @@
           }
         },
         "init": true,
-        "acct": 932913,
+        "acct": 874929,
         "since": 1793566542138,
         "name": "T2",
         "ft": [
@@ -21968,14 +22019,14 @@
           },
           "NEAR": {
             "dir": -1,
-            "entry": 3.2024,
-            "szi": 27004,
-            "usd": 85457,
-            "maxUsd": 85457,
+            "entry": 3.19968,
+            "szi": 30641.6,
+            "usd": 97612,
+            "maxUsd": 97612,
             "lev": 10,
             "t": 1794899731734,
             "pre": false,
-            "adds": 4,
+            "adds": 5,
             "down": 1,
             "sl": null,
             "tp": null
@@ -23107,8 +23158,8 @@
           "MORPHO": {
             "dir": -1,
             "entry": 1.73002,
-            "szi": 1744.7,
-            "usd": 3010,
+            "szi": 1457.4,
+            "usd": 2530,
             "maxUsd": 3997,
             "lev": 5,
             "t": 1794933045274,
