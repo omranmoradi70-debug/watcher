@@ -13756,7 +13756,7 @@
       "lastAlert": "2026-11-10T18:05:49.134Z"
     },
     "PEPE": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-08T09:17:34.600Z"
     },
@@ -14204,7 +14204,7 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-17T03:00:58.205Z",
+    "t": "2026-11-17T03:15:34.261Z",
     "universe": 41,
     "analyzed": 20,
     "signals": [
@@ -14212,12 +14212,11 @@
       "XSNDK (فروش)",
       "XNVDA (فروش)",
       "WLD (فروش)",
-      "XCRCL (فروش)",
-      "SHIB (فروش)",
-      "SUI (فروش)"
+      "AVAX (فروش)",
+      "XCRCL (فروش)"
     ]
   },
-  "lastFull": "2026-11-17T03:00:58.205Z",
+  "lastFull": "2026-11-17T03:15:34.261Z",
   "lastDaily": "2026-11-16",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -21384,7 +21383,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 3550229,
+        "acct": 3046397,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -21755,8 +21754,8 @@
           "HYPE": {
             "dir": 1,
             "entry": 66.9653,
-            "szi": 1301.28,
-            "usd": 89548,
+            "szi": 1025.36,
+            "usd": 70773,
             "maxUsd": 2934684,
             "lev": 5,
             "t": 1794764729060,
@@ -22543,8 +22542,8 @@
           "POPCAT": {
             "dir": -1,
             "entry": 0.049685,
-            "szi": 1132915,
-            "usd": 32248,
+            "szi": 826308,
+            "usd": 23308,
             "maxUsd": 310090,
             "lev": 3,
             "t": 1793566542138,
@@ -25419,16 +25418,16 @@
             "tp": null
           },
           "JUP": {
-            "dir": 1,
-            "entry": 0.254971,
-            "szi": 2518,
-            "usd": 610,
-            "maxUsd": 1260,
+            "dir": -1,
+            "entry": 0.243293,
+            "szi": 951,
+            "usd": 231,
+            "maxUsd": 231,
             "lev": 10,
-            "t": 1794831332753,
+            "t": 1794885334261,
             "pre": false,
-            "adds": 1,
-            "down": 1,
+            "adds": 0,
+            "down": 0,
             "sl": null,
             "tp": null
           },
@@ -26078,15 +26077,15 @@
           },
           "AIXBT": {
             "dir": -1,
-            "entry": 0.012824,
-            "szi": 37448,
-            "usd": 479,
-            "maxUsd": 479,
+            "entry": 0.012837,
+            "szi": 46768,
+            "usd": 605,
+            "maxUsd": 605,
             "lev": 3,
             "t": 1793566542138,
             "pre": true,
-            "adds": 6,
-            "down": 1,
+            "adds": 7,
+            "down": 2,
             "sl": null,
             "tp": null
           },
@@ -26652,29 +26651,29 @@
           },
           "CHIP": {
             "dir": -1,
-            "entry": 0.03842,
-            "szi": 542435,
-            "usd": 14793,
+            "entry": 0.037088,
+            "szi": 603376,
+            "usd": 16633,
             "maxUsd": 25559,
             "lev": 3,
             "t": 1793566542138,
             "pre": true,
-            "adds": 6,
+            "adds": 7,
             "down": 0,
             "sl": null,
             "tp": null
           },
           "GRAM": {
             "dir": 1,
-            "entry": 1.107111,
-            "szi": 14403,
-            "usd": 15146,
-            "maxUsd": 15146,
+            "entry": 1.100699,
+            "szi": 16121,
+            "usd": 16753,
+            "maxUsd": 16753,
             "lev": 5,
             "t": 1794396838437,
             "pre": false,
-            "adds": 9,
-            "down": 8,
+            "adds": 10,
+            "down": 9,
             "sl": null,
             "tp": null
           },
@@ -37051,6 +37050,24 @@
         "adds": 9,
         "down": 5,
         "pre": true
+      },
+      {
+        "a": "0xdf954bbe619273a56e0cfa90dad8382195dc7d72",
+        "c": "JUP",
+        "d": 1,
+        "e": 0.254971,
+        "x": 0.24316,
+        "sl": null,
+        "tp": null,
+        "why": "manual",
+        "t0": 1794831332753,
+        "t1": 1794885334261,
+        "p": -4.702,
+        "imp": -0.001,
+        "lev": 10,
+        "adds": 1,
+        "down": 1,
+        "pre": false
       }
     ],
     "disc": "2026-11-10T10:04:44.177Z",
