@@ -14284,16 +14284,17 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-17T07:30:45.326Z",
+    "t": "2026-11-17T07:45:40.040Z",
     "universe": 42,
     "analyzed": 20,
     "signals": [
       "XSOXL (فروش)",
       "XSNDK (فروش)",
-      "XNVDA (فروش)"
+      "XNVDA (فروش)",
+      "GRAM (فروش)"
     ]
   },
-  "lastFull": "2026-11-17T07:30:45.326Z",
+  "lastFull": "2026-11-17T07:45:40.040Z",
   "lastDaily": "2026-11-17",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -21830,14 +21831,14 @@
           },
           "HYPE": {
             "dir": -1,
-            "entry": 69.6815,
-            "szi": 913.74,
-            "usd": 63744,
-            "maxUsd": 63744,
+            "entry": 69.5641,
+            "szi": 2443.47,
+            "usd": 169486,
+            "maxUsd": 169486,
             "lev": 5,
             "t": 1794899731734,
             "pre": false,
-            "adds": 1,
+            "adds": 2,
             "down": 1,
             "sl": null,
             "tp": null
@@ -22044,14 +22045,14 @@
         "pos": {
           "BTC": {
             "dir": -1,
-            "entry": 64640.7,
-            "szi": 68.91017,
-            "usd": 4456559,
-            "maxUsd": 4456559,
+            "entry": 64637.6,
+            "szi": 78.46201,
+            "usd": 5065037,
+            "maxUsd": 5065037,
             "lev": 20,
             "t": 1794898853163,
             "pre": false,
-            "adds": 2,
+            "adds": 3,
             "down": 1,
             "sl": null,
             "tp": null
