@@ -14375,7 +14375,7 @@
       "lastAlert": "2026-11-16T02:45:33.947Z"
     },
     "XSNDK": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-16T05:45:58.762Z"
     },
@@ -14728,15 +14728,15 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-18T02:30:38.779Z",
-    "universe": 45,
+    "t": "2026-11-18T02:45:32.331Z",
+    "universe": 44,
     "analyzed": 20,
     "signals": [
       "ZRO (فروش)",
-      "XMSTR (فروش)"
+      "XAUT (فروش)"
     ]
   },
-  "lastFull": "2026-11-18T02:30:38.779Z",
+  "lastFull": "2026-11-18T02:45:32.331Z",
   "lastDaily": "2026-11-17",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -21864,7 +21864,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 16256,
+        "acct": 22314,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -23261,8 +23261,8 @@
           "SPX": {
             "dir": 1,
             "entry": 0.30177,
-            "szi": 45270.3,
-            "usd": 14479,
+            "szi": 39284.7,
+            "usd": 12341,
             "maxUsd": 34221,
             "lev": 5,
             "t": 1794697039785,
@@ -23275,8 +23275,8 @@
           "MORPHO": {
             "dir": -1,
             "entry": 1.7539,
-            "szi": 3812.3,
-            "usd": 6646,
+            "szi": 956.8,
+            "usd": 1669,
             "maxUsd": 8751,
             "lev": 5,
             "t": 1794933045274,
@@ -25298,14 +25298,14 @@
           },
           "DYDX": {
             "dir": -1,
-            "entry": 0.08582,
-            "szi": 109570.3,
-            "usd": 8240,
-            "maxUsd": 8240,
+            "entry": 0.08534,
+            "szi": 122841.3,
+            "usd": 9997,
+            "maxUsd": 9997,
             "lev": 5,
             "t": 1793566542138,
             "pre": true,
-            "adds": 5,
+            "adds": 6,
             "down": 1,
             "sl": null,
             "tp": null
@@ -26881,8 +26881,8 @@
           "PROVE": {
             "dir": 1,
             "entry": 0.169207,
-            "szi": 7416,
-            "usd": 1059,
+            "szi": 6577,
+            "usd": 938,
             "maxUsd": 1536,
             "lev": 3,
             "t": 1794590430537,
