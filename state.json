@@ -14335,8 +14335,8 @@
       "lastAlert": "2026-11-09T01:41:59.875Z"
     },
     "XLM": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-15T20:00:43.578Z"
     },
     "XINTC": {
@@ -14673,14 +14673,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-18T00:00:49.361Z",
-    "universe": 46,
+    "t": "2026-11-18T00:15:36.191Z",
+    "universe": 45,
     "analyzed": 20,
     "signals": [
       "ZRO (فروش)"
     ]
   },
-  "lastFull": "2026-11-18T00:00:49.361Z",
+  "lastFull": "2026-11-18T00:15:36.191Z",
   "lastDaily": "2026-11-17",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -22532,15 +22532,15 @@
           },
           "SUI": {
             "dir": -1,
-            "entry": 0.72545,
-            "szi": 516496.5,
-            "usd": 372032,
+            "entry": 0.72698,
+            "szi": 569363.2,
+            "usd": 418755,
             "maxUsd": 927770,
             "lev": 10,
             "t": 1794054689837,
             "pre": false,
-            "adds": 34,
-            "down": 13,
+            "adds": 35,
+            "down": 14,
             "sl": null,
             "tp": null
           },
@@ -22644,15 +22644,15 @@
           },
           "BCH": {
             "dir": -1,
-            "entry": 208.937,
-            "szi": 93.287,
-            "usd": 19559,
-            "maxUsd": 19559,
+            "entry": 209.295,
+            "szi": 106.314,
+            "usd": 22500,
+            "maxUsd": 22500,
             "lev": 10,
             "t": 1794928532198,
             "pre": false,
-            "adds": 8,
-            "down": 1,
+            "adds": 9,
+            "down": 2,
             "sl": null,
             "tp": null
           },
@@ -22910,15 +22910,15 @@
           },
           "kFLOKI": {
             "dir": 1,
-            "entry": 0.018185,
-            "szi": 59751,
-            "usd": 1088,
-            "maxUsd": 1088,
+            "entry": 0.018183,
+            "szi": 71569,
+            "usd": 1299,
+            "maxUsd": 1299,
             "lev": 5,
             "t": 1794954644121,
             "pre": false,
-            "adds": 6,
-            "down": 1,
+            "adds": 7,
+            "down": 2,
             "sl": null,
             "tp": null
           },
@@ -25271,8 +25271,8 @@
           "AVAX": {
             "dir": 1,
             "entry": 8.4036,
-            "szi": 4981.48,
-            "usd": 34982,
+            "szi": 4340.48,
+            "usd": 31531,
             "maxUsd": 78787,
             "lev": 10,
             "t": 1794480552791,
@@ -26586,14 +26586,14 @@
           },
           "MORPHO": {
             "dir": -1,
-            "entry": 1.84047,
-            "szi": 42387,
-            "usd": 73058,
-            "maxUsd": 73058,
+            "entry": 1.83066,
+            "szi": 46672.1,
+            "usd": 82120,
+            "maxUsd": 82120,
             "lev": 5,
             "t": 1793566542138,
             "pre": true,
-            "adds": 13,
+            "adds": 14,
             "down": 0,
             "sl": null,
             "tp": null
