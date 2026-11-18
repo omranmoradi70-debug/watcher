@@ -11281,6 +11281,55 @@
       "lastPx": 283.32,
       "mfe": 0.494,
       "lastT": 1795039200000
+    },
+    {
+      "id": "TAO|1795044644591",
+      "sym": "TAO",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 191.38,
+      "zoneLo": 191.38,
+      "zoneHi": 194.18293940636295,
+      "stop": 201.96205758445407,
+      "tp1": 177.73,
+      "tp2": 164.92485603886485,
+      "rr1": 1.289919270525706,
+      "rr2": 2.4999999999999987,
+      "t": 1795044644591,
+      "validUntil": 1795649444591,
+      "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": null,
+      "bg": -1,
+      "m1": true,
+      "al": "3/3",
+      "sh": {
+        "2": {
+          "dir": -1,
+          "mode": "now",
+          "entry": 191.38,
+          "stop": 212.54411516890815,
+          "tp1": 177.73,
+          "tp2": 164.92485603886485,
+          "t": 1795044644591,
+          "validUntil": 1795649444591,
+          "status": "open"
+        },
+        "1.5": {
+          "dir": -1,
+          "mode": "now",
+          "entry": 191.38,
+          "stop": 207.2530863766811,
+          "tp1": 177.73,
+          "tp2": 164.92485603886485,
+          "t": 1795044644591,
+          "validUntil": 1795649444591,
+          "status": "open"
+        }
+      }
     }
   ],
   "outlooks": [
@@ -14743,8 +14792,8 @@
     },
     "TAO": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-11-12T05:29:41.440Z"
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-11-18T23:30:44.591Z"
     },
     "WLD": {
       "decision": "short",
@@ -15150,22 +15199,22 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-18T23:15:29.904Z",
+    "t": "2026-11-18T23:30:44.591Z",
     "universe": 42,
     "analyzed": 20,
     "signals": [
       "XSNDK (فروش)",
       "LIT (فروش)",
-      "XNVDA (فروش)",
       "ENA (فروش)",
+      "XNVDA (فروش)",
       "HYPE (فروش)",
       "ZRO (فروش)",
-      "WLD (فروش)",
-      "SUI (فروش)",
-      "TRUMP (فروش)"
+      "TAO (فروش)",
+      "TRUMP (فروش)",
+      "WLD (فروش)"
     ]
   },
-  "lastFull": "2026-11-18T23:15:29.904Z",
+  "lastFull": "2026-11-18T23:30:44.591Z",
   "lastDaily": "2026-11-18",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -23436,14 +23485,14 @@
           },
           "ENA": {
             "dir": -1,
-            "entry": 0.158491,
-            "szi": 3730614,
-            "usd": 434691,
+            "entry": 0.147544,
+            "szi": 4709610,
+            "usd": 524227,
             "maxUsd": 2265441,
             "lev": 5,
             "t": 1793566542138,
             "pre": true,
-            "adds": 3,
+            "adds": 4,
             "down": 0,
             "sl": null,
             "tp": null
@@ -28276,7 +28325,7 @@
           }
         },
         "init": true,
-        "acct": 5058,
+        "acct": 5348,
         "since": 1793566542138,
         "name": "T19",
         "ft": [
@@ -28414,7 +28463,7 @@
           }
         },
         "init": true,
-        "acct": 19741,
+        "acct": 20875,
         "since": 1793566542138,
         "name": "T21",
         "ft": [
