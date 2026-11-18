@@ -14864,20 +14864,19 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-18T04:30:44.808Z",
+    "t": "2026-11-18T04:45:28.569Z",
     "universe": 44,
     "analyzed": 20,
     "signals": [
       "ZRO (فروش)",
       "LIT (فروش)",
       "XMSTR (فروش)",
-      "PUMP (فروش)",
-      "PENGU (فروش)",
       "ENA (فروش)",
+      "PENGU (فروش)",
       "XAUT (فروش)"
     ]
   },
-  "lastFull": "2026-11-18T04:30:44.808Z",
+  "lastFull": "2026-11-18T04:45:28.569Z",
   "lastDaily": "2026-11-18",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -22005,7 +22004,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 3834,
+        "acct": 12818,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -25379,7 +25378,7 @@
           }
         },
         "init": true,
-        "acct": 12217098,
+        "acct": 12829101,
         "since": 1793566542138,
         "name": "T9",
         "ft": [],
@@ -27623,14 +27622,14 @@
           },
           "MEME": {
             "dir": -1,
-            "entry": 0.000327,
-            "szi": 4010300,
-            "usd": 1279,
-            "maxUsd": 1331,
+            "entry": 0.000326,
+            "szi": 4762700,
+            "usd": 1519,
+            "maxUsd": 1519,
             "lev": 3,
             "t": 1794683380008,
             "pre": false,
-            "adds": 3,
+            "adds": 4,
             "down": 1,
             "sl": null,
             "tp": null
@@ -27665,14 +27664,14 @@
           },
           "UMA": {
             "dir": -1,
-            "entry": 0.26384,
-            "szi": 1366.2,
-            "usd": 361,
-            "maxUsd": 361,
+            "entry": 0.26212,
+            "szi": 1833.8,
+            "usd": 471,
+            "maxUsd": 471,
             "lev": 3,
             "t": 1794802528355,
             "pre": false,
-            "adds": 0,
+            "adds": 1,
             "down": 0,
             "sl": null,
             "tp": null
