@@ -14875,18 +14875,17 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-18T06:30:40.208Z",
+    "t": "2026-11-18T06:45:29.968Z",
     "universe": 45,
     "analyzed": 20,
     "signals": [
       "ZRO (فروش)",
-      "XMSTR (فروش)",
       "LIT (فروش)",
-      "XAUT (فروش)",
-      "PENGU (فروش)"
+      "XMSTR (فروش)",
+      "XAUT (فروش)"
     ]
   },
-  "lastFull": "2026-11-18T06:30:40.208Z",
+  "lastFull": "2026-11-18T06:45:29.968Z",
   "lastDaily": "2026-11-18",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -22014,7 +22013,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 2376,
+        "acct": 8725,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -23424,14 +23423,14 @@
           },
           "MORPHO": {
             "dir": -1,
-            "entry": 1.75103,
-            "szi": 2059,
-            "usd": 3614,
+            "entry": 1.75115,
+            "szi": 2399.6,
+            "usd": 4201,
             "maxUsd": 8751,
             "lev": 5,
             "t": 1794933045274,
             "pre": false,
-            "adds": 16,
+            "adds": 17,
             "down": 9,
             "sl": null,
             "tp": null
@@ -23564,14 +23563,14 @@
           },
           "PUMP": {
             "dir": -1,
-            "entry": 0.002756,
-            "szi": 278502565,
-            "usd": 750564,
+            "entry": 0.002749,
+            "szi": 311701245,
+            "usd": 833177,
             "maxUsd": 843530,
             "lev": 3,
             "t": 1794697039785,
             "pre": false,
-            "adds": 18,
+            "adds": 19,
             "down": 5,
             "sl": null,
             "tp": null
@@ -23634,14 +23633,14 @@
           },
           "STBL": {
             "dir": 1,
-            "entry": 0.019947,
-            "szi": 394171,
-            "usd": 7890,
+            "entry": 0.019975,
+            "szi": 484874,
+            "usd": 9739,
             "maxUsd": 11959,
             "lev": 3,
             "t": 1794825929475,
             "pre": false,
-            "adds": 26,
+            "adds": 27,
             "down": 9,
             "sl": null,
             "tp": null
@@ -23788,15 +23787,15 @@
           },
           "USELESS": {
             "dir": -1,
-            "entry": 0.094297,
-            "szi": 224726,
-            "usd": 21175,
+            "entry": 0.094335,
+            "szi": 247386,
+            "usd": 23695,
             "maxUsd": 44015,
             "lev": 3,
             "t": 1794730639368,
             "pre": false,
-            "adds": 6,
-            "down": 1,
+            "adds": 7,
+            "down": 2,
             "sl": null,
             "tp": null
           }
@@ -25714,14 +25713,14 @@
           },
           "BCH": {
             "dir": -1,
-            "entry": 279.001,
-            "szi": 129.318,
-            "usd": 27057,
+            "entry": 270.804,
+            "szi": 145.328,
+            "usd": 30272,
             "maxUsd": 322759,
             "lev": 10,
             "t": 1793566542138,
             "pre": true,
-            "adds": 1,
+            "adds": 2,
             "down": 0,
             "sl": null,
             "tp": null
@@ -27407,16 +27406,16 @@
             "tp": null
           },
           "USUAL": {
-            "dir": -1,
-            "entry": 0.00998,
-            "szi": 225716.7,
-            "usd": 2566,
-            "maxUsd": 4656,
+            "dir": 1,
+            "entry": 0.01152,
+            "szi": 487.6,
+            "usd": 6,
+            "maxUsd": 6,
             "lev": 3,
-            "t": 1793702076090,
+            "t": 1794984329968,
             "pre": false,
-            "adds": 1,
-            "down": 1,
+            "adds": 0,
+            "down": 0,
             "sl": null,
             "tp": null
           },
@@ -38125,6 +38124,24 @@
         "adds": 27,
         "down": 6,
         "pre": true
+      },
+      {
+        "a": "0xdf954bbe619273a56e0cfa90dad8382195dc7d72",
+        "c": "USUAL",
+        "d": -1,
+        "e": 0.00998,
+        "x": 0.01142,
+        "sl": null,
+        "tp": null,
+        "why": "manual",
+        "t0": 1793702076090,
+        "t1": 1794984329968,
+        "p": -14.499,
+        "imp": -0.006,
+        "lev": 3,
+        "adds": 1,
+        "down": 1,
+        "pre": false
       }
     ],
     "disc": "2026-11-10T10:04:44.177Z",
