@@ -14502,8 +14502,8 @@
     },
     "HYPE": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-11-17T16:00:50.319Z"
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-11-18T14:30:42.722Z"
     },
     "INJ": {
       "decision": "wait",
@@ -14949,19 +14949,19 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-18T14:15:33.615Z",
+    "t": "2026-11-18T14:30:42.722Z",
     "universe": 46,
     "analyzed": 20,
     "signals": [
       "ZRO (فروش)",
-      "ENA (فروش)",
       "LIT (فروش)",
+      "XCRCL (فروش)",
+      "ENA (فروش)",
       "UNI (فروش)",
-      "WLD (فروش)",
-      "FIL (فروش)"
+      "HYPE (فروش)"
     ]
   },
-  "lastFull": "2026-11-18T14:15:33.615Z",
+  "lastFull": "2026-11-18T14:30:42.722Z",
   "lastDaily": "2026-11-18",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -22089,7 +22089,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 2751984,
+        "acct": 3126202,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -22361,15 +22361,15 @@
           },
           "NEAR": {
             "dir": -1,
-            "entry": 3.19449,
-            "szi": 47372.3,
-            "usd": 151397,
-            "maxUsd": 151397,
+            "entry": 3.20577,
+            "szi": 54714.4,
+            "usd": 183074,
+            "maxUsd": 183074,
             "lev": 10,
             "t": 1794899731734,
             "pre": false,
-            "adds": 7,
-            "down": 2,
+            "adds": 8,
+            "down": 3,
             "sl": null,
             "tp": null
           },
@@ -22672,16 +22672,16 @@
         "auto": true,
         "pos": {
           "BTC": {
-            "dir": -1,
-            "entry": 64404.1,
-            "szi": 9.10049,
-            "usd": 581621,
-            "maxUsd": 35581448,
+            "dir": 1,
+            "entry": 63912.2,
+            "szi": 54.19252,
+            "usd": 3466641,
+            "maxUsd": 3466641,
             "lev": 20,
-            "t": 1794898853163,
+            "t": 1795012242722,
             "pre": false,
-            "adds": 29,
-            "down": 14,
+            "adds": 0,
+            "down": 0,
             "sl": null,
             "tp": null
           },
@@ -22940,8 +22940,8 @@
           "APT": {
             "dir": 1,
             "entry": 0.4434,
-            "szi": 73466.69,
-            "usd": 32149,
+            "szi": 63886.61,
+            "usd": 27925,
             "maxUsd": 49257,
             "lev": 10,
             "t": 1794935731914,
@@ -23191,15 +23191,15 @@
           },
           "kFLOKI": {
             "dir": 1,
-            "entry": 0.017837,
-            "szi": 332391,
-            "usd": 5913,
-            "maxUsd": 5913,
+            "entry": 0.017806,
+            "szi": 374270,
+            "usd": 6645,
+            "maxUsd": 6645,
             "lev": 5,
             "t": 1794954644121,
             "pre": false,
-            "adds": 16,
-            "down": 9,
+            "adds": 17,
+            "down": 10,
             "sl": null,
             "tp": null
           },
@@ -23485,14 +23485,14 @@
           },
           "SPX": {
             "dir": 1,
-            "entry": 0.31305,
-            "szi": 23597,
-            "usd": 7559,
+            "entry": 0.31379,
+            "szi": 26237.7,
+            "usd": 8413,
             "maxUsd": 34221,
             "lev": 5,
             "t": 1794697039785,
             "pre": false,
-            "adds": 8,
+            "adds": 9,
             "down": 2,
             "sl": null,
             "tp": null
@@ -23877,7 +23877,7 @@
           }
         },
         "init": true,
-        "acct": 33155304,
+        "acct": 31403208,
         "since": 1793566542138,
         "name": "T5",
         "ft": [
@@ -27330,8 +27330,8 @@
           "LIT": {
             "dir": -1,
             "entry": 2.964519,
-            "szi": 7522,
-            "usd": 21086,
+            "szi": 5893,
+            "usd": 16622,
             "maxUsd": 36649,
             "lev": 5,
             "t": 1794888930446,
@@ -27413,14 +27413,14 @@
           },
           "CASHCAT": {
             "dir": -1,
-            "entry": 0.047312,
-            "szi": 11443,
-            "usd": 498,
-            "maxUsd": 498,
+            "entry": 0.046611,
+            "szi": 14183,
+            "usd": 624,
+            "maxUsd": 624,
             "lev": 3,
             "t": 1794831332753,
             "pre": false,
-            "adds": 3,
+            "adds": 4,
             "down": 0,
             "sl": null,
             "tp": null
@@ -27708,13 +27708,13 @@
           "MEME": {
             "dir": -1,
             "entry": 0.000321,
-            "szi": 17151600,
-            "usd": 5471,
-            "maxUsd": 5471,
+            "szi": 19783500,
+            "usd": 6351,
+            "maxUsd": 6351,
             "lev": 3,
             "t": 1794683380008,
             "pre": false,
-            "adds": 9,
+            "adds": 10,
             "down": 1,
             "sl": null,
             "tp": null
@@ -38325,6 +38325,24 @@
         "lev": 5,
         "adds": 22,
         "down": 11,
+        "pre": false
+      },
+      {
+        "a": "0xecb63caa47c7c4e77f60f1ce858cf28dc2b82b00",
+        "c": "BTC",
+        "d": -1,
+        "e": 64404.1,
+        "x": 63966,
+        "sl": null,
+        "tp": null,
+        "why": "manual",
+        "t0": 1794898853163,
+        "t1": 1795012242722,
+        "p": 0.61,
+        "imp": 0.691,
+        "lev": 20,
+        "adds": 29,
+        "down": 14,
         "pre": false
       }
     ],
