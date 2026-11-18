@@ -14728,7 +14728,7 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-18T03:00:47.807Z",
+    "t": "2026-11-18T03:15:32.272Z",
     "universe": 44,
     "analyzed": 20,
     "signals": [
@@ -14737,7 +14737,7 @@
       "XAUT (فروش)"
     ]
   },
-  "lastFull": "2026-11-18T03:00:47.807Z",
+  "lastFull": "2026-11-18T03:15:32.272Z",
   "lastDaily": "2026-11-17",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -21865,7 +21865,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 80166,
+        "acct": 555,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -23275,14 +23275,14 @@
           },
           "MORPHO": {
             "dir": -1,
-            "entry": 1.7539,
-            "szi": 663.6,
-            "usd": 1159,
+            "entry": 1.75305,
+            "szi": 741.4,
+            "usd": 1299,
             "maxUsd": 8751,
             "lev": 5,
             "t": 1794933045274,
             "pre": false,
-            "adds": 8,
+            "adds": 9,
             "down": 5,
             "sl": null,
             "tp": null
