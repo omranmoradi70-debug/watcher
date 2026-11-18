@@ -14430,8 +14430,8 @@
       "lastAlert": "2026-11-06T22:04:33.789Z"
     },
     "GRAM": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-14T01:31:51.451Z"
     },
     "PENGU": {
@@ -14673,14 +14673,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-18T00:15:36.191Z",
+    "t": "2026-11-18T00:30:45.803Z",
     "universe": 45,
     "analyzed": 20,
     "signals": [
       "ZRO (فروش)"
     ]
   },
-  "lastFull": "2026-11-18T00:15:36.191Z",
+  "lastFull": "2026-11-18T00:30:45.803Z",
   "lastDaily": "2026-11-17",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -22392,15 +22392,15 @@
         "pos": {
           "BTC": {
             "dir": -1,
-            "entry": 64726.9,
-            "szi": 213.1226,
-            "usd": 13833149,
+            "entry": 64745.1,
+            "szi": 241.31303,
+            "usd": 15641428,
             "maxUsd": 28692547,
             "lev": 20,
             "t": 1794898853163,
             "pre": false,
-            "adds": 23,
-            "down": 13,
+            "adds": 24,
+            "down": 14,
             "sl": null,
             "tp": null
           },
@@ -22910,15 +22910,15 @@
           },
           "kFLOKI": {
             "dir": 1,
-            "entry": 0.018183,
-            "szi": 71569,
-            "usd": 1299,
-            "maxUsd": 1299,
+            "entry": 0.018178,
+            "szi": 84357,
+            "usd": 1533,
+            "maxUsd": 1533,
             "lev": 5,
             "t": 1794954644121,
             "pre": false,
-            "adds": 7,
-            "down": 2,
+            "adds": 8,
+            "down": 3,
             "sl": null,
             "tp": null
           },
@@ -23205,8 +23205,8 @@
           "SPX": {
             "dir": 1,
             "entry": 0.30177,
-            "szi": 56010,
-            "usd": 17962,
+            "szi": 45270.3,
+            "usd": 14479,
             "maxUsd": 34221,
             "lev": 5,
             "t": 1794697039785,
@@ -24801,8 +24801,8 @@
           "kSHIB": {
             "dir": 1,
             "entry": 0.0038,
-            "szi": 26784950,
-            "usd": 103470,
+            "szi": 21984599,
+            "usd": 85388,
             "maxUsd": 192800,
             "lev": 10,
             "t": 1794829530233,
@@ -25691,8 +25691,8 @@
           "TIA": {
             "dir": -1,
             "entry": 0.50808,
-            "szi": 11025.7,
-            "usd": 3901,
+            "szi": 9922.1,
+            "usd": 3537,
             "maxUsd": 41547,
             "lev": 5,
             "t": 1793566542138,
