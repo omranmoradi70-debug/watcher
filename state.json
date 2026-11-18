@@ -14832,7 +14832,7 @@
       "lastAlert": null
     },
     "XSKHY": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-06T22:04:33.789Z"
     },
@@ -15085,18 +15085,17 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-18T18:30:53.026Z",
+    "t": "2026-11-18T18:45:30.768Z",
     "universe": 44,
     "analyzed": 20,
     "signals": [
       "ZRO (فروش)",
       "LIT (فروش)",
       "ENA (فروش)",
-      "XSNDK (فروش)",
-      "UNI (فروش)"
+      "PENGU (فروش)"
     ]
   },
-  "lastFull": "2026-11-18T18:30:53.026Z",
+  "lastFull": "2026-11-18T18:45:30.768Z",
   "lastDaily": "2026-11-18",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -22223,7 +22222,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 13190145,
+        "acct": 11938753,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -22806,16 +22805,16 @@
         "auto": true,
         "pos": {
           "BTC": {
-            "dir": 1,
-            "entry": 63129.4,
-            "szi": 17.36535,
-            "usd": 1096674,
-            "maxUsd": 3505318,
+            "dir": -1,
+            "entry": 63203,
+            "szi": 20.23474,
+            "usd": 1279240,
+            "maxUsd": 1279240,
             "lev": 20,
-            "t": 1795023932769,
+            "t": 1795027530768,
             "pre": false,
-            "adds": 1,
-            "down": 1,
+            "adds": 0,
+            "down": 0,
             "sl": null,
             "tp": null
           },
@@ -22905,14 +22904,14 @@
           },
           "ARB": {
             "dir": 1,
-            "entry": 0.12863,
-            "szi": 1422.6,
-            "usd": 182,
+            "entry": 0.12752,
+            "szi": 9156.5,
+            "usd": 1170,
             "maxUsd": 1182,
             "lev": 10,
             "t": 1795023932769,
             "pre": false,
-            "adds": 0,
+            "adds": 1,
             "down": 0,
             "sl": null,
             "tp": null
@@ -25768,8 +25767,8 @@
           "DOGE": {
             "dir": 1,
             "entry": 0.058606,
-            "szi": 2388045,
-            "usd": 139247,
+            "szi": 2110615,
+            "usd": 124436,
             "maxUsd": 177792,
             "lev": 10,
             "t": 1794909648862,
@@ -38579,6 +38578,24 @@
         "lev": 10,
         "adds": 0,
         "down": 0,
+        "pre": false
+      },
+      {
+        "a": "0xecb63caa47c7c4e77f60f1ce858cf28dc2b82b00",
+        "c": "BTC",
+        "d": 1,
+        "e": 63129.4,
+        "x": 63219.5,
+        "sl": null,
+        "tp": null,
+        "why": "manual",
+        "t0": 1795023932769,
+        "t1": 1795027530768,
+        "p": 0.073,
+        "imp": 0.008,
+        "lev": 20,
+        "adds": 1,
+        "down": 1,
         "pre": false
       }
     ],
