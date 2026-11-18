@@ -14426,7 +14426,7 @@
       "lastAlert": null
     },
     "ZEC": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-16T01:15:26.509Z"
     },
@@ -14851,7 +14851,7 @@
       "lastAlert": "2026-11-05T05:29:37.942Z"
     },
     "XNVDA": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-16T12:15:32.753Z"
     },
@@ -14949,7 +14949,7 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-18T13:30:52.396Z",
+    "t": "2026-11-18T13:45:32.014Z",
     "universe": 47,
     "analyzed": 20,
     "signals": [
@@ -14957,10 +14957,11 @@
       "LIT (فروش)",
       "ENA (فروش)",
       "PUMP (فروش)",
-      "UNI (فروش)"
+      "UNI (فروش)",
+      "LINK (فروش)"
     ]
   },
-  "lastFull": "2026-11-18T13:30:52.396Z",
+  "lastFull": "2026-11-18T13:45:32.014Z",
   "lastDaily": "2026-11-18",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -22088,7 +22089,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 906894,
+        "acct": 1083483,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -22178,14 +22179,14 @@
           },
           "ETH": {
             "dir": -1,
-            "entry": 1803.75,
-            "szi": 2125.9669,
-            "usd": 3829079,
-            "maxUsd": 3829079,
+            "entry": 1802.98,
+            "szi": 2384.9664,
+            "usd": 4273621,
+            "maxUsd": 4273621,
             "lev": 25,
             "t": 1794988855014,
             "pre": false,
-            "adds": 15,
+            "adds": 16,
             "down": 7,
             "sl": null,
             "tp": null
@@ -22673,8 +22674,8 @@
           "BTC": {
             "dir": -1,
             "entry": 64404.1,
-            "szi": 175.60092,
-            "usd": 11250927,
+            "szi": 156.56843,
+            "usd": 10015839,
             "maxUsd": 35581448,
             "lev": 20,
             "t": 1794898853163,
@@ -24096,15 +24097,15 @@
           },
           "NEAR": {
             "dir": -1,
-            "entry": 3.25199,
-            "szi": 297101.4,
-            "usd": 1009167,
-            "maxUsd": 1009167,
+            "entry": 3.27035,
+            "szi": 331307,
+            "usd": 1110276,
+            "maxUsd": 1110276,
             "lev": 10,
             "t": 1794904248364,
             "pre": false,
-            "adds": 17,
-            "down": 10,
+            "adds": 18,
+            "down": 11,
             "sl": null,
             "tp": null
           },
@@ -27034,15 +27035,15 @@
           },
           "INIT": {
             "dir": -1,
-            "entry": 0.094448,
-            "szi": 8654,
-            "usd": 844,
+            "entry": 0.094807,
+            "szi": 9654,
+            "usd": 948,
             "maxUsd": 970,
             "lev": 3,
             "t": 1794909648862,
             "pre": false,
-            "adds": 5,
-            "down": 5,
+            "adds": 6,
+            "down": 6,
             "sl": null,
             "tp": null
           },
@@ -27217,8 +27218,8 @@
           "HEMI": {
             "dir": -1,
             "entry": 0.00352,
-            "szi": 1018266,
-            "usd": 3561,
+            "szi": 883566,
+            "usd": 3159,
             "maxUsd": 3561,
             "lev": 3,
             "t": 1794709336897,
@@ -27909,7 +27910,7 @@
           }
         },
         "init": true,
-        "acct": 137222,
+        "acct": 129706,
         "since": 1793566542138,
         "name": "T14",
         "ft": [
