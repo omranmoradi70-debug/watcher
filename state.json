@@ -15144,7 +15144,7 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-18T20:01:03.431Z",
+    "t": "2026-11-18T20:15:33.898Z",
     "universe": 43,
     "analyzed": 20,
     "signals": [
@@ -15153,11 +15153,10 @@
       "LIT (فروش)",
       "XSNDK (فروش)",
       "LTC (فروش)",
-      "XGOOGL (فروش)",
       "UNI (فروش)"
     ]
   },
-  "lastFull": "2026-11-18T20:01:03.431Z",
+  "lastFull": "2026-11-18T20:15:33.898Z",
   "lastDaily": "2026-11-18",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -23386,15 +23385,15 @@
           },
           "kFLOKI": {
             "dir": 1,
-            "entry": 0.017616,
-            "szi": 91248,
-            "usd": 1601,
+            "entry": 0.017598,
+            "szi": 107482,
+            "usd": 1888,
             "maxUsd": 7672,
             "lev": 5,
             "t": 1794954644121,
             "pre": false,
-            "adds": 22,
-            "down": 15,
+            "adds": 23,
+            "down": 16,
             "sl": null,
             "tp": null
           },
@@ -23694,15 +23693,15 @@
           },
           "MORPHO": {
             "dir": 1,
-            "entry": 1.7112,
-            "szi": 9387.8,
-            "usd": 15703,
-            "maxUsd": 17454,
+            "entry": 1.70529,
+            "szi": 10993.2,
+            "usd": 18384,
+            "maxUsd": 18384,
             "lev": 5,
             "t": 1794996931246,
             "pre": false,
-            "adds": 7,
-            "down": 7,
+            "adds": 8,
+            "down": 8,
             "sl": null,
             "tp": null
           },
@@ -27004,15 +27003,15 @@
           },
           "AIXBT": {
             "dir": -1,
-            "entry": 0.012869,
-            "szi": 55988,
-            "usd": 729,
-            "maxUsd": 729,
+            "entry": 0.012892,
+            "szi": 74488,
+            "usd": 968,
+            "maxUsd": 968,
             "lev": 3,
             "t": 1793566542138,
             "pre": true,
-            "adds": 8,
-            "down": 3,
+            "adds": 9,
+            "down": 4,
             "sl": null,
             "tp": null
           },
