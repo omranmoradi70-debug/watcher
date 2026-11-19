@@ -14716,6 +14716,71 @@
       "s1": 0.94385,
       "r1": 1.003925,
       "done": false
+    },
+    {
+      "id": "BTC|day|2026-11-19",
+      "sym": "BTC",
+      "hz": "day",
+      "bias": "down",
+      "strength": "medium",
+      "price": 63379.2,
+      "t": 1795062643051,
+      "due": 1795149043051,
+      "s1": 62301.325,
+      "r1": 63623.45,
+      "done": false
+    },
+    {
+      "id": "ETH|day|2026-11-19",
+      "sym": "ETH",
+      "hz": "day",
+      "bias": "down",
+      "strength": "medium",
+      "price": 1797.22,
+      "t": 1795062643051,
+      "due": 1795149043051,
+      "s1": 1787.03,
+      "r1": 1831.432727272727,
+      "done": false
+    },
+    {
+      "id": "SOL|day|2026-11-19",
+      "sym": "SOL",
+      "hz": "day",
+      "bias": "down",
+      "strength": "medium",
+      "price": 74.54,
+      "t": 1795062643051,
+      "due": 1795149043051,
+      "s1": 73.10499999999999,
+      "r1": 75.49642857142858,
+      "done": false
+    },
+    {
+      "id": "BNB|day|2026-11-19",
+      "sym": "BNB",
+      "hz": "day",
+      "bias": "down",
+      "strength": "medium",
+      "price": 585.77,
+      "t": 1795062643051,
+      "due": 1795149043051,
+      "s1": 582.3299999999999,
+      "r1": 590.7499999999999,
+      "done": false
+    },
+    {
+      "id": "XRP|day|2026-11-19",
+      "sym": "XRP",
+      "hz": "day",
+      "bias": "down",
+      "strength": "strong",
+      "price": 0.9719,
+      "t": 1795062643051,
+      "due": 1795149043051,
+      "s1": 0.94385,
+      "r1": 0.9783,
+      "done": false
     }
   ],
   "scan": {
@@ -15145,7 +15210,7 @@
       "lastAlert": "2026-11-16T17:15:34.281Z"
     },
     "NIGHT": {
-      "decision": "long",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-03T18:11:29.305Z"
     },
@@ -15268,20 +15333,20 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-19T04:15:31.754Z",
+    "t": "2026-11-19T04:30:43.051Z",
     "universe": 40,
     "analyzed": 20,
     "signals": [
-      "FIL (فروش)",
       "XSNDK (فروش)",
+      "FIL (فروش)",
       "XNVDA (فروش)",
       "XCRCL (فروش)",
       "XLM (فروش)",
       "PUMP (فروش)"
     ]
   },
-  "lastFull": "2026-11-19T04:15:31.754Z",
-  "lastDaily": "2026-11-18",
+  "lastFull": "2026-11-19T04:30:43.051Z",
+  "lastDaily": "2026-11-19",
   "lastWeekly": "2026-11-16",
   "replay": {
     "t": "2026-11-12T09:42:17.450Z",
@@ -23229,15 +23294,15 @@
           },
           "XRP": {
             "dir": -1,
-            "entry": 0.958216,
-            "szi": 2878096,
-            "usd": 2781622,
+            "entry": 0.964477,
+            "szi": 3199234,
+            "usd": 3105912,
             "maxUsd": 3965833,
             "lev": 10,
             "t": 1794271377998,
             "pre": false,
-            "adds": 29,
-            "down": 5,
+            "adds": 30,
+            "down": 6,
             "sl": null,
             "tp": null
           },
@@ -24139,14 +24204,14 @@
           },
           "GRAM": {
             "dir": -1,
-            "entry": 1.053574,
-            "szi": 343639,
-            "usd": 349477,
+            "entry": 1.042552,
+            "szi": 390661,
+            "usd": 402576,
             "maxUsd": 501457,
             "lev": 5,
             "t": 1793566542138,
             "pre": true,
-            "adds": 28,
+            "adds": 29,
             "down": 7,
             "sl": null,
             "tp": null
@@ -25453,7 +25518,7 @@
           }
         },
         "init": true,
-        "acct": 13485097,
+        "acct": 12810633,
         "since": 1793566542138,
         "name": "T8",
         "ft": [],
@@ -28754,7 +28819,7 @@
           }
         },
         "init": true,
-        "acct": 339,
+        "acct": 320,
         "since": 1793566542138,
         "name": "T24",
         "ft": [
