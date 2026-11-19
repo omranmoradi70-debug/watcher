@@ -15502,6 +15502,11 @@
       "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": null
+    },
+    "SKY": {
+      "decision": "short",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {
@@ -15527,15 +15532,16 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-19T18:00:51.865Z",
-    "universe": 45,
+    "t": "2026-11-19T18:15:35.699Z",
+    "universe": 46,
     "analyzed": 19,
     "signals": [
-      "PUMP (فروش)",
-      "XSOXL (فروش)"
+      "XLM (فروش)",
+      "XSOXL (فروش)",
+      "PUMP (فروش)"
     ]
   },
-  "lastFull": "2026-11-19T18:00:51.865Z",
+  "lastFull": "2026-11-19T18:15:35.699Z",
   "lastDaily": "2026-11-19",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -22662,7 +22668,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 8041308,
+        "acct": 8479421,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -23246,15 +23252,15 @@
         "pos": {
           "BTC": {
             "dir": 1,
-            "entry": 62771.2,
-            "szi": 71.85142,
-            "usd": 4504150,
-            "maxUsd": 4504150,
+            "entry": 62755.7,
+            "szi": 122.43315,
+            "usd": 7682558,
+            "maxUsd": 7682558,
             "lev": 20,
             "t": 1795111251865,
             "pre": false,
-            "adds": 0,
-            "down": 0,
+            "adds": 1,
+            "down": 1,
             "sl": null,
             "tp": null
           },
@@ -23317,8 +23323,8 @@
           "BNB": {
             "dir": -1,
             "entry": 594.389,
-            "szi": 650.96,
-            "usd": 381352,
+            "szi": 584.484,
+            "usd": 341947,
             "maxUsd": 608699,
             "lev": 5,
             "t": 1794487739640,
@@ -24058,15 +24064,15 @@
           },
           "SPX": {
             "dir": -1,
-            "entry": 0.30933,
-            "szi": 10298.2,
-            "usd": 3185,
+            "entry": 0.30949,
+            "szi": 11485.8,
+            "usd": 3559,
             "maxUsd": 3969,
             "lev": 5,
             "t": 1795086935622,
             "pre": false,
-            "adds": 10,
-            "down": 2,
+            "adds": 11,
+            "down": 3,
             "sl": null,
             "tp": null
           },
@@ -24437,8 +24443,8 @@
           "USELESS": {
             "dir": -1,
             "entry": 0.099877,
-            "szi": 53124,
-            "usd": 5287,
+            "szi": 14016,
+            "usd": 1393,
             "maxUsd": 44015,
             "lev": 3,
             "t": 1794730639368,
@@ -26007,8 +26013,8 @@
           "HYPE": {
             "dir": -1,
             "entry": 67.2729,
-            "szi": 860.99,
-            "usd": 57593,
+            "szi": 372.11,
+            "usd": 25686,
             "maxUsd": 396125,
             "lev": 10,
             "t": 1794832245934,
@@ -26683,8 +26689,8 @@
           "PYTH": {
             "dir": -1,
             "entry": 0.072168,
-            "szi": 91988,
-            "usd": 6114,
+            "szi": 82077,
+            "usd": 4426,
             "maxUsd": 10223,
             "lev": 5,
             "t": 1793566542138,
@@ -27872,15 +27878,15 @@
           },
           "CC": {
             "dir": -1,
-            "entry": 0.08101,
-            "szi": 6643,
-            "usd": 545,
-            "maxUsd": 545,
+            "entry": 0.081106,
+            "szi": 7495,
+            "usd": 613,
+            "maxUsd": 613,
             "lev": 3,
             "t": 1795108531325,
             "pre": false,
-            "adds": 1,
-            "down": 1,
+            "adds": 2,
+            "down": 2,
             "sl": null,
             "tp": null
           },
