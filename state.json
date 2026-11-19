@@ -15509,7 +15509,7 @@
       "lastAlert": null
     },
     "XQQQ": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-16T17:15:34.281Z"
     },
@@ -15647,17 +15647,15 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-19T23:15:31.131Z",
+    "t": "2026-11-19T23:30:42.250Z",
     "universe": 49,
     "analyzed": 19,
     "signals": [
       "SKY (فروش)",
-      "SENT (خرید)",
-      "PUMP (فروش)",
-      "LIT (فروش)"
+      "SENT (خرید)"
     ]
   },
-  "lastFull": "2026-11-19T23:15:31.131Z",
+  "lastFull": "2026-11-19T23:30:42.250Z",
   "lastDaily": "2026-11-19",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -23858,15 +23856,15 @@
           },
           "STRK": {
             "dir": -1,
-            "entry": 0.03134,
-            "szi": 551730.4,
-            "usd": 17242,
-            "maxUsd": 17242,
+            "entry": 0.03137,
+            "szi": 789296.6,
+            "usd": 24871,
+            "maxUsd": 24871,
             "lev": 3,
             "t": 1795127442958,
             "pre": false,
-            "adds": 3,
-            "down": 2,
+            "adds": 4,
+            "down": 3,
             "sl": null,
             "tp": null
           },
@@ -23886,15 +23884,15 @@
           },
           "kFLOKI": {
             "dir": 1,
-            "entry": 0.017568,
-            "szi": 565093,
-            "usd": 9687,
-            "maxUsd": 9687,
+            "entry": 0.017529,
+            "szi": 622507,
+            "usd": 10805,
+            "maxUsd": 10805,
             "lev": 5,
             "t": 1794954644121,
             "pre": false,
-            "adds": 40,
-            "down": 24,
+            "adds": 41,
+            "down": 25,
             "sl": null,
             "tp": null
           },
@@ -23943,8 +23941,8 @@
           "POPCAT": {
             "dir": -1,
             "entry": 0.033583,
-            "szi": 550962,
-            "usd": 15438,
+            "szi": 447871,
+            "usd": 12252,
             "maxUsd": 310090,
             "lev": 3,
             "t": 1793566542138,
@@ -24180,15 +24178,15 @@
           },
           "SPX": {
             "dir": -1,
-            "entry": 0.30418,
-            "szi": 25485.1,
-            "usd": 7681,
-            "maxUsd": 7681,
+            "entry": 0.30436,
+            "szi": 30557.2,
+            "usd": 9310,
+            "maxUsd": 9310,
             "lev": 5,
             "t": 1795086935622,
             "pre": false,
-            "adds": 18,
-            "down": 4,
+            "adds": 19,
+            "down": 5,
             "sl": null,
             "tp": null
           },
@@ -24516,14 +24514,14 @@
           },
           "GRAM": {
             "dir": -1,
-            "entry": 1.039137,
-            "szi": 316604,
-            "usd": 325311,
+            "entry": 1.033802,
+            "szi": 350490,
+            "usd": 356448,
             "maxUsd": 501457,
             "lev": 5,
             "t": 1793566542138,
             "pre": true,
-            "adds": 31,
+            "adds": 32,
             "down": 7,
             "sl": null,
             "tp": null
