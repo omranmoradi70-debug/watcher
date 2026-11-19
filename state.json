@@ -15471,16 +15471,16 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-19T12:30:54.420Z",
+    "t": "2026-11-19T12:45:32.646Z",
     "universe": 38,
     "analyzed": 19,
     "signals": [
       "MMT (خرید)",
-      "STRK (فروش)",
+      "MON (فروش)",
       "GRAM (فروش)"
     ]
   },
-  "lastFull": "2026-11-19T12:30:54.420Z",
+  "lastFull": "2026-11-19T12:45:32.646Z",
   "lastDaily": "2026-11-19",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -23219,15 +23219,15 @@
           },
           "ATOM": {
             "dir": 1,
-            "entry": 1.3042,
-            "szi": 7271.73,
-            "usd": 9435,
-            "maxUsd": 9435,
+            "entry": 1.3031,
+            "szi": 8258.14,
+            "usd": 10693,
+            "maxUsd": 10693,
             "lev": 5,
             "t": 1795084244652,
             "pre": false,
-            "adds": 5,
-            "down": 2,
+            "adds": 6,
+            "down": 3,
             "sl": null,
             "tp": null
           },
@@ -27734,8 +27734,8 @@
           "HEMI": {
             "dir": -1,
             "entry": 0.00352,
-            "szi": 782566,
-            "usd": 2774,
+            "szi": 703712,
+            "usd": 2500,
             "maxUsd": 3561,
             "lev": 3,
             "t": 1794709336897,
@@ -28232,20 +28232,6 @@
             "pre": false,
             "adds": 11,
             "down": 1,
-            "sl": null,
-            "tp": null
-          },
-          "WCT": {
-            "dir": -1,
-            "entry": 0.025629,
-            "szi": 460,
-            "usd": 12,
-            "maxUsd": 12,
-            "lev": 3,
-            "t": 1794709336897,
-            "pre": false,
-            "adds": 0,
-            "down": 0,
             "sl": null,
             "tp": null
           },
@@ -39247,6 +39233,24 @@
         "lev": 5,
         "adds": 17,
         "down": 8,
+        "pre": false
+      },
+      {
+        "a": "0xdf954bbe619273a56e0cfa90dad8382195dc7d72",
+        "c": "WCT",
+        "d": -1,
+        "e": 0.025629,
+        "x": 0.029057,
+        "sl": null,
+        "tp": null,
+        "why": "manual",
+        "t0": 1794709336897,
+        "t1": 1795092332646,
+        "p": -13.445,
+        "imp": 0,
+        "lev": 3,
+        "adds": 0,
+        "down": 0,
         "pre": false
       }
     ],
