@@ -15112,8 +15112,8 @@
       "lastAlert": "2026-11-01T01:52:54.513Z"
     },
     "OKB": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-13T03:12:45.188Z"
     },
     "TRX": {
@@ -15403,8 +15403,8 @@
     },
     "ASTER": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-11-17T14:15:30.232Z"
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-11-19T14:15:31.955Z"
     },
     "EDGE": {
       "decision": "long",
@@ -15485,16 +15485,17 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-19T14:00:50.467Z",
-    "universe": 38,
-    "analyzed": 19,
+    "t": "2026-11-19T14:15:31.955Z",
+    "universe": 39,
+    "analyzed": 20,
     "signals": [
       "MON (فروش)",
+      "ASTER (فروش)",
       "XNVDA (فروش)",
       "XMSTR (فروش)"
     ]
   },
-  "lastFull": "2026-11-19T14:00:50.467Z",
+  "lastFull": "2026-11-19T14:15:31.955Z",
   "lastDaily": "2026-11-19",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -22621,7 +22622,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 7507426,
+        "acct": 6867991,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -22824,8 +22825,8 @@
           "XRP": {
             "dir": 1,
             "entry": 1.031738,
-            "szi": 398767,
-            "usd": 395932,
+            "szi": 333719,
+            "usd": 330796,
             "maxUsd": 7048243,
             "lev": 20,
             "t": 1793991466903,
@@ -23233,15 +23234,15 @@
           },
           "ATOM": {
             "dir": 1,
-            "entry": 1.3022,
-            "szi": 11578.78,
-            "usd": 15062,
-            "maxUsd": 15062,
+            "entry": 1.3024,
+            "szi": 14091.06,
+            "usd": 18320,
+            "maxUsd": 18320,
             "lev": 5,
             "t": 1795084244652,
             "pre": false,
-            "adds": 8,
-            "down": 4,
+            "adds": 9,
+            "down": 5,
             "sl": null,
             "tp": null
           },
@@ -23948,8 +23949,8 @@
           "PENGU": {
             "dir": -1,
             "entry": 0.005654,
-            "szi": 26010506,
-            "usd": 125371,
+            "szi": 23234350,
+            "usd": 112338,
             "maxUsd": 417252,
             "lev": 5,
             "t": 1793566542138,
@@ -23989,15 +23990,15 @@
           },
           "AIXBT": {
             "dir": -1,
-            "entry": 0.01308,
-            "szi": 264160,
-            "usd": 3466,
+            "entry": 0.013089,
+            "szi": 293317,
+            "usd": 3853,
             "maxUsd": 15979,
             "lev": 3,
             "t": 1794420894265,
             "pre": false,
-            "adds": 28,
-            "down": 15,
+            "adds": 29,
+            "down": 16,
             "sl": null,
             "tp": null
           },
@@ -24018,8 +24019,8 @@
           "SPX": {
             "dir": -1,
             "entry": 0.31557,
-            "szi": 5426.7,
-            "usd": 1710,
+            "szi": 3409,
+            "usd": 1075,
             "maxUsd": 1710,
             "lev": 5,
             "t": 1795086935622,
@@ -24572,8 +24573,8 @@
           "BTC": {
             "dir": -1,
             "entry": 65827.3,
-            "szi": 279.3686,
-            "usd": 17812821,
+            "szi": 249.13564,
+            "usd": 15922010,
             "maxUsd": 25167016,
             "lev": 20,
             "t": 1793899178239,
@@ -25924,8 +25925,8 @@
           "ENA": {
             "dir": 1,
             "entry": 0.139805,
-            "szi": 671984,
-            "usd": 78488,
+            "szi": 585414,
+            "usd": 64911,
             "maxUsd": 191473,
             "lev": 10,
             "t": 1793943522604,
@@ -27565,14 +27566,14 @@
           },
           "INIT": {
             "dir": -1,
-            "entry": 0.108803,
-            "szi": 8454,
-            "usd": 849,
+            "entry": 0.107949,
+            "szi": 9454,
+            "usd": 952,
             "maxUsd": 6483,
             "lev": 3,
             "t": 1794909648862,
             "pre": false,
-            "adds": 17,
+            "adds": 18,
             "down": 13,
             "sl": null,
             "tp": null
