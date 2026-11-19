@@ -15323,6 +15323,11 @@
       "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": null
+    },
+    "SENT": {
+      "decision": "long",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {
@@ -15348,19 +15353,19 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-19T06:15:31.683Z",
-    "universe": 40,
+    "t": "2026-11-19T06:30:44.628Z",
+    "universe": 42,
     "analyzed": 20,
     "signals": [
       "GRAM (فروش)",
+      "LIT (فروش)",
       "XNVDA (فروش)",
       "XSNDK (فروش)",
       "XLM (فروش)",
-      "XCRCL (فروش)",
-      "HYPE (فروش)"
+      "XCRCL (فروش)"
     ]
   },
-  "lastFull": "2026-11-19T06:15:31.683Z",
+  "lastFull": "2026-11-19T06:30:44.628Z",
   "lastDaily": "2026-11-19",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -23071,14 +23076,14 @@
         "pos": {
           "BTC": {
             "dir": 1,
-            "entry": 63374.4,
-            "szi": 14.02713,
-            "usd": 890007,
-            "maxUsd": 890007,
+            "entry": 63422.2,
+            "szi": 26.4769,
+            "usd": 1681310,
+            "maxUsd": 1681310,
             "lev": 20,
             "t": 1795068931683,
             "pre": false,
-            "adds": 0,
+            "adds": 1,
             "down": 0,
             "sl": null,
             "tp": null
@@ -23086,8 +23091,8 @@
           "ETH": {
             "dir": -1,
             "entry": 1794.68,
-            "szi": 11446.7631,
-            "usd": 20562965,
+            "szi": 10300.2284,
+            "usd": 18566162,
             "maxUsd": 48462448,
             "lev": 15,
             "t": 1793566542138,
@@ -23380,8 +23385,8 @@
           "TRX": {
             "dir": 1,
             "entry": 0.316726,
-            "szi": 4728759,
-            "usd": 1463835,
+            "szi": 4190600,
+            "usd": 1309521,
             "maxUsd": 1886027,
             "lev": 10,
             "t": 1793566542138,
@@ -39032,7 +39037,7 @@
     "mt": "2026-11-18T16:45:39.532Z",
     "mtN": 24
   },
-  "legendAt": "2026-11-12T06:29:50.112Z",
+  "legendAt": "2026-11-19T06:30:44.628Z",
   "dv": {
     "slot": 124657,
     "rows": {
