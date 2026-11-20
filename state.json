@@ -11872,7 +11872,8 @@
           "tp2": 0.0122,
           "t": 1795161649216,
           "validUntil": 1795766449216,
-          "status": "open"
+          "status": "open",
+          "openedAt": 1795161649216
         },
         "1.5": {
           "dir": 1,
@@ -11883,9 +11884,12 @@
           "tp2": 0.0122,
           "t": 1795161649216,
           "validUntil": 1795766449216,
-          "status": "open"
+          "status": "open",
+          "openedAt": 1795161649216
         }
-      }
+      },
+      "openedAt": 1795161649216,
+      "lastPx": 0.009427
     }
   ],
   "outlooks": [
@@ -15925,18 +15929,18 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-20T08:00:49.216Z",
-    "universe": 50,
+    "t": "2026-11-20T08:15:34.161Z",
+    "universe": 49,
     "analyzed": 20,
     "signals": [
       "VINE (خرید)",
       "LIT (فروش)",
       "SKY (فروش)",
-      "XMU (فروش)",
-      "XSKHY (فروش)"
+      "XSKHY (فروش)",
+      "XMU (فروش)"
     ]
   },
-  "lastFull": "2026-11-20T08:00:49.216Z",
+  "lastFull": "2026-11-20T08:15:34.161Z",
   "lastDaily": "2026-11-20",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -23265,14 +23269,14 @@
           },
           "XRP": {
             "dir": 1,
-            "entry": 0.962486,
-            "szi": 401612,
-            "usd": 389877,
-            "maxUsd": 389877,
+            "entry": 0.963058,
+            "szi": 528073,
+            "usd": 509427,
+            "maxUsd": 509427,
             "lev": 20,
             "t": 1795103135959,
             "pre": false,
-            "adds": 13,
+            "adds": 14,
             "down": 7,
             "sl": null,
             "tp": null
@@ -23647,14 +23651,14 @@
         "pos": {
           "BTC": {
             "dir": 1,
-            "entry": 61819.4,
-            "szi": 199.3048,
-            "usd": 12315442,
-            "maxUsd": 12315442,
+            "entry": 61821.7,
+            "szi": 224.88056,
+            "usd": 13906389,
+            "maxUsd": 13906389,
             "lev": 20,
             "t": 1795161649216,
             "pre": false,
-            "adds": 0,
+            "adds": 1,
             "down": 0,
             "sl": null,
             "tp": null
@@ -23941,14 +23945,14 @@
           },
           "WLD": {
             "dir": -1,
-            "entry": 0.30389,
-            "szi": 1841630.2,
-            "usd": 481218,
+            "entry": 0.29595,
+            "szi": 2029276.3,
+            "usd": 503159,
             "maxUsd": 688086,
             "lev": 10,
             "t": 1793566542138,
             "pre": true,
-            "adds": 7,
+            "adds": 8,
             "down": 0,
             "sl": null,
             "tp": null
@@ -24473,15 +24477,15 @@
           },
           "MORPHO": {
             "dir": 1,
-            "entry": 1.65667,
-            "szi": 96081.5,
-            "usd": 155835,
-            "maxUsd": 155835,
+            "entry": 1.64928,
+            "szi": 120808.4,
+            "usd": 195456,
+            "maxUsd": 195456,
             "lev": 5,
             "t": 1794996931246,
             "pre": false,
-            "adds": 21,
-            "down": 16,
+            "adds": 22,
+            "down": 17,
             "sl": null,
             "tp": null
           },
@@ -28035,15 +28039,15 @@
           },
           "NXPC": {
             "dir": -1,
-            "entry": 0.131391,
-            "szi": 879,
-            "usd": 116,
-            "maxUsd": 116,
+            "entry": 0.13153,
+            "szi": 969,
+            "usd": 129,
+            "maxUsd": 129,
             "lev": 3,
             "t": 1795077058404,
             "pre": false,
-            "adds": 3,
-            "down": 2,
+            "adds": 4,
+            "down": 3,
             "sl": null,
             "tp": null
           },
@@ -29061,7 +29065,7 @@
           }
         },
         "init": true,
-        "acct": 3559,
+        "acct": 3776,
         "since": 1793566542138,
         "name": "T19",
         "ft": [
