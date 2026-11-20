@@ -11947,7 +11947,8 @@
           "validUntil": 1795773649040,
           "status": "pending"
         }
-      }
+      },
+      "lastPx": 133.57
     }
   ],
   "outlooks": [
@@ -15639,7 +15640,7 @@
       "lastAlert": "2026-11-19T00:01:04.698Z"
     },
     "XINTC": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-06T14:45:09.531Z"
     },
@@ -15987,17 +15988,16 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-20T10:00:49.040Z",
+    "t": "2026-11-20T10:15:31.750Z",
     "universe": 52,
     "analyzed": 19,
     "signals": [
-      "STRK (فروش)",
       "LIT (فروش)",
       "XSPCX (فروش)",
-      "SKY (فروش)"
+      "STRK (فروش)"
     ]
   },
-  "lastFull": "2026-11-20T10:00:49.040Z",
+  "lastFull": "2026-11-20T10:15:31.750Z",
   "lastDaily": "2026-11-20",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -25144,14 +25144,14 @@
           },
           "HYPE": {
             "dir": -1,
-            "entry": 65.3942,
-            "szi": 2828.24,
-            "usd": 183524,
+            "entry": 65.3093,
+            "szi": 3946.87,
+            "usd": 256949,
             "maxUsd": 376750,
             "lev": 5,
             "t": 1795152647595,
             "pre": false,
-            "adds": 8,
+            "adds": 9,
             "down": 6,
             "sl": null,
             "tp": null
@@ -26711,8 +26711,8 @@
           "SUI": {
             "dir": -1,
             "entry": 0.88125,
-            "szi": 43081,
-            "usd": 30019,
+            "szi": 36144.3,
+            "usd": 25092,
             "maxUsd": 187531,
             "lev": 10,
             "t": 1793566542138,
@@ -29122,7 +29122,7 @@
           }
         },
         "init": true,
-        "acct": 3312,
+        "acct": 3602,
         "since": 1793566542138,
         "name": "T19",
         "ft": [
