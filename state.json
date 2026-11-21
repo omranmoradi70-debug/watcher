@@ -16633,22 +16633,23 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-21T16:30:48.932Z",
-    "universe": 53,
+    "t": "2026-11-21T16:45:29.489Z",
+    "universe": 51,
     "analyzed": 19,
     "signals": [
       "PONS (فروش)",
       "ICP (فروش)",
-      "TRUMP (فروش)",
-      "GRAM (فروش)",
       "ZRO (فروش)",
+      "GRAM (فروش)",
+      "TRUMP (فروش)",
+      "ARB (فروش)",
       "LINK (فروش)",
+      "SHIB (فروش)",
       "STRK (فروش)",
-      "AAVE (فروش)",
-      "DOGE (فروش)"
+      "HYPE (فروش)"
     ]
   },
-  "lastFull": "2026-11-21T16:30:48.932Z",
+  "lastFull": "2026-11-21T16:45:29.489Z",
   "lastDaily": "2026-11-21",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -24737,14 +24738,14 @@
           },
           "TIA": {
             "dir": -1,
-            "entry": 0.3535,
-            "szi": 890292.2,
-            "usd": 278706,
+            "entry": 0.34903,
+            "szi": 979903.9,
+            "usd": 316401,
             "maxUsd": 428236,
             "lev": 5,
             "t": 1793566542138,
             "pre": true,
-            "adds": 13,
+            "adds": 14,
             "down": 0,
             "sl": null,
             "tp": null
@@ -28359,15 +28360,15 @@
           },
           "PNUT": {
             "dir": -1,
-            "entry": 0.02558,
-            "szi": 140380,
-            "usd": 3679,
-            "maxUsd": 3679,
+            "entry": 0.02564,
+            "szi": 158791,
+            "usd": 4137,
+            "maxUsd": 4137,
             "lev": 3,
             "t": 1795258845629,
             "pre": false,
-            "adds": 5,
-            "down": 4,
+            "adds": 6,
+            "down": 5,
             "sl": null,
             "tp": null
           },
