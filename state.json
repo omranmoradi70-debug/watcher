@@ -12697,6 +12697,55 @@
       },
       "openedAt": 1795345243591,
       "lastPx": 60876.2
+    },
+    {
+      "id": "MMT|1795347039302",
+      "sym": "MMT",
+      "src": "scan",
+      "dir": 1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 0.203,
+      "zoneLo": 0.19109658200988155,
+      "zoneHi": 0.203,
+      "stop": 0.17919316401976312,
+      "tp1": 0.234,
+      "tp2": 0.2487,
+      "rr1": 1.302146997851141,
+      "rr2": 1.9196167032837788,
+      "t": 1795347039302,
+      "validUntil": 1795951839302,
+      "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": "engulf_bull",
+      "bg": -1,
+      "m1": true,
+      "al": "3/3",
+      "sh": {
+        "2": {
+          "dir": 1,
+          "mode": "now",
+          "entry": 0.203,
+          "stop": 0.15538632803952623,
+          "tp1": 0.234,
+          "tp2": 0.2487,
+          "t": 1795347039302,
+          "validUntil": 1795951839302,
+          "status": "open"
+        },
+        "1.5": {
+          "dir": 1,
+          "mode": "now",
+          "entry": 0.203,
+          "stop": 0.1672897460296447,
+          "tp1": 0.234,
+          "tp2": 0.2487,
+          "t": 1795347039302,
+          "validUntil": 1795951839302,
+          "status": "open"
+        }
+      }
     }
   ],
   "outlooks": [
@@ -16849,8 +16898,8 @@
     },
     "MMT": {
       "decision": "long",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-11-19T12:15:31.906Z"
+      "lastAlertedDecision": "long",
+      "lastAlert": "2026-11-22T11:30:39.302Z"
     },
     "BREV": {
       "decision": "long",
@@ -16901,16 +16950,18 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-22T11:15:28.029Z",
+    "t": "2026-11-22T11:30:39.302Z",
     "universe": 33,
     "analyzed": 20,
     "signals": [
       "VINE (خرید)",
+      "MMT (خرید)",
       "SUI (فروش)",
+      "WLD (فروش)",
       "GRAM (فروش)"
     ]
   },
-  "lastFull": "2026-11-22T11:15:28.029Z",
+  "lastFull": "2026-11-22T11:30:39.302Z",
   "lastDaily": "2026-11-22",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -24603,7 +24654,7 @@
           }
         },
         "init": true,
-        "acct": 11734430,
+        "acct": 15057696,
         "since": 1793566542138,
         "name": "T4",
         "ft": [],
@@ -27683,14 +27734,14 @@
           },
           "LINK": {
             "dir": -1,
-            "entry": 9.02076,
-            "szi": 1039.3,
-            "usd": 9219,
-            "maxUsd": 9219,
+            "entry": 8.98364,
+            "szi": 1324.9,
+            "usd": 11700,
+            "maxUsd": 11700,
             "lev": 10,
             "t": 1795042850858,
             "pre": false,
-            "adds": 5,
+            "adds": 6,
             "down": 4,
             "sl": null,
             "tp": null
@@ -29000,8 +29051,8 @@
           "INIT": {
             "dir": -1,
             "entry": 0.092047,
-            "szi": 19723,
-            "usd": 1754,
+            "szi": 17569,
+            "usd": 1491,
             "maxUsd": 6483,
             "lev": 3,
             "t": 1794909648862,
