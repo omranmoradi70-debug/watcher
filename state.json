@@ -4,7 +4,7 @@
       "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-06T09:44:03.822Z",
-      "nearAlert": "2026-11-22T12:00:44.839Z"
+      "nearAlert": "2026-11-22T18:15:33.389Z"
     },
     "ETH": {
       "decision": "wait",
@@ -12865,7 +12865,8 @@
           "tp2": 1.0023399999999998,
           "t": 1795370443735,
           "validUntil": 1795975243735,
-          "status": "open"
+          "status": "open",
+          "openedAt": 1795370443735
         },
         "1.5": {
           "dir": 1,
@@ -12876,9 +12877,12 @@
           "tp2": 1.0023399999999998,
           "t": 1795370443735,
           "validUntil": 1795975243735,
-          "status": "open"
+          "status": "open",
+          "openedAt": 1795370443735
         }
-      }
+      },
+      "openedAt": 1795370443735,
+      "lastPx": 1.0013
     }
   ],
   "outlooks": [
@@ -16695,7 +16699,7 @@
       "lastAlert": null
     },
     "DOGE": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-01T01:52:54.513Z"
     },
@@ -17088,19 +17092,18 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-22T18:00:43.735Z",
+    "t": "2026-11-22T18:15:33.389Z",
     "universe": 29,
     "analyzed": 20,
     "signals": [
       "LIT (فروش)",
       "XNVDA (فروش)",
       "SUI (فروش)",
-      "GRAM (فروش)",
       "XAUT (فروش)",
-      "RLUSD (خرید)"
+      "LTC (فروش)"
     ]
   },
-  "lastFull": "2026-11-22T18:00:43.735Z",
+  "lastFull": "2026-11-22T18:15:33.389Z",
   "lastDaily": "2026-11-22",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -24227,7 +24230,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 16829942,
+        "acct": 18480377,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -24810,16 +24813,16 @@
         "auto": true,
         "pos": {
           "BTC": {
-            "dir": -1,
-            "entry": 61159.7,
-            "szi": 78.99236,
-            "usd": 4800998,
-            "maxUsd": 18569364,
+            "dir": 1,
+            "entry": 60535.3,
+            "szi": 210.74253,
+            "usd": 12796518,
+            "maxUsd": 12796518,
             "lev": 20,
-            "t": 1795363254814,
+            "t": 1795371333389,
             "pre": false,
-            "adds": 2,
-            "down": 2,
+            "adds": 0,
+            "down": 0,
             "sl": null,
             "tp": null
           },
@@ -25077,15 +25080,15 @@
           },
           "APT": {
             "dir": -1,
-            "entry": 0.3724,
-            "szi": 70791.65,
-            "usd": 26965,
-            "maxUsd": 26965,
+            "entry": 0.3732,
+            "szi": 79302.66,
+            "usd": 30024,
+            "maxUsd": 30024,
             "lev": 10,
             "t": 1795225503908,
             "pre": false,
-            "adds": 24,
-            "down": 17,
+            "adds": 25,
+            "down": 18,
             "sl": null,
             "tp": null
           },
@@ -25848,8 +25851,8 @@
           "STBL": {
             "dir": 1,
             "entry": 0.01702,
-            "szi": 37350,
-            "usd": 637,
+            "szi": 33485,
+            "usd": 571,
             "maxUsd": 637,
             "lev": 3,
             "t": 1795370443735,
@@ -26181,8 +26184,8 @@
           "BTC": {
             "dir": -1,
             "entry": 58844.1,
-            "szi": 404.38925,
-            "usd": 24621239,
+            "szi": 353.30519,
+            "usd": 21453080,
             "maxUsd": 30486923,
             "lev": 20,
             "t": 1793899178239,
@@ -28320,15 +28323,15 @@
           },
           "JUP": {
             "dir": 1,
-            "entry": 0.228353,
-            "szi": 175117,
-            "usd": 38933,
-            "maxUsd": 38933,
+            "entry": 0.227893,
+            "szi": 197395,
+            "usd": 44325,
+            "maxUsd": 44325,
             "lev": 10,
             "t": 1794904248364,
             "pre": false,
-            "adds": 20,
-            "down": 14,
+            "adds": 21,
+            "down": 15,
             "sl": null,
             "tp": null
           },
@@ -29908,6 +29911,20 @@
             "maxUsd": 2,
             "lev": 3,
             "t": 1795358729282,
+            "pre": false,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "ACE": {
+            "dir": 1,
+            "entry": 0.0639,
+            "szi": 6851.24,
+            "usd": 415,
+            "maxUsd": 415,
+            "lev": 3,
+            "t": 1795371333389,
             "pre": false,
             "adds": 0,
             "down": 0,
@@ -42445,6 +42462,24 @@
         "lev": 3,
         "adds": 10,
         "down": 8,
+        "pre": false
+      },
+      {
+        "a": "0xecb63caa47c7c4e77f60f1ce858cf28dc2b82b00",
+        "c": "BTC",
+        "d": -1,
+        "e": 61159.7,
+        "x": 60712.5,
+        "sl": null,
+        "tp": null,
+        "why": "manual",
+        "t0": 1795363254814,
+        "t1": 1795371333389,
+        "p": 0.661,
+        "imp": 0.403,
+        "lev": 20,
+        "adds": 2,
+        "down": 2,
         "pre": false
       }
     ],
