@@ -10,7 +10,7 @@
       "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-06T09:44:03.822Z",
-      "nearAlert": "2026-11-22T15:00:44.353Z"
+      "nearAlert": "2026-11-22T21:15:28.033Z"
     },
     "SOL": {
       "decision": "short",
@@ -17076,6 +17076,11 @@
       "decision": "long",
       "lastAlertedDecision": "long",
       "lastAlert": "2026-11-22T18:00:43.735Z"
+    },
+    "NES": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {
@@ -17101,18 +17106,17 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-22T21:00:44.025Z",
-    "universe": 27,
+    "t": "2026-11-22T21:15:28.033Z",
+    "universe": 28,
     "analyzed": 20,
     "signals": [
       "LIT (فروش)",
       "XNVDA (فروش)",
       "XAUT (فروش)",
-      "ZEC (فروش)",
       "LTC (فروش)"
     ]
   },
-  "lastFull": "2026-11-22T21:00:44.025Z",
+  "lastFull": "2026-11-22T21:15:28.033Z",
   "lastDaily": "2026-11-22",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -24824,8 +24828,8 @@
           "BTC": {
             "dir": 1,
             "entry": 60560.1,
-            "szi": 230.21732,
-            "usd": 14020005,
+            "szi": 111.63249,
+            "usd": 6803219,
             "maxUsd": 17234742,
             "lev": 20,
             "t": 1795371333389,
@@ -25860,8 +25864,8 @@
           "STBL": {
             "dir": 1,
             "entry": 0.017194,
-            "szi": 35637,
-            "usd": 610,
+            "szi": 29866,
+            "usd": 513,
             "maxUsd": 1340,
             "lev": 3,
             "t": 1795370443735,
@@ -30260,7 +30264,7 @@
           }
         },
         "init": true,
-        "acct": 10337,
+        "acct": 10906,
         "since": 1793566542138,
         "name": "T19",
         "ft": [
