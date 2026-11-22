@@ -12679,7 +12679,8 @@
           "tp2": 55134,
           "t": 1795345243591,
           "validUntil": 1795950043591,
-          "status": "open"
+          "status": "open",
+          "openedAt": 1795345243591
         },
         "1.5": {
           "dir": -1,
@@ -12690,9 +12691,12 @@
           "tp2": 55134,
           "t": 1795345243591,
           "validUntil": 1795950043591,
-          "status": "open"
+          "status": "open",
+          "openedAt": 1795345243591
         }
-      }
+      },
+      "openedAt": 1795345243591,
+      "lastPx": 60876.2
     }
   ],
   "outlooks": [
@@ -16844,7 +16848,7 @@
       "lastAlert": null
     },
     "MMT": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-19T12:15:31.906Z"
     },
@@ -16897,17 +16901,16 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-22T11:00:43.591Z",
-    "universe": 34,
+    "t": "2026-11-22T11:15:28.029Z",
+    "universe": 33,
     "analyzed": 20,
     "signals": [
       "VINE (خرید)",
-      "PUMP (فروش)",
       "SUI (فروش)",
       "GRAM (فروش)"
     ]
   },
-  "lastFull": "2026-11-22T11:00:43.591Z",
+  "lastFull": "2026-11-22T11:15:28.029Z",
   "lastDaily": "2026-11-22",
   "lastWeekly": "2026-11-16",
   "replay": {
@@ -30052,7 +30055,7 @@
           }
         },
         "init": true,
-        "acct": 19830,
+        "acct": 10769,
         "since": 1793566542138,
         "name": "T19",
         "ft": [
