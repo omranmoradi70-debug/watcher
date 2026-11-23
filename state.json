@@ -4,7 +4,7 @@
       "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-06T09:44:03.822Z",
-      "nearAlert": "2026-11-23T00:30:37.547Z"
+      "nearAlert": "2026-11-23T06:30:39.792Z"
     },
     "ETH": {
       "decision": "short",
@@ -17000,8 +17000,8 @@
       "lastAlert": "2026-11-06T18:10:16.897Z"
     },
     "ARB": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-13T13:38:35.672Z"
     },
     "XSPCX": {
@@ -17453,12 +17453,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-23T06:15:29.671Z",
-    "universe": 30,
+    "t": "2026-11-23T06:30:39.792Z",
+    "universe": 31,
     "analyzed": 20,
     "signals": []
   },
-  "lastFull": "2026-11-23T06:15:29.671Z",
+  "lastFull": "2026-11-23T06:30:39.792Z",
   "lastDaily": "2026-11-23",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -25170,8 +25170,8 @@
           "BTC": {
             "dir": -1,
             "entry": 61656.3,
-            "szi": 192.28915,
-            "usd": 11872124,
+            "szi": 161.79014,
+            "usd": 9957051,
             "maxUsd": 15592706,
             "lev": 20,
             "t": 1795391127904,
@@ -25225,15 +25225,15 @@
           },
           "AVAX": {
             "dir": -1,
-            "entry": 6.6449,
-            "szi": 16677.58,
-            "usd": 111820,
+            "entry": 6.6528,
+            "szi": 20015.82,
+            "usd": 134018,
             "maxUsd": 281852,
             "lev": 10,
             "t": 1794820530591,
             "pre": false,
-            "adds": 15,
-            "down": 7,
+            "adds": 16,
+            "down": 8,
             "sl": null,
             "tp": null
           },
@@ -25310,8 +25310,8 @@
           "SUI": {
             "dir": 1,
             "entry": 0.64805,
-            "szi": 200213.4,
-            "usd": 132944,
+            "szi": 171733.2,
+            "usd": 113919,
             "maxUsd": 391208,
             "lev": 10,
             "t": 1795266044749,
@@ -25981,15 +25981,15 @@
           },
           "SPX": {
             "dir": -1,
-            "entry": 0.28265,
-            "szi": 10626.1,
-            "usd": 3008,
+            "entry": 0.28319,
+            "szi": 12305.3,
+            "usd": 3500,
             "maxUsd": 4715,
             "lev": 5,
             "t": 1795343438784,
             "pre": false,
-            "adds": 13,
-            "down": 3,
+            "adds": 14,
+            "down": 4,
             "sl": null,
             "tp": null
           },
@@ -26205,14 +26205,14 @@
           },
           "STBL": {
             "dir": 1,
-            "entry": 0.017152,
-            "szi": 23176,
-            "usd": 398,
-            "maxUsd": 398,
+            "entry": 0.017149,
+            "szi": 29863,
+            "usd": 514,
+            "maxUsd": 514,
             "lev": 3,
             "t": 1795412729046,
             "pre": false,
-            "adds": 1,
+            "adds": 2,
             "down": 0,
             "sl": null,
             "tp": null
@@ -26261,15 +26261,15 @@
           },
           "MON": {
             "dir": 1,
-            "entry": 0.014607,
-            "szi": 9890118,
-            "usd": 122865,
+            "entry": 0.014325,
+            "szi": 11192852,
+            "usd": 137403,
             "maxUsd": 384809,
             "lev": 3,
             "t": 1794150137144,
             "pre": false,
-            "adds": 11,
-            "down": 10,
+            "adds": 12,
+            "down": 11,
             "sl": null,
             "tp": null
           },
@@ -29071,8 +29071,8 @@
           "BRETT": {
             "dir": -1,
             "entry": 0.003166,
-            "szi": 14749,
-            "usd": 46,
+            "szi": 10919,
+            "usd": 34,
             "maxUsd": 46,
             "lev": 3,
             "t": 1795148132410,
