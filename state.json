@@ -13186,7 +13186,8 @@
           "tp2": 0.09703207593362008,
           "t": 1795428930786,
           "validUntil": 1796033730786,
-          "status": "open"
+          "status": "open",
+          "openedAt": 1795428930786
         },
         "1.5": {
           "dir": -1,
@@ -13197,9 +13198,12 @@
           "tp2": 0.09703207593362008,
           "t": 1795428930786,
           "validUntil": 1796033730786,
-          "status": "open"
+          "status": "open",
+          "openedAt": 1795428930786
         }
-      }
+      },
+      "openedAt": 1795428930786,
+      "lastPx": 0.1408
     }
   ],
   "outlooks": [
@@ -17341,8 +17345,8 @@
       "lastAlert": "2026-10-30T08:31:24.597Z"
     },
     "XGOOGL": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-18T19:30:47.193Z"
     },
     "STX": {
@@ -17574,15 +17578,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-23T10:15:30.786Z",
-    "universe": 30,
+    "t": "2026-11-23T10:30:40.011Z",
+    "universe": 31,
     "analyzed": 20,
     "signals": [
-      "NIGHT (خرید)",
-      "DOS (فروش)"
+      "NIGHT (خرید)"
     ]
   },
-  "lastFull": "2026-11-23T10:15:30.786Z",
+  "lastFull": "2026-11-23T10:30:40.011Z",
   "lastDaily": "2026-11-23",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -29811,8 +29814,8 @@
           "AVNT": {
             "dir": -1,
             "entry": 0.084519,
-            "szi": 78953,
-            "usd": 4827,
+            "szi": 70896,
+            "usd": 4301,
             "maxUsd": 20735,
             "lev": 5,
             "t": 1793868538715,
@@ -30384,14 +30387,14 @@
           },
           "YGG": {
             "dir": 1,
-            "entry": 0.019933,
-            "szi": 2245,
-            "usd": 45,
-            "maxUsd": 45,
+            "entry": 0.020061,
+            "szi": 9328,
+            "usd": 187,
+            "maxUsd": 187,
             "lev": 3,
             "t": 1795427132105,
             "pre": false,
-            "adds": 1,
+            "adds": 2,
             "down": 0,
             "sl": null,
             "tp": null
@@ -30399,11 +30402,25 @@
           "BANANA": {
             "dir": -1,
             "entry": 2.4809,
-            "szi": 4.8,
-            "usd": 12,
+            "szi": 0.7,
+            "usd": 2,
             "maxUsd": 12,
             "lev": 3,
             "t": 1795428930786,
+            "pre": false,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "ACE": {
+            "dir": -1,
+            "entry": 0.0673,
+            "szi": 9616.9,
+            "usd": 646,
+            "maxUsd": 646,
+            "lev": 3,
+            "t": 1795429840011,
             "pre": false,
             "adds": 0,
             "down": 0,
