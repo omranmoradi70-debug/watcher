@@ -17326,8 +17326,8 @@
       "lastAlert": "2026-11-10T18:05:49.134Z"
     },
     "PEPE": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-20T11:45:32.496Z"
     },
     "XTSLA": {
@@ -17814,15 +17814,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-23T16:15:29.792Z",
+    "t": "2026-11-23T16:30:42.078Z",
     "universe": 50,
     "analyzed": 20,
     "signals": [
-      "MON (فروش)",
-      "DOS (فروش)"
+      "MON (فروش)"
     ]
   },
-  "lastFull": "2026-11-23T16:15:29.792Z",
+  "lastFull": "2026-11-23T16:30:42.078Z",
   "lastDaily": "2026-11-23",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -25040,8 +25039,8 @@
           "ETH": {
             "dir": 1,
             "entry": 1637.6,
-            "szi": 3574.2244,
-            "usd": 6338530,
+            "szi": 3213.4083,
+            "usd": 5702193,
             "maxUsd": 7699699,
             "lev": 25,
             "t": 1795209329464,
@@ -25674,8 +25673,8 @@
           "SUI": {
             "dir": -1,
             "entry": 0.69536,
-            "szi": 370306.4,
-            "usd": 264913,
+            "szi": 328093.1,
+            "usd": 233376,
             "maxUsd": 333702,
             "lev": 10,
             "t": 1795422648395,
@@ -26051,14 +26050,14 @@
           },
           "kFLOKI": {
             "dir": 1,
-            "entry": 0.016167,
-            "szi": 1589730,
-            "usd": 26264,
-            "maxUsd": 26264,
+            "entry": 0.016391,
+            "szi": 1762873,
+            "usd": 30447,
+            "maxUsd": 30447,
             "lev": 5,
             "t": 1794954644121,
             "pre": false,
-            "adds": 51,
+            "adds": 52,
             "down": 34,
             "sl": null,
             "tp": null
@@ -26723,14 +26722,14 @@
           },
           "USELESS": {
             "dir": 1,
-            "entry": 0.083734,
-            "szi": 312912,
-            "usd": 27323,
+            "entry": 0.083829,
+            "szi": 359464,
+            "usd": 30199,
             "maxUsd": 63443,
             "lev": 3,
             "t": 1795166131759,
             "pre": false,
-            "adds": 3,
+            "adds": 4,
             "down": 2,
             "sl": null,
             "tp": null
