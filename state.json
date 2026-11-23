@@ -2,8 +2,8 @@
   "coins": {
     "BTC": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-11-06T09:44:03.822Z",
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-11-23T12:45:42.979Z",
       "nearAlert": "2026-11-23T06:30:39.792Z"
     },
     "ETH": {
@@ -17743,14 +17743,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-23T12:30:40.106Z",
+    "t": "2026-11-23T12:45:42.979Z",
     "universe": 29,
     "analyzed": 20,
     "signals": [
       "ARB (فروش)"
     ]
   },
-  "lastFull": "2026-11-23T12:30:40.106Z",
+  "lastFull": "2026-11-23T12:45:42.979Z",
   "lastDaily": "2026-11-23",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -25248,8 +25248,8 @@
           "HYPE": {
             "dir": -1,
             "entry": 64.8059,
-            "szi": 119856.13,
-            "usd": 7533557,
+            "szi": 106038.25,
+            "usd": 6750183,
             "maxUsd": 7533557,
             "lev": 5,
             "t": 1794899731734,
@@ -26203,14 +26203,14 @@
           },
           "PENGU": {
             "dir": -1,
-            "entry": 0.004429,
-            "szi": 17020742,
-            "usd": 73819,
+            "entry": 0.004423,
+            "szi": 18813296,
+            "usd": 81932,
             "maxUsd": 417252,
             "lev": 5,
             "t": 1793566542138,
             "pre": true,
-            "adds": 15,
+            "adds": 16,
             "down": 0,
             "sl": null,
             "tp": null
@@ -26497,15 +26497,15 @@
           },
           "STBL": {
             "dir": -1,
-            "entry": 0.016521,
-            "szi": 193971,
-            "usd": 3217,
-            "maxUsd": 3663,
+            "entry": 0.016542,
+            "szi": 220481,
+            "usd": 3665,
+            "maxUsd": 3665,
             "lev": 3,
             "t": 1795426246372,
             "pre": false,
-            "adds": 6,
-            "down": 1,
+            "adds": 7,
+            "down": 2,
             "sl": null,
             "tp": null
           },
@@ -28859,8 +28859,8 @@
           "FET": {
             "dir": -1,
             "entry": 0.181552,
-            "szi": 297726,
-            "usd": 33042,
+            "szi": 249906,
+            "usd": 27492,
             "maxUsd": 247752,
             "lev": 5,
             "t": 1793566542138,
@@ -30552,15 +30552,15 @@
           },
           "YGG": {
             "dir": 1,
-            "entry": 0.019948,
-            "szi": 96164,
-            "usd": 1912,
-            "maxUsd": 1912,
+            "entry": 0.019939,
+            "szi": 181208,
+            "usd": 3612,
+            "maxUsd": 3612,
             "lev": 3,
             "t": 1795427132105,
             "pre": false,
-            "adds": 7,
-            "down": 4,
+            "adds": 8,
+            "down": 5,
             "sl": null,
             "tp": null
           },
