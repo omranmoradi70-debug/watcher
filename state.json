@@ -17286,7 +17286,7 @@
       "lastAlert": null
     },
     "DOGE": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-01T01:52:54.513Z"
     },
@@ -17684,15 +17684,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-23T11:30:42.577Z",
+    "t": "2026-11-23T11:45:38.385Z",
     "universe": 30,
     "analyzed": 20,
     "signals": [
-      "NIGHT (خرید)",
-      "ZEC (فروش)"
+      "NIGHT (خرید)"
     ]
   },
-  "lastFull": "2026-11-23T11:30:42.577Z",
+  "lastFull": "2026-11-23T11:45:38.385Z",
   "lastDaily": "2026-11-23",
   "lastWeekly": "2026-11-23",
   "replay": {
