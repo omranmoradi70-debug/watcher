@@ -13351,7 +13351,8 @@
           "tp2": 0.08651866666666666,
           "t": 1795436128990,
           "validUntil": 1796040928990,
-          "status": "open"
+          "status": "open",
+          "openedAt": 1795436128990
         },
         "1.5": {
           "dir": -1,
@@ -13362,9 +13363,12 @@
           "tp2": 0.08651866666666666,
           "t": 1795436128990,
           "validUntil": 1796040928990,
-          "status": "open"
+          "status": "open",
+          "openedAt": 1795436128990
         }
-      }
+      },
+      "openedAt": 1795436128990,
+      "lastPx": 0.11456
     }
   ],
   "outlooks": [
@@ -17341,7 +17345,7 @@
       "lastAlert": null
     },
     "DOGE": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-01T01:52:54.513Z"
     },
@@ -17739,14 +17743,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-23T12:15:28.990Z",
-    "universe": 30,
+    "t": "2026-11-23T12:30:40.106Z",
+    "universe": 29,
     "analyzed": 20,
     "signals": [
       "ARB (فروش)"
     ]
   },
-  "lastFull": "2026-11-23T12:15:28.990Z",
+  "lastFull": "2026-11-23T12:30:40.106Z",
   "lastDaily": "2026-11-23",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -26882,14 +26886,14 @@
           },
           "NEAR": {
             "dir": -1,
-            "entry": 3.00648,
-            "szi": 151374.2,
-            "usd": 456590,
-            "maxUsd": 456590,
+            "entry": 3.00588,
+            "szi": 166917.7,
+            "usd": 499885,
+            "maxUsd": 499885,
             "lev": 10,
             "t": 1795425341762,
             "pre": false,
-            "adds": 5,
+            "adds": 6,
             "down": 3,
             "sl": null,
             "tp": null
@@ -28532,15 +28536,15 @@
           },
           "STX": {
             "dir": 1,
-            "entry": 0.27706,
-            "szi": 47416.7,
-            "usd": 13092,
-            "maxUsd": 13092,
+            "entry": 0.27365,
+            "szi": 54555.2,
+            "usd": 14070,
+            "maxUsd": 14070,
             "lev": 5,
             "t": 1794214658748,
             "pre": false,
-            "adds": 7,
-            "down": 5,
+            "adds": 8,
+            "down": 6,
             "sl": null,
             "tp": null
           },
@@ -30548,15 +30552,15 @@
           },
           "YGG": {
             "dir": 1,
-            "entry": 0.019988,
-            "szi": 56297,
-            "usd": 1121,
-            "maxUsd": 1121,
+            "entry": 0.019948,
+            "szi": 96164,
+            "usd": 1912,
+            "maxUsd": 1912,
             "lev": 3,
             "t": 1795427132105,
             "pre": false,
-            "adds": 6,
-            "down": 3,
+            "adds": 7,
+            "down": 4,
             "sl": null,
             "tp": null
           },
@@ -30574,14 +30578,14 @@
             "sl": null,
             "tp": null
           },
-          "ACE": {
-            "dir": -1,
-            "entry": 0.0673,
-            "szi": 5047.78,
-            "usd": 340,
-            "maxUsd": 646,
+          "kLUNC": {
+            "dir": 1,
+            "entry": 0.042691,
+            "szi": 4660,
+            "usd": 199,
+            "maxUsd": 199,
             "lev": 3,
-            "t": 1795429840011,
+            "t": 1795437040106,
             "pre": false,
             "adds": 0,
             "down": 0,
@@ -43371,6 +43375,24 @@
         "t1": 1795433442577,
         "p": -2.773,
         "imp": -1.164,
+        "lev": 3,
+        "adds": 0,
+        "down": 0,
+        "pre": false
+      },
+      {
+        "a": "0xdf954bbe619273a56e0cfa90dad8382195dc7d72",
+        "c": "ACE",
+        "d": -1,
+        "e": 0.0673,
+        "x": 0.0638,
+        "sl": null,
+        "tp": null,
+        "why": "manual",
+        "t0": 1795429840011,
+        "t1": 1795437040106,
+        "p": 5.131,
+        "imp": 0,
         "lev": 3,
         "adds": 0,
         "down": 0,
