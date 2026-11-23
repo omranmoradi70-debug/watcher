@@ -13719,6 +13719,55 @@
       },
       "openedAt": 1795464044252,
       "lastPx": 0.9377
+    },
+    {
+      "id": "XCRCL|1795469450392",
+      "sym": "XCRCL",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 51.95,
+      "zoneLo": 51.95,
+      "zoneHi": 52.76605029737127,
+      "stop": 53.60790187482655,
+      "tp1": 49.68,
+      "tp2": 48.27,
+      "rr1": 1.3692004541809735,
+      "rr2": 2.219672982989416,
+      "t": 1795469450392,
+      "validUntil": 1796074250392,
+      "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": null,
+      "bg": -1,
+      "m1": true,
+      "al": "2/3",
+      "sh": {
+        "2": {
+          "dir": -1,
+          "mode": "now",
+          "entry": 51.95,
+          "stop": 55.2658037496531,
+          "tp1": 49.68,
+          "tp2": 48.27,
+          "t": 1795469450392,
+          "validUntil": 1796074250392,
+          "status": "open"
+        },
+        "1.5": {
+          "dir": -1,
+          "mode": "now",
+          "entry": 51.95,
+          "stop": 54.43685281223983,
+          "tp1": 49.68,
+          "tp2": 48.27,
+          "t": 1795469450392,
+          "validUntil": 1796074250392,
+          "status": "open"
+        }
+      }
     }
   ],
   "outlooks": [
@@ -17566,8 +17615,8 @@
     },
     "XCRCL": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-11-12T02:32:23.883Z"
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-11-23T21:30:50.392Z"
     },
     "TRUMP": {
       "decision": "wait",
@@ -18098,14 +18147,15 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-23T21:15:30.785Z",
+    "t": "2026-11-23T21:30:50.392Z",
     "universe": 52,
     "analyzed": 19,
     "signals": [
-      "DOS (فروش)"
+      "DOS (فروش)",
+      "XCRCL (فروش)"
     ]
   },
-  "lastFull": "2026-11-23T21:15:30.785Z",
+  "lastFull": "2026-11-23T21:30:50.392Z",
   "lastDaily": "2026-11-23",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -25232,7 +25282,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 2827421,
+        "acct": 2512203,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -25817,8 +25867,8 @@
           "BTC": {
             "dir": -1,
             "entry": 61326.1,
-            "szi": 175.50807,
-            "usd": 10763910,
+            "szi": 129.10545,
+            "usd": 7927204,
             "maxUsd": 10763910,
             "lev": 20,
             "t": 1795459537150,
@@ -26908,29 +26958,29 @@
           },
           "MON": {
             "dir": 1,
-            "entry": 0.014032,
-            "szi": 10824956,
-            "usd": 127399,
+            "entry": 0.013284,
+            "szi": 14924903,
+            "usd": 170114,
             "maxUsd": 384809,
             "lev": 3,
             "t": 1794150137144,
             "pre": false,
-            "adds": 13,
-            "down": 12,
+            "adds": 14,
+            "down": 13,
             "sl": null,
             "tp": null
           },
           "MET": {
             "dir": 1,
-            "entry": 0.227638,
-            "szi": 301609,
-            "usd": 66493,
+            "entry": 0.226851,
+            "szi": 334674,
+            "usd": 73916,
             "maxUsd": 112054,
             "lev": 3,
             "t": 1795197659371,
             "pre": false,
-            "adds": 18,
-            "down": 11,
+            "adds": 19,
+            "down": 12,
             "sl": null,
             "tp": null
           },
