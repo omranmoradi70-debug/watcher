@@ -17291,8 +17291,8 @@
       "lastAlert": "2026-11-02T01:24:38.069Z"
     },
     "ENA": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-06T04:38:22.427Z"
     },
     "ONDO": {
@@ -17426,8 +17426,8 @@
       "lastAlert": "2026-11-19T00:01:04.698Z"
     },
     "XINTC": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-20T10:45:33.162Z"
     },
     "XAUT": {
@@ -17751,8 +17751,8 @@
       "lastAlert": "2026-11-19T20:00:49.911Z"
     },
     "JUP": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-21T01:00:42.930Z"
     },
     "RLUSD": {
@@ -17789,14 +17789,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-23T14:15:31.945Z",
-    "universe": 38,
+    "t": "2026-11-23T14:30:40.379Z",
+    "universe": 45,
     "analyzed": 20,
-    "signals": [
-      "XMU (فروش)"
-    ]
+    "signals": []
   },
-  "lastFull": "2026-11-23T14:15:31.945Z",
+  "lastFull": "2026-11-23T14:30:40.379Z",
   "lastDaily": "2026-11-23",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -24923,7 +24921,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 724219,
+        "acct": 199923,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -25489,7 +25487,7 @@
           }
         },
         "init": true,
-        "acct": 11573456,
+        "acct": 10917032,
         "since": 1793566542138,
         "name": "T4",
         "ft": [],
@@ -25508,8 +25506,8 @@
           "BTC": {
             "dir": 1,
             "entry": 62939.8,
-            "szi": 131.37128,
-            "usd": 8321320,
+            "szi": 28.52996,
+            "usd": 1821096,
             "maxUsd": 8321320,
             "lev": 20,
             "t": 1795443331945,
@@ -25522,8 +25520,8 @@
           "ETH": {
             "dir": -1,
             "entry": 1755.9,
-            "szi": 16452.9057,
-            "usd": 29565872,
+            "szi": 14352.9618,
+            "usd": 26133873,
             "maxUsd": 48462448,
             "lev": 15,
             "t": 1793566542138,
@@ -26011,15 +26009,15 @@
           },
           "TAO": {
             "dir": -1,
-            "entry": 199.032,
-            "szi": 1637.508,
-            "usd": 304113,
+            "entry": 193.593,
+            "szi": 1816.152,
+            "usd": 365809,
             "maxUsd": 790445,
             "lev": 5,
             "t": 1793566542138,
             "pre": true,
-            "adds": 10,
-            "down": 1,
+            "adds": 11,
+            "down": 2,
             "sl": null,
             "tp": null
           },
@@ -26068,8 +26066,8 @@
           "ENA": {
             "dir": -1,
             "entry": 0.116377,
-            "szi": 7109307,
-            "usd": 772782,
+            "szi": 6012679,
+            "usd": 679733,
             "maxUsd": 2265441,
             "lev": 5,
             "t": 1793566542138,
@@ -26249,15 +26247,15 @@
           },
           "PENGU": {
             "dir": -1,
-            "entry": 0.004423,
-            "szi": 18813296,
-            "usd": 81932,
+            "entry": 0.004498,
+            "szi": 22299985,
+            "usd": 105702,
             "maxUsd": 417252,
             "lev": 5,
             "t": 1793566542138,
             "pre": true,
-            "adds": 16,
-            "down": 0,
+            "adds": 17,
+            "down": 1,
             "sl": null,
             "tp": null
           },
@@ -26473,15 +26471,15 @@
           },
           "PUMP": {
             "dir": -1,
-            "entry": 0.002361,
-            "szi": 572644234,
-            "usd": 1476277,
-            "maxUsd": 1787087,
+            "entry": 0.002535,
+            "szi": 715355169,
+            "usd": 1960789,
+            "maxUsd": 1960789,
             "lev": 3,
             "t": 1794697039785,
             "pre": false,
-            "adds": 40,
-            "down": 8,
+            "adds": 41,
+            "down": 9,
             "sl": null,
             "tp": null
           },
@@ -26543,15 +26541,15 @@
           },
           "STBL": {
             "dir": -1,
-            "entry": 0.018179,
-            "szi": 97515,
-            "usd": 1817,
+            "entry": 0.018398,
+            "szi": 119228,
+            "usd": 2225,
             "maxUsd": 3665,
             "lev": 3,
             "t": 1795426246372,
             "pre": false,
-            "adds": 8,
-            "down": 3,
+            "adds": 9,
+            "down": 4,
             "sl": null,
             "tp": null
           },
@@ -26614,8 +26612,8 @@
           "MET": {
             "dir": 1,
             "entry": 0.23359,
-            "szi": 331913,
-            "usd": 75029,
+            "szi": 262393,
+            "usd": 63696,
             "maxUsd": 112054,
             "lev": 3,
             "t": 1795197659371,
@@ -26655,15 +26653,15 @@
           },
           "GRAM": {
             "dir": -1,
-            "entry": 0.95987,
-            "szi": 257774,
-            "usd": 255333,
+            "entry": 0.98056,
+            "szi": 301908,
+            "usd": 306074,
             "maxUsd": 501457,
             "lev": 5,
             "t": 1793566542138,
             "pre": true,
-            "adds": 39,
-            "down": 10,
+            "adds": 40,
+            "down": 11,
             "sl": null,
             "tp": null
           },
@@ -26711,7 +26709,7 @@
           }
         },
         "init": true,
-        "acct": 33151513,
+        "acct": 37527132,
         "since": 1793566542138,
         "name": "T5",
         "ft": [
@@ -26974,21 +26972,21 @@
           },
           "ZEC": {
             "dir": -1,
-            "entry": 833.246,
-            "szi": 3990.4,
-            "usd": 3217779,
+            "entry": 839.0331,
+            "szi": 4818.58,
+            "usd": 4271671,
             "maxUsd": 8716687,
             "lev": 10,
             "t": 1794735659697,
             "pre": false,
-            "adds": 18,
-            "down": 4,
+            "adds": 19,
+            "down": 5,
             "sl": null,
             "tp": null
           }
         },
         "init": true,
-        "acct": 20323473,
+        "acct": 19136373,
         "since": 1793566542138,
         "name": "T7",
         "ft": [],
@@ -28312,7 +28310,7 @@
           }
         },
         "init": true,
-        "acct": 11711812,
+        "acct": 10916916,
         "since": 1793566542138,
         "name": "T9",
         "ft": [],
@@ -29899,8 +29897,8 @@
           "NXPC": {
             "dir": -1,
             "entry": 0.131821,
-            "szi": 906,
-            "usd": 124,
+            "szi": 645,
+            "usd": 89,
             "maxUsd": 164,
             "lev": 3,
             "t": 1795077058404,
@@ -30122,14 +30120,14 @@
           },
           "MET": {
             "dir": 1,
-            "entry": 0.238808,
-            "szi": 30422,
-            "usd": 7368,
-            "maxUsd": 7368,
+            "entry": 0.241782,
+            "szi": 61385,
+            "usd": 14901,
+            "maxUsd": 14901,
             "lev": 3,
             "t": 1795443331945,
             "pre": false,
-            "adds": 0,
+            "adds": 1,
             "down": 0,
             "sl": null,
             "tp": null
@@ -30178,15 +30176,15 @@
           },
           "LIT": {
             "dir": -1,
-            "entry": 2.57547,
-            "szi": 11577,
-            "usd": 27411,
+            "entry": 2.569554,
+            "szi": 13009,
+            "usd": 35077,
             "maxUsd": 36649,
             "lev": 5,
             "t": 1794888930446,
             "pre": false,
-            "adds": 28,
-            "down": 10,
+            "adds": 29,
+            "down": 11,
             "sl": null,
             "tp": null
           },
@@ -30640,15 +30638,15 @@
           },
           "ACE": {
             "dir": -1,
-            "entry": 0.0713,
-            "szi": 6983.8,
-            "usd": 492,
-            "maxUsd": 492,
+            "entry": 0.0723,
+            "szi": 11041.87,
+            "usd": 835,
+            "maxUsd": 835,
             "lev": 3,
             "t": 1795443331945,
             "pre": false,
-            "adds": 0,
-            "down": 0,
+            "adds": 1,
+            "down": 1,
             "sl": null,
             "tp": null
           }
@@ -30690,7 +30688,7 @@
           }
         },
         "init": true,
-        "acct": 10598472,
+        "acct": 11140792,
         "since": 1793566542138,
         "name": "T11",
         "ft": [
@@ -30866,21 +30864,21 @@
           },
           "ETH": {
             "dir": -1,
-            "entry": 1734.33,
-            "szi": 19.05,
-            "usd": 34277,
-            "maxUsd": 34277,
+            "entry": 1754.5,
+            "szi": 25.4,
+            "usd": 46279,
+            "maxUsd": 46279,
             "lev": 25,
             "t": 1795268729651,
             "pre": false,
-            "adds": 2,
-            "down": 2,
+            "adds": 3,
+            "down": 3,
             "sl": null,
             "tp": null
           }
         },
         "init": true,
-        "acct": 51100,
+        "acct": 57178,
         "since": 1793566542138,
         "name": "T16",
         "ft": [
@@ -30972,7 +30970,7 @@
           }
         },
         "init": true,
-        "acct": 15317,
+        "acct": 16267,
         "since": 1793566542138,
         "name": "T19",
         "ft": [
@@ -31110,7 +31108,7 @@
           }
         },
         "init": true,
-        "acct": 40424,
+        "acct": 42886,
         "since": 1793566542138,
         "name": "T21",
         "ft": [
@@ -31357,10 +31355,24 @@
             "down": 7,
             "sl": null,
             "tp": null
+          },
+          "ACE": {
+            "dir": 1,
+            "entry": 0.0745,
+            "szi": 25000,
+            "usd": 1888,
+            "maxUsd": 1888,
+            "lev": 3,
+            "t": 1795444240379,
+            "pre": false,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
           }
         },
         "init": true,
-        "acct": 1555,
+        "acct": 2245,
         "since": 1793566542138,
         "name": "T24",
         "ft": [
@@ -31457,7 +31469,7 @@
           }
         },
         "init": true,
-        "acct": 18065,
+        "acct": 17006,
         "since": 1793566542138,
         "name": "T27",
         "ft": [
