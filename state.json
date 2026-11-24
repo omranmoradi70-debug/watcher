@@ -18668,7 +18668,7 @@
       "lastAlert": null
     },
     "PROS": {
-      "decision": "wait",
+      "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": null
     },
@@ -18726,8 +18726,8 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-24T12:15:30.047Z",
-    "universe": 52,
+    "t": "2026-11-24T12:30:40.210Z",
+    "universe": 53,
     "analyzed": 20,
     "signals": [
       "MMT (خرید)",
@@ -18736,12 +18736,11 @@
       "TRUMP (فروش)",
       "ENA (فروش)",
       "PUMP (فروش)",
-      "TAO (فروش)",
       "AAVE (فروش)",
-      "GRAM (فروش)"
+      "TAO (فروش)"
     ]
   },
-  "lastFull": "2026-11-24T12:15:30.047Z",
+  "lastFull": "2026-11-24T12:30:40.210Z",
   "lastDaily": "2026-11-24",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -26351,8 +26350,8 @@
           "ZEC": {
             "dir": -1,
             "entry": 831.8507,
-            "szi": 396.91,
-            "usd": 292277,
+            "szi": 339.71,
+            "usd": 250244,
             "maxUsd": 17536910,
             "lev": 5,
             "t": 1794837653826,
@@ -26379,8 +26378,8 @@
           "LIT": {
             "dir": -1,
             "entry": 3.469165,
-            "szi": 6569,
-            "usd": 15636,
+            "szi": 4533,
+            "usd": 10785,
             "maxUsd": 5264540,
             "lev": 5,
             "t": 1793566542138,
@@ -29454,15 +29453,15 @@
           },
           "SUI": {
             "dir": 1,
-            "entry": 0.6569,
-            "szi": 5735,
-            "usd": 3762,
-            "maxUsd": 3762,
+            "entry": 0.65669,
+            "szi": 8492,
+            "usd": 5575,
+            "maxUsd": 5575,
             "lev": 10,
             "t": 1795520728352,
             "pre": false,
-            "adds": 2,
-            "down": 1,
+            "adds": 3,
+            "down": 2,
             "sl": null,
             "tp": null
           },
@@ -29958,14 +29957,14 @@
           },
           "JUP": {
             "dir": 1,
-            "entry": 0.229411,
-            "szi": 253034,
-            "usd": 58238,
-            "maxUsd": 58238,
+            "entry": 0.229526,
+            "szi": 282138,
+            "usd": 65030,
+            "maxUsd": 65030,
             "lev": 10,
             "t": 1794904248364,
             "pre": false,
-            "adds": 23,
+            "adds": 24,
             "down": 15,
             "sl": null,
             "tp": null
@@ -30252,15 +30251,15 @@
           },
           "MNT": {
             "dir": 1,
-            "entry": 0.38554,
-            "szi": 108687.4,
-            "usd": 41551,
-            "maxUsd": 41551,
+            "entry": 0.38517,
+            "szi": 122766.1,
+            "usd": 46801,
+            "maxUsd": 46801,
             "lev": 5,
             "t": 1794932132287,
             "pre": false,
-            "adds": 16,
-            "down": 10,
+            "adds": 17,
+            "down": 11,
             "sl": null,
             "tp": null
           },
