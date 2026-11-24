@@ -17987,7 +17987,7 @@
       "lastAlert": "2026-11-02T01:24:38.069Z"
     },
     "ENA": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-06T04:38:22.427Z"
     },
@@ -18490,7 +18490,7 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-24T06:30:38.330Z",
+    "t": "2026-11-24T06:45:30.251Z",
     "universe": 50,
     "analyzed": 20,
     "signals": [
@@ -18500,7 +18500,7 @@
       "ZEC (فروش)"
     ]
   },
-  "lastFull": "2026-11-24T06:30:38.330Z",
+  "lastFull": "2026-11-24T06:45:30.251Z",
   "lastDaily": "2026-11-24",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -25627,7 +25627,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 3197361,
+        "acct": 2957824,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -31061,15 +31061,15 @@
           },
           "BERA": {
             "dir": 1,
-            "entry": 0.08183,
-            "szi": 95340.4,
-            "usd": 7797,
+            "entry": 0.08184,
+            "szi": 106172.4,
+            "usd": 8689,
             "maxUsd": 32010,
             "lev": 5,
             "t": 1793899178239,
             "pre": false,
-            "adds": 31,
-            "down": 26,
+            "adds": 32,
+            "down": 27,
             "sl": null,
             "tp": null
           },
