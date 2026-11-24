@@ -19275,6 +19275,11 @@
       "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": null
+    },
+    "AI": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {
@@ -19300,8 +19305,8 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-24T22:00:46.338Z",
-    "universe": 37,
+    "t": "2026-11-24T22:15:29.893Z",
+    "universe": 38,
     "analyzed": 20,
     "signals": [
       "XCRCL (فروش)",
@@ -19313,7 +19318,7 @@
       "AVAX (فروش)"
     ]
   },
-  "lastFull": "2026-11-24T22:00:46.338Z",
+  "lastFull": "2026-11-24T22:15:29.893Z",
   "lastDaily": "2026-11-24",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -26810,14 +26815,14 @@
           },
           "HYPE": {
             "dir": 1,
-            "entry": 59.5886,
-            "szi": 39280.44,
-            "usd": 2356599,
-            "maxUsd": 2356599,
+            "entry": 59.6215,
+            "szi": 44433.57,
+            "usd": 2659705,
+            "maxUsd": 2659705,
             "lev": 5,
             "t": 1795550447800,
             "pre": false,
-            "adds": 5,
+            "adds": 6,
             "down": 3,
             "sl": null,
             "tp": null
@@ -27006,7 +27011,7 @@
           }
         },
         "init": true,
-        "acct": 8116318,
+        "acct": 7205983,
         "since": 1793566542138,
         "name": "T4",
         "ft": [],
@@ -28390,14 +28395,14 @@
         "pos": {
           "BTC": {
             "dir": 1,
-            "entry": 59816.6,
-            "szi": 1.47877,
-            "usd": 88512,
-            "maxUsd": 88512,
+            "entry": 59896.3,
+            "szi": 2.97877,
+            "usd": 178550,
+            "maxUsd": 178550,
             "lev": 20,
             "t": 1795556728949,
             "pre": false,
-            "adds": 1,
+            "adds": 2,
             "down": 0,
             "sl": null,
             "tp": null
@@ -32158,8 +32163,8 @@
           "ACE": {
             "dir": -1,
             "entry": 0.0635,
-            "szi": 5849.18,
-            "usd": 347,
+            "szi": 1642.91,
+            "usd": 95,
             "maxUsd": 3566,
             "lev": 3,
             "t": 1795524329090,
@@ -33494,7 +33499,7 @@
           }
         },
         "init": true,
-        "acct": 189674,
+        "acct": 179223,
         "since": 1795515333112,
         "name": "T37"
       },
