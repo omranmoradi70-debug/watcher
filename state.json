@@ -14128,7 +14128,8 @@
           "tp2": 60.43423233814359,
           "t": 1795514453554,
           "validUntil": 1796119253554,
-          "status": "open"
+          "status": "open",
+          "openedAt": 1795514453554
         },
         "1.5": {
           "dir": -1,
@@ -14139,9 +14140,12 @@
           "tp2": 60.43423233814359,
           "t": 1795514453554,
           "validUntil": 1796119253554,
-          "status": "open"
+          "status": "open",
+          "openedAt": 1795514453554
         }
-      }
+      },
+      "openedAt": 1795514453554,
+      "lastPx": 81.22
     }
   ],
   "outlooks": [
@@ -18601,21 +18605,21 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-24T10:00:53.554Z",
+    "t": "2026-11-24T10:15:33.112Z",
     "universe": 52,
     "analyzed": 20,
     "signals": [
-      "ZEC (فروش)",
-      "MMT (خرید)",
       "DOS (فروش)",
+      "ZEC (فروش)",
       "PUMP (فروش)",
-      "LIT (فروش)",
       "XMSTR (فروش)",
+      "LIT (فروش)",
       "ENA (فروش)",
+      "MMT (خرید)",
       "AAVE (فروش)"
     ]
   },
-  "lastFull": "2026-11-24T10:00:53.554Z",
+  "lastFull": "2026-11-24T10:15:33.112Z",
   "lastDaily": "2026-11-24",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -26327,8 +26331,8 @@
           "BTC": {
             "dir": -1,
             "entry": 60436.3,
-            "szi": 10.4883,
-            "usd": 629109,
+            "szi": 7.77619,
+            "usd": 466416,
             "maxUsd": 10763910,
             "lev": 20,
             "t": 1795459537150,
@@ -29315,8 +29319,8 @@
           "INJ": {
             "dir": -1,
             "entry": 6.81515,
-            "szi": 2546,
-            "usd": 16790,
+            "szi": 1449.5,
+            "usd": 8853,
             "maxUsd": 18518,
             "lev": 5,
             "t": 1794826850807,
@@ -29329,8 +29333,8 @@
           "SUI": {
             "dir": -1,
             "entry": 0.83982,
-            "szi": 22633,
-            "usd": 16191,
+            "szi": 17711,
+            "usd": 11671,
             "maxUsd": 187531,
             "lev": 10,
             "t": 1793566542138,
@@ -30966,14 +30970,14 @@
           },
           "CC": {
             "dir": -1,
-            "entry": 0.078936,
-            "szi": 27452,
-            "usd": 2178,
+            "entry": 0.078729,
+            "szi": 30777,
+            "usd": 2363,
             "maxUsd": 2364,
             "lev": 3,
             "t": 1795108531325,
             "pre": false,
-            "adds": 11,
+            "adds": 12,
             "down": 3,
             "sl": null,
             "tp": null
@@ -32400,6 +32404,877 @@
           "ex": "scale-out",
           "lo": null
         }
+      },
+      "0x0b8aa35c28b7c6ab18f11dc168f437a8a69fd4f8": {
+        "auto": true,
+        "pos": {
+          "HYPE": {
+            "dir": -1,
+            "entry": 32.4618,
+            "szi": 82285,
+            "usd": 5194989,
+            "maxUsd": 5194989,
+            "lev": 7,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          }
+        },
+        "init": true,
+        "acct": 829284,
+        "since": 1795515333112,
+        "name": "T31"
+      },
+      "0x218a65e21eddeece7a9df38c6bbdd89f692b7da2": {
+        "auto": true,
+        "pos": {
+          "BTC": {
+            "dir": -1,
+            "entry": 78439.7,
+            "szi": 869.38585,
+            "usd": 52155327,
+            "maxUsd": 52155327,
+            "lev": 8,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "ETH": {
+            "dir": -1,
+            "entry": 2208.16,
+            "szi": 3283.685,
+            "usd": 5537606,
+            "maxUsd": 5537606,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          }
+        },
+        "init": true,
+        "acct": 12945847,
+        "since": 1795515333112,
+        "name": "T32"
+      },
+      "0x3dc908374e11623d8eb9f07dfc7a2e5e803a54b0": {
+        "auto": true,
+        "pos": {
+          "BTC": {
+            "dir": -1,
+            "entry": 78955.4,
+            "szi": 20.00538,
+            "usd": 1200143,
+            "maxUsd": 1200143,
+            "lev": 20,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "ETH": {
+            "dir": -1,
+            "entry": 2480.32,
+            "szi": 3999.6902,
+            "usd": 6745078,
+            "maxUsd": 6745078,
+            "lev": 20,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "SOL": {
+            "dir": -1,
+            "entry": 105.9049,
+            "szi": 220000.19,
+            "usd": 15569633,
+            "maxUsd": 15569633,
+            "lev": 20,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "AAVE": {
+            "dir": -1,
+            "entry": 128.6021,
+            "szi": 10000,
+            "usd": 950760,
+            "maxUsd": 950760,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "GRASS": {
+            "dir": -1,
+            "entry": 0.71893,
+            "szi": 2501604.8,
+            "usd": 936551,
+            "maxUsd": 936551,
+            "lev": 3,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "HYPE": {
+            "dir": -1,
+            "entry": 69.8264,
+            "szi": 76122.03,
+            "usd": 4805896,
+            "maxUsd": 4805896,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "VVV": {
+            "dir": -1,
+            "entry": 26.4684,
+            "szi": 12778.35,
+            "usd": 323062,
+            "maxUsd": 323062,
+            "lev": 3,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "PUMP": {
+            "dir": -1,
+            "entry": 0.004839,
+            "szi": 500000000,
+            "usd": 1228000,
+            "maxUsd": 1228000,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          }
+        },
+        "init": true,
+        "acct": 4975516,
+        "since": 1795515333112,
+        "name": "T33"
+      },
+      "0xca4903c207a0df58bf37d4bc8bbc5210726f53c8": {
+        "auto": true,
+        "pos": {
+          "BTC": {
+            "dir": -1,
+            "entry": 72521.3,
+            "szi": 486.55055,
+            "usd": 29188654,
+            "maxUsd": 29188654,
+            "lev": 40,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "ETH": {
+            "dir": -1,
+            "entry": 2471.25,
+            "szi": 7487.0305,
+            "usd": 12626128,
+            "maxUsd": 12626128,
+            "lev": 25,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "SOL": {
+            "dir": -1,
+            "entry": 95.9204,
+            "szi": 100118.28,
+            "usd": 7085471,
+            "maxUsd": 7085471,
+            "lev": 20,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "DOGE": {
+            "dir": -1,
+            "entry": 0.092947,
+            "szi": 24669800,
+            "usd": 1371444,
+            "maxUsd": 1371444,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "XRP": {
+            "dir": -1,
+            "entry": 1.438387,
+            "szi": 1503547,
+            "usd": 1402885,
+            "maxUsd": 1402885,
+            "lev": 20,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          }
+        },
+        "init": true,
+        "acct": 15421441,
+        "since": 1795515333112,
+        "name": "T34"
+      },
+      "0x15a4f009bb324a3fb9e36137136b201e3fe0dfdb": {
+        "auto": true,
+        "pos": {
+          "ETH": {
+            "dir": -1,
+            "entry": 2283.23,
+            "szi": 30000,
+            "usd": 50592000,
+            "maxUsd": 50592000,
+            "lev": 20,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          }
+        },
+        "init": true,
+        "acct": 7962257,
+        "since": 1795515333112,
+        "name": "T35"
+      },
+      "0x484bc1608211d0604bf70bae72792a56884562f8": {
+        "auto": true,
+        "pos": {
+          "BTC": {
+            "dir": -1,
+            "entry": 76875,
+            "szi": 14.31005,
+            "usd": 858474,
+            "maxUsd": 858474,
+            "lev": 5,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "FET": {
+            "dir": 1,
+            "entry": 0.188442,
+            "szi": 10558,
+            "usd": 1132,
+            "maxUsd": 1132,
+            "lev": 5,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          }
+        },
+        "init": true,
+        "acct": 225701,
+        "since": 1795515333112,
+        "name": "T36"
+      },
+      "0xf818fa41af44a1b42ba7433f4ec472be40a2c268": {
+        "auto": true,
+        "pos": {
+          "UNI": {
+            "dir": -1,
+            "entry": 7.08131,
+            "szi": 14400,
+            "usd": 68629,
+            "maxUsd": 68629,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "NEAR": {
+            "dir": -1,
+            "entry": 5.02214,
+            "szi": 100000,
+            "usd": 294540,
+            "maxUsd": 294540,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "ZEC": {
+            "dir": -1,
+            "entry": 1254.6799,
+            "szi": 500,
+            "usd": 371305,
+            "maxUsd": 371305,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "XMR": {
+            "dir": -1,
+            "entry": 495.947,
+            "szi": 1500,
+            "usd": 743640,
+            "maxUsd": 743640,
+            "lev": 5,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          }
+        },
+        "init": true,
+        "acct": 233904,
+        "since": 1795515333112,
+        "name": "T37"
+      },
+      "0x77375a8c9d13bf79afb2a87f1b0ac1dfd5f5bf66": {
+        "auto": true,
+        "pos": {
+          "AAVE": {
+            "dir": -1,
+            "entry": 97.9189,
+            "szi": 33434.62,
+            "usd": 3178830,
+            "maxUsd": 3178830,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "NEAR": {
+            "dir": -1,
+            "entry": 2.96034,
+            "szi": 373345.8,
+            "usd": 1099653,
+            "maxUsd": 1099653,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "PUMP": {
+            "dir": -1,
+            "entry": 0.002442,
+            "szi": 58178815,
+            "usd": 142887,
+            "maxUsd": 142887,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "ZEC": {
+            "dir": -1,
+            "entry": 763.8661,
+            "szi": 3203.01,
+            "usd": 2378587,
+            "maxUsd": 2378587,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          }
+        },
+        "init": true,
+        "acct": 680831,
+        "since": 1795515333112,
+        "name": "T38"
+      },
+      "0xfc98b6ec7f59ea13354bae6171a9120692fb8777": {
+        "auto": true,
+        "pos": {
+          "PUMP": {
+            "dir": 1,
+            "entry": 0.003013,
+            "szi": 175000000,
+            "usd": 429800,
+            "maxUsd": 429800,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "CASHCAT": {
+            "dir": 1,
+            "entry": 0.062185,
+            "szi": 2250000,
+            "usd": 86263,
+            "maxUsd": 86263,
+            "lev": 3,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          }
+        },
+        "init": true,
+        "acct": 71336,
+        "since": 1795515333112,
+        "name": "T39"
+      },
+      "0xb3e475368ed0fa0ad23c04de0423d48a0758806f": {
+        "auto": true,
+        "pos": {
+          "MNT": {
+            "dir": 1,
+            "entry": 0.99279,
+            "szi": 120000,
+            "usd": 46654,
+            "maxUsd": 46654,
+            "lev": 5,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "PURR": {
+            "dir": -1,
+            "entry": 0.290832,
+            "szi": 367406,
+            "usd": 26508,
+            "maxUsd": 26508,
+            "lev": 3,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "HYPE": {
+            "dir": -1,
+            "entry": 61.8371,
+            "szi": 15000,
+            "usd": 947012,
+            "maxUsd": 947012,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "USUAL": {
+            "dir": 1,
+            "entry": 0.01125,
+            "szi": 9983719.5,
+            "usd": 114114,
+            "maxUsd": 114114,
+            "lev": 3,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "SOPH": {
+            "dir": 1,
+            "entry": 0.000973,
+            "szi": 217457011,
+            "usd": 195276,
+            "maxUsd": 195276,
+            "lev": 1,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "LIT": {
+            "dir": -1,
+            "entry": 3.497095,
+            "szi": 585000,
+            "usd": 1382355,
+            "maxUsd": 1382355,
+            "lev": 3,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "XTEN": {
+            "dir": -1,
+            "entry": 0.214956,
+            "szi": 807226,
+            "usd": 147634,
+            "maxUsd": 147634,
+            "lev": 1,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          }
+        },
+        "init": true,
+        "acct": 1043392,
+        "since": 1795515333112,
+        "name": "T40"
+      },
+      "0x6463f53d916cb7741a05a2c11aebdbd7324342f5": {
+        "auto": true,
+        "pos": {
+          "BTC": {
+            "dir": 1,
+            "entry": 70227,
+            "szi": 0.00015,
+            "usd": 9,
+            "maxUsd": 9,
+            "lev": 1,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "ETH": {
+            "dir": -1,
+            "entry": 1783.85,
+            "szi": 400,
+            "usd": 674560,
+            "maxUsd": 674560,
+            "lev": 12,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "TAO": {
+            "dir": -1,
+            "entry": 208.27,
+            "szi": 5500,
+            "usd": 1023880,
+            "maxUsd": 1023880,
+            "lev": 5,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          }
+        },
+        "init": true,
+        "acct": 379948,
+        "since": 1795515333112,
+        "name": "T41"
+      },
+      "0x972b0f9cde1266e860e546ac92e783741769400f": {
+        "auto": true,
+        "pos": {
+          "BTC": {
+            "dir": -1,
+            "entry": 97446.6,
+            "szi": 2.27675,
+            "usd": 136585,
+            "maxUsd": 136585,
+            "lev": 18,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "ETH": {
+            "dir": -1,
+            "entry": 2799.31,
+            "szi": 40.1,
+            "usd": 67625,
+            "maxUsd": 67625,
+            "lev": 20,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "SOL": {
+            "dir": -1,
+            "entry": 77.1852,
+            "szi": 910,
+            "usd": 64402,
+            "maxUsd": 64402,
+            "lev": 20,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "AAVE": {
+            "dir": -1,
+            "entry": 126.8249,
+            "szi": 186,
+            "usd": 17684,
+            "maxUsd": 17684,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "UNI": {
+            "dir": -1,
+            "entry": 6.86605,
+            "szi": 14700,
+            "usd": 70059,
+            "maxUsd": 70059,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "HYPE": {
+            "dir": -1,
+            "entry": 57.8683,
+            "szi": 1306,
+            "usd": 82453,
+            "maxUsd": 82453,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "PAXG": {
+            "dir": -1,
+            "entry": 4248.805,
+            "szi": 43,
+            "usd": 155406,
+            "maxUsd": 155406,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "AERO": {
+            "dir": -1,
+            "entry": 0.66862,
+            "szi": 533801,
+            "usd": 218810,
+            "maxUsd": 218810,
+            "lev": 3,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          }
+        },
+        "init": true,
+        "acct": 195439,
+        "since": 1795515333112,
+        "name": "T42"
+      },
+      "0xe71e9636e31b838af0a3c38b3f3449cdc2b7aa87": {
+        "auto": true,
+        "pos": {},
+        "init": true,
+        "acct": null,
+        "since": 1795515333112,
+        "name": "T43"
+      },
+      "0x217a1b7f4f8cdd0dc8e2f734477683642646edaa": {
+        "auto": true,
+        "pos": {
+          "BTC": {
+            "dir": -1,
+            "entry": 66971.6,
+            "szi": 21.00923,
+            "usd": 1260365,
+            "maxUsd": 1260365,
+            "lev": 1,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          }
+        },
+        "init": true,
+        "acct": 1312783,
+        "since": 1795515333112,
+        "name": "T44"
+      },
+      "0xe79d69fd1ed52dd14d7f55155259519ea20d0534": {
+        "auto": true,
+        "pos": {
+          "HYPE": {
+            "dir": -1,
+            "entry": 64.4376,
+            "szi": 3138.75,
+            "usd": 198162,
+            "maxUsd": 198162,
+            "lev": 10,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          },
+          "SPX": {
+            "dir": -1,
+            "entry": 0.28809,
+            "szi": 357142.8,
+            "usd": 99354,
+            "maxUsd": 99354,
+            "lev": 5,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
+          }
+        },
+        "init": true,
+        "acct": 87512,
+        "since": 1795515333112,
+        "name": "T45"
+      },
+      "0x16c08fa5f066be951ad1aa2727ef4eee1ccd927a": {
+        "auto": true,
+        "pos": {
+          "BTC": {
+            "dir": -1,
+            "entry": 84484,
+            "szi": 2,
+            "usd": 119982,
+            "maxUsd": 119982,
+            "lev": 20,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": 85700,
+            "tp": null
+          },
+          "ETH": {
+            "dir": -1,
+            "entry": 2505.6,
+            "szi": 50,
+            "usd": 84320,
+            "maxUsd": 84320,
+            "lev": 20,
+            "t": 1795515333112,
+            "pre": true,
+            "adds": 0,
+            "down": 0,
+            "sl": 2560,
+            "tp": null
+          }
+        },
+        "init": true,
+        "acct": 20377,
+        "since": 1795515333112,
+        "name": "T46"
       }
     },
     "trades": [
@@ -44617,8 +45492,8 @@
         "pre": false
       }
     ],
-    "disc": "2026-11-10T10:04:44.177Z",
-    "discTry": "2026-11-10T10:04:44.177Z",
+    "disc": "2026-11-24T10:15:33.112Z",
+    "discTry": "2026-11-24T10:15:33.112Z",
     "discErr": null,
     "mt": "2026-11-23T17:30:43.497Z",
     "mtN": 25
