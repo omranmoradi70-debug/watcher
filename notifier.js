@@ -15,6 +15,7 @@ const CONFIG = {
   style: 'swing',          // 'swing' = نوسانی (۱ ساعت، ۴ ساعت، روزانه)  |  'short' = کوتاه‌مدت (۱۵ دقیقه، ۱ ساعت، ۴ ساعت)
   minStrength: 'medium',   // کمترین قدرت سیگنال برای اعلان جدا: 'weak' | 'medium' | 'strong'
   alertShorts: true,       // سیگنال فروش (شورت) هم خبر بده؟ توی اسپات فقط یعنی «نخر»
+  rearmHours: 24,          // اگه جهت تحلیل همونه ولی سیگنال قبلی همون ارز و جهت بسته/«ورود نشد» شده و از آخرین ثبت این‌قدر ساعت گذشته، سیگنال تازه (با برچسب re) ثبت بشه
   cooldownHours: 12,       // بعد از یه اعلان برای یه ارز، تا این مدت اعلان تازه برای همون ارز نفرسته
   capital: 1000,           // سرمایه (USDT) برای حساب حجم پیشنهادی
   riskPct: 1,              // درصد ریسک هر معامله
@@ -2190,16 +2191,17 @@ function makeShadows(x) {
   }
   return out;
 }
-function track(state, src, sym, r, now, alerted) {
+function track(state, src, sym, r, now, alerted, re) {
   const sc = r.scenario; if (!sc) return;
   const dir = r.decision === 'long' ? 1 : -1;
-  if (state.signals.some((x) => x.sym === sym && x.dir === dir && !isFinal(x) && x.status !== 'tp1')) return;
+  const openSig = state.signals.find((x) => x.sym === sym && x.dir === dir && !isFinal(x) && x.status !== 'tp1');
+  if (openSig) { if (alerted) openSig.alerted = true; return; }   // سیگنال بازِ هم‌جهت هست؛ اگه الان هشدار رفته، همون رو «هشدارداده‌شده» علامت بزن
   state.signals.push({
     id: sym + '|' + now, sym, src, dir, strength: r.strength, mode: sc.mode, entry: sc.entry, zoneLo: sc.zoneLo, zoneHi: sc.zoneHi,
     stop: sc.stop, tp1: sc.tp1, tp2: sc.tp2, rr1: sc.rr1, rr2: sc.rr2, t: now, validUntil: now + CONFIG.signalValidDays[CONFIG.style] * 24 * HOUR,
     status: sc.mode === 'now' ? 'open' : 'pending', alerted: !!alerted,
     patChk: true, pat: ((r.patterns || []).find((p) => p.dir === dir) || {}).id || null,  // الگوی کندلی هم‌جهت لحظه‌ی سیگنال (فقط سیگنال‌های جدید)
-    bg: CUR_BTC_G || undefined,
+    bg: CUR_BTC_G || undefined, re: re ? 1 : undefined,   // re: ثبت مجدد وقتی جهت ادامه داشت ولی سیگنال قبلی بسته یا «ورود نشد» بود
     m1: true, al: (r.tfs || []).length ? (r.tfs.filter((t) => t.score * dir > 0).length + '/' + r.tfs.length) : null  // m1: بیشینه‌ی حرکت به نفع سیگنال (mfe) از اول ثبت شده · al: چندتا از تایم‌فریم‌ها هم‌جهت بودن
   });
   const ns = state.signals[state.signals.length - 1]; ns.sh = makeShadows(ns);
@@ -2273,7 +2275,7 @@ function statsBlocks(state) {
   B.push(pre([pad('GROUP', 10) + padL('N', 4) + padL('WIN%', 6) + padL('AVG-R', 8), row('all', filled), row('weak', filled.filter((x) => x.strength === 'weak')),
     row('medium', filled.filter((x) => x.strength === 'medium')), row('strong', filled.filter((x) => x.strength === 'strong')),
     row('long', filled.filter((x) => x.dir > 0)), row('short', filled.filter((x) => x.dir < 0)),
-    row('alerted', filled.filter((x) => x.alerted)), row('silent', filled.filter((x) => !x.alerted)),
+    row('alerted', filled.filter((x) => x.alerted)), row('silent', filled.filter((x) => !x.alerted)), row('re-armed', filled.filter((x) => x.re)),
     row('tf-all', filled.filter((x) => x.al && x.al.split('/')[0] === x.al.split('/')[1])), row('tf-mix', filled.filter((x) => x.al && x.al.split('/')[0] !== x.al.split('/')[1]))]));
   if (filled.some((x) => x.bg)) {
     const wb = filled.filter((x) => x.bg);
@@ -3851,6 +3853,12 @@ async function main() {
           const stB = statsBlocks({ signals: [mkS(1, 1, 2), mkS(1, -1, -1), mkS(-1, -1, 1), mkS(-1, 1, -1)], outlooks: [], scan: {} }).join('\n');
           chk('stats-btc', [stB.includes('btc-up'), stB.includes('with-btc'), stB.includes('long|down')], [true, true, true]); }
         chk('scn-blocks', [sb.length > 2, sb[0].includes('2 سناریو')], [true, true]);
+        { const stT = { signals: [] }, rT = { decision: 'short', strength: 'medium', scenario: { mode: 'now', entry: 100, stop: 101, tp1: 98, tp2: 96, rr1: 2, rr2: 4 } };
+          track(stT, 'watch', 'BTC', rT, 1e12, false);
+          track(stT, 'watch', 'BTC', rT, 1e12 + HOUR, true);   // هم‌جهت و باز: فقط alerted علامت بخوره
+          chk('track-alert-flag', [stT.signals.length, stT.signals[0].alerted, stT.signals[0].re], [1, true, undefined]);
+          stT.signals[0].status = 'missed'; track(stT, 'watch', 'BTC', rT, 1e12 + 30 * HOUR, true, true);
+          chk('track-rearm', [stT.signals.length, stT.signals[1].re, stT.signals[1].alerted], [2, 1, true]); }
         { const sb2 = scnBlocks({ scn: { open: [], done: ['X|1|' + (Date.now() - 300 * HOUR) + '|now|weak|TTT|111|2|-1', 'Y|-1|' + (Date.now() - 300 * HOUR) + '|now|medium|SSS|000|-1|1', 'Z|1|' + (Date.now() - 300 * HOUR) + '|now|weak|TTT|111|2'], seen: {} } }).join('\n');
           chk('scn-strength', [sb2.includes('weak 3d'), sb2.includes('medium 7d'), sb2.includes('long|up 3d'), sb2.includes('ضعیف: N 2')], [true, true, true, true]); }
       }
@@ -3950,6 +3958,10 @@ async function main() {
       const dirOk = d === 'long' || CONFIG.alertShorts;
       const willAlert = strongEnough && dirOk && s.lastAlertedDecision !== d && hoursSince(s.lastAlert, now) >= CONFIG.cooldownHours;
       if (prev !== d && res.scenario) track(state, 'watch', sym, res, now, willAlert);
+      else if (res.scenario) {   // جهت همونه: هشدار تلگرام همیشه ثبت بشه، و بعد از بسته/«ورود نشد» شدن سیگنال قبلی با کولداون دوباره ثبت بشه
+        const last = state.signals.filter((x) => x.sym === sym && x.dir === (d === 'long' ? 1 : -1)).reduce((m, x) => Math.max(m, x.t || 0), 0);
+        if (willAlert || now - last >= (CONFIG.rearmHours || 24) * HOUR) track(state, 'watch', sym, res, now, willAlert, true);
+      }
       if (willAlert) {
         await sendSignal(state, sym, res, now);
         s.lastAlertedDecision = d; s.lastAlert = new Date(now).toISOString(); sent++;
