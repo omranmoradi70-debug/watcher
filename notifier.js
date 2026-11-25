@@ -3631,7 +3631,7 @@ async function trackScn(state, good, now) {
     if (sc.seen[key]) continue;
     sc.seen[key] = 1;
     if (!(s.entry > 0 && s.stop > 0 && s.tp1 > 0) || s.entry === s.stop) continue;
-    sc.open.push({ sym, dir, t: now, mode: s.mode, str: res.strength || '', entry: s.entry, stop: s.stop, tp1: s.tp1 });
+    sc.open.push({ sym, dir, t: now, mode: s.mode, str: res.strength || '', entry: s.entry, stop: s.stop, tp1: s.tp1, g: CUR_BTC_G || 0 });
   }
   const old = new Date(now - 10 * 864e5).toISOString().slice(0, 10);
   for (const k of Object.keys(sc.seen)) if (k.split('|')[2] < old) delete sc.seen[k];
@@ -3643,7 +3643,7 @@ async function trackScn(state, good, now) {
     if (cs[0].t > o.t + HOUR) return false;   // تاریخچه‌ی کندل به اول سناریو نمی‌رسه؛ نمونه‌ی ناقص ثبت نشه
     const e = scnEval(o, cs); o.p = e.res.join(''); o.a = e.any.join(''); o.R = e.R == null ? null : +e.R.toFixed(2);
     if (now < o.t + SCN_H[2] * HOUR + HOUR) return true;
-    sc.done.push([o.sym, o.dir, o.t, o.mode, o.str, o.p, o.a, o.R == null ? '' : o.R].join('|'));
+    sc.done.push([o.sym, o.dir, o.t, o.mode, o.str, o.p, o.a, o.R == null ? '' : o.R, o.g || 0].join('|'));
     return false;
   });
   if (sc.done.length > SCN_KEEP) sc.done.splice(0, sc.done.length - SCN_KEEP);
@@ -3652,8 +3652,8 @@ async function trackScn(state, good, now) {
 function scnBlocks(state) {
   const sc = state.scn;
   if (!sc || (!sc.open.length && !sc.done.length)) return ['🧭 <b>سناریوهای گزارش ساعتی</b> — هنوز چیزی ثبت نشده. از این به بعد هر سناریوی ورود (روزی یکی برای هر ارز و جهت) ثبت و بعد از ۲۴ ساعت، ۳ و ۷ روز بررسی می‌شه.'];
-  const rows = sc.done.map((x) => { const a = x.split('|'); return { sym: a[0], dir: +a[1], t: +a[2], mode: a[3], str: a[4], p: a[5], a: a[6], R: a[7] === '' ? null : +a[7], fin: true }; })
-    .concat(sc.open.filter((o) => o.p).map((o) => ({ sym: o.sym, dir: o.dir, t: o.t, mode: o.mode, str: o.str, p: o.p, a: o.a, R: o.R, fin: false })));
+  const rows = sc.done.map((x) => { const a = x.split('|'); return { sym: a[0], dir: +a[1], t: +a[2], mode: a[3], str: a[4], p: a[5], a: a[6], R: a[7] === '' ? null : +a[7], g: a[8] ? +a[8] : 0, fin: true }; })
+    .concat(sc.open.filter((o) => o.p).map((o) => ({ sym: o.sym, dir: o.dir, t: o.t, mode: o.mode, str: o.str, p: o.p, a: o.a, R: o.R, g: o.g || 0, fin: false })));
   const now = Date.now();
   const stat = (arr, hi) => {   // فقط ردیف‌هایی که زمانشون به این افق رسیده
     const h = SCN_H[hi], a = arr.filter((x) => now >= x.t + h * HOUR + HOUR || x.fin), f = a.filter((x) => x.p[hi] !== 'V');
@@ -3664,10 +3664,14 @@ function scnBlocks(state) {
   const L = [pad('SET', 10) + padL('N', 5) + padL('FILL', 6) + padL('TP1', 6) + padL('STOP', 6) + padL('OPEN', 6) + padL('ANY', 6)];
   SCN_H.forEach((h, hi) => L.push(line('all ' + (h < 48 ? h + 'h' : h / 24 + 'd'), rows, hi)));
   L.push(line('long 3d', rows.filter((x) => x.dir > 0), 1), line('short 3d', rows.filter((x) => x.dir < 0), 1), line('now 3d', rows.filter((x) => x.mode === 'now'), 1), line('pend 3d', rows.filter((x) => x.mode !== 'now'), 1), line('strong 3d', rows.filter((x) => x.str === 'strong'), 1), line('M+W 3d', rows.filter((x) => x.str !== 'strong'), 1));
+  L.push(line('weak 3d', rows.filter((x) => x.str === 'weak'), 1), line('medium 3d', rows.filter((x) => x.str === 'medium'), 1), line('weak 7d', rows.filter((x) => x.str === 'weak'), 2), line('medium 7d', rows.filter((x) => x.str === 'medium'), 2), line('strong 7d', rows.filter((x) => x.str === 'strong'), 2));
+  L.push(line('long|up 3d', rows.filter((x) => x.dir > 0 && x.g > 0), 1), line('long|dn 3d', rows.filter((x) => x.dir > 0 && x.g < 0), 1), line('short|up 3d', rows.filter((x) => x.dir < 0 && x.g > 0), 1), line('short|dn 3d', rows.filter((x) => x.dir < 0 && x.g < 0), 1));
   const B = ['🧭 <b>سناریوهای گزارش ساعتی — اول هدف یا اول حد ضرر؟</b> — ' + rows.length + ' سناریو (روزی یکی برای هر ارز و جهت)، ' + sc.open.length + ' هنوز باز', pre(L)];
   const fin = rows.filter((x) => x.p[2] !== 'V'), z7 = stat(rows, 2), z3 = stat(rows, 1);
   const rs = fin.filter((x) => x.fin && x.R != null);
   if (rs.length >= 10) B.push('میانگین نتیجه بعد از ۷ روز (هدف اول = +RR، حد ضرر = −1R، بازها با قیمت آخر): ' + code(sgnNum(+(rs.reduce((q, x) => q + x.R, 0) / rs.length).toFixed(2)) + 'R') + ' روی ' + rs.length + ' سناریوی کامل، بدون کارمزد');
+  { const mr = (arr) => { const a = arr.filter((x) => x.fin && x.p[2] !== 'V' && x.R != null); return a.length ? 'N ' + a.length + ' ' + sgnNum(+(a.reduce((q, x) => q + x.R, 0) / a.length).toFixed(2)) + 'R' : 'N 0'; };
+    B.push('📏 میانگین R بعد از ۷ روز (کامل‌شده‌ها، بدون کارمزد) — ضعیف: ' + mr(rows.filter((x) => x.str === 'weak')) + ' · متوسط: ' + mr(rows.filter((x) => x.str === 'medium')) + ' · قوی: ' + mr(rows.filter((x) => x.str === 'strong')) + ' · «up/dn» روند BTC لحظه‌ی ثبت (فقط سناریوهای ثبت‌شده بعد از این آپدیت؛ قبلی‌ها بدون برچسب‌اند).'); }
   if (z3.nf >= 20) B.push((parseInt(z3.any) > parseInt(z3.tp) + 10 ? '🔎 هدف اول بعد از ۳ روز در ' + z3.any + ' موارد «هر وقت» لمس شده ولی فقط ' + z3.tp + ' بدون خوردن حد ضرر؛ یعنی بخش مهمی از اون‌ها اول حد ضرر خوردن و بعد برگشتن.' : '🔎 هدف اول بعد از ۳ روز در ' + z3.any + ' موارد لمس شده و ' + z3.tp + ' اول به هدف رسیدن؛ شکاف بزرگی بین این دو نیست.'));
   else B.push('⏳ هنوز نمونه‌ی کافی نیست (حداقل ۲۰ سناریوی ورودشده برای قضاوت).');
   B.push('<i>FILL درصد سناریوهایی که قیمت به ورودشون رسید (ورود «now» همون لحظه، «pend» وقتی قیمت به ناحیه‌ی ورود برگرده؛ تا ۳ روز صبر) · TP1 اول به هدف رسید · STOP اول حد ضرر خورد · OPEN تا اون افق به هیچ‌کدوم نرسید (درصدها از ورودشده‌ها) · ANY هدف اول در اون بازه «هر وقت» لمس شد، حتی بعد از حد ضرر. اگه ANY خیلی بالاتر از TP1 باشه یعنی سطح درست بوده ولی حد ضرر زود خورده؛ اگه نزدیکه یعنی «بعداً درست درمیاد» بیشتر یه حس بوده. ردیابی با کندل ۱ ساعته، شروع از کندل بعدی، و کندلی که هم ورود هم حد ضرر داره ضرر حساب می‌شه. این سناریوها جزو سیگنال‌ها نیستن و آمار سیگنال‌ها رو عوض نمی‌کنن.</i>');
@@ -3847,6 +3851,8 @@ async function main() {
           const stB = statsBlocks({ signals: [mkS(1, 1, 2), mkS(1, -1, -1), mkS(-1, -1, 1), mkS(-1, 1, -1)], outlooks: [], scan: {} }).join('\n');
           chk('stats-btc', [stB.includes('btc-up'), stB.includes('with-btc'), stB.includes('long|down')], [true, true, true]); }
         chk('scn-blocks', [sb.length > 2, sb[0].includes('2 سناریو')], [true, true]);
+        { const sb2 = scnBlocks({ scn: { open: [], done: ['X|1|' + (Date.now() - 300 * HOUR) + '|now|weak|TTT|111|2|-1', 'Y|-1|' + (Date.now() - 300 * HOUR) + '|now|medium|SSS|000|-1|1', 'Z|1|' + (Date.now() - 300 * HOUR) + '|now|weak|TTT|111|2'], seen: {} } }).join('\n');
+          chk('scn-strength', [sb2.includes('weak 3d'), sb2.includes('medium 7d'), sb2.includes('long|up 3d'), sb2.includes('ضعیف: N 2')], [true, true, true, true]); }
       }
       chk('rvd-has', [rd.tr.base.length > 5, rd.tr.s3.length > 5, rd.tr.gate.every((r) => r[2] === 1), rd.nb.t.length > 100, !!sm.v.s3], [true, true, true, true, true]);
     }
