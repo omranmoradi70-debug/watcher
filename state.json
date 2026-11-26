@@ -20169,8 +20169,8 @@
       "lastAlert": null
     },
     "DOGE": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-25T11:15:29.104Z"
     },
     "OKB": {
@@ -20592,15 +20592,15 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-26T08:15:32.987Z",
+    "t": "2026-11-26T08:30:39.316Z",
     "universe": 42,
     "analyzed": 20,
     "signals": [
       "VVV (خرید)",
-      "XSPCX (فروش)"
+      "MON (فروش)"
     ]
   },
-  "lastFull": "2026-11-26T08:15:32.987Z",
+  "lastFull": "2026-11-26T08:30:39.316Z",
   "lastDaily": "2026-11-26",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -28311,14 +28311,14 @@
         "pos": {
           "BTC": {
             "dir": -1,
-            "entry": 60982.8,
-            "szi": 2.66935,
-            "usd": 161640,
+            "entry": 60768.4,
+            "szi": 11.69764,
+            "usd": 709684,
             "maxUsd": 17757714,
             "lev": 20,
             "t": 1795622449462,
             "pre": false,
-            "adds": 5,
+            "adds": 6,
             "down": 3,
             "sl": null,
             "tp": null
@@ -28338,16 +28338,16 @@
             "tp": null
           },
           "ATOM": {
-            "dir": 1,
-            "entry": 1.2301,
-            "szi": 903.84,
-            "usd": 1125,
-            "maxUsd": 101549,
+            "dir": -1,
+            "entry": 1.247,
+            "szi": 4942.07,
+            "usd": 6192,
+            "maxUsd": 6192,
             "lev": 5,
-            "t": 1795084244652,
+            "t": 1795681839316,
             "pre": false,
-            "adds": 19,
-            "down": 14,
+            "adds": 0,
+            "down": 0,
             "sl": null,
             "tp": null
           },
@@ -32643,15 +32643,15 @@
           },
           "BABY": {
             "dir": -1,
-            "entry": 0.009064,
-            "szi": 383,
-            "usd": 4,
+            "entry": 0.009212,
+            "szi": 1673,
+            "usd": 16,
             "maxUsd": 1262,
             "lev": 3,
             "t": 1793566542138,
             "pre": true,
-            "adds": 5,
-            "down": 3,
+            "adds": 6,
+            "down": 4,
             "sl": null,
             "tp": null
           },
@@ -34874,21 +34874,21 @@
           },
           "BTC": {
             "dir": -1,
-            "entry": 60576,
-            "szi": 57.84501,
-            "usd": 3502689,
-            "maxUsd": 3502689,
+            "entry": 60593.6,
+            "szi": 78.50395,
+            "usd": 4764405,
+            "maxUsd": 4764405,
             "lev": 15,
             "t": 1795679129208,
             "pre": false,
-            "adds": 2,
-            "down": 0,
+            "adds": 3,
+            "down": 1,
             "sl": null,
             "tp": null
           }
         },
         "init": true,
-        "acct": 2195668,
+        "acct": 2320213,
         "since": 1795515333112,
         "name": "T38"
       },
@@ -48819,6 +48819,24 @@
         "lev": 1,
         "adds": 0,
         "down": 0,
+        "pre": false
+      },
+      {
+        "a": "0xecb63caa47c7c4e77f60f1ce858cf28dc2b82b00",
+        "c": "ATOM",
+        "d": 1,
+        "e": 1.2301,
+        "x": 1.253,
+        "sl": null,
+        "tp": null,
+        "why": "manual",
+        "t0": 1795084244652,
+        "t1": 1795681839316,
+        "p": 1.792,
+        "imp": 0.006,
+        "lev": 5,
+        "adds": 19,
+        "down": 14,
         "pre": false
       }
     ],
