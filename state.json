@@ -15961,6 +15961,55 @@
       "lastPx": 27.66,
       "lastT": 1795694400000,
       "mfe": 0.16
+    },
+    {
+      "id": "XSKHY|1795698928768",
+      "sym": "XSKHY",
+      "src": "scan",
+      "dir": -1,
+      "strength": "medium",
+      "mode": "now",
+      "entry": 111.22,
+      "zoneLo": 111.22,
+      "zoneHi": 113.20149026645248,
+      "stop": 122.09954318651674,
+      "tp1": 94.9006852202249,
+      "tp2": 84.02114203370816,
+      "rr1": 1.4999999999999998,
+      "rr2": 2.5000000000000004,
+      "t": 1795698928768,
+      "validUntil": 1796303728768,
+      "status": "open",
+      "alerted": true,
+      "patChk": true,
+      "pat": null,
+      "bg": -1,
+      "m1": true,
+      "al": "3/3",
+      "sh": {
+        "2": {
+          "dir": -1,
+          "mode": "now",
+          "entry": 111.22,
+          "stop": 132.97908637303348,
+          "tp1": 94.9006852202249,
+          "tp2": 84.02114203370816,
+          "t": 1795698928768,
+          "validUntil": 1796303728768,
+          "status": "open"
+        },
+        "1.5": {
+          "dir": -1,
+          "mode": "now",
+          "entry": 111.22,
+          "stop": 127.53931477977511,
+          "tp1": 94.9006852202249,
+          "tp2": 84.02114203370816,
+          "t": 1795698928768,
+          "validUntil": 1796303728768,
+          "status": "open"
+        }
+      }
     }
   ],
   "outlooks": [
@@ -20298,8 +20347,8 @@
     },
     "XSKHY": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-11-20T00:30:41.643Z"
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-11-26T13:15:28.768Z"
     },
     "GRAM": {
       "decision": "short",
@@ -20600,14 +20649,15 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-26T13:00:49.069Z",
+    "t": "2026-11-26T13:15:28.768Z",
     "universe": 40,
     "analyzed": 20,
     "signals": [
-      "VVV (خرید)"
+      "VVV (خرید)",
+      "XSKHY (فروش)"
     ]
   },
-  "lastFull": "2026-11-26T13:00:49.069Z",
+  "lastFull": "2026-11-26T13:15:28.768Z",
   "lastDaily": "2026-11-26",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -28388,14 +28438,14 @@
           },
           "BNB": {
             "dir": -1,
-            "entry": 553.713,
-            "szi": 15.708,
-            "usd": 8680,
+            "entry": 553.591,
+            "szi": 17.536,
+            "usd": 9687,
             "maxUsd": 10754,
             "lev": 5,
             "t": 1795695330120,
             "pre": false,
-            "adds": 0,
+            "adds": 1,
             "down": 0,
             "sl": null,
             "tp": null
@@ -29103,8 +29153,8 @@
           "AIXBT": {
             "dir": -1,
             "entry": 0.012566,
-            "szi": 663047,
-            "usd": 8258,
+            "szi": 595639,
+            "usd": 7404,
             "maxUsd": 8258,
             "lev": 3,
             "t": 1795691730340,
@@ -29382,14 +29432,14 @@
           },
           "2Z": {
             "dir": 1,
-            "entry": 0.016055,
-            "szi": 4379672,
-            "usd": 71266,
-            "maxUsd": 80422,
+            "entry": 0.016361,
+            "szi": 4860334,
+            "usd": 86582,
+            "maxUsd": 86582,
             "lev": 3,
             "t": 1793842769468,
             "pre": false,
-            "adds": 42,
+            "adds": 43,
             "down": 29,
             "sl": null,
             "tp": null
@@ -33973,7 +34023,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 3168,
+        "acct": 435,
         "since": 1793566542138,
         "name": "T22",
         "ft": [
