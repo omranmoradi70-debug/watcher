@@ -20297,7 +20297,7 @@
       "lastAlert": null
     },
     "XSKHY": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-20T00:30:41.643Z"
     },
@@ -20600,14 +20600,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-26T12:15:30.120Z",
-    "universe": 39,
+    "t": "2026-11-26T12:30:41.661Z",
+    "universe": 40,
     "analyzed": 20,
     "signals": [
       "VVV (خرید)"
     ]
   },
-  "lastFull": "2026-11-26T12:15:30.120Z",
+  "lastFull": "2026-11-26T12:30:41.661Z",
   "lastDaily": "2026-11-26",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -28216,14 +28216,14 @@
           },
           "ZEC": {
             "dir": -1,
-            "entry": 771.5607,
-            "szi": 4855.76,
-            "usd": 3696981,
-            "maxUsd": 3696981,
+            "entry": 766.8183,
+            "szi": 5444.37,
+            "usd": 3955661,
+            "maxUsd": 3955661,
             "lev": 5,
             "t": 1795638640308,
             "pre": false,
-            "adds": 17,
+            "adds": 18,
             "down": 14,
             "sl": null,
             "tp": null
@@ -28389,8 +28389,8 @@
           "BNB": {
             "dir": -1,
             "entry": 553.713,
-            "szi": 19.496,
-            "usd": 10754,
+            "szi": 17.526,
+            "usd": 9652,
             "maxUsd": 10754,
             "lev": 5,
             "t": 1795695330120,
@@ -29684,15 +29684,15 @@
         "pos": {
           "BTC": {
             "dir": 1,
-            "entry": 60760.3,
-            "szi": 1.84177,
-            "usd": 111667,
-            "maxUsd": 111667,
+            "entry": 60728.9,
+            "szi": 2.34177,
+            "usd": 141899,
+            "maxUsd": 141899,
             "lev": 20,
             "t": 1795692645053,
             "pre": false,
-            "adds": 2,
-            "down": 1,
+            "adds": 3,
+            "down": 2,
             "sl": null,
             "tp": null
           },
@@ -34166,7 +34166,7 @@
           }
         },
         "init": true,
-        "acct": 1701,
+        "acct": 1831,
         "since": 1793566542138,
         "name": "T24",
         "ft": [
@@ -34802,7 +34802,7 @@
           }
         },
         "init": true,
-        "acct": 212186,
+        "acct": 231986,
         "since": 1795515333112,
         "name": "T37"
       },
