@@ -20778,12 +20778,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-26T23:30:38.468Z",
+    "t": "2026-11-26T23:45:28.813Z",
     "universe": 27,
     "analyzed": 20,
-    "signals": []
+    "signals": [
+      "TRUMP (فروش)"
+    ]
   },
-  "lastFull": "2026-11-26T23:30:38.468Z",
+  "lastFull": "2026-11-26T23:45:28.813Z",
   "lastDaily": "2026-11-26",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -28280,15 +28282,15 @@
           },
           "HYPE": {
             "dir": -1,
-            "entry": 61.9409,
-            "szi": 40131.96,
-            "usd": 2510374,
-            "maxUsd": 2510374,
+            "entry": 61.9781,
+            "szi": 47018.14,
+            "usd": 2925657,
+            "maxUsd": 2925657,
             "lev": 5,
             "t": 1795641330156,
             "pre": false,
-            "adds": 12,
-            "down": 5,
+            "adds": 13,
+            "down": 6,
             "sl": null,
             "tp": null
           },
@@ -29642,15 +29644,15 @@
           },
           "GRAM": {
             "dir": 1,
-            "entry": 0.966845,
-            "szi": 3300,
-            "usd": 3172,
+            "entry": 0.966319,
+            "szi": 3636,
+            "usd": 3496,
             "maxUsd": 6468,
             "lev": 5,
             "t": 1795730443432,
             "pre": false,
-            "adds": 3,
-            "down": 3,
+            "adds": 4,
+            "down": 4,
             "sl": null,
             "tp": null
           },
