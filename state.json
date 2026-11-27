@@ -20507,7 +20507,7 @@
       "lastAlert": "2026-11-24T12:00:49.170Z"
     },
     "WLD": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-24T16:15:30.020Z"
     },
@@ -20970,12 +20970,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-27T05:00:47.573Z",
-    "universe": 27,
+    "t": "2026-11-27T05:15:26.998Z",
+    "universe": 28,
     "analyzed": 20,
     "signals": []
   },
-  "lastFull": "2026-11-27T05:00:47.573Z",
+  "lastFull": "2026-11-27T05:15:26.998Z",
   "lastDaily": "2026-11-27",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -28102,7 +28102,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 8480250,
+        "acct": 7389372,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -28714,15 +28714,15 @@
           },
           "ATOM": {
             "dir": -1,
-            "entry": 1.2334,
-            "szi": 9413.58,
-            "usd": 11216,
+            "entry": 1.2281,
+            "szi": 10439.17,
+            "usd": 12976,
             "maxUsd": 17230,
             "lev": 5,
             "t": 1795681839316,
             "pre": false,
-            "adds": 6,
-            "down": 0,
+            "adds": 7,
+            "down": 1,
             "sl": null,
             "tp": null
           },
@@ -29163,8 +29163,8 @@
           "ONDO": {
             "dir": 1,
             "entry": 0.29523,
-            "szi": 314284,
-            "usd": 92478,
+            "szi": 252623,
+            "usd": 74367,
             "maxUsd": 127898,
             "lev": 10,
             "t": 1795455928078,
@@ -29373,8 +29373,8 @@
           "XLM": {
             "dir": 1,
             "entry": 0.124563,
-            "szi": 1134815,
-            "usd": 142317,
+            "szi": 1015232,
+            "usd": 130767,
             "maxUsd": 142317,
             "lev": 5,
             "t": 1795188646460,
@@ -29834,14 +29834,14 @@
           },
           "GRAM": {
             "dir": -1,
-            "entry": 0.9641,
-            "szi": 1354,
-            "usd": 1300,
+            "entry": 0.963054,
+            "szi": 2278,
+            "usd": 2194,
             "maxUsd": 3105,
             "lev": 5,
             "t": 1795752931745,
             "pre": false,
-            "adds": 2,
+            "adds": 3,
             "down": 0,
             "sl": null,
             "tp": null
@@ -30052,29 +30052,29 @@
         "pos": {
           "BTC": {
             "dir": -1,
-            "entry": 61406.1,
-            "szi": 1.27797,
-            "usd": 78521,
-            "maxUsd": 78521,
+            "entry": 61562.5,
+            "szi": 2.88543,
+            "usd": 177785,
+            "maxUsd": 177785,
             "lev": 20,
             "t": 1795755647573,
             "pre": false,
-            "adds": 0,
-            "down": 0,
+            "adds": 1,
+            "down": 1,
             "sl": null,
             "tp": null
           },
           "ETH": {
             "dir": -1,
-            "entry": 1726.84,
-            "szi": 804.0614,
-            "usd": 1396011,
-            "maxUsd": 1396011,
+            "entry": 1729.55,
+            "szi": 1030.7797,
+            "usd": 1794072,
+            "maxUsd": 1794072,
             "lev": 20,
             "t": 1795664727241,
             "pre": false,
-            "adds": 11,
-            "down": 9,
+            "adds": 12,
+            "down": 10,
             "sl": null,
             "tp": null
           },
@@ -35297,7 +35297,7 @@
           }
         },
         "init": true,
-        "acct": 225743,
+        "acct": 212896,
         "since": 1795515333112,
         "name": "T39",
         "ft": [],
