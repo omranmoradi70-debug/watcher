@@ -20680,7 +20680,7 @@
       "lastAlert": "2026-11-25T11:15:29.104Z"
     },
     "OKB": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-24T19:45:29.099Z"
     },
@@ -21113,15 +21113,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-27T16:15:29.388Z",
+    "t": "2026-11-27T16:30:40.717Z",
     "universe": 36,
     "analyzed": 20,
-    "signals": [
-      "XNVDA (فروش)",
-      "XGOOGL (فروش)"
-    ]
+    "signals": []
   },
-  "lastFull": "2026-11-27T16:15:29.388Z",
+  "lastFull": "2026-11-27T16:30:40.717Z",
   "lastDaily": "2026-11-27",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -28248,7 +28245,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 10450186,
+        "acct": 12044020,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -28832,14 +28829,14 @@
         "pos": {
           "BTC": {
             "dir": 1,
-            "entry": 59673,
-            "szi": 132.42008,
-            "usd": 7951561,
-            "maxUsd": 8021107,
+            "entry": 59745.2,
+            "szi": 173.73434,
+            "usd": 10427361,
+            "maxUsd": 10427361,
             "lev": 20,
             "t": 1795791652550,
             "pre": false,
-            "adds": 2,
+            "adds": 3,
             "down": 0,
             "sl": null,
             "tp": null
@@ -28875,8 +28872,8 @@
           "SOL": {
             "dir": -1,
             "entry": 71.3353,
-            "szi": 201976.63,
-            "usd": 14758230,
+            "szi": 180786.69,
+            "usd": 13019715,
             "maxUsd": 23782265,
             "lev": 20,
             "t": 1793566542138,
@@ -29000,14 +28997,14 @@
           },
           "CRV": {
             "dir": -1,
-            "entry": 0.19834,
-            "szi": 1992556.3,
-            "usd": 347103,
+            "entry": 0.19532,
+            "szi": 2193499.7,
+            "usd": 377677,
             "maxUsd": 441195,
             "lev": 10,
             "t": 1793566542138,
             "pre": true,
-            "adds": 8,
+            "adds": 9,
             "down": 0,
             "sl": null,
             "tp": null
@@ -29980,14 +29977,14 @@
           },
           "GRAM": {
             "dir": -1,
-            "entry": 0.992618,
-            "szi": 105920,
-            "usd": 104538,
-            "maxUsd": 104538,
+            "entry": 0.990881,
+            "szi": 119627,
+            "usd": 118357,
+            "maxUsd": 118357,
             "lev": 5,
             "t": 1795767338589,
             "pre": false,
-            "adds": 5,
+            "adds": 6,
             "down": 3,
             "sl": null,
             "tp": null
@@ -35302,7 +35299,7 @@
           }
         },
         "init": true,
-        "acct": 352767,
+        "acct": 373508,
         "since": 1795515333112,
         "name": "T37",
         "ft": [
