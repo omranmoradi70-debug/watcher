@@ -20817,6 +20817,11 @@
       "decision": "long",
       "lastAlertedDecision": null,
       "lastAlert": null
+    },
+    "SEI": {
+      "decision": "wait",
+      "lastAlertedDecision": null,
+      "lastAlert": null
     }
   },
   "spike": {
@@ -20842,15 +20847,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-27T01:15:27.417Z",
-    "universe": 26,
+    "t": "2026-11-27T01:30:38.596Z",
+    "universe": 27,
     "analyzed": 20,
     "signals": [
-      "ZEC (فروش)",
-      "XSKHY (فروش)"
+      "ZEC (فروش)"
     ]
   },
-  "lastFull": "2026-11-27T01:15:27.417Z",
+  "lastFull": "2026-11-27T01:30:38.596Z",
   "lastDaily": "2026-11-26",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -28800,8 +28804,8 @@
           "XRP": {
             "dir": -1,
             "entry": 0.932206,
-            "szi": 2511419,
-            "usd": 2389389,
+            "szi": 2259650,
+            "usd": 2140770,
             "maxUsd": 3965833,
             "lev": 10,
             "t": 1794271377998,
@@ -29430,8 +29434,8 @@
           "VVV": {
             "dir": -1,
             "entry": 26.233,
-            "szi": 54810.75,
-            "usd": 1482576,
+            "szi": 49112.21,
+            "usd": 1292928,
             "maxUsd": 2172022,
             "lev": 3,
             "t": 1793566542138,
@@ -29583,14 +29587,14 @@
           },
           "AVNT": {
             "dir": -1,
-            "entry": 0.061956,
-            "szi": 529026,
-            "usd": 32215,
+            "entry": 0.061878,
+            "szi": 588423,
+            "usd": 35611,
             "maxUsd": 151620,
             "lev": 5,
             "t": 1793566542138,
             "pre": true,
-            "adds": 12,
+            "adds": 13,
             "down": 0,
             "sl": null,
             "tp": null
@@ -29709,15 +29713,15 @@
           },
           "GRAM": {
             "dir": -1,
-            "entry": 0.955668,
-            "szi": 12915,
-            "usd": 12444,
+            "entry": 0.958676,
+            "szi": 14523,
+            "usd": 14022,
             "maxUsd": 24397,
             "lev": 5,
             "t": 1795738526746,
             "pre": false,
-            "adds": 1,
-            "down": 0,
+            "adds": 2,
+            "down": 1,
             "sl": null,
             "tp": null
           },
@@ -32179,15 +32183,15 @@
           },
           "ETC": {
             "dir": -1,
-            "entry": 5.6227,
-            "szi": 3192.97,
-            "usd": 17900,
-            "maxUsd": 17900,
+            "entry": 5.6454,
+            "szi": 3543.89,
+            "usd": 21008,
+            "maxUsd": 21008,
             "lev": 5,
             "t": 1795223727619,
             "pre": false,
-            "adds": 17,
-            "down": 11,
+            "adds": 18,
+            "down": 12,
             "sl": null,
             "tp": null
           },
@@ -33075,14 +33079,14 @@
           },
           "AVNT": {
             "dir": 1,
-            "entry": 0.059162,
-            "szi": 36465,
-            "usd": 2221,
-            "maxUsd": 2221,
+            "entry": 0.059398,
+            "szi": 41962,
+            "usd": 2540,
+            "maxUsd": 2540,
             "lev": 5,
             "t": 1795569327467,
             "pre": false,
-            "adds": 4,
+            "adds": 5,
             "down": 2,
             "sl": null,
             "tp": null
@@ -33103,15 +33107,15 @@
           },
           "0G": {
             "dir": -1,
-            "entry": 0.101743,
-            "szi": 6727,
-            "usd": 689,
-            "maxUsd": 689,
+            "entry": 0.101756,
+            "szi": 7511,
+            "usd": 766,
+            "maxUsd": 766,
             "lev": 3,
             "t": 1795738526746,
             "pre": false,
-            "adds": 4,
-            "down": 4,
+            "adds": 5,
+            "down": 5,
             "sl": null,
             "tp": null
           },
@@ -33537,15 +33541,15 @@
           },
           "2Z": {
             "dir": -1,
-            "entry": 0.016821,
-            "szi": 604455,
-            "usd": 10768,
-            "maxUsd": 10768,
+            "entry": 0.016933,
+            "szi": 679219,
+            "usd": 12127,
+            "maxUsd": 12127,
             "lev": 3,
             "t": 1794439810249,
             "pre": false,
-            "adds": 17,
-            "down": 8,
+            "adds": 18,
+            "down": 9,
             "sl": null,
             "tp": null
           },
