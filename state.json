@@ -20549,7 +20549,7 @@
       "lastAlert": "2026-11-27T15:00:52.550Z"
     },
     "NEAR": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-24T13:15:31.045Z"
     },
@@ -21122,14 +21122,14 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-27T18:00:47.398Z",
-    "universe": 39,
+    "t": "2026-11-27T18:15:28.474Z",
+    "universe": 38,
     "analyzed": 20,
     "signals": [
       "FIL (فروش)"
     ]
   },
-  "lastFull": "2026-11-27T18:00:47.398Z",
+  "lastFull": "2026-11-27T18:15:28.474Z",
   "lastDaily": "2026-11-27",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -28528,15 +28528,15 @@
           },
           "NEAR": {
             "dir": -1,
-            "entry": 3.00806,
-            "szi": 70857.6,
-            "usd": 215124,
-            "maxUsd": 215124,
+            "entry": 3.01301,
+            "szi": 84250.2,
+            "usd": 254975,
+            "maxUsd": 254975,
             "lev": 10,
             "t": 1795791652550,
             "pre": false,
-            "adds": 7,
-            "down": 7,
+            "adds": 8,
+            "down": 8,
             "sl": null,
             "tp": null
           },
@@ -29652,15 +29652,15 @@
           },
           "SPX": {
             "dir": 1,
-            "entry": 0.27446,
-            "szi": 136032.8,
-            "usd": 37321,
-            "maxUsd": 43125,
+            "entry": 0.27418,
+            "szi": 164142.6,
+            "usd": 44691,
+            "maxUsd": 44691,
             "lev": 5,
             "t": 1795455928078,
             "pre": false,
-            "adds": 25,
-            "down": 15,
+            "adds": 26,
+            "down": 16,
             "sl": null,
             "tp": null
           },
@@ -32695,13 +32695,13 @@
             "tp": null
           },
           "POPCAT": {
-            "dir": -1,
-            "entry": 0.027942,
-            "szi": 3949,
-            "usd": 110,
-            "maxUsd": 110,
+            "dir": 1,
+            "entry": 0.027682,
+            "szi": 388,
+            "usd": 11,
+            "maxUsd": 11,
             "lev": 3,
-            "t": 1795781738688,
+            "t": 1795803328474,
             "pre": false,
             "adds": 0,
             "down": 0,
@@ -32822,14 +32822,14 @@
           },
           "GRASS": {
             "dir": -1,
-            "entry": 0.50405,
-            "szi": 1928,
-            "usd": 755,
+            "entry": 0.48457,
+            "szi": 2253.4,
+            "usd": 838,
             "maxUsd": 34548,
             "lev": 3,
             "t": 1793566542138,
             "pre": true,
-            "adds": 1,
+            "adds": 2,
             "down": 0,
             "sl": null,
             "tp": null
@@ -34288,7 +34288,7 @@
           }
         },
         "init": true,
-        "acct": 8176,
+        "acct": 8713,
         "since": 1793566542138,
         "name": "T19",
         "ft": [
@@ -35396,7 +35396,7 @@
           }
         },
         "init": true,
-        "acct": 1515606,
+        "acct": 1425024,
         "since": 1795515333112,
         "name": "T38"
       },
@@ -50239,6 +50239,24 @@
         "p": 0.673,
         "imp": 0.083,
         "lev": 20,
+        "adds": 0,
+        "down": 0,
+        "pre": false
+      },
+      {
+        "a": "0xdf954bbe619273a56e0cfa90dad8382195dc7d72",
+        "c": "POPCAT",
+        "d": -1,
+        "e": 0.027942,
+        "x": 0.027681,
+        "sl": null,
+        "tp": null,
+        "why": "manual",
+        "t0": 1795781738688,
+        "t1": 1795803328474,
+        "p": 0.864,
+        "imp": 0,
+        "lev": 3,
         "adds": 0,
         "down": 0,
         "pre": false
