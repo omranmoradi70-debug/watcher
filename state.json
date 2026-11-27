@@ -28,7 +28,7 @@
       "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-25T02:00:44.568Z",
-      "nearAlert": "2026-11-27T17:15:29.204Z"
+      "nearAlert": "2026-11-27T23:30:42.261Z"
     }
   },
   "signals": [
@@ -20654,7 +20654,7 @@
       "lastAlert": "2026-11-26T15:45:30.067Z"
     },
     "TAO": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-24T12:00:49.170Z"
     },
@@ -21127,14 +21127,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-27T23:15:26.983Z",
-    "universe": 40,
+    "t": "2026-11-27T23:30:42.261Z",
+    "universe": 39,
     "analyzed": 20,
-    "signals": [
-      "NIGHT (خرید)"
-    ]
+    "signals": []
   },
-  "lastFull": "2026-11-27T23:15:26.983Z",
+  "lastFull": "2026-11-27T23:30:42.261Z",
   "lastDaily": "2026-11-27",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -28888,8 +28886,8 @@
           "SOL": {
             "dir": -1,
             "entry": 71.3353,
-            "szi": 180786.69,
-            "usd": 13019715,
+            "szi": 162287.02,
+            "usd": 11596219,
             "maxUsd": 23782265,
             "lev": 20,
             "t": 1793566542138,
@@ -29629,14 +29627,14 @@
           },
           "AIXBT": {
             "dir": -1,
-            "entry": 0.01264,
-            "szi": 1291251,
-            "usd": 16243,
-            "maxUsd": 16243,
+            "entry": 0.012619,
+            "szi": 1634720,
+            "usd": 20501,
+            "maxUsd": 20501,
             "lev": 3,
             "t": 1795691730340,
             "pre": false,
-            "adds": 11,
+            "adds": 12,
             "down": 6,
             "sl": null,
             "tp": null
@@ -33373,14 +33371,14 @@
           },
           "STBL": {
             "dir": -1,
-            "entry": 0.020721,
-            "szi": 13381,
-            "usd": 270,
-            "maxUsd": 270,
+            "entry": 0.020565,
+            "szi": 19009,
+            "usd": 384,
+            "maxUsd": 384,
             "lev": 3,
             "t": 1793566542138,
             "pre": true,
-            "adds": 3,
+            "adds": 4,
             "down": 0,
             "sl": null,
             "tp": null
@@ -33863,14 +33861,14 @@
           },
           "LINEA": {
             "dir": 1,
-            "entry": 0.001677,
-            "szi": 989700,
-            "usd": 1626,
-            "maxUsd": 1626,
+            "entry": 0.001684,
+            "szi": 1263621,
+            "usd": 2154,
+            "maxUsd": 2154,
             "lev": 3,
             "t": 1794871846230,
             "pre": false,
-            "adds": 4,
+            "adds": 5,
             "down": 3,
             "sl": null,
             "tp": null
@@ -35435,10 +35433,24 @@
             "down": 0,
             "sl": null,
             "tp": null
+          },
+          "XMR": {
+            "dir": 1,
+            "entry": 406.855,
+            "szi": 1000,
+            "usd": 409966,
+            "maxUsd": 409966,
+            "lev": 5,
+            "t": 1795822242261,
+            "pre": false,
+            "adds": 0,
+            "down": 0,
+            "sl": null,
+            "tp": null
           }
         },
         "init": true,
-        "acct": 212632,
+        "acct": 296457,
         "since": 1795515333112,
         "name": "T39",
         "ft": [],
