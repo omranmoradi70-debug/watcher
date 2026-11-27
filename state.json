@@ -21001,12 +21001,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-27T13:30:40.545Z",
+    "t": "2026-11-27T13:45:28.515Z",
     "universe": 31,
     "analyzed": 20,
     "signals": []
   },
-  "lastFull": "2026-11-27T13:30:40.545Z",
+  "lastFull": "2026-11-27T13:45:28.515Z",
   "lastDaily": "2026-11-27",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -28134,21 +28134,21 @@
         "pos": {
           "BTC": {
             "dir": -1,
-            "entry": 61526.3,
-            "szi": 2.12734,
-            "usd": 130727,
-            "maxUsd": 285940,
+            "entry": 61442.7,
+            "szi": 7.00726,
+            "usd": 430400,
+            "maxUsd": 430400,
             "lev": 13,
             "t": 1795784445658,
             "pre": false,
-            "adds": 1,
+            "adds": 2,
             "down": 0,
             "sl": null,
             "tp": null
           }
         },
         "init": true,
-        "acct": 12815565,
+        "acct": 11933471,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -29012,15 +29012,15 @@
           },
           "AAVE": {
             "dir": -1,
-            "entry": 95.7567,
-            "szi": 1456.21,
-            "usd": 140562,
+            "entry": 95.8916,
+            "szi": 1605.59,
+            "usd": 156020,
             "maxUsd": 2525255,
             "lev": 10,
             "t": 1793566542138,
             "pre": true,
-            "adds": 24,
-            "down": 14,
+            "adds": 25,
+            "down": 15,
             "sl": null,
             "tp": null
           },
@@ -29516,15 +29516,15 @@
           },
           "AIXBT": {
             "dir": -1,
-            "entry": 0.01265,
-            "szi": 863607,
-            "usd": 11027,
-            "maxUsd": 11027,
+            "entry": 0.012661,
+            "szi": 950842,
+            "usd": 12161,
+            "maxUsd": 12161,
             "lev": 3,
             "t": 1795691730340,
             "pre": false,
-            "adds": 7,
-            "down": 4,
+            "adds": 8,
+            "down": 5,
             "sl": null,
             "tp": null
           },
