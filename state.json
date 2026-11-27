@@ -21122,14 +21122,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-27T22:30:37.848Z",
-    "universe": 40,
+    "t": "2026-11-27T22:45:32.887Z",
+    "universe": 39,
     "analyzed": 20,
-    "signals": [
-      "NIGHT (خرید)"
-    ]
+    "signals": []
   },
-  "lastFull": "2026-11-27T22:30:37.848Z",
+  "lastFull": "2026-11-27T22:45:32.887Z",
   "lastDaily": "2026-11-27",
   "lastWeekly": "2026-11-23",
   "replay": {
