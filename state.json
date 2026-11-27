@@ -20562,7 +20562,7 @@
       "lastAlert": "2026-11-25T18:45:32.150Z"
     },
     "XSNDK": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-18T17:15:30.734Z"
     },
@@ -20980,12 +20980,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-27T08:00:46.155Z",
+    "t": "2026-11-27T08:15:38.589Z",
     "universe": 27,
     "analyzed": 20,
     "signals": []
   },
-  "lastFull": "2026-11-27T08:00:46.155Z",
+  "lastFull": "2026-11-27T08:15:38.589Z",
   "lastDaily": "2026-11-27",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -28112,7 +28112,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 5107069,
+        "acct": 4361802,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -29480,15 +29480,15 @@
           },
           "AIXBT": {
             "dir": -1,
-            "entry": 0.012555,
-            "szi": 608856,
-            "usd": 7760,
-            "maxUsd": 9193,
+            "entry": 0.012622,
+            "szi": 778056,
+            "usd": 9998,
+            "maxUsd": 9998,
             "lev": 3,
             "t": 1795691730340,
             "pre": false,
-            "adds": 5,
-            "down": 2,
+            "adds": 6,
+            "down": 3,
             "sl": null,
             "tp": null
           },
@@ -29788,14 +29788,14 @@
           },
           "MON": {
             "dir": -1,
-            "entry": 0.010814,
-            "szi": 8126857,
-            "usd": 84503,
-            "maxUsd": 84503,
+            "entry": 0.010742,
+            "szi": 9927809,
+            "usd": 105016,
+            "maxUsd": 105016,
             "lev": 3,
             "t": 1795658451793,
             "pre": false,
-            "adds": 14,
+            "adds": 15,
             "down": 3,
             "sl": null,
             "tp": null
@@ -29843,15 +29843,15 @@
             "tp": null
           },
           "GRAM": {
-            "dir": 1,
-            "entry": 0.976209,
-            "szi": 39454,
-            "usd": 38811,
-            "maxUsd": 38811,
+            "dir": -1,
+            "entry": 0.986725,
+            "szi": 13891,
+            "usd": 13713,
+            "maxUsd": 13713,
             "lev": 5,
-            "t": 1795759246667,
+            "t": 1795767338589,
             "pre": false,
-            "adds": 3,
+            "adds": 0,
             "down": 0,
             "sl": null,
             "tp": null
@@ -29900,7 +29900,7 @@
           }
         },
         "init": true,
-        "acct": 41705837,
+        "acct": 39383702,
         "since": 1793566542138,
         "name": "T5",
         "ft": [],
@@ -30062,15 +30062,15 @@
         "pos": {
           "BTC": {
             "dir": -1,
-            "entry": 61797.7,
-            "szi": 77.77648,
-            "usd": 4785276,
-            "maxUsd": 4785276,
+            "entry": 61800.4,
+            "szi": 90.51134,
+            "usd": 5604372,
+            "maxUsd": 5604372,
             "lev": 20,
             "t": 1795755647573,
             "pre": false,
-            "adds": 8,
-            "down": 3,
+            "adds": 9,
+            "down": 4,
             "sl": null,
             "tp": null
           },
@@ -32762,14 +32762,14 @@
           },
           "HYPE": {
             "dir": -1,
-            "entry": 72.4228,
-            "szi": 63637.73,
-            "usd": 4206594,
-            "maxUsd": 4318618,
+            "entry": 71.8408,
+            "szi": 70007.8,
+            "usd": 4608263,
+            "maxUsd": 4608263,
             "lev": 10,
             "t": 1793566542138,
             "pre": true,
-            "adds": 5,
+            "adds": 6,
             "down": 0,
             "sl": null,
             "tp": null
@@ -33989,7 +33989,7 @@
           }
         },
         "init": true,
-        "acct": 115754,
+        "acct": 121735,
         "since": 1793566542138,
         "name": "T14",
         "ft": [],
@@ -34798,7 +34798,7 @@
           }
         },
         "init": true,
-        "acct": 584368,
+        "acct": 552847,
         "since": 1795515333112,
         "name": "T31"
       },
@@ -35719,7 +35719,7 @@
           }
         },
         "init": true,
-        "acct": 16072,
+        "acct": 15220,
         "since": 1795515333112,
         "name": "T46",
         "ft": [],
@@ -49871,6 +49871,24 @@
         "lev": 3,
         "adds": 1,
         "down": 1,
+        "pre": false
+      },
+      {
+        "a": "0xecb63caa47c7c4e77f60f1ce858cf28dc2b82b00",
+        "c": "GRAM",
+        "d": 1,
+        "e": 0.976209,
+        "x": 0.98785,
+        "sl": null,
+        "tp": null,
+        "why": "manual",
+        "t0": 1795759246667,
+        "t1": 1795767338589,
+        "p": 1.122,
+        "imp": 0.001,
+        "lev": 5,
+        "adds": 3,
+        "down": 0,
         "pre": false
       }
     ],
