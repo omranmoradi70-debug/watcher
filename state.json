@@ -20672,8 +20672,8 @@
       "lastAlert": "2026-11-26T13:15:28.768Z"
     },
     "GRAM": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-27T00:00:48.614Z"
     },
     "PENGU": {
@@ -20980,12 +20980,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-27T07:00:44.889Z",
+    "t": "2026-11-27T07:15:28.936Z",
     "universe": 27,
     "analyzed": 20,
     "signals": []
   },
-  "lastFull": "2026-11-27T07:00:44.889Z",
+  "lastFull": "2026-11-27T07:15:28.936Z",
   "lastDaily": "2026-11-27",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -28112,7 +28112,7 @@
         "auto": true,
         "pos": {},
         "init": true,
-        "acct": 5963810,
+        "acct": 5045908,
         "since": 1793566542138,
         "name": "T3",
         "ft": [
@@ -28188,15 +28188,15 @@
         "pos": {
           "BTC": {
             "dir": -1,
-            "entry": 61712.9,
-            "szi": 72.76697,
-            "usd": 4485065,
-            "maxUsd": 4485065,
+            "entry": 61718.9,
+            "szi": 96.16193,
+            "usd": 5940596,
+            "maxUsd": 5940596,
             "lev": 30,
             "t": 1795750237783,
             "pre": false,
-            "adds": 7,
-            "down": 3,
+            "adds": 8,
+            "down": 4,
             "sl": null,
             "tp": null
           },
@@ -28385,8 +28385,8 @@
           "NEAR": {
             "dir": 1,
             "entry": 2.88576,
-            "szi": 133983.6,
-            "usd": 414398,
+            "szi": 116936.1,
+            "usd": 363262,
             "maxUsd": 1539886,
             "lev": 10,
             "t": 1795182332066,
@@ -29844,14 +29844,14 @@
           },
           "GRAM": {
             "dir": 1,
-            "entry": 0.974605,
-            "szi": 33036,
-            "usd": 32379,
-            "maxUsd": 32379,
+            "entry": 0.976209,
+            "szi": 39454,
+            "usd": 38811,
+            "maxUsd": 38811,
             "lev": 5,
             "t": 1795759246667,
             "pre": false,
-            "adds": 2,
+            "adds": 3,
             "down": 0,
             "sl": null,
             "tp": null
@@ -33589,8 +33589,8 @@
           "BIGTIME": {
             "dir": -1,
             "entry": 0.006223,
-            "szi": 13770,
-            "usd": 88,
+            "szi": 10010,
+            "usd": 64,
             "maxUsd": 10099,
             "lev": 3,
             "t": 1795588241798,
@@ -34533,7 +34533,7 @@
           }
         },
         "init": true,
-        "acct": 1351,
+        "acct": 1269,
         "since": 1793566542138,
         "name": "T24",
         "ft": [
