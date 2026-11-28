@@ -20767,7 +20767,7 @@
       "lastAlert": "2026-11-23T21:30:50.392Z"
     },
     "TRUMP": {
-      "decision": "wait",
+      "decision": "short",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-26T23:00:46.248Z"
     },
@@ -21330,15 +21330,15 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-28T04:30:40.421Z",
+    "t": "2026-11-28T04:45:28.984Z",
     "universe": 33,
     "analyzed": 20,
     "signals": [
       "FIL (فروش)",
-      "XGOOGL (فروش)"
+      "PEPE (فروش)"
     ]
   },
-  "lastFull": "2026-11-28T04:30:40.421Z",
+  "lastFull": "2026-11-28T04:45:28.984Z",
   "lastDaily": "2026-11-28",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -29077,14 +29077,14 @@
           },
           "ATOM": {
             "dir": -1,
-            "entry": 1.2314,
-            "szi": 14518.76,
-            "usd": 17807,
-            "maxUsd": 19511,
+            "entry": 1.2291,
+            "szi": 16266.71,
+            "usd": 19732,
+            "maxUsd": 19732,
             "lev": 5,
             "t": 1795681839316,
             "pre": false,
-            "adds": 13,
+            "adds": 14,
             "down": 4,
             "sl": null,
             "tp": null
@@ -30142,8 +30142,8 @@
           "MON": {
             "dir": -1,
             "entry": 0.010742,
-            "szi": 4525251,
-            "usd": 45239,
+            "szi": 3747121,
+            "usd": 36977,
             "maxUsd": 105016,
             "lev": 3,
             "t": 1795658451793,
@@ -31411,20 +31411,6 @@
             "sl": null,
             "tp": null
           },
-          "WLFI": {
-            "dir": 1,
-            "entry": 0.048418,
-            "szi": 79688,
-            "usd": 3724,
-            "maxUsd": 3724,
-            "lev": 5,
-            "t": 1793929258655,
-            "pre": false,
-            "adds": 0,
-            "down": 0,
-            "sl": null,
-            "tp": null
-          },
           "MORPHO": {
             "dir": -1,
             "entry": 1.90458,
@@ -32541,14 +32527,14 @@
           },
           "SUPER": {
             "dir": -1,
-            "entry": 0.121038,
-            "szi": 2518,
-            "usd": 301,
+            "entry": 0.120522,
+            "szi": 2858,
+            "usd": 338,
             "maxUsd": 704,
             "lev": 3,
             "t": 1794255512272,
             "pre": false,
-            "adds": 17,
+            "adds": 18,
             "down": 4,
             "sl": null,
             "tp": null
@@ -33493,14 +33479,14 @@
           },
           "PROVE": {
             "dir": -1,
-            "entry": 0.13773,
-            "szi": 238,
-            "usd": 33,
-            "maxUsd": 33,
+            "entry": 0.135193,
+            "szi": 685,
+            "usd": 92,
+            "maxUsd": 92,
             "lev": 3,
             "t": 1795750237783,
             "pre": false,
-            "adds": 0,
+            "adds": 1,
             "down": 0,
             "sl": null,
             "tp": null
@@ -50559,6 +50545,24 @@
         "adds": 2,
         "down": 2,
         "pre": true
+      },
+      {
+        "a": "0xfe7ce058edc7cfcde9ef8262ba51f8d4796ab7ae",
+        "c": "WLFI",
+        "d": 1,
+        "e": 0.048418,
+        "x": 0.024968,
+        "sl": null,
+        "tp": null,
+        "why": "manual",
+        "t0": 1793929258655,
+        "t1": 1795841128984,
+        "p": -48.502,
+        "imp": -0.033,
+        "lev": 5,
+        "adds": 0,
+        "down": 0,
+        "pre": false
       }
     ],
     "disc": "2026-11-24T10:15:33.112Z",
