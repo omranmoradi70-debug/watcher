@@ -20662,8 +20662,8 @@
       "lastAlert": null
     },
     "ZEC": {
-      "decision": "short",
-      "lastAlertedDecision": "short",
+      "decision": "wait",
+      "lastAlertedDecision": null,
       "lastAlert": "2026-11-23T22:15:37.440Z"
     },
     "PONS": {
@@ -21250,7 +21250,7 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-28T04:00:49.400Z",
+    "t": "2026-11-28T04:15:30.947Z",
     "universe": 33,
     "analyzed": 20,
     "signals": [
@@ -21258,7 +21258,7 @@
       "XGOOGL (فروش)"
     ]
   },
-  "lastFull": "2026-11-28T04:00:49.400Z",
+  "lastFull": "2026-11-28T04:15:30.947Z",
   "lastDaily": "2026-11-27",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -28970,8 +28970,8 @@
           "BTC": {
             "dir": 1,
             "entry": 59772.7,
-            "szi": 112.81684,
-            "usd": 6761226,
+            "szi": 101.33704,
+            "usd": 6083769,
             "maxUsd": 9460950,
             "lev": 20,
             "t": 1795800639138,
@@ -32209,14 +32209,14 @@
           },
           "RUNE": {
             "dir": 1,
-            "entry": 0.52883,
-            "szi": 86313.1,
-            "usd": 49219,
-            "maxUsd": 49219,
+            "entry": 0.53391,
+            "szi": 97860.9,
+            "usd": 55942,
+            "maxUsd": 55942,
             "lev": 5,
             "t": 1794195167000,
             "pre": false,
-            "adds": 21,
+            "adds": 22,
             "down": 9,
             "sl": null,
             "tp": null
