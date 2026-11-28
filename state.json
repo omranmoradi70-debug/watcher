@@ -26,8 +26,8 @@
     },
     "XRP": {
       "decision": "short",
-      "lastAlertedDecision": null,
-      "lastAlert": "2026-11-25T02:00:44.568Z",
+      "lastAlertedDecision": "short",
+      "lastAlert": "2026-11-28T08:15:28.722Z",
       "nearAlert": "2026-11-28T06:00:44.243Z"
     }
   },
@@ -16435,7 +16435,7 @@
       "t": 1795824047305,
       "validUntil": 1796428847305,
       "status": "open",
-      "alerted": false,
+      "alerted": true,
       "patChk": true,
       "pat": null,
       "bg": -1,
@@ -16569,7 +16569,8 @@
           "tp2": 67.53,
           "t": 1795852843437,
           "validUntil": 1796457643437,
-          "status": "open"
+          "status": "open",
+          "openedAt": 1795852843437
         },
         "1.5": {
           "dir": -1,
@@ -16580,9 +16581,12 @@
           "tp2": 67.53,
           "t": 1795852843437,
           "validUntil": 1796457643437,
-          "status": "open"
+          "status": "open",
+          "openedAt": 1795852843437
         }
-      }
+      },
+      "openedAt": 1795852843437,
+      "lastPx": 71.26
     }
   ],
   "outlooks": [
@@ -21397,7 +21401,7 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-28T08:00:43.437Z",
+    "t": "2026-11-28T08:15:28.722Z",
     "universe": 33,
     "analyzed": 20,
     "signals": [
@@ -21405,7 +21409,7 @@
       "TRX (فروش)"
     ]
   },
-  "lastFull": "2026-11-28T08:00:43.437Z",
+  "lastFull": "2026-11-28T08:15:28.722Z",
   "lastDaily": "2026-11-28",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -34550,7 +34554,7 @@
           }
         },
         "init": true,
-        "acct": 8568,
+        "acct": 8137,
         "since": 1793566542138,
         "name": "T19",
         "ft": [
@@ -35582,7 +35586,7 @@
           }
         },
         "init": true,
-        "acct": 322670,
+        "acct": 340982,
         "since": 1795515333112,
         "name": "T37",
         "ft": [
