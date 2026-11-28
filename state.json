@@ -20708,7 +20708,7 @@
       "lastAlert": "2026-11-17T20:00:47.757Z"
     },
     "SUI": {
-      "decision": "short",
+      "decision": "wait",
       "lastAlertedDecision": null,
       "lastAlert": "2026-11-26T15:45:30.067Z"
     },
@@ -21186,12 +21186,12 @@
     }
   },
   "lastScan": {
-    "t": "2026-11-28T02:15:29.781Z",
-    "universe": 37,
+    "t": "2026-11-28T02:30:53.013Z",
+    "universe": 36,
     "analyzed": 20,
     "signals": []
   },
-  "lastFull": "2026-11-28T02:15:29.781Z",
+  "lastFull": "2026-11-28T02:30:53.013Z",
   "lastDaily": "2026-11-27",
   "lastWeekly": "2026-11-23",
   "replay": {
@@ -29266,15 +29266,15 @@
           },
           "ZRO": {
             "dir": -1,
-            "entry": 1.09003,
-            "szi": 33869.1,
-            "usd": 37151,
-            "maxUsd": 37151,
+            "entry": 1.09091,
+            "szi": 37692.8,
+            "usd": 41243,
+            "maxUsd": 41243,
             "lev": 5,
             "t": 1795825839602,
             "pre": false,
-            "adds": 2,
-            "down": 2,
+            "adds": 3,
+            "down": 3,
             "sl": null,
             "tp": null
           },
@@ -30078,15 +30078,15 @@
           },
           "PONS": {
             "dir": -1,
-            "entry": 0.101771,
-            "szi": 780411,
-            "usd": 78939,
+            "entry": 0.10178,
+            "szi": 880142,
+            "usd": 89774,
             "maxUsd": 138144,
             "lev": 3,
             "t": 1793705445851,
             "pre": false,
-            "adds": 120,
-            "down": 38,
+            "adds": 121,
+            "down": 39,
             "sl": null,
             "tp": null
           },
@@ -32674,14 +32674,14 @@
           },
           "ETHFI": {
             "dir": -1,
-            "entry": 0.54482,
-            "szi": 482270.8,
-            "usd": 223291,
+            "entry": 0.53496,
+            "szi": 532374,
+            "usd": 235772,
             "maxUsd": 254095,
             "lev": 5,
             "t": 1793566542138,
             "pre": true,
-            "adds": 3,
+            "adds": 4,
             "down": 1,
             "sl": null,
             "tp": null
